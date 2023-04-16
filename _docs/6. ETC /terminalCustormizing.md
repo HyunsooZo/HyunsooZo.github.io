@@ -3,15 +3,27 @@ title: Terminal Custormizing
 category: 6. ETC
 order: 3
 ---
+터미널을 자주 사용하다보니 가독성이 떨어진다 생각되어 터미널 폰트색을 변경 해보았다.
 
-Share documents with your friends! Send work or school projects from your computer or phone.
+As I frequently use the terminal, I felt that the readability was pretty poor, so I tried changing the font color of the terminal.
 
-To share a document:
+**[Entry]**
+~~~
+vim .bash_profile
+~~~
+**[Insert Mode]**
+~~~
+i
+~~~
+**[Enter below Codes once get in INSERT mode ]**
+~~~
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+export TERM="xterm-color"
+PS1='\[\e[0;33m\]\u\[\e[0m\]@\[\e[0;32m\]\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]\$'
+~~~
+**[Write and Quite]**
+~~~
+:wq!
+~~~
 
-1. Open a message with someone
-2. Select the **Send Media** button
-3. Pick a document
-
-> Changes made to documents after sending are not saved back, you'll have to get contacts to send you updated versions.
-
-![](//placehold.it/800x600)
