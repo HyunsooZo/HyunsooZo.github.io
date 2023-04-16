@@ -1,7 +1,7 @@
 ---
-title: dataStructure_Stack
-category: JAVA
-order: 6
+title: Sort
+category: 2. Algorithems
+order: 5
 ---
 >작성예정 입니다.
 

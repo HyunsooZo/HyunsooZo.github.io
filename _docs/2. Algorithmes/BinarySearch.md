@@ -1,7 +1,7 @@
 ---
-title: dataStructure_Array
-category: JAVA
-order: 1
+title: Binary Search
+category: 2. Algorithems
+order: 4
 ---
 >작성예정 입니다.
 

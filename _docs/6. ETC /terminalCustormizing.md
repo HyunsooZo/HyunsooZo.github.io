@@ -1,6 +1,6 @@
 ---
-title: Terminal
-category: ETC
+title: Terminal Custormizing
+category: 6. ETC
 order: 3
 ---
 

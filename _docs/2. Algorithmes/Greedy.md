@@ -1,7 +1,7 @@
 ---
-title: dataStructure_Queue
-category: JAVA
-order: 5
+title: Greedy
+category: 2. Algorithems
+order: 2
 ---
 >작성예정 입니다.
 

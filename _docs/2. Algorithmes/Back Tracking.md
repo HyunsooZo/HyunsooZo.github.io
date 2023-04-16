@@ -1,7 +1,7 @@
 ---
-title: dataStructure_Deque
-category: JAVA
-order: 2
+title: Back Tracking
+category: 2. Algorithems
+order: 8
 ---
 >작성예정 입니다.
 

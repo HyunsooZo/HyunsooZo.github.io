@@ -1,7 +1,7 @@
 ---
-title: dataStructure_LinkedList
-category: JAVA
-order: 4
+title: Dvide and Conquer
+category: 2. Algorithems
+order: 6
 ---
 >작성예정 입니다.
 

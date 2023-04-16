@@ -1,6 +1,6 @@
 ---
-title: Terminal
-category: ETC
+title: Test1
+category: 4. CodingTest
 order: 3
 ---
 

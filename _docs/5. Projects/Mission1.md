@@ -1,6 +1,6 @@
 ---
-title: Terminal
-category: ETC
+title: Mission1
+category: 5. Projects
 order: 3
 ---
 

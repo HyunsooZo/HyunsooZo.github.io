@@ -1,6 +1,6 @@
 ---
 title: Blog Task1
-category: ZeroBase BootCamp
+category: 3. ZeroBase BootCamp
 order: 2
 ---
 
