@@ -1,5 +1,5 @@
 ---
-title: Reasons to become a backend developer.
+title: Why Backend Developer?
 category: 3. ZeroBase BootCamp
 order: 2
 ---
