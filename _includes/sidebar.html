@@ -1,53 +1,52 @@
-{% if site.avatar -%}
-  <div class="sidebar-section">
-    {%- if site.avatar contains "://" -%}
-      {%- assign avatar = site.avatar -%}
-    {%- else -%}
-      {%- assign avatar = site.avatar | relative_url -%}
-    {%- endif -%}
-    <img src="{{ avatar }}" class="author-avatar u-photo align-center" alt="{{ site.author }}">
-  </div>
-{%- endif %}
-
-<div class="sidebar-section">
-  <ul class="contact-list">
-    {% if site.author -%}
-      <li>
-        <i class="sidebar-icon fas fa-at"></i>
-        <span class="contact-info p-name">{{ site.author | escape }}</span>
-      </li>
-    {%- endif %}
-    {% if site.email -%}
-      <li>
-        <i class="sidebar-icon fas fa-envelope"></i>
-        <a class="contact-info u-email" href="mailto:{{ site.email }}">{{ site.email }}</a>
-      </li>
-    {%- endif %}
-    {% if site.location -%}
-      <li>
-        <i class="sidebar-icon fas fa-location-arrow"></i>
-        <a class="contact-info u-location" href="https://www.google.com/maps/search/{{ site.location }}">{{ site.location }}</a>
-      </li>
-    {%- endif %}
-  </ul>
+<div class="sidebar-item sidebar-header">
+	<div class='sidebar-brand'>
+		<a href="/about/">{{ site.title }}</a>
+	</div>
+	<p class="lead">{{ site.description }}</p>
+	{%- if social.github -%}
+		<a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}">
+			<svg class="svg-icon grey">
+				<use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}" />
+			</svg></a></li>
+	{%- endif -%}
 </div>
 
-{% if site.subscribe != false -%}
-<div class="sidebar-section feed-subscribe">
-  <a href="{{ 'feed.xml' | relative_url }}">
-    <i class="sidebar-icon fas fa-rss"></i><span>Subscribe</span>
-  </a>
+<div class="sidebar-item sidebar-nav">
+	<ul class="nav">
+      <li class="nav-title">Pages</li>
+	  <li>
+	  	<a class="nav-item" href="/">Articles</a>
+	  </li>
+	  {% assign pages_list = site.pages %}
+	  {% for node in pages_list %}
+	    {% if node.title != null %}
+	      {% if node.layout == "page" %}
+	        <li>
+	        	<a class="nav-item" href="{{ node.url }}">
+	            	{{ node.title }}
+	            </a>
+	        </li>
+	      {% endif %}
+	    {% endif %}
+	  {% endfor %}
+	</ul>
 </div>
-{%- endif %}
 
-{% if site.data.social -%}
-  <div class="sidebar-section">
-    <ul class="social-icons">
-      {% for social in site.data.social -%}
-        <li>
-          <a class="social-icon" href="{{ social.url }}"><i class="{{ social.icon | default: 'fas fa-link' }} fa-2x" title="{{ social.title }}"></i></a>
-        </li>
-      {%- endfor %}
-    </ul>
-  </div>
-{%- endif %}
+<div class="sidebar-item sidebar-nav">
+  	<ul class="nav">
+			<li class="nav-title">Categories</li>
+	    {% for category in site.categories %}
+	    <li>
+	    	<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
+				<span class="name">{{ category | first }}</span>
+				<span class="badge">{{ category | last | size }}</span>
+	    	</a>
+ 		</li>
+	    {% endfor %}
+	  </nav>
+	</ul>
+</div>
+
+<div class="sidebar-item sidebar-footer">
+	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
+</div>

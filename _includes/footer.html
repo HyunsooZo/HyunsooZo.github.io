@@ -1,24 +1,32 @@
-<div class="footer-col-wrapper">
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
-  <div class="footer-col">
-    <div class="copyright">
-      {% assign year_from = site.posts[-1].date | date: '%Y' %}
-      {% assign year_to   = site.time | date: '%Y' %}
-      {% if year_from == nil or year_from == year_to %}
-        {% assign year_string = year_from %}
-      {% else %}
-        {% assign year_string = year_from | append: '&nbsp;' | append: '-' | append: '&nbsp;' | append: year_to %}
-      {% endif %}
-      {% if site.author %}
-      <p>Copyright © {{ year_string }} {{ site.author }}; All rights reserved.</p>
-      {% endif %}
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col one-half">
+      <h2 class="footer-heading">{{ site.title | escape }}</h2>
+        <ul class="contact-list">
+          <li class="p-name">
+            {%- if site.author -%}
+              {{ site.author | escape }}
+            {%- endif -%}
+            </li>
+            {%- if site.email -%}
+            <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            {%- endif -%}
+        </ul>
+      </div>
+
+      <div class="footer-col one-half">
+        <p>{{- site.description | escape -}}</p>
+      </div>
+
+      <div class="social-links">
+        {%- include social.html -%}
+      </div>
     </div>
-    <p>
-      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
-    </p>
+
   </div>
 
-  <div class="footer-col">
-    <p>{{ site.description | escape }}</p>
-  </div>
-</div>
+</footer>
