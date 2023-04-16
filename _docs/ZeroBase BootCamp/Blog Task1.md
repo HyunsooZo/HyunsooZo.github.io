@@ -1,6 +1,6 @@
 ---
-title: Android
-category: Devices
+title: Blog Task1
+category: ZeroBase BootCamp
 order: 2
 ---
 

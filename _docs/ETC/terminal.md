@@ -1,6 +1,6 @@
 ---
-title: Documents
-category: Media
+title: Terminal
+category: ETC
 order: 3
 ---
 

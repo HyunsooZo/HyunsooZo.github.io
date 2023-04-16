@@ -1,6 +1,6 @@
 ---
-title: Facebook
-category: Contact Syncing
+title: dataStructure_Array
+category: JAVA
 order: 1
 ---
 
