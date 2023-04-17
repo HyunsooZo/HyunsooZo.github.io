@@ -12,46 +12,43 @@
 \pard\pardeftab720\partightenfactor0
 
 \f0\fs24 \cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% seo %\} \{% feed_meta %\} \{% if jekyll.environment == 'production' and site.google_analytics_key != '' %\} \{% endif %\}\
+\{% seo %\} \{% feed_meta %\} \{% if jekyll.environment == 'production' and site.google_analytics_key != '' %\} \{% endif %\}\
 \pard\pardeftab720\sa321\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D/"}}{\fldrslt 
-\f1\b\fs48 \cf3 \strokec3 }}\pard\pardeftab720\sa321\partightenfactor0
 
 \f1\b\fs48 \cf2  \{\{ site.title \}\} \
 \pard\pardeftab720\partightenfactor0
 
 \f0\b0\fs24 \cf2 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
-\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% assign home = site.html_pages | where: 'url', '/' | first %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 \{\{ home.title \}\}}} \
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\{% assign home = site.html_pages | where: 'url', '/' | first %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D/"}}{\fldrslt \cf3 \ul \ulc3 \{\{ home.title \}\}}} \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
-\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% assign grouped = site.docs | group_by: 'category' %\} \{% for group in grouped %\}\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
-\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% assign items = group.items | sort: 'order' %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D%7B%7B%20items.first.url%20%7D%7D"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 \{\{ group.name \}\}}}\
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\{% assign grouped = site.docs | group_by: 'category' %\} \{% for group in grouped %\}\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\{% assign items = group.items | sort: 'order' %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D%7B%7B%20items.first.url%20%7D%7D"}}{\fldrslt \cf3 \ul \ulc3 \{\{ group.name \}\}}}\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
-\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	
 \f2 \uc0\u9702 
 \f0 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% for item in items %\}\
+\{% for item in items %\}\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
-\ls2\ilvl1\cf3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\ls2\ilvl1\cf3 \kerning1\expnd0\expndtw0 {\listtext	
 \f2 \uc0\u9702 
 \f0 	}{\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D%7B%7B%20item.url%20%7D%7D"}}{\fldrslt \expnd0\expndtw0\kerning0
-\ul \outl0\strokewidth0 \strokec3 \{\{ item.title \}\}}}\cf2 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \
+\ul \{\{ item.title \}\}}}\cf2 \expnd0\expndtw0\kerning0
+\
 \pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
-\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\ls2\ilvl1\cf2 \kerning1\expnd0\expndtw0 {\listtext	
 \f2 \uc0\u9702 
 \f0 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% endfor %\} \
+\{% endfor %\} \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
-\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% endfor %\} \
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\{% endfor %\} \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
-\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 \{% assign changelog = site.html_pages | where: 'url', '/changelog/' | first %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D/changelog/"}}{\fldrslt \cf3 \ul \ulc3 \strokec3 \{\{ changelog.title \}\}}} \
+\ls3\ilvl0\cf2 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\{% assign changelog = site.html_pages | where: 'url', '/changelog/' | first %\} {\field{\*\fldinst{HYPERLINK "file:///Users/hyunsoojo/HyunsooZo.github.io/_layouts/%7B%7B%20site.baseurl%20%7D%7D/changelog/"}}{\fldrslt \cf3 \ul \ulc3 \{\{ changelog.title \}\}}} \
 \pard\pardeftab720\sa298\partightenfactor0
 
 \f1\b\fs36 \cf2 \{% if page.category %\}\{\{ page.category \}\}\{% else %\}\{\{ site.title \}\}\{% endif %\}\
@@ -61,8 +58,6 @@
 \pard\pardeftab720\partightenfactor0
 
 \f0\b0\fs24 \cf2 \{\{ content \}\} \
-<!-- Github Calendar -->\
-<link href="https://github.com/IonicaBizau/github-calendar" rel="stylesheet" />\
-<script src="https://cdn.jsdelivr.net/github-calendar/1.2.0/github-calendar.min.js"></script>\
+\
 \
 }
