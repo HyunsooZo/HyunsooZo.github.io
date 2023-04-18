@@ -1,9 +1,9 @@
 ---
-title: DataBase CRUD + α
+title: DataBase CRUD
 category: 6. ETC
-order: 4
+order: 2
 ---
-<br>
+
 CRUD는 대부분의 컴퓨터 소프트웨어가 가지는 기본적인 데이터 처리 기능인 Create(생성), Read(읽기), Update(갱신), Delete(삭제)를 묶어서 일컫는 말이다. 사용자 인터페이스가 갖추어야 할 기능(정보의 참조/검색/갱신)을 가리키는 용어로서도 사용된다.
 
 오늘은 MariaDB를 통해 데이터베이스 생성, 사용자 추가 및 권한부여 , CRUD 를 처리하는 방법을 알아보았다. 
