@@ -76,14 +76,15 @@
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
 			</div>
-			<article class="post-article">
-				<div class="toc">
-				  <a href="#">&lt;맨 위로&gt;</a>
-				  {% include toc.html html=content %}
-				</div>
-			  </article>
 			  <article class ="content">
 			  {{ content }}
+			  </article>
+
+			  <article class="post-article">
+				<div class="toc">
+				  <a href="#">&lt;TOP&gt;</a>
+				  {% include toc.html html=content %}
+				</div>
 			  </article>
 		</section>
 
