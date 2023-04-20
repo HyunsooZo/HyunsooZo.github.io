@@ -4,6 +4,7 @@ input::-ms-reveal {
 }
 
 body {
+	display: flex;
 	height: auto;
 	overflow-x: hidden;
 	background-color: $body-background-color;
@@ -159,7 +160,6 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 .content {
 	position: relative;
-	display: flex;
 	background-color: $content-background-color;
 	color: $content-color;
 
