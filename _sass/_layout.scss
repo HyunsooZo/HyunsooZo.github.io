@@ -496,6 +496,12 @@ img {
 	  display: block;
 	}
   
+	.toc.sticky {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+	  }
+	  
 	a.toc-active {
 	  font-weight: bold; 
 	  transition: all 0.125s ease-in 0s; 

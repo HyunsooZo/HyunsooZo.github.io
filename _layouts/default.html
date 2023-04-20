@@ -162,6 +162,31 @@
 			  }
 		  
 			}, false);
+
+			window.addEventListener("scroll", function() {
+			var toc = document.getElementsByClassName("toc")[0];
+			var article = document.getElementsByClassName("post-article")[0];
+			var footer = document.getElementsByTagName("footer")[0];
+			var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
+			var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+			var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
+			if (tocY < titleY) {
+				toc.classList.remove("sticky");
+			} else if (articleY > footerY) {
+				toc.classList.remove("sticky");
+			} else {
+				toc.classList.add("sticky");
+			}
+  });
+</script>
+위의 코드에서 20px은 toc가 떨어져 있는 거리를 나타내며, 필요에 따라 수정할 수 있습니다. 또한 코드에서 사용되는 titleY 변수는 document.getElementsByClassName("post-title")[0]에서 가져온 페이지 제목의 y-좌표를 나타내는 것입니다. 따라서 페이지에 제목이 없다면 titleY 변수를 정의할 필요가 없습니다.
+
+
+
+
+
+
+	
 		  </script>
 	</body>
 	
