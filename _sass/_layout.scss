@@ -481,7 +481,7 @@ img {
 	margin-right: 0px;
 	font-size: 0.7rem;
 	border-left: 2px solid #e0d9e7;
-  
+
 	display: none;
 	@media (min-width: 75em){
 	  width: 240px;
@@ -495,20 +495,20 @@ img {
 	  width: 360px;
 	  display: block;
 	}
-  
+
 	.toc.sticky {
 		position: fixed;
 		top: 20px;
 		right: 20px;
-	  }
-	  
+	}
+
 	a.toc-active {
 	  font-weight: bold; 
 	  transition: all 0.125s ease-in 0s; 
 	  font-size: 0.75rem;
 	  color: #9075aa;
 	}
-  
+
 	ul {
 	  list-style-type: none;
 	  margin-bottom: 0.1rem;
@@ -517,13 +517,13 @@ img {
 		padding-left: .5rem;
 	  }
 	}
-  
+
 	a {
 		color: default;
 		text-decoration: none;
 	}
-   
+
 	a:hover {
 	   color:default;
 	}
-  }
+}

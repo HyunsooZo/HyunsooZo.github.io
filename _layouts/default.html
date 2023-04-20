@@ -4,7 +4,68 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+					.toc {
+			position: absolute;
+			right: 0px;
+			width: 240px;
+			color: default;
+			overflow-y: auto;
+			overflow-x: hidden;
+			padding-left: 0.75rem;
+			padding-right: 0.75rem;
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+			margin-right: 0px;
+			font-size: 0.7rem;
+			border-left: 2px solid #e0d9e7;
 
+			display: none;
+			@media (min-width: 75em){
+			width: 240px;
+			display: block;
+			}
+			@media (min-width: 85em){
+			width: 300px;
+			display: block;
+			}
+			@media (min-width: 95em){
+			width: 360px;
+			display: block;
+			}
+
+			.toc.sticky {
+				position: fixed;
+				top: 20px;
+				right: 20px;
+			}
+
+			a.toc-active {
+			font-weight: bold; 
+			transition: all 0.125s ease-in 0s; 
+			font-size: 0.75rem;
+			color: #9075aa;
+			}
+
+			ul {
+			list-style-type: none;
+			margin-bottom: 0.1rem;
+			padding-left: 0rem;
+			li {
+				padding-left: .5rem;
+			}
+			}
+
+			a {
+				color: default;
+				text-decoration: none;
+			}
+
+			a:hover {
+			color:default;
+			}
+		}
+		</style>
 		{% seo %}
 		{% feed_meta %}
 
@@ -71,19 +132,23 @@
 		
 		<section class="main">
 			<div class="page-header">
-			  <h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
-			  <h3>{{ page.title }}</h3>
+				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+				<h3>{{ page.title }}</h3>
 			</div>
-			<div style="display: flex;">
-			  <article class="content" style="flex: 1;">
-				{{ content }}
+			  <article class ="content">
+			  {{ content }}
 			  </article>
-			  <div class="toc" style="flex: 0 0 auto; margin-left: 20px; position: sticky; top: 10px;">
-				<h4>Table of Contents</h4>
+			
+			  
+			  <article class ="post-article">
+			  <div class="toc">
+				<h6>Table of Contents</h6>
 				{% include toc.html html=content %}
-			  </div>
-			</div>
-		  </section>
+				<a href="#">&lt;TOP&gt;</a>
+			</article>
+			</div>			
+				
+		</section>
 
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
