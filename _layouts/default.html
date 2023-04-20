@@ -71,20 +71,19 @@
 		
 		<section class="main">
 			<div class="page-header">
-				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
-				<h3>{{ page.title }}</h3>
+			  <h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+			  <h3>{{ page.title }}</h3>
 			</div>
-			  <article class ="content">
-			  {{ content }}
+			<div style="display: flex;">
+			  <article class="content" style="flex: 1;">
+				{{ content }}
 			  </article>
-
 			  <div class="toc" style="flex: 0 0 auto; margin-left: 20px; position: sticky; top: 10px;">
 				<h4>Table of Contents</h4>
 				{% include toc.html html=content %}
-				<a href="#">&lt;TOP&gt;</a>
 			  </div>
-				
-		</section>
+			</div>
+		  </section>
 
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
