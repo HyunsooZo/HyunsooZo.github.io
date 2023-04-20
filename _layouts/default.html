@@ -68,7 +68,9 @@
 				</ul>
 			</nav>
 		</header>
-
+		<aside>
+			{% include toc.html html=content %}   
+		</aside>
 		<section class="main">
 			<div class="page-header">
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
