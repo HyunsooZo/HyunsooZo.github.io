@@ -73,10 +73,10 @@
 			<div class="page-header">
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
+				{{ content | toc }}
 			</div>
 			<article class="content">
 				{{ content }}
-				{{ content | toc }}
 			</article>
 		</section>
 
