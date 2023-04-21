@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
-					.toc {
+		.toc {
 			position: absolute;
 			right: 0px;
 			width: 240px;
@@ -19,8 +19,7 @@
 			margin-right: 0px;
 			font-size: 0.7rem;
 			border-left: 2px solid #e0d9e7;
-
-			display: none;
+			/* display: none; */
 			@media (min-width: 75em){
 			width: 240px;
 			display: block;
@@ -34,12 +33,6 @@
 			display: block;
 			}
 
-			.toc.sticky {
-				position: fixed;
-				top: 20px;
-				right: 20px;
-			}
-
 			a.toc-active {
 			font-weight: bold; 
 			transition: all 0.125s ease-in 0s; 
@@ -51,9 +44,9 @@
 			list-style-type: none;
 			margin-bottom: 0.1rem;
 			padding-left: 0rem;
-			li {
-				padding-left: .5rem;
-			}
+				li {
+					padding-left: .5rem;
+				}
 			}
 
 			a {
@@ -64,6 +57,11 @@
 			a:hover {
 			color:default;
 			}
+		}
+		.toc.sticky {
+			position: fixed;
+			top: 20px;
+			right: 20px;
 		}
 		</style>
 		{% seo %}

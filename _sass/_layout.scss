@@ -482,7 +482,8 @@ img {
 	font-size: 0.7rem;
 	border-left: 2px solid #e0d9e7;
 
-	display: none;
+	// display: none;
+
 	@media (min-width: 75em){
 	  width: 240px;
 	  display: block;
@@ -494,12 +495,6 @@ img {
 	@media (min-width: 95em){
 	  width: 360px;
 	  display: block;
-	}
-
-	.toc.sticky {
-		position: fixed;
-		top: 60px;
-		right: 20px;
 	}
 
 	a.toc-active {
@@ -526,4 +521,9 @@ img {
 	a:hover {
 	   color:default;
 	}
+}
+.toc.sticky {
+	position: fixed;
+	top: 60px;
+	right: 20px;
 }
