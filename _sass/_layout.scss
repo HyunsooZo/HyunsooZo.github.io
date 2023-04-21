@@ -7,7 +7,7 @@ body {
 	display: flex;
 	height: auto;
 	overflow-x: hidden;
-	background-color: $body-background-color;
+	background-color: default;
 
 	&.nav-open {
 		overflow: hidden;
