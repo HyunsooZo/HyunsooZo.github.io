@@ -468,21 +468,14 @@ img {
 
 
 .toc {
-	position: absolute;
-	right: 0px;
+	position: fixed;
+	top: 50%;
+	right: 0;
 	width: 240px;
-	color: default;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding-left: 0.75rem;
-	padding-right: 0.75rem;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
-	margin-right: 0px;
-	font-size: 0.7rem;
+	padding: 0.25rem 0.75rem;
 	border-left: 2px solid #e0d9e7;
-
-	// display: none;
+	transform: translateY(-50%);
+	display: none;
 
 	@media (min-width: 75em){
 	  width: 240px;
@@ -514,6 +507,8 @@ img {
 	}
 
 	a {
+		line-height: 1.4rem;
+		font-size: 1.2rem;
 		color: default;
 		text-decoration: none;
 	}
@@ -521,9 +516,4 @@ img {
 	a:hover {
 	   color:default;
 	}
-}
-.toc.sticky {
-	position: fixed;
-	top: 60px;
-	right: 20px;
 }
