@@ -4,7 +4,7 @@ category: 1. DataStructure
 order: 1
 ---
 
-### **Graph**
+### Graph
 ~~~java
 import java.util.*;
 

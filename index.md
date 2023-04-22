@@ -1,5 +1,6 @@
 ---
 title: About
+toc: false
 ---
 
 <img src="https://ghchart.rshah.org/HyunsooZo"/>
