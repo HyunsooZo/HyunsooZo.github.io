@@ -1,17 +1,8 @@
 ---
-title: Media support
+title: Coding Test i've solved
 type: major
 ---
 
-ChatApp introduces media support! Send images, videos and documents to your contacts.
+Kindly click on below link to move My Repository for Programmers Coding Test Log
 
-**Features:**
-
-* Image support
-* Video support
-* Document support
-
-**Fixes:**
-
-* Edge case contact syncing issue
-* All memory leaks obliterated
+[Move to Repository](https://github.com/HyunsooZo/Programmers)
