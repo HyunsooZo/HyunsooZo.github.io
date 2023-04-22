@@ -32,6 +32,7 @@ plugins:
   - jekyll-feed
   - jekyll-toc
 
+highlighter: rouge
 
 exclude:
   - Gemfile
