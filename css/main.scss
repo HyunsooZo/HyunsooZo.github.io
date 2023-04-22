@@ -23,6 +23,7 @@ $space: 20px;
 $mobile-break: 700px;
 $full-width-break: $nav-width + ($space * 4) + $content-max-width;
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import "mixins";
 @import "normalize";
 @import "pygments";
@@ -30,5 +31,4 @@ $full-width-break: $nav-width + ($space * 4) + $content-max-width;
 @import "code";
 @import "tables";
 @import "layout";
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+// @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@300&display=swap');
