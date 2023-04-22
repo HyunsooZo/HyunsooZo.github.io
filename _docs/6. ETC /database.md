@@ -12,29 +12,29 @@ CRUD stands for Create, Read, Update, and Delete, which are the fundamental data
 
 Today, we learned how to create a database, add and grant permissions to users, and process CRUD operations using MariaDB.
 
-**<h1>Create a DataBase and User</h1>**
+### **Create a DataBase and User**
 
->**DataBase Creation**
+**DataBase Creation**
 ~~~
 CREATE DATABASE database_name;
 ~~~
->**DataBase Selection**
+**DataBase Selection**
 ~~~
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
 ~~~
->**Grant of Authority**
+**Grant of Authority**
 ~~~
 GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost';
 ~~~
->**Save changes**
+**Save changes**
 ~~~
 FLUSH PRIVILEGES;
 ~~~
 <br>
 
-**<h1>CRUD</h1>**
+### **CRUD**
 
->**Table Creation**
+**Table Creation**
 ~~~
 CREATE TABLE table_name (
   column1 datatype,
@@ -44,25 +44,27 @@ CREATE TABLE table_name (
 );
 ~~~
 
->**Data Insertion**
+**Data Insertion**
 ~~~
 INSERT INTO table_name (column1, column2, column3, ...)
 VALUES (value1, value2, value3, ...);
 ~~~
 
->**Data Inquiry**
+**Data Inquiry**
 ~~~
 SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
 ~~~
->**Data Update**
+
+**Data Update**
 ~~~
 UPDATE table_name
 SET column1 = value1, column2 = value2, ...
 WHERE condition;
 ~~~
->**Data Deletion**
+
+**Data Deletion**
 ~~~
 DELETE FROM table_name
 WHERE condition;
