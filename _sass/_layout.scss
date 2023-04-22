@@ -469,23 +469,27 @@ img {
 	position: fixed;
 	top: 50%;
 	right: 0;
-	width: 240px;
+	width: 150px;
 	padding: 0.25rem 0.75rem;
 	border-left: 2px solid #e0d9e7;
 	transform: translateY(-50%);
 	display: none;
 
 	@media (min-width: 75em){
-	  width: 240px;
+//	  width: 240px;
 	  display: block;
 	}
 	@media (min-width: 85em){
-	  width: 300px;
+//	  width: 300px;
 	  display: block;
 	}
 	@media (min-width: 95em){
-	  width: 360px;
+//	  width: 360px;
 	  display: block;
+	}
+
+	h6 {
+		font-size: 1.6rem;
 	}
 
 	a.toc-active {
@@ -499,8 +503,10 @@ img {
 	  list-style-type: none;
 	  margin-bottom: 0.1rem;
 	  padding-left: 0rem;
+	  border-bottom: 1px solid #eee;
 	  li {
 		padding-left: .5rem;
+		border-top: 1px solid #eee;
 	  }
 	}
 
@@ -513,5 +519,19 @@ img {
 
 	a:hover {
 	   color:default;
+	}
+
+	ul + .btn-top {
+		margin-top: 30px;
+	}
+	
+	.btn-top {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		text-align: center;
+		border-radius: 6px;
+		background: #121212;
+		color: #eee;
 	}
 }
