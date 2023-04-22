@@ -27,7 +27,7 @@ order: 1
 
 
 ### **Array**
-```
+```java
 //array creation 
 int[] arr = new int[n]                  // 배열 생성 (길이 n)
 int[][] arrMatrix = new int[n][n]       // n x n 의 이차원 배열 생성 
@@ -55,7 +55,7 @@ IntStream()
 
 
 ### **Linked List**
-~~~
+~~~java
 //LinkedList creation
 LinkedList<String> list = new LinkedList<>();    
 
@@ -87,7 +87,7 @@ LinkedList<String> list = new LinkedList<>();
 
 
 ### **Stack**
-~~~
+~~~java
 //Stack creation
 Stack<String> stack = new Stack<>();  
 
@@ -102,7 +102,7 @@ Stack<String> stack = new Stack<>();
 
 
 ### **Queue & Deque**
-~~~
+~~~java
 // new LinkedList<>() in General 
 Queue<String> queue = new LinkedList<>();
 Deque<String> deque = new LinkedList<>(); 
@@ -128,7 +128,7 @@ Deque<String> deque = new LinkedList<>();
 
 
 ### **Hash Table**
-~~~
+~~~java
 HashTable<String,Integer> hashTable = new HashTable<>();
 
 .put(Object key, Object value)  //지정된 key-value 쌍을 해시 테이블에 추가 또는 value 대체
