@@ -3,14 +3,14 @@ title: Non-Linear Data Structure(1)
 category: 1. DataStructure
 order: 1
 ---
-### **비선형자료구조란?** 
+### 비선형자료구조란? 
 
 비선형 자료구조는 데이터 항목들이 계층적으로 조직되어 있는 자료구조를 의미한다. 이러한 자료구조에서는 각 항목들이 다른 항목들과 서로 다른 관계를 가지고 있을 수 있으며, 계층이나 망 형태로 구성되어 있다.
 
 대표적인 비선형 자료구조로는 트리(Tree), 그래프(Graph), 힙(Heap) 등이 있으며 이들 자료구조는 데이터 항목들 간에 부모-자식, 연결된 노드-간선 등의 관계를 가지고 있으며, 이러한 관계를 이용해 데이터를 효율적으로 탐색하고 저장할 수 있다.
 
 
-### **Tree - BFS ,  DFS**
+### Tree - BFS ,  DFS
 ~~~java
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -101,7 +101,7 @@ public class Tree {
 
 
 
-### **BinarySearchTree**
+### BinarySearchTree
 ~~~java
 //BinarySearch Tree 
 public class Node {
@@ -166,7 +166,7 @@ public class BinarySearchTree {
     }
 }
 ~~~
-### **+ TreeSet Class Java provides itself**
+### + TreeSet Class Java provides itself
 ~~~java
 import java.util.TreeSet;
 

@@ -521,13 +521,10 @@ img {
 	   color:default;
 	}
 
-	ul + .btn-top {
-		margin-top: 30px;
-	}
-	
 	.btn-top {
 		display: block;
 		width: 100%;
+		margin-top: 30px;
 		padding: 5px 0;
 		text-align: center;
 		border-radius: 6px;
