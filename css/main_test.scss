@@ -24,10 +24,10 @@ $mobile-break: 700px;
 $full-width-break: $nav-width + ($space * 4) + $content-max-width;
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-@import "mixins";
+@import "mixins_test";
 @import "normalize";
 @import "pygments";
 @import "typography";
 @import "code";
 @import "tables";
-@import "layout";
+@import "layout_test";
