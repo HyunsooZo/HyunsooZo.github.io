@@ -79,6 +79,7 @@ h6 {
 a {
 	color: #4A4A4A;
 	transition: color 0.2s ease;
+	text-decoration: none;
 }
 
 a:hover {
@@ -100,6 +101,7 @@ figure {
 ol,
 ul {
 	padding-left: 3rem;
+	list-style-type: none;
 }
 
 ol ol,

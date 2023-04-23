@@ -24,7 +24,7 @@ body {
 
 	&::before {
 		content: "";
-		background-color: $content-background-color;
+		// background-color: $content-background-color;
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -63,7 +63,7 @@ body {
 		&::before {
 			left: $nav-width;
 			right: 0;
-			background-color: $content-background-color;
+			// background-color: $content-background-color;
 		}
 	}
 }
@@ -160,7 +160,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 .content {
 	position: relative;
-	background-color: $content-background-color;
+	// background-color: $content-background-color;
 	color: $content-color;
 
 	h3::before {
@@ -468,7 +468,7 @@ img {
 .toc {
 	position: fixed;
 	top: 50%;
-	right: 0;
+	right: 2rem;
 	width: 150px;
 	padding: 0.25rem 0.75rem;
 	transform: translateY(-50%);
@@ -478,14 +478,6 @@ img {
 //	  width: 240px;
 	  display: block;
 	}
-	@media (min-width: 85em){
-//	  width: 300px;
-	  display: block;
-	}
-	@media (min-width: 95em){
-//	  width: 360px;
-	  display: block;
-	}
 
 	&-heading {
 		font-size: 1.6rem;
@@ -493,11 +485,11 @@ img {
 	}
 
 	ul {
-	  list-style-type: none;
 	  margin-bottom: 0.1rem;
 	  padding-left: 0rem;
 	  
 	  li {
+		margin: 0;
 		padding-left: .5rem;
 	
 		a {
@@ -538,6 +530,7 @@ img {
 			border-radius: 6px;
 			background: #121212;
 			color: #eee;
+			font-size: 1.2rem;
 			
 			&:hover {
 				display: block;
