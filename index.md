@@ -2,7 +2,7 @@
 title: About
 toc: false
 ---
-
+<link rel="stylesheet" href="{{ site.baseurl }}/css/main_test.css">
 <img src="https://ghchart.rshah.org/HyunsooZo"/>
 
 안녕하세요! 
