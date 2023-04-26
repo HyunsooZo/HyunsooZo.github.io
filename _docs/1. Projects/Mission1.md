@@ -5,23 +5,23 @@ order: 3
 ---
 
 ## Scenario
-▷ Design data using ERD.
+**1. Design data using ERD.**
 
-▷ Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do).
+**2. Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do).**
 
-▷ Develop a dynamic web service (w/o Spring) based on Java (JSP)
+**3. Develop a dynamic web service (w/o Spring) based on Java (JSP)**
 
 ---
 ## Features
-▷ Implement the "fetch public WiFi list" function.
+**1. Implement the "fetch public WiFi list" function.**
 
-▷ Display the 20 nearest public WiFi locations based on the user's current location.
+**2. Display the 20 nearest public WiFi locations based on the user's current location.**
 
-▷ Store inquiry history in the database (MariaDB).
+**3. Store inquiry history in the database (MariaDB).**
 
-▷ Provide detailed information for each WiFi location.
+**4. Provide detailed information for each WiFi location.**
 
-▷ Offer bookmarking and naming services (CRUD).
+**5 Offer bookmarking and naming services (CRUD).**
 
 ---
 ## ERD
@@ -30,13 +30,13 @@ order: 3
 ---
 ## How did i Implement?
 
-▷ **Seoul Wifi List API**
+**1. Seoul Wifi List API**
 
-▷ **Using servlet** 
+**2. Using servlet** 
 
-▷ **DataBase(MariaDB) connection**
+**3. DataBase(MariaDB) connection**
 
-▷ **JSP**
+**4. JSP**
  
 ---
 ## Challenges i've faced.
