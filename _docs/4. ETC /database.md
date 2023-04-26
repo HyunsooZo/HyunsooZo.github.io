@@ -1,6 +1,6 @@
 ---
 title: DataBase CRUD
-category: ETC
+category: Et Cetera
 order: 2
 ---
 
