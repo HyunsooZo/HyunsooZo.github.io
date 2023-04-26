@@ -1,6 +1,6 @@
 ---
 title: Terminal Custormizing
-category: 6. ETC
+category: ETC
 order: 1
 ---
 터미널을 사용시 가독성이 떨어진다 생각되어 터미널 폰트색을 변경 해보았다.

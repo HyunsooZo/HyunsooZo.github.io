@@ -1,9 +1,9 @@
 ---
 title: Linear Data Structure
-category: 1. DataStructure
+category: DataStructures
 order: 1
 ---
-### 선형자료구조란? 
+### Linear Data Structure? 
 
 
 선형 자료구조(Linear Data Structure)란, 자료들이 일렬로 늘어선 형태로 구성되어 있는 자료구조를 말한다. 이
@@ -14,7 +14,8 @@ order: 1
 각각의 자료구조는 자료의 삽입, 삭제, 검색 등의 연산에 따라서 효율성이 다르므로 프로그래밍 시 적절한 자료구조를 사용하는 것이 중요하다.
 
 
-### 선형자료구조의 시간복잡도
+### Time complexity
+
 
 | 자료구조 | 탐색 | 삽입 | 삭제 |
 | -------- | ---- | ---- | ---- |

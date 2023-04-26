@@ -1,6 +1,6 @@
 ---
 title: Non-Linear Data Structure(2)
-category: 1. DataStructure
+category: DataStructures
 order: 1
 ---
 

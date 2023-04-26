@@ -1,6 +1,6 @@
 ---
 title: Why Backend Developer?
-category: 3. ZeroBase BootCamp
+category: ZeroBase BootCamp
 order: 2
 ---
 

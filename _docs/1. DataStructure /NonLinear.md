@@ -1,9 +1,9 @@
 ---
 title: Non-Linear Data Structure(1)
-category: 1. DataStructure
+category: DataStructures
 order: 1
 ---
-### 비선형자료구조란? 
+### Non-Linear Data Structure? 
 
 비선형 자료구조는 데이터 항목들이 계층적으로 조직되어 있는 자료구조를 의미한다. 이러한 자료구조에서는 각 항목들이 다른 항목들과 서로 다른 관계를 가지고 있을 수 있으며, 계층이나 망 형태로 구성되어 있다.
 

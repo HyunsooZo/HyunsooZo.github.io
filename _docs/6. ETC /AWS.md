@@ -1,6 +1,6 @@
 ---
 title: Linux(AWS)
-category: 6. ETC
+category: ETC
 order: 1
 ---
 ### Shell of Linux

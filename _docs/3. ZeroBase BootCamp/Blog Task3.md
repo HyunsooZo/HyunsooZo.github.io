@@ -1,6 +1,6 @@
 ---
 title: Study plan from now on
-category: 3. ZeroBase BootCamp
+category: ZeroBase BootCamp
 order: 4
 ---
 

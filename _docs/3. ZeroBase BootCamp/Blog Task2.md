@@ -1,6 +1,6 @@
 ---
 title: Backend Developer I Want To Be
-category: 3. ZeroBase BootCamp
+category: ZeroBase BootCamp
 order: 3
 ---
 

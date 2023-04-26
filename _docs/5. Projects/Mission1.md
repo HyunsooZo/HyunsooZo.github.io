@@ -1,6 +1,6 @@
 ---
 title: Website for fetching public wifi list
-category: 5. Projects
+category: Projects
 order: 3
 ---
 
