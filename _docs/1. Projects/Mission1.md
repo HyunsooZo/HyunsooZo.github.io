@@ -4,6 +4,7 @@ category: Projects
 order: 3
 ---
 
+
 ## Scenario
 - Design data using ERD.
 - Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do).
@@ -49,4 +50,6 @@ order: 3
 
 ---
 ## Repository 
-https://github.com/HyunsooZo/zerobase-Mission1
+
+[**[Move to Repository]**](https://github.com/HyunsooZo/zerobase-Mission1)
+
