@@ -1,5 +1,6 @@
 ---
 title: Coding Test
+type: Practice
 ---
 ### Programmers 
 

@@ -11,8 +11,7 @@ order: 3
 
 **3.** Develop a dynamic web service (w/o Spring) based on Java (JSP)
 
-
-
+---
 ## Features
 **1.** Implement the "fetch public WiFi list" function using Seoul Open API.
 
@@ -24,8 +23,7 @@ order: 3
 
 **5.** Offer bookmarking and naming services (CRUD).
 
-
-
+---
 ## DB Entities
 
 |GROUP_TABLEㅤㅤ||||
@@ -51,8 +49,7 @@ order: 3
 ||LNT_INQUIRED|varchar(100)|NOT NULL|
 ||DT_REGISTRED|char(20)|NOT NULL|
 
-
-
+---
 ## How did i Implement?
 
 **1.** Seoul Wifi List API
@@ -63,26 +60,22 @@ order: 3
 
 **4.** JSP
  
-
-
+---
 ## Challenges i've faced.
 
 -
 
-
-
+---
 ## Things need to be complemented
 
 -
 
-
-
+---
 ## Lessons
 
 -
 
-
-
+---
 ## Repository 
 
 [**[Move to Repository]**](https://github.com/HyunsooZo/zerobase-Mission1)
