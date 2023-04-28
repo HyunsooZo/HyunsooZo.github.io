@@ -1,7 +1,3 @@
----
-title: Coding Test
-type: Practice
----
 ### Programmers 
 
 Kindly click on below link to move My Repository for [Programmers] problems
