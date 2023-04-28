@@ -161,7 +161,7 @@ $nav-image: $baseurl + "/images/menu.svg";
 .content {
 	position: relative;
 	// background-color: $content-background-color;
-	color: $content-color;
+	color: var(--text-secondary);
 
 	h3::before {
 		content: "";
@@ -499,15 +499,14 @@ img {
 			text-decoration: none;
 
 			border-left: 2px solid var(--border-secondary);
-			color: var(--text-secondary);
 			display: block;
 			padding: 0.5rem 1rem;
 			text-decoration: none;
 		
-			&:hover {
-				color: var(--text-link);
-			}
-		
+			// &:hover {
+			// 	color: var(--text-link);
+			// }
+			&:hover,
 			&[aria-current]:not([aria-current=""]):not([aria-current="false"]),
 			&.toc-active {
 				background-color: var(--background-toc-active);
@@ -525,15 +524,16 @@ img {
 		text-align: center;
 
 		.btn-top {
+			display:inline-block;
 			padding: 5px 10px;
 			text-align: center;
 			border-radius: 6px;
-			background: #121212;
-			color: #eee;
+			background: var(--button-primary-default);
+			color: var(--text-invert);
 			font-size: 1.2rem;
+			box-sizing: border-box;
 			
 			&:hover {
-				display: block;
 				width: 100%;
 			}
 		}
