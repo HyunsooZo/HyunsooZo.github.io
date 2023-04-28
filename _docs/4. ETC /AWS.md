@@ -3,16 +3,17 @@ title: Linux(AWS)
 category: Et Cetera
 order: 1
 ---
+
 ### Shell of Linux
 
 | Shell| stand for |
 | ------------ |----------|
-| **bash** | Bourne-Again Shell  |
+| bash | Bourne-Again Shell  |
 |   sh | Bourne Shell  |
 | csh | C Shell  |
 | ksh | Korn Shell  |
 
----
+
 ### Authority
 
 basically Authority will be shown partically(w 3 parts). 
@@ -37,11 +38,8 @@ basically Authority will be shown partically(w 3 parts).
 | rwx-------  | 700  |
 
 
----
-
 
 ### Basic Commands for Linux
-
 
 | CMD| use to |
 | ------------ |----------|
@@ -57,13 +55,10 @@ basically Authority will be shown partically(w 3 parts).
 | **ls** | list dir contents  |
 |        |**ls -al** > list "all" dir |
 
----
-
 
 ### Access to Linux from MacOs
 
 **1. Open your .pem in Terminal (at the file where pem is placed)**
-
 
 ```
 chmod 400 bzhs1992.pem
