@@ -1,8 +1,17 @@
 ---
-title: Coding Test i've solved
+title: Problems i've solved
 type: major
 ---
+### Programmers 
 
-Kindly click on below link to move My Repository for Programmers Coding Test Log
+Kindly click on below link to move My Repository for [Programmers] problems
 
-[**[Move to Repository]**](https://github.com/HyunsooZo/Programmers/tree/main/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4)
+[**[Move to Programmers Repository]**](https://github.com/HyunsooZo/Programmers.git)
+
+---
+
+### LeetCode
+
+Kindly click on below link to move My Repository for [LeetCode] problems
+
+[**[Move to Programmers Repository]**](https://github.com/HyunsooZo/LeetCode.git)
