@@ -21,7 +21,8 @@ TIL 블로그를 통해 새로운 기술과 개발 방법론에 대한 이해도
 블로그를 통해 배운 내용들을 정리, 공유하며 한 층 성장할 수 있기를 기대합니다.
 이 블로그를 보고계신 모두 좋은 하루 되세요!
 
----
+
+
 ### Hello!
 Hello!
 I am a junior developer **Hyunsoo Jo**, who is learning and growing by learning something new every day. I plan to share what I learned each day by posting on my TIL (Today I Learned) blog.
