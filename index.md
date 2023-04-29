@@ -2,11 +2,9 @@
 title: About
 toc: false
 ---
-<link rel="stylesheet" href="{{ site.baseurl }}/css/main_test.css">
 
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
 
-### 안녕하세요!
 안녕하세요! 
 매일 새로운 것을 배우고 성장하고 있는 주니어 개발자 **조현수**입니다. 
 이 블로그에는 제가 그날 배운 것들을 매일 정리하여 TIL(Today I Learned) 블로그에 올리려고 합니다.
@@ -23,7 +21,6 @@ TIL 블로그를 통해 새로운 기술과 개발 방법론에 대한 이해도
 
 
 
-### Hello!
 Hello!
 I am a junior developer **Hyunsoo Jo**, who is learning and growing by learning something new every day. I plan to share what I learned each day by posting on my TIL (Today I Learned) blog.
 

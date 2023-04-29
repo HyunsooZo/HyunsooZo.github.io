@@ -1,21 +1,24 @@
 table {
 	width: 100%;
-	margin-bottom: 1.75em;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: fixed;
+}
+
+table + table {
+	margin-top: 1.75em;
 }
 
 tr {
-	border-bottom: 1px solid #EEE;
+	border-bottom: 1px solid var(--border-secondary);
 }
 
 tr:nth-child(even) {
-	background: #fcfcfc;
+	background: var(--background-secondary);
 }
 
 td, th {
 	padding: 8px;
 	text-align: left;
-}
-
-th {
-	padding-bottom: 4px;
+	word-break: break-all;
 }

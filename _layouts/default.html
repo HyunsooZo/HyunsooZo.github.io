@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" data-color-mode="auto" data-light-theme="light" data-dark-theme="dark">
+<html lang="ko"><!-- data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" -->
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -22,9 +22,9 @@
 	</head>
 
 	<body>
-		<header>
+		<header class="post-title">
 			<h1>
-				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/emblem.svg" width="40" height="40" alt="{{ site.title }} logo"></a>
+				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/favicon.png" alt="{{ site.title }} logo"></a>
 				{{ site.title }}
 				<button type="button" class="open-nav" id="open-nav"></button>
 			</h1>
@@ -66,7 +66,7 @@
 			</nav>
 		</header>
 		
-		<section class="main">
+		<section class="main post-article">
 			<div class="page-header">
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
@@ -76,7 +76,7 @@
 				{{ content }}
 			</article>
 			
-			<div class="toc post-article">
+			<div class="toc">
 				<h6 class="toc-heading">Table of Contents</h6>
 				{% include toc.html html=content %}
 				<div class="top-button">
@@ -163,20 +163,20 @@
 			}, false);
 
 			window.addEventListener("scroll", function() {
-			var toc = document.getElementsByClassName("toc")[0];
-			var article = document.getElementsByClassName("post-article")[0];
-			var footer = document.getElementsByTagName("footer")[0];
-			var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
-			var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-			var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
-			if (tocY < titleY) {
-				toc.classList.remove("sticky");
-			} else if (articleY > footerY) {
-				toc.classList.remove("sticky");
-			} else {
-				toc.classList.add("sticky");
-			}
-  });	
+				var toc = document.getElementsByClassName("toc")[0];
+				var article = document.getElementsByClassName("post-article")[0];
+				var footer = document.getElementsByTagName("footer")[0];
+				var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
+				var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+				var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
+				if (tocY < titleY) {
+					toc.classList.remove("sticky");
+				} else if (articleY > footerY) {
+					toc.classList.remove("sticky");
+				} else {
+					toc.classList.add("sticky");
+				}
+			});	
 		  </script>
 	</body>
 	
