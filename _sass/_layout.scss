@@ -399,12 +399,10 @@ h4 svg {
 }
 
 blockquote {
-	border-left: 5px solid #FD0;
 	padding: 10px 15px;
-	margin-left: -15px;
-	margin-right: -10px;
-	background-color: var(--code-color);
-	border-color: var(--mark-color);
+	margin: 0;
+	border-left: 5px solid var(--background-primary);
+	background-color: var(--background-tertiary);
 
 	p:last-child {
 		margin-bottom: 0;
@@ -519,7 +517,6 @@ img {
 			
 			&:hover {
 				width: 100%;
-				transition: all .5s ease-out;
 			}
 		}
 	}
