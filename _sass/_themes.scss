@@ -438,10 +438,7 @@ $theme-dark-code-background-block: $color-neutral-80;
   --background-secondary: #{$theme-dark-background-secondary};
   --background-tertiary: #{$theme-dark-background-tertiary};
   --background-toc-active: #{$theme-dark-background-toc-active};
-  // --background-mark-yellow: #{color.adjust(
-  //     $color-dark-theme-yellow-30,
-  //     $alpha: -0.6
-  //   )};
+  --background-mark-yellow: #{rgba($color-dark-theme-yellow-30, 0.6)};
   // --background-mark-green: #{color.adjust(
   //     $color-light-theme-green-30,
   //     $alpha: -0.6
@@ -584,7 +581,7 @@ $theme-dark-code-background-block: $color-neutral-80;
   //   )};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.7)};
-  --blend-color: #{$color-black}80;
+  --blend-color: #{rgba($color-black, 0.8)};
 
   --text-primary-red: #{$color-dark-theme-red-30};
   --text-primary-green: #{$color-dark-theme-green-30};
