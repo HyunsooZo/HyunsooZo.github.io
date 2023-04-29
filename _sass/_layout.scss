@@ -375,8 +375,8 @@ blockquote {
 	padding: 10px 15px;
 	margin-left: -15px;
 	margin-right: -10px;
-	background-color: $color-dark-theme-blue-20;
-	border-color: $color-dark-theme-blue-50;
+	background-color: var(--code-color);
+	border-color: var(--mark-color);
 
 	p:last-child {
 		margin-bottom: 0;
