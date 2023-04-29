@@ -29,24 +29,30 @@ order: 3
 ### DB Entities
 
 **GROUP_TABLE**
-|pk|GR_SEQ_NO|int(11)|NOT NULL|
+
+|pk|Column|Type|NULL?|
 |--|--|--|--|
+|✓|GR_SEQ_NO|int(11)|NOT NULL|
 ||GR_NM|varchar(100)|NOT NULL|
 ||GR_PRIORITY|int(11)|NOT NULL|
 ||GR_DT_RGISTERED|timestamp|NULL|
 ||GR_DT_MDFIED|timestamp|NULL|
 
 **BOOKMARK_TABLE**
-|pk|BM_SEQ_NO|int(11)|NOT NULL|
+
+|pk|Column|Type|NULL?|
 |--|--|--|--|
+|✓|BM_SEQ_NO|int(11)|NOT NULL|
 ||GR_NM|varchar(100)|NOT NULL|
 ||WIFI_NM|varchar(100)|NOT NULL|
 ||WIFI_ID|char(20)|NOT NULL|
 ||BM_DT_RGISTERED|timestamp|NOT NULL|
 
 **INQUIRY_HISTORY**
-|pk|HS_SEQ_NO|int(11)|NOT NULL|
+
+|pk|Column|Type|NULL?|
 |--|--|--|--|
+|✓|HS_SEQ_NO|int(11)|NOT NULL|
 ||LAT_INQUIRED|varchar(100)|NOT NULL|
 ||LNT_INQUIRED|varchar(100)|NOT NULL|
 ||DT_REGISTRED|char(20)|NOT NULL|
