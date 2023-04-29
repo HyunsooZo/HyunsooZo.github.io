@@ -187,11 +187,13 @@ nav > ul {
 
 .main {
 	overflow-y: auto;
-	margin-top: $space + 60px;
+	padding-top: $space + 60px + env(safe-area-inset-top);
 	
 	@media (min-width: $mobile-break) {
 		width: 100%;
 		margin-top: 0;
+	}
+	@media (min-width: 100rem){
 		padding-right: 15rem;
 	}
 }
@@ -458,7 +460,7 @@ img {
 	transform: translateY(-50%);
 	display: none;
 
-	@media (min-width: $mobile-break){
+	@media (min-width: 100rem){
 	  display: block;
 	}
 
