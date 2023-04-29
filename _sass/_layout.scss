@@ -54,7 +54,7 @@ body {
 		// &::after {
 		// 	left: 0;
 		// 	width: $nav-width;
-		// 	background-color: $nav-background-color;
+		// 	background-color: var(--background-primary);
 		// }
 
 		// #search-input,
@@ -71,6 +71,7 @@ body {
 }
 
 .main {
+	width: 100%;
 	margin-top: $space + $nav-header-height;
 
 	@media (min-width: $mobile-break) {
@@ -89,7 +90,7 @@ header {
 	right: 0;
 	overflow-x: hidden;
 	z-index: 1;
-	background-color: $nav-background-color;
+	background-color: var(--background-primary);
 
 	ul {
 		padding: 0;
@@ -311,8 +312,8 @@ h3 + .warning {
 
 
 h4 code {
-	background: $nav-background-color;
-	color: $content-color;
+	background: var(--background-primary);
+	color: var(--text-primary);
 	background-color: transparent;
 	font-weight: 700;
 	padding: 0;
@@ -325,7 +326,7 @@ h4 svg {
 	margin-right: 6px;
 	position: relative;
 	top: -2px;
-	fill: #2E2E2E;
+	fill: var(--background-primary);
 	height: 23px;
 }
 
@@ -339,7 +340,7 @@ h4 svg {
 	position: absolute;
 	top: 5px;
 	line-height: 1;
-	color: $brand-colour;
+	color: var(--text-primary-blue);
 	padding-left: 5px;
 }
 
@@ -389,7 +390,7 @@ h4 svg {
 	}
 
 	.date {
-		color: #888;
+		color: var(--text-secondary);
 		font-style: italic;
 	}
 }
@@ -399,12 +400,12 @@ h4 svg {
 	text-transform: uppercase;
 	font-size: 0.8rem;
 	border-radius: 2px;
-	background: #eee;
+	background: var(--background-primary);
 	font-weight: bold;
 
 	&.major {
-		background: $brand-colour;
-		color: #fff;
+		background: var(--text-primary-blue);
+		color: var(--text-primary);
 	}
 }
 
@@ -413,8 +414,8 @@ blockquote {
 	padding: 10px 15px;
 	margin-left: -15px;
 	margin-right: -10px;
-	background-color: $brand-colour-light;
-	border-color: $brand-colour;
+	background-color: $color-light-theme-blue-20;
+	border-color: $color-light-theme-blue-50;
 
 	p:last-child {
 		margin-bottom: 0;
@@ -468,13 +469,12 @@ img {
 	position: fixed;
 	top: 50%;
 	right: 2rem;
-	width: 150px;
+	width: 15rem;
 	padding: 0.25rem 0.75rem;
 	transform: translateY(-50%);
 	display: none;
 
 	@media (min-width: 75em){
-//	  width: 240px;
 	  display: block;
 	}
 
@@ -500,9 +500,6 @@ img {
 			color: var(--text-secondary);
 			border-left: 2px solid var(--border-secondary);
 		
-			// &:hover {
-			// 	color: var(--text-link);
-			// }
 			&:hover,
 			&[aria-current]:not([aria-current=""]):not([aria-current="false"]),
 			&.toc-active {
