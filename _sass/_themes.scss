@@ -608,14 +608,14 @@ $theme-dark-code-background-block: $color-neutral-80;
 
 body,
 :root {
-  --mdn-color-white: #{$color-white};
-  --mdn-color-black: #{$color-black};
-  --mdn-color-ads: #{$color-ads};
-  --mdn-color-background-highlight: #{$color-light-theme-yellow-10};
-  --mdn-color-dark-grey: #{$color-neutral-70};
-  --mdn-background-dark: #{$theme-dark-background-primary};
-  --mdn-background-light: #{$theme-light-background-primary};
-  --mdn-background-light-grey: #{$color-neutral-10};
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-ads: #{$color-ads};
+  --color-background-highlight: #{$color-light-theme-yellow-10};
+  --color-dark-grey: #{$color-neutral-70};
+  --background-dark: #{$theme-dark-background-primary};
+  --background-light: #{$theme-light-background-primary};
+  --background-light-grey: #{$color-neutral-10};
   --color-announcement-banner-accent: #{$color-light-theme-pink-40};
 }
 
