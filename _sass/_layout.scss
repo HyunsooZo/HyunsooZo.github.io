@@ -197,7 +197,7 @@ nav > ul {
 		padding-top: 0;
 	}
 	@media (min-width: 1000px){
-		padding-right: 15rem;
+		padding-right: 15.5rem;
 	}
 }
 
@@ -455,13 +455,12 @@ img {
 
 
 .toc {
+	display: none;
 	position: fixed;
 	top: 50%;
-	right: 2rem;
-	width: 15rem;
-	padding: 0.25rem 0.75rem;
+	right: 1rem;
+	width: 15.5rem;
 	transform: translateY(-50%);
-	display: none;
 
 	@media (min-width: 1000px){
 	  display: block;
@@ -469,7 +468,8 @@ img {
 
 	&-heading {
 		font-size: 1.6rem;
-		margin: 0 0 3rem;
+		margin: 0 0 2.5rem;
+		padding: 0 0 0 1rem;
 	}
 
 	ul {
