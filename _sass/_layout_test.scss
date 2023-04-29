@@ -16,6 +16,7 @@
 
 OS Default
 :root:not(.light):not(.dark) {
+	@include primer-colors-dark;
 	@media (prefers-color-scheme: dark) {
 		@include primer-colors-dark;
 	}
