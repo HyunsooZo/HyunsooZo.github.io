@@ -50,10 +50,10 @@ body {
 
 .main {
 	overflow-y: auto;
-	width: 100%;
-	margin-top: $space;
-
+	margin-top: $space + 60px;
+	
 	@media (min-width: $mobile-break) {
+		width: 100%;
 		margin-top: 0;
 	}
 }
@@ -63,8 +63,13 @@ header {
 	$emblem-vertical-padding: ($nav-header-height - $emblem-size) / 2;
 	$emblem-horizontal-padding: $space;
 
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	overflow-x: hidden;
 	overflow-y: auto;
+	background-color: var(--background-primary);
 	z-index: 1;
 
 	ul {
@@ -119,10 +124,16 @@ header {
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.1);
 		}
+		header {
+			height: 100%;
+		}
 	}
 
 	@media (min-width: $mobile-break) {
+		flex: 0 1 auto;
+		position: initial;
 		width: $nav-width;
+		height: auto;
 
 		.open-nav {
 			display: none;
@@ -169,8 +180,8 @@ header {
 	}
 
 	h3 {
-		font-size: 4rem;
-		margin-left: -4px;
+		font-size: 2.4rem;
+		margin: 15px 0 0 -4px;
 	}
 
 	@media (min-width: $mobile-break) {
@@ -179,7 +190,7 @@ header {
 		}
 
 		h3 {
-			font-size: 2.4rem;
+			font-size: 4rem;
 		}
 	}
 
