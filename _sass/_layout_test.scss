@@ -25,12 +25,37 @@ input::-ms-clear,
 input::-ms-reveal {
 	display: none !important;
 }
- 
+
+:root {
+	--base-size-4: 0.25rem;
+	--base-size-8: 0.5rem;
+	--base-size-12: 0.75rem;
+	--base-size-16: 1rem;
+	--base-size-20: 1.25rem;
+	--base-size-24: 1.5rem;
+	--base-size-28: 1.75rem;
+	--base-size-32: 2rem;
+	--base-size-36: 2.25rem;
+	--base-size-40: 2.5rem;
+	--base-size-44: 2.75rem;
+	--base-size-48: 3rem;
+	--base-size-64: 4rem;
+	--base-size-80: 5rem;
+	--base-size-96: 6rem;
+	--base-size-112: 7rem;
+	--base-size-128: 8rem;
+}
+
 body {
 	@include display-flex();
 	height: auto;
 	overflow-x: hidden;
 	background-color: var(--background-primary);
+
+	font-size: var(--body-font-size, 14px);
+    line-height: 1.5;
+    color: var(--color-fg-default);
+    background-color: var(--color-canvas-default);
 
 	&.nav-open {
 		overflow: hidden;
@@ -519,10 +544,10 @@ img {
 		a {
 			line-height: 1.4rem;
 			font-size: 1.2rem;
-			color: default;
+			color: var(--color-btn-text);
 			text-decoration: none;
 
-			border-left: 2px solid var(--border-secondary);
+			border-left: 2px solid var(--color-btn-border);
 			display: block;
 			padding: 0.5rem 1rem;
 			text-decoration: none;
@@ -533,9 +558,9 @@ img {
 			&:hover,
 			&[aria-current]:not([aria-current=""]):not([aria-current="false"]),
 			&.toc-active {
-				background-color: var(--background-toc-active);
-				border-left: 2px solid var(--category-color);
-				color: var(--text-primary);
+				background-color: var(--color-btn-hover-bg);
+				border-left: 2px solid var(--color-btn-hover-border);
+				color: var(--color-btn-primary-text);
 				font-weight: 600;
 			}
 		}
@@ -552,17 +577,17 @@ img {
 			padding: 5px 10px;
 			text-align: center;
 			border-radius: 6px;
-			background: var(--button-primary-default);
-			color: var(--text-invert);
+			// background: var(--button-primary-default);
+			// color: var(--text-invert);
 			font-size: 1.2rem;
 			box-sizing: border-box;
 
-			// color: var(--color-btn-text);
-			// background: var(--color-btn-bg);
-			// border-color: var(--color-btn-border);
-			// box-shadow: var(--color-btn-shadow),var(--color-btn-inset-shadow);
-			// transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
-			// transition-property: color,background-color,box-shadow,border-color;
+			color: var(--color-btn-text);
+			background: var(--color-btn-bg);
+			border-color: var(--color-btn-border);
+			box-shadow: var(--color-btn-shadow),var(--color-btn-inset-shadow);
+			transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+			transition-property: color,background-color,box-shadow,border-color;
 			
 			&:hover {
 				width: 100%;
