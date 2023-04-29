@@ -152,6 +152,7 @@ $color-ads: #00d0aa;
 
 $theme-light-text-primary: $color-neutral-90;
 $theme-light-text-secondary: $color-neutral-70;
+$theme-light-text-tertiary: $color-neutral-50;
 $theme-light-text-inactive: #{$color-neutral-40}a6;
 $theme-light-text-link: $color-light-theme-blue-60;
 $theme-light-text-invert: $color-white;
@@ -428,7 +429,7 @@ $theme-dark-code-background-block: $color-neutral-80;
 @mixin dark-theme {
   --text-primary: #{$theme-dark-text-primary};
   --text-secondary: #{$theme-dark-text-secondary};
-  --text-tertiary: #{$theme-light-text-tertiary};
+  --text-tertiary: #{$theme-dark-text-tertiary};
   --text-inactive: #{$theme-dark-text-inactive};
   --text-link: #{$theme-dark-text-link};
   --text-invert: #{$theme-dark-text-invert};
