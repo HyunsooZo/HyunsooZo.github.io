@@ -5,14 +5,16 @@ order: 3
 ---
 
 ### Scenario
+
 **1.** Design data using ERD.
 
 **2.** Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - [https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do](https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do)).
 
 **3.** Develop a dynamic web service (w/o Spring) based on Java (JSP)
 
----
+
 ### Features
+
 **1.** Implement the "fetch public WiFi list" function using Seoul Open API.
 
 **2.** Display the nearest public WiFi locations (up to 20) based on the user's current location.
@@ -23,7 +25,7 @@ order: 3
 
 **5.** Offer bookmarking and naming services (CRUD).
 
----
+
 ### DB Entities
 
 |GROUP_TABLEㅤㅤ||||
@@ -49,7 +51,7 @@ order: 3
 ||LNT_INQUIRED|varchar(100)|NOT NULL|
 ||DT_REGISTRED|char(20)|NOT NULL|
 
----
+
 ### How did i Implement?
 
 **1.** Seoul Wifi List API
@@ -60,22 +62,22 @@ order: 3
 
 **4.** JSP
  
----
+
 ### Challenges i've faced.
 
 -
 
----
+
 ### Things need to be complemented
 
 -
 
----
+
 ### Lessons
 
 -
 
----
+
 ### Repository 
 
 [**[Move to Repository]**](https://github.com/HyunsooZo/zerobase-Mission1)
