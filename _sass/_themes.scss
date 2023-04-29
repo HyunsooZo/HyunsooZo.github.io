@@ -299,16 +299,16 @@ $theme-dark-code-background-block: $color-neutral-80;
   --icon-success: #{$theme-light-icon-success};
 
   --accent-primary: #{$theme-light-accent-primary};
-  --accent-primary-engage: #{color.adjust(
-      $theme-light-accent-primary,
-      $alpha: -0.9
-    )};
+  // --accent-primary-engage: #{color.adjust(
+  //     $theme-light-accent-primary,
+  //     $alpha: -0.9
+  //   )};
 
   --accent-secondary: #{$theme-light-accent-secondary};
-  --accent-tertiary: #{color.adjust(
-      $color-light-theme-blue-50,
-      $alpha: -0.9
-    )};
+  // --accent-tertiary: #{color.adjust(
+  //     $color-light-theme-blue-50,
+  //     $alpha: -0.9
+  //   )};
 
   --shadow-01: #{$theme-light-shadow-01};
   --shadow-02: #{$theme-light-shadow-02};
@@ -367,34 +367,34 @@ $theme-dark-code-background-block: $color-neutral-80;
   --apis-accent-background-color: #{$color-light-theme-violet-50}30;
   --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
-  --plus-accent-engage: #{color.adjust(
-      $color-light-theme-red-50,
-      $alpha: -0.3
-    )};
-  --html-accent-engage: #{color.adjust(
-      $color-light-theme-red-50,
-      $alpha: -0.3
-    )};
-  --css-accent-engage: #{color.adjust(
-      $color-light-theme-blue-50,
-      $alpha: -0.3
-    )};
-  --js-accent-engage: #{color.adjust(
-      $color-light-theme-yellow-50,
-      $alpha: -0.3
-    )};
-  --http-accent-engage: #{color.adjust(
-      $color-light-theme-green-50,
-      $alpha: -0.3
-    )};
-  --apis-accent-engage: #{color.adjust(
-      $color-light-theme-violet-50,
-      $alpha: -0.3
-    )};
-  --learn-accent-engage: #{color.adjust(
-      $color-light-theme-pink-50,
-      $alpha: -0.3
-    )};
+  // --plus-accent-engage: #{color.adjust(
+  //     $color-light-theme-red-50,
+  //     $alpha: -0.3
+  //   )};
+  // --html-accent-engage: #{color.adjust(
+  //     $color-light-theme-red-50,
+  //     $alpha: -0.3
+  //   )};
+  // --css-accent-engage: #{color.adjust(
+  //     $color-light-theme-blue-50,
+  //     $alpha: -0.3
+  //   )};
+  // --js-accent-engage: #{color.adjust(
+  //     $color-light-theme-yellow-50,
+  //     $alpha: -0.3
+  //   )};
+  // --http-accent-engage: #{color.adjust(
+  //     $color-light-theme-green-50,
+  //     $alpha: -0.3
+  //   )};
+  // --apis-accent-engage: #{color.adjust(
+  //     $color-light-theme-violet-50,
+  //     $alpha: -0.3
+  //   )};
+  // --learn-accent-engage: #{color.adjust(
+  //     $color-light-theme-pink-50,
+  //     $alpha: -0.3
+  //   )};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.1)};
   --blend-color: #{$color-white}80;
@@ -482,16 +482,16 @@ $theme-dark-code-background-block: $color-neutral-80;
   --icon-critical: #{$theme-dark-icon-critical};
   --icon-success: #{$theme-dark-icon-success};
 
-  --accent-primary: #{$theme-dark-accent-primary};
-  --accent-primary-engage: #{color.adjust(
-      $theme-dark-accent-primary,
-      $alpha: -0.9
-    )};
-  --accent-secondary: #{$theme-dark-accent-secondary};
-  --accent-tertiary: #{color.adjust(
-      $color-light-theme-blue-50,
-      $alpha: -0.9
-    )};
+  // --accent-primary: #{$theme-dark-accent-primary};
+  // --accent-primary-engage: #{color.adjust(
+  //     $theme-dark-accent-primary,
+  //     $alpha: -0.9
+  //   )};
+  // --accent-secondary: #{$theme-dark-accent-secondary};
+  // --accent-tertiary: #{color.adjust(
+  //     $color-light-theme-blue-50,
+  //     $alpha: -0.9
+  //   )};
 
   --shadow-01: #{$theme-dark-shadow-01};
   --shadow-02: #{$theme-dark-shadow-02};
@@ -550,34 +550,34 @@ $theme-dark-code-background-block: $color-neutral-80;
   --apis-accent-background-color: #{$color-light-theme-violet-50}30;
   --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
-  --plus-accent-engage: #{color.adjust(
-      $color-dark-theme-red-40,
-      $alpha: -0.3
-    )};
-  --html-accent-engage: #{color.adjust(
-      $color-dark-theme-red-40,
-      $alpha: -0.3
-    )};
-  --css-accent-engage: #{color.adjust(
-      $color-dark-theme-blue-30,
-      $alpha: -0.3
-    )};
-  --js-accent-engage: #{color.adjust(
-      $color-dark-theme-yellow-40,
-      $alpha: -0.3
-    )};
-  --http-accent-engage: #{color.adjust(
-      $color-dark-theme-green-40,
-      $alpha: -0.3
-    )};
-  --apis-accent-engage: #{color.adjust(
-      $color-dark-theme-violet-40,
-      $alpha: -0.3
-    )};
-  --learn-accent-engage: #{color.adjust(
-      $color-dark-theme-pink-40,
-      $alpha: -0.3
-    )};
+  // --plus-accent-engage: #{color.adjust(
+  //     $color-dark-theme-red-40,
+  //     $alpha: -0.3
+  //   )};
+  // --html-accent-engage: #{color.adjust(
+  //     $color-dark-theme-red-40,
+  //     $alpha: -0.3
+  //   )};
+  // --css-accent-engage: #{color.adjust(
+  //     $color-dark-theme-blue-30,
+  //     $alpha: -0.3
+  //   )};
+  // --js-accent-engage: #{color.adjust(
+  //     $color-dark-theme-yellow-40,
+  //     $alpha: -0.3
+  //   )};
+  // --http-accent-engage: #{color.adjust(
+  //     $color-dark-theme-green-40,
+  //     $alpha: -0.3
+  //   )};
+  // --apis-accent-engage: #{color.adjust(
+  //     $color-dark-theme-violet-40,
+  //     $alpha: -0.3
+  //   )};
+  // --learn-accent-engage: #{color.adjust(
+  //     $color-dark-theme-pink-40,
+  //     $alpha: -0.3
+  //   )};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.7)};
   --blend-color: #{$color-black}80;
