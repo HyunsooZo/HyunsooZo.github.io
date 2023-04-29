@@ -42,7 +42,7 @@ h4,
 h5,
 h6 {
 	color: var(--text-primary);
-	line-height: 18rem;
+	line-height: 1.2;
 	margin: 0 0 2rem 0;
 	font-weight: 600;
 }
@@ -89,10 +89,10 @@ ul,
 ol,
 dl,
 figure {
+	margin: 0 0 2rem 0;
 	-webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
 	-moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
 	-o-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
-	margin: 0 0 1.75em 0;
 	text-rendering: geometricPrecision;
 }
 
