@@ -120,17 +120,20 @@ header {
 	}
 
 	@media (min-width: $mobile-break) {
-		flex: 1 0 $nav-width;
+		flex: 1 0 20rem;
 		position: initial;
 		height: auto;
-
+		
 		.open-nav {
 			display: none;
 		}
-
+		
 		h1 {
 			box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.1);
 		}
+	}
+	@media (min-width: 100rem) {
+		flex: 1 0 $nav-width;
 	}
 }
 
@@ -187,7 +190,7 @@ nav > ul {
 
 .main {
 	overflow-y: auto;
-	padding-top: $space + 60px + env(safe-area-inset-top);
+	padding-top: $space + 60px + $iosGapTop;
 	
 	@media (min-width: $mobile-break) {
 		width: 100%;
