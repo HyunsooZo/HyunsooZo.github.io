@@ -492,7 +492,6 @@ img {
 			&:hover,
 			&[aria-current]:not([aria-current=""]):not([aria-current="false"]),
 			&.toc-active {
-				font-weight: 600;
 				color: var(--text-primary);
 				border-left-color: var(--category-color);
 				background-color: var(--background-toc-active);
