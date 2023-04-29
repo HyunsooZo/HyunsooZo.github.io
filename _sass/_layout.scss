@@ -6,9 +6,22 @@ input::-ms-reveal {
 
 body {
 	@include display-flex();
-	height: auto;
 	overflow-x: hidden;
+	height: auto;
+	max-height: 100%;
+	margin: 0;
+	letter-spacing: 0.01rem;
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: var(--text-primary);
 	background-color: var(--background-primary);
+	
+	-webkit-font-feature-settings: 'kern' 1;
+	-moz-font-feature-settings: 'kern' 1;
+	-o-font-feature-settings: 'kern' 1;
+	text-rendering: geometricPrecision;
 
 	&.nav-open {
 		overflow: hidden;
@@ -63,9 +76,8 @@ header {
 		top: 0;
 		padding: $emblem-vertical-padding $emblem-horizontal-padding;
 		height: $nav-header-height;
-		box-sizing: border-box;
 		background-color: var(--background-secondary);
-		color: #fff;
+		color: var(--text-primary);
 		margin: 0;
 		font-size: 1.7rem;
 		line-height: 0.8;
@@ -163,11 +175,11 @@ header {
 
 	@media (min-width: $mobile-break) {
 		h2 {
-			font-size: 2.65rem;
+			font-size: 1.8rem;
 		}
 
 		h3 {
-			font-size: 5.4rem;
+			font-size: 2.4rem;
 		}
 	}
 
@@ -441,7 +453,7 @@ img {
 
 	&-heading {
 		font-size: 1.6rem;
-		margin: 0 0 1rem;
+		margin: 0 0 3rem;
 	}
 
 	ul {
@@ -488,10 +500,11 @@ img {
 			background: var(--background-secondary);
 			font-size: 1.2rem;
 			box-sizing: border-box;
-			transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+			transition: all .5s ease-out;
 			
 			&:hover {
 				width: 100%;
+				transition: all .5s ease-out;
 			}
 		}
 	}
