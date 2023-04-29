@@ -2,7 +2,7 @@ table {
 	width: 100%;
 }
 
-table:not(:first-child) {
+table + table {
 	margin-top: 1.75em;
 }
 
