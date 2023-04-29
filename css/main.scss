@@ -10,7 +10,7 @@ $nav-width: 300px;
 $content-max-width: 800px;
 
 $space: 20px;
-$iosGapTop: env(safe-area-inset-top);
+//$iosGapTop: env(safe-area-inset-top);
 
 $mobile-break: 700px;
 $full-width-break: $nav-width + ($space * 4) + $content-max-width;

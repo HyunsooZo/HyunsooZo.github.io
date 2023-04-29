@@ -190,7 +190,7 @@ nav > ul {
 
 .main {
 	overflow-y: auto;
-	padding-top: $space + 60px + $iosGapTop;
+	padding-top: $space + 60px;
 	
 	@media (min-width: $mobile-break) {
 		width: 100%;
