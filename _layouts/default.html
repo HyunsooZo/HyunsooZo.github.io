@@ -22,7 +22,7 @@
 	</head>
 
 	<body>
-		<header>
+		<header class="post-title">
 			<h1>
 				<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/favicon.png" alt="{{ site.title }} logo"></a>
 				{{ site.title }}
@@ -66,13 +66,13 @@
 			</nav>
 		</header>
 		
-		<section class="main">
+		<section class="main post-article">
 			<div class="page-header">
 				<h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
 				<h3>{{ page.title }}</h3>
 			</div>
 			
-			<article class ="content post-article">
+			<article class ="content">
 				{{ content }}
 			</article>
 			
