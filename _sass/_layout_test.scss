@@ -10,16 +10,16 @@
 //     --color-announcement-banner-accent: #ff6d91;
 // }
 
-// .dark {
-// 	@include dark-theme;
-// }
+.dark {
+	@include dark-theme;
+}
 
-// OS Default
-// :root:not(.light):not(.dark) {
-// 	@media (prefers-color-scheme: dark) {
-// 		@include dark-theme;
-// 	}
-// }
+OS Default
+:root:not(.light):not(.dark) {
+	@media (prefers-color-scheme: dark) {
+		@include primer-colors-dark;
+	}
+}
 
 input::-ms-clear,
 input::-ms-reveal {
