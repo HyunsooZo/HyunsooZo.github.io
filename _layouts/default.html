@@ -80,11 +80,15 @@
 					<script>
 						var scrollToTop = document.querySelector(".btn-top");
 
-						scrollToTop.addEventListener("click", function() {
-						window.scrollTo({
+						scrollToTop.addEventListener("click", function(event) {
+						event.preventDefault();
+						var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+						if (scrollTop > 0) {
+							window.scrollTo({
 							top: 0,
 							behavior: "smooth"
-						});
+							});
+						}
 						});
 					  </script>
 				</div>
