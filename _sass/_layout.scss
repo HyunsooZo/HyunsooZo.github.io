@@ -2,9 +2,9 @@
 $nav-header-height: 60px;
 $nav-width: 300px;
 $nav-btn-size: 24px;
+$space: 20px;
 $header-vertical-gap: ($nav-header-height - $nav-btn-size) / 2;
 $header-horizontal-gap: $space;
-$space: 20px;
 $content-max-width: 800px;
 $mobile-break: 700px;
 $full-width-break: $nav-width + ($space * 4) + $content-max-width;
