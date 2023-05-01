@@ -78,13 +78,13 @@
 				<div class="top-button">
 					<a href="#" class="btn-top">TOP</a>
 					<script>
-						var scrollToTop = document.getElementById("btn-top");
-					  
+						var scrollToTop = document.querySelector(".btn-top");
+
 						scrollToTop.addEventListener("click", function() {
-						  window.scrollTo({
+						window.scrollTo({
 							top: 0,
 							behavior: "smooth"
-						  });
+						});
 						});
 					  </script>
 				</div>
