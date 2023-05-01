@@ -78,18 +78,20 @@
 				<div class="top-button">
 					<a href="#" id="btn-top" class="btn-top">TOP</a>
 					<script>
-						var scrollToTop = document.querySelector(".btn-top");
+						window.onload = function() {
+							var scrollToTop = document.querySelector(".btn-top");
 
-						scrollToTop.addEventListener("click", function(event) {
-						event.preventDefault();
-						var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-						if (scrollTop > 0) {
-							window.scrollTo({
-							top: 0,
-							behavior: "smooth"
+							scrollToTop.addEventListener("click", function(event) {
+								event.preventDefault();
+								var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+								if (scrollTop > 0) {
+									window.scrollTo({
+									top: 0,
+									behavior: "smooth"
+									});
+								}
 							});
 						}
-						});
 					  </script>
 				</div>
 			</div>			
