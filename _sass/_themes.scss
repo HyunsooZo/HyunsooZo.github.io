@@ -545,6 +545,23 @@ $theme-dark-code-background-block: $color-neutral-80;
 :root:not(.light):not(.dark) {
   @media (prefers-color-scheme: light) {
     @include light-theme;
+    header{
+      h1 {
+        a{
+          img {
+            filter: invert(0.5);
+          }
+        }
+        .open-nav {
+          filter: invert(1);
+          
+          &:focus,
+          &:hover {
+            filter: opacity(0.5) invert(1);
+          }
+        }
+      }
+    }
   }
 
   @media (prefers-color-scheme: dark) {
