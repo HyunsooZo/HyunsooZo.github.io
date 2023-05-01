@@ -16,17 +16,6 @@
 				window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 				ga('create', '{{ site.google_analytics_key }}', 'auto');
 				ga('send', 'pageview');
-
-				window.addEventListener('DOMContentLoaded', function() {
-					var topButton = document.querySelector('.top-button');
-					topButton.addEventListener('click', function(event) {
-					event.preventDefault();
-					window.scrollTo({
-						top: 0,
-						behavior: 'smooth'
-					});
-					});
-				});
 			</script>
 			<script async src='https://www.google-analytics.com/analytics.js'></script>
 		{% endif %}
