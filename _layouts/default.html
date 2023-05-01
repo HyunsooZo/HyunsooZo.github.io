@@ -173,6 +173,15 @@
 					toc.classList.add("sticky");
 				}
 			});	
+
+			window.onload = function() {
+				var topButton = document.querySelector('.btn-top');
+				topButton.addEventListener('click', function(e) {
+					e.preventDefault(); 
+					window.scrollTo(0, 0);
+				});
+			};
+
 		  </script>
 	</body>
 	
