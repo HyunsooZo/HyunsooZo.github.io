@@ -1,7 +1,7 @@
 ---
 title: Linux(AWS)
 category: Et Cetera
-order: 1
+order: 3
 ---
 
 ### Shell of Linux
