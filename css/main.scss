@@ -10,7 +10,5 @@ $baseurl: "{{ site.baseurl }}";
 @import "mixins";
 @import "normalize";
 @import "pygments";
-// @import "typography";
 @import "code";
-// @import "tables";
 @import "layout";

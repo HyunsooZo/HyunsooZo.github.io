@@ -250,14 +250,14 @@ nav > ul {
 	@include flex-direction(column);
 
 	.example {
+		overflow: hidden;
 		max-width: 300px;
-		background-color: #fafafa;
 		margin: 0;
 		padding: 0;
 		font-size: 0;
 		line-height: 1;
 		border-radius: 2px;
-		overflow: hidden;
+		background-color: #fafafa;
 	}
 
 	@media (min-width: 960px) {
@@ -283,11 +283,6 @@ nav > ul {
 	margin-left: 0;
 	margin-right: 0;
 }
-
-h3 + .warning {
-	margin-top: 1.75em;
-}
-
 
 h4 code {
 	background: var(--background-primary);

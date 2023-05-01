@@ -2,6 +2,10 @@ $color-black: #000;
 $color-white: #fff;
 $color-ads: #00d0aa;
 
+$color-neutral-light-70: #f9f9fb;
+$color-neutral-light-80: #f2f1f1;
+$color-neutral-light-90: #ebeaea;
+
 $color-neutral-10: #e2e2e2;
 $color-neutral-20: #cdcdcd;
 $color-neutral-30: #b3b3b3;
@@ -11,77 +15,148 @@ $color-neutral-60: #696969;
 $color-neutral-70: #4e4e4e;
 $color-neutral-80: #343434;
 $color-neutral-90: #1b1b1b;
-$color-neutral-light-70: #f9f9fb;
-$color-neutral-light-80: #f2f1f1;
-$color-neutral-light-90: #ebeaea;
 
 //
-$color-theme-blue-10: #dce2f2;
-$color-theme-blue-20: #c1cff1;
-$color-theme-blue-30: #8cb4ff;
-$color-theme-blue-40: #5e9eff;
-$color-theme-blue-50: #0085f2; //default
-$color-theme-blue-60: #0069c2;
-$color-theme-blue-70: #004d92;
-$color-theme-blue-80: #003465;
-$color-theme-blue-90: #001b3a;
+$color-light-theme-blue: #0085f2;
+$color-light-theme-green: #009a46;
+$color-light-theme-yellow: #928700;
+$color-light-theme-red: #d30038;
+$color-light-theme-violet: #9b65ff;
+$color-light-theme-pink: #d00058;
 
-$color-theme-green-10: #a9f3ba;
-$color-theme-green-20: #73e693;
-$color-theme-green-30: #00d061;
-$color-theme-green-40: #00b755;
-$color-theme-green-50: #009a46; //default
-$color-theme-green-60: #007936;
-$color-theme-green-70: #005a26;
-$color-theme-green-80: #003d18;
-$color-theme-green-90: #00210a;
+$color-dark-theme-blue: $color-light-theme-blue;
+$color-dark-theme-green: $color-light-theme-green;
+$color-dark-theme-yellow: $color-light-theme-yellow;
+$color-dark-theme-red: $color-light-theme-red;
+$color-dark-theme-violet: $color-light-theme-violet;
+$color-dark-theme-pink: $color-light-theme-pink;
 
-$color-theme-yellow-10: #f0e498;
-$color-theme-yellow-20: #dfd172;
-$color-theme-yellow-30: #c7b700;
-$color-theme-yellow-40: #afa100;
-$color-theme-yellow-50: #938700; //default
-$color-theme-yellow-60: #746a00;
-$color-theme-yellow-70: #564e00;
-$color-theme-yellow-80: #3a3500;
-$color-theme-yellow-90: #1f1c00;
+$color-light-theme-blue-10: #dce2f2;
+$color-light-theme-blue-20: #c1cff1;
+$color-light-theme-blue-30: #8cb4ff;
+$color-light-theme-blue-40: #5e9eff;
+$color-light-theme-blue-50: #0085f2;
+$color-light-theme-blue-60: #0069c2;
+$color-light-theme-blue-70: #004d92;
+$color-light-theme-blue-80: #003465;
+$color-light-theme-blue-90: #001b3a;
 
-$color-theme-violet-10: #e6deff;
-$color-theme-violet-20: #d4c5ff;
-$color-theme-violet-30: #bea5ff;
-$color-theme-violet-40: #ae8aff;
-$color-theme-violet-50: #9b65ff; //default
-$color-theme-violet-60: #872bff;
-$color-theme-violet-70: #6800cf;
-$color-theme-violet-80: #480091;
-$color-theme-violet-90: #280056;
+$color-dark-theme-blue-10: $color-light-theme-blue-10;
+$color-dark-theme-blue-20: $color-light-theme-blue-20;
+$color-dark-theme-blue-30: $color-light-theme-blue-30;
+$color-dark-theme-blue-40: $color-light-theme-blue-40;
+$color-dark-theme-blue-50: $color-light-theme-blue-50;
+$color-dark-theme-blue-60: $color-light-theme-blue-60;
+$color-dark-theme-blue-70: $color-light-theme-blue-70;
+$color-dark-theme-blue-80: $color-light-theme-blue-80;
+$color-dark-theme-blue-90: $color-light-theme-blue-90;
 
-$color-theme-pink-10: #ffd9df;
-$color-theme-pink-20: #ffbbc8;
-$color-theme-pink-30: #ff93aa;
-$color-theme-pink-40: #ff6d91;
-$color-theme-pink-50: #ff1f72;
-$color-theme-pink-60: #d00058; //default
-$color-theme-pink-70: #9e0041;
-$color-theme-pink-80: #6d002b;
-$color-theme-pink-90: #3f0015;
+$color-light-theme-green-10: #a9f3ba;
+$color-light-theme-green-20: #73e693;
+$color-light-theme-green-30: #00d061;
+$color-light-theme-green-40: #00b755;
+$color-light-theme-green-50: #009a46;
+$color-light-theme-green-60: #007936;
+$color-light-theme-green-70: #005a26;
+$color-light-theme-green-80: #003d18;
+$color-light-theme-green-90: #00210a;
 
-$color-theme-red-10: #ffd9dc;
-$color-theme-red-20: #ffc0c4;
-$color-theme-red-30: #ff97a0;
-$color-theme-red-40: #ff707f;
-$color-theme-red-50: #ff2a51;
-$color-theme-red-60: #d30038; //default
-$color-theme-red-70: #9e0027;
-$color-theme-red-80: #6f0019;
-$color-theme-red-90: #40000a;
+$color-dark-theme-green-10: $color-light-theme-green-10;
+$color-dark-theme-green-20: $color-light-theme-green-20;
+$color-dark-theme-green-30: $color-light-theme-green-30;
+$color-dark-theme-green-40: $color-light-theme-green-40;
+$color-dark-theme-green-50: $color-light-theme-green-50;
+$color-dark-theme-green-60: $color-light-theme-green-60;
+$color-dark-theme-green-70: $color-light-theme-green-70;
+$color-dark-theme-green-80: $color-light-theme-green-80;
+$color-dark-theme-green-90: $color-light-theme-green-90;
+
+$color-light-theme-yellow-10: #f0e498;
+$color-light-theme-yellow-20: #dfd172;
+$color-light-theme-yellow-30: #c7b700;
+$color-light-theme-yellow-40: #afa100;
+$color-light-theme-yellow-50: #938700;
+$color-light-theme-yellow-60: #746a00;
+$color-light-theme-yellow-70: #564e00;
+$color-light-theme-yellow-80: #3a3500;
+$color-light-theme-yellow-90: #1f1c00;
+
+$color-dark-theme-yellow-10: $color-light-theme-yellow-10;
+$color-dark-theme-yellow-20: $color-light-theme-yellow-20;
+$color-dark-theme-yellow-30: $color-light-theme-yellow-30;
+$color-dark-theme-yellow-40: $color-light-theme-yellow-40;
+$color-dark-theme-yellow-50: $color-light-theme-yellow-50;
+$color-dark-theme-yellow-60: $color-light-theme-yellow-60;
+$color-dark-theme-yellow-70: $color-light-theme-yellow-70;
+$color-dark-theme-yellow-80: $color-light-theme-yellow-80;
+$color-dark-theme-yellow-90: $color-light-theme-yellow-90;
+
+$color-light-theme-red-10: #ffd9dc;
+$color-light-theme-red-20: #ffc0c4;
+$color-light-theme-red-30: #ff97a0;
+$color-light-theme-red-40: #ff707f;
+$color-light-theme-red-50: #ff2a51;
+$color-light-theme-red-60: #d30038;
+$color-light-theme-red-70: #9e0027;
+$color-light-theme-red-80: #6f0019;
+$color-light-theme-red-90: #40000a;
+
+$color-dark-theme-red-10: $color-light-theme-red-10;
+$color-dark-theme-red-20: $color-light-theme-red-20;
+$color-dark-theme-red-30: $color-light-theme-red-30;
+$color-dark-theme-red-40: $color-light-theme-red-40;
+$color-dark-theme-red-50: $color-light-theme-red-50;
+$color-dark-theme-red-60: $color-light-theme-red-60;
+$color-dark-theme-red-70: $color-light-theme-red-70;
+$color-dark-theme-red-80: $color-light-theme-red-80;
+$color-dark-theme-red-90: $color-light-theme-red-90;
+
+$color-light-theme-violet-10: #e6deff;
+$color-light-theme-violet-20: #d4c5ff;
+$color-light-theme-violet-30: #bea5ff;
+$color-light-theme-violet-40: #ae8aff;
+$color-light-theme-violet-50: #9b65ff;
+$color-light-theme-violet-60: #872bff;
+$color-light-theme-violet-70: #6800cf;
+$color-light-theme-violet-80: #480091;
+$color-light-theme-violet-90: #280056;
+
+$color-dark-theme-violet-10: $color-light-theme-violet-10;
+$color-dark-theme-violet-20: $color-light-theme-violet-20;
+$color-dark-theme-violet-30: $color-light-theme-violet-30;
+$color-dark-theme-violet-40: $color-light-theme-violet-40;
+$color-dark-theme-violet-50: $color-light-theme-violet-50;
+$color-dark-theme-violet-60: $color-light-theme-violet-60;
+$color-dark-theme-violet-70: $color-light-theme-violet-70;
+$color-dark-theme-violet-80: $color-light-theme-violet-80;
+$color-dark-theme-violet-90: $color-light-theme-violet-90;
+
+$color-light-theme-pink-10: #ffd9df;
+$color-light-theme-pink-20: #ffbbc8;
+$color-light-theme-pink-30: #ff93aa;
+$color-light-theme-pink-40: #ff6d91;
+$color-light-theme-pink-50: #ff1f72;
+$color-light-theme-pink-60: #d00058;
+$color-light-theme-pink-70: #9e0041;
+$color-light-theme-pink-80: #6d002b;
+$color-light-theme-pink-90: #3f0015;
+
+$color-dark-theme-pink-10: $color-light-theme-pink-10;
+$color-dark-theme-pink-20: $color-light-theme-pink-20;
+$color-dark-theme-pink-30: $color-light-theme-pink-30;
+$color-dark-theme-pink-40: $color-light-theme-pink-40;
+$color-dark-theme-pink-50: $color-light-theme-pink-50;
+$color-dark-theme-pink-60: $color-light-theme-pink-60;
+$color-dark-theme-pink-70: $color-light-theme-pink-70;
+$color-dark-theme-pink-80: $color-light-theme-pink-80;
+$color-dark-theme-pink-90: $color-light-theme-pink-90;
 
 //theme-light
 $theme-light-text-primary: $color-neutral-90;
 $theme-light-text-secondary: $color-neutral-70;
 $theme-light-text-tertiary: $color-neutral-50;
 $theme-light-text-inactive: #{$color-neutral-40}a6;
-$theme-light-text-link: $color-theme-blue-60;
+$theme-light-text-link: $color-light-theme-blue-60;
 $theme-light-text-invert: $color-white;
 $theme-light-background-primary: $color-white;
 $theme-light-background-secondary: $color-neutral-light-70;
@@ -89,7 +164,7 @@ $theme-light-background-tertiary: $color-white;
 $theme-light-background-toc-active: $color-neutral-light-90;
 $theme-light-border-primary: $color-neutral-20;
 $theme-light-border-secondary: $color-neutral-20;
-$theme-light-border-success: $color-theme-green-20;
+$theme-light-border-success: $color-light-theme-green-20;
 $theme-light-button-primary-default: $color-neutral-90;
 $theme-light-button-primary-hover: $color-neutral-60;
 $theme-light-button-primary-active: $color-neutral-40;
@@ -98,29 +173,29 @@ $theme-light-button-secondary-default: $color-white;
 $theme-light-button-secondary-hover: $color-neutral-20;
 $theme-light-button-secondary-active: $color-neutral-20;
 $theme-light-button-secondary-inactive: $color-neutral-light-70;
-$theme-light-button-secondary-border-focus: $color-theme-blue-50;
-$theme-light-button-secondary-border-red: $color-theme-red-30;
-$theme-light-button-secondary-border-red-focus: $color-theme-red-10;
+$theme-light-button-secondary-border-focus: $color-light-theme-blue-50;
+$theme-light-button-secondary-border-red: $color-light-theme-red-30;
+$theme-light-button-secondary-border-red-focus: $color-light-theme-red-10;
 $theme-light-icon-primary: $color-neutral-60;
 $theme-light-icon-secondary: $color-neutral-30;
-$theme-light-icon-information: $color-theme-blue-50;
-$theme-light-icon-warning: $color-theme-red-50;
-$theme-light-icon-critical: $color-theme-red-60;
-$theme-light-icon-success: $color-theme-green-60;
-$theme-light-accent-primary: $color-theme-blue-50;
-$theme-light-accent-secondary: $color-theme-blue-50;
-$theme-light-field-focus-border: $color-theme-blue-50;
+$theme-light-icon-information: $color-light-theme-blue-50;
+$theme-light-icon-warning: $color-light-theme-red-50;
+$theme-light-icon-critical: $color-light-theme-red-60;
+$theme-light-icon-success: $color-light-theme-green-60;
+$theme-light-accent-primary: $color-light-theme-blue-50;
+$theme-light-accent-secondary: $color-light-theme-blue-50;
+$theme-light-field-focus-border: $color-light-theme-blue-50;
 $theme-light-focus-01: 0 0 0 3px rgba(0, 144, 237, 0.4);
 $theme-light-shadow-01: 0 1px 2px rgba(43, 42, 51, 0.05);
 $theme-light-shadow-02: 0 1px 6px rgba(43, 42, 51, 0.1);
 
-$theme-light-code-token-tag: $color-theme-blue-60;
+$theme-light-code-token-tag: $color-light-theme-blue-60;
 $theme-light-code-token-punctuation: $color-neutral-50;
-$theme-light-code-token-attribute-name: $color-theme-red-60;
-$theme-light-code-token-attribute-value: $color-theme-green-60;
+$theme-light-code-token-attribute-name: $color-light-theme-red-60;
+$theme-light-code-token-attribute-value: $color-light-theme-green-60;
 $theme-light-code-token-comment: $color-neutral-50;
 $theme-light-code-token-default: $color-neutral-90;
-$theme-light-code-token-selector: $color-theme-violet-60;
+$theme-light-code-token-selector: $color-light-theme-violet-60;
 $theme-light-code-background-inline: $color-neutral-light-80;
 $theme-light-code-background-block: $color-neutral-light-80;
 
@@ -181,8 +256,8 @@ $theme-dark-code-background-block: $color-neutral-80;
   --background-secondary: #{$theme-light-background-secondary};
   --background-tertiary: #{$theme-light-background-tertiary};
   --background-toc-active: #{$theme-light-background-toc-active};
-  --background-mark-yellow: #{rgba($color-theme-yellow-30, 0.6)};
-  --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
+  --background-mark-yellow: #{rgba($color-light-theme-yellow-30, 0.6)};
+  --background-mark-green: #{rgba($color-light-theme-green-30, 0.6)};
   --background-information: #{rgba($theme-light-icon-information, 0.9)};
   --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
   --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
@@ -213,8 +288,9 @@ $theme-dark-code-background-block: $color-neutral-80;
 
   --accent-primary: #{$theme-light-accent-primary};
   --accent-primary-engage: #{rgba($theme-light-accent-primary, 0.9)};
+
   --accent-secondary: #{$theme-light-accent-secondary};
-  --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
+  --accent-tertiary: #{rgba($color-light-theme-blue-50, 0.9)};
 
   --shadow-01: #{$theme-light-shadow-01};
   --shadow-02: #{$theme-light-shadow-02};
@@ -234,76 +310,76 @@ $theme-dark-code-background-block: $color-neutral-80;
   --notecard-link-color: #{$color-neutral-80};
 
   --scrollbar-bg: transparent;
-  --scrollbar-color: #{rgba($color-black, 0.25);
+  --scrollbar-color: rgba(0, 0, 0, 0.25);
 
-  --category-color: #{$color-theme-blue-50};
-  --category-color-background: #{$color-theme-blue-50}10;
-  --code-color: #{$color-theme-blue-40};
-  --mark-color: #{$color-theme-blue-10};
+  --category-color: #{$color-light-theme-blue-50};
+  --category-color-background: #{$color-light-theme-blue-50}10;
+  --code-color: #{$color-light-theme-blue-40};
+  --mark-color: #{$color-light-theme-blue-10};
 
   --plus-accent-color: #{$color-dark-theme-red-60};
-  --html-accent-color: #{$color-theme-red-60};
-  --css-accent-color: #{$color-theme-blue-60};
-  --js-accent-color: #{$color-theme-yellow-40};
-  --http-accent-color: #{$color-theme-green-60};
-  --apis-accent-color: #{$color-theme-violet-60};
-  --learn-accent-color: #{$color-theme-pink-60};
+  --html-accent-color: #{$color-light-theme-red-60};
+  --css-accent-color: #{$color-light-theme-blue-60};
+  --js-accent-color: #{$color-light-theme-yellow-40};
+  --http-accent-color: #{$color-light-theme-green-60};
+  --apis-accent-color: #{$color-light-theme-violet-60};
+  --learn-accent-color: #{$color-light-theme-pink-60};
 
-  --plus-code-color: #{$color-theme-blue-60};
-  --html-code-color: #{$color-theme-red-70};
-  --css-code-color: #{$color-theme-blue-60};
-  --js-code-color: #{$color-theme-yellow-60};
-  --http-code-color: #{$color-theme-green-60};
-  --apis-code-color: #{$color-theme-violet-60};
-  --learn-code-color: #{$color-theme-pink-60};
+  --plus-code-color: #{$color-light-theme-blue-60};
+  --html-code-color: #{$color-light-theme-red-70};
+  --css-code-color: #{$color-light-theme-blue-60};
+  --js-code-color: #{$color-light-theme-yellow-60};
+  --http-code-color: #{$color-light-theme-green-60};
+  --apis-code-color: #{$color-light-theme-violet-60};
+  --learn-code-color: #{$color-light-theme-pink-60};
 
-  --plus-mark-color: #{$color-theme-red-10};
-  --html-mark-color: #{$color-theme-red-10};
-  --css-mark-color: #{$color-theme-blue-10};
-  --js-mark-color: #{$color-theme-yellow-10};
-  --http-mark-color: #{$color-theme-green-10};
-  --apis-mark-color: #{$color-theme-violet-10};
-  --learn-mark-color: #{$color-theme-pink-10};
+  --plus-mark-color: #{$color-light-theme-red-10};
+  --html-mark-color: #{$color-light-theme-red-10};
+  --css-mark-color: #{$color-light-theme-blue-10};
+  --js-mark-color: #{$color-light-theme-yellow-10};
+  --http-mark-color: #{$color-light-theme-green-10};
+  --apis-mark-color: #{$color-light-theme-violet-10};
+  --learn-mark-color: #{$color-light-theme-pink-10};
 
-  --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
-  --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
-  --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
-  --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
-  --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
+  --plus-accent-background-color: #{$color-light-theme-red-50}30;
+  --html-accent-background-color: #{$color-light-theme-red-50}30;
+  --css-accent-background-color: #{$color-light-theme-blue-50}30;
+  --js-accent-background-color: #{$color-light-theme-yellow-50}30;
+  --http-accent-background-color: #{$color-light-theme-green-50}30;
+  --apis-accent-background-color: #{$color-light-theme-violet-50}30;
+  --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
-  --plus-accent-engage: #{rgba($color-theme-red-50, 0.3)};
-  --html-accent-engage: #{rgba($color-theme-red-50, 0.3)};
-  --css-accent-engage: #{rgba($color-theme-blue-50, 0.3)};
-  --js-accent-engage: #{rgba($color-theme-yellow-50, 0.3)};
-  --http-accent-engage: #{rgba($color-theme-green-50, 0.3)};
-  --apis-accent-engage: #{rgba($color-theme-violet-50, 0.3)};
-  --learn-accent-engage: #{rgba($color-theme-pink-50, 0.3)};
+  --plus-accent-engage: #{rgba($color-light-theme-red-50, 0.3)};
+  --html-accent-engage: #{rgba($color-light-theme-red-50, 0.3)};
+  --css-accent-engage: #{rgba($color-light-theme-blue-50, 0.3)};
+  --js-accent-engage: #{rgba($color-light-theme-yellow-50, 0.3)};
+  --http-accent-engage: #{rgba($color-light-theme-green-50, 0.3)};
+  --apis-accent-engage: #{rgba($color-light-theme-violet-50, 0.3)};
+  --learn-accent-engage: #{rgba($color-light-theme-pink-50, 0.3)};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.1)};
   --blend-color: #{rgba($color-white, 0.8)};
 
-  --text-primary-red: #{$color-theme-red-60};
-  --text-primary-green: #{$color-theme-green-60};
-  --text-primary-blue: #{$color-theme-blue-60};
-  --text-primary-yellow: #{$color-theme-yellow-60};
+  --text-primary-red: #{$color-light-theme-red-60};
+  --text-primary-green: #{$color-light-theme-green-60};
+  --text-primary-blue: #{$color-light-theme-blue-60};
+  --text-primary-yellow: #{$color-light-theme-yellow-60};
 
-  --collections-link: #{$color-theme-red-70};
-  --collections-header: #{$color-theme-red-10};
-  --collections-mandala: #{$color-theme-red-30};
-  --collections-icon: #{$color-theme-red-50};
+  --collections-link: #{$color-light-theme-red-70};
+  --collections-header: #{$color-light-theme-red-10};
+  --collections-mandala: #{$color-light-theme-red-30};
+  --collections-icon: #{$color-light-theme-red-50};
 
-  --updates-link: #{$color-theme-blue-60};
+  --updates-link: #{$color-light-theme-blue-60};
   --updates-header: #{$color-neutral-light-70};
-  --updates-mandala: #{$color-theme-blue-30};
-  --updates-icon: #{$color-theme-blue-50};
+  --updates-mandala: #{$color-light-theme-blue-30};
+  --updates-icon: #{$color-light-theme-blue-50};
 
   --form-limit-color: #{$color-neutral-60};
   --form-limit-color-emphasis: #{$color-neutral-70};
-  --form-invalid-color: #{$color-theme-red-60};
-  --form-invalid-focus-color: #{$color-theme-red-50};
-  --form-invalid-focus-effect-color: #{rgba($color-theme-red-50, 0.2)};
+  --form-invalid-color: #{$color-light-theme-red-60};
+  --form-invalid-focus-color: #{$color-light-theme-red-50};
+  --form-invalid-focus-effect-color: #{rgba($color-light-theme-red-50, 0.2)};
 
   color-scheme: light;
 }
@@ -321,7 +397,7 @@ $theme-dark-code-background-block: $color-neutral-80;
   --background-tertiary: #{$theme-dark-background-tertiary};
   --background-toc-active: #{$theme-dark-background-toc-active};
   --background-mark-yellow: #{rgba($color-dark-theme-yellow-30, 0.6)};
-  --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
+  --background-mark-green: #{rgba($color-light-theme-green-30, 0.6)};
   --background-information: #{rgba($theme-light-icon-information, 0.9)};
   --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
   --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
@@ -353,7 +429,7 @@ $theme-dark-code-background-block: $color-neutral-80;
   --accent-primary: #{$theme-dark-accent-primary};
   --accent-primary-engage: #{rgba($theme-dark-accent-primary, 0.9)};
   --accent-secondary: #{$theme-dark-accent-secondary};
-  --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
+  --accent-tertiary: #{rgba($color-light-theme-blue-50, 0.9)};
 
   --shadow-01: #{$theme-dark-shadow-01};
   --shadow-02: #{$theme-dark-shadow-02};
@@ -373,7 +449,7 @@ $theme-dark-code-background-block: $color-neutral-80;
   --notecard-link-color: #{$color-neutral-10};
 
   --scrollbar-bg: transparent;
-  --scrollbar-color: #{rgba($color-white, 0.25)};
+  --scrollbar-color: rgba(255, 255, 255, 0.25);
 
   --category-color: #{$color-dark-theme-blue-30};
   --category-color-background: #{$color-dark-theme-blue-30}70;
@@ -404,13 +480,13 @@ $theme-dark-code-background-block: $color-neutral-80;
   --apis-mark-color: #{$color-dark-theme-violet-70};
   --learn-mark-color: #{$color-dark-theme-pink-70};
 
-  --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
-  --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
-  --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
-  --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
-  --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
+  --plus-accent-background-color: #{$color-light-theme-red-50}30;
+  --html-accent-background-color: #{$color-light-theme-red-50}30;
+  --css-accent-background-color: #{$color-light-theme-blue-50}30;
+  --js-accent-background-color: #{$color-light-theme-yellow-50}30;
+  --http-accent-background-color: #{$color-light-theme-green-50}30;
+  --apis-accent-background-color: #{$color-light-theme-violet-50}30;
+  --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
   --plus-accent-engage: #{rgba($color-dark-theme-red-40, 0.3)};
   --html-accent-engage: #{rgba($color-dark-theme-red-40, 0.3)};
@@ -440,9 +516,9 @@ $theme-dark-code-background-block: $color-neutral-80;
 
   --form-limit-color: #{$color-neutral-40};
   --form-limit-color-emphasis: #{$color-neutral-30};
-  --form-invalid-color: #{$color-theme-red-30};
-  --form-invalid-focus-color: #{$color-theme-red-40};
-  --form-invalid-focus-effect-color: #{rgba($color-theme-red-40, 0.2)};
+  --form-invalid-color: #{$color-light-theme-red-30};
+  --form-invalid-focus-color: #{$color-light-theme-red-40};
+  --form-invalid-focus-effect-color: #{rgba($color-light-theme-red-40, 0.2)};
 
   color-scheme: dark;
 }
