@@ -1,3 +1,7 @@
+$color-black: #000;
+$color-white: #fff;
+$color-ads: #00d0aa;
+
 $color-neutral-light-70: #f9f9fb;
 $color-neutral-light-80: #f2f1f1;
 $color-neutral-light-90: #ebeaea;
@@ -146,10 +150,6 @@ $color-dark-theme-pink-70: $color-light-theme-pink-70;
 $color-dark-theme-pink-80: $color-light-theme-pink-80;
 $color-dark-theme-pink-90: $color-light-theme-pink-90;
 
-$color-black: #000;
-$color-white: #fff;
-$color-ads: #00d0aa;
-
 $theme-light-text-primary: $color-neutral-90;
 $theme-light-text-secondary: $color-neutral-70;
 $theme-light-text-tertiary: $color-neutral-50;
@@ -253,30 +253,12 @@ $theme-dark-code-background-block: $color-neutral-80;
   --background-secondary: #{$theme-light-background-secondary};
   --background-tertiary: #{$theme-light-background-tertiary};
   --background-toc-active: #{$theme-light-background-toc-active};
-  // --background-mark-yellow: #{color.adjust(
-  //     $color-light-theme-yellow-30,
-  //     $alpha: -0.6
-  //   )};
-  // --background-mark-green: #{color.adjust(
-  //     $color-light-theme-green-30,
-  //     $alpha: -0.6
-  //   )};
-  // --background-information: #{color.adjust(
-  //     $theme-light-icon-information,
-  //     $alpha: -0.9
-  //   )};
-  // --background-warning: #{color.adjust(
-  //     $theme-light-icon-warning,
-  //     $alpha: -0.9
-  //   )};
-  // --background-critical: #{color.adjust(
-  //     $theme-light-icon-critical,
-  //     $alpha: -0.9
-  //   )};
-  // --background-success: #{color.adjust(
-  //     $theme-light-icon-success,
-  //     $alpha: -0.9
-  //   )};
+  --background-mark-yellow: #{rgba($color-light-theme-yellow-30, 0.6)};
+  --background-mark-green: #{rgba($color-light-theme-green-30, 0.6)};
+  --background-information: #{rgba($theme-light-icon-information, 0.9)};
+  --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
+  --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
+  --background-success: #{rgba($theme-light-icon-success, 0.9)};
 
   --border-primary: #{$theme-light-border-primary};
   --border-secondary: #{$theme-light-border-secondary};
@@ -302,16 +284,10 @@ $theme-dark-code-background-block: $color-neutral-80;
   --icon-success: #{$theme-light-icon-success};
 
   --accent-primary: #{$theme-light-accent-primary};
-  // --accent-primary-engage: #{color.adjust(
-  //     $theme-light-accent-primary,
-  //     $alpha: -0.9
-  //   )};
+  --accent-primary-engage: #{rgba($theme-light-accent-primary, 0.9)};
 
   --accent-secondary: #{$theme-light-accent-secondary};
-  // --accent-tertiary: #{color.adjust(
-  //     $color-light-theme-blue-50,
-  //     $alpha: -0.9
-  //   )};
+  --accent-tertiary: #{rgba($color-light-theme-blue-50, 0.9)};
 
   --shadow-01: #{$theme-light-shadow-01};
   --shadow-02: #{$theme-light-shadow-02};
@@ -370,37 +346,16 @@ $theme-dark-code-background-block: $color-neutral-80;
   --apis-accent-background-color: #{$color-light-theme-violet-50}30;
   --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
-  // --plus-accent-engage: #{color.adjust(
-  //     $color-light-theme-red-50,
-  //     $alpha: -0.3
-  //   )};
-  // --html-accent-engage: #{color.adjust(
-  //     $color-light-theme-red-50,
-  //     $alpha: -0.3
-  //   )};
-  // --css-accent-engage: #{color.adjust(
-  //     $color-light-theme-blue-50,
-  //     $alpha: -0.3
-  //   )};
-  // --js-accent-engage: #{color.adjust(
-  //     $color-light-theme-yellow-50,
-  //     $alpha: -0.3
-  //   )};
-  // --http-accent-engage: #{color.adjust(
-  //     $color-light-theme-green-50,
-  //     $alpha: -0.3
-  //   )};
-  // --apis-accent-engage: #{color.adjust(
-  //     $color-light-theme-violet-50,
-  //     $alpha: -0.3
-  //   )};
-  // --learn-accent-engage: #{color.adjust(
-  //     $color-light-theme-pink-50,
-  //     $alpha: -0.3
-  //   )};
+  --plus-accent-engage: #{rgba($color-light-theme-red-50, 0.3)};
+  --html-accent-engage: #{rgba($color-light-theme-red-50, 0.3)};
+  --css-accent-engage: #{rgba($color-light-theme-blue-50, 0.3)};
+  --js-accent-engage: #{rgba($color-light-theme-yellow-50, 0.3)};
+  --http-accent-engage: #{rgba($color-light-theme-green-50, 0.3)};
+  --apis-accent-engage: #{rgba($color-light-theme-violet-50, 0.3)};
+  --learn-accent-engage: #{rgba($color-light-theme-pink-50, 0.3)};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.1)};
-  --blend-color: #{$color-white}80;
+  --blend-color: #{rgba($color-white, 0.8)};
 
   --text-primary-red: #{$color-light-theme-red-60};
   --text-primary-green: #{$color-light-theme-green-60};
@@ -439,26 +394,11 @@ $theme-dark-code-background-block: $color-neutral-80;
   --background-tertiary: #{$theme-dark-background-tertiary};
   --background-toc-active: #{$theme-dark-background-toc-active};
   --background-mark-yellow: #{rgba($color-dark-theme-yellow-30, 0.6)};
-  // --background-mark-green: #{color.adjust(
-  //     $color-light-theme-green-30,
-  //     $alpha: -0.6
-  //   )};
-  // --background-information: #{color.adjust(
-  //     $theme-light-icon-information,
-  //     $alpha: -0.9
-  //   )};
-  // --background-warning: #{color.adjust(
-  //     $theme-light-icon-warning,
-  //     $alpha: -0.9
-  //   )};
-  // --background-critical: #{color.adjust(
-  //     $theme-light-icon-critical,
-  //     $alpha: -0.9
-  //   )};
-  // --background-success: #{color.adjust(
-  //     $theme-light-icon-success,
-  //     $alpha: -0.9
-  //   )};
+  --background-mark-green: #{rgba($color-light-theme-green-30, 0.6)};
+  --background-information: #{rgba($theme-light-icon-information, 0.9)};
+  --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
+  --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
+  --background-success: #{rgba($theme-light-icon-success, 0.9)};
 
   --border-primary: #{$theme-dark-border-primary};
   --border-secondary: #{$theme-dark-border-secondary};
@@ -483,16 +423,10 @@ $theme-dark-code-background-block: $color-neutral-80;
   --icon-critical: #{$theme-dark-icon-critical};
   --icon-success: #{$theme-dark-icon-success};
 
-  // --accent-primary: #{$theme-dark-accent-primary};
-  // --accent-primary-engage: #{color.adjust(
-  //     $theme-dark-accent-primary,
-  //     $alpha: -0.9
-  //   )};
-  // --accent-secondary: #{$theme-dark-accent-secondary};
-  // --accent-tertiary: #{color.adjust(
-  //     $color-light-theme-blue-50,
-  //     $alpha: -0.9
-  //   )};
+  --accent-primary: #{$theme-dark-accent-primary};
+  --accent-primary-engage: #{rgba($theme-dark-accent-primary, 0.9)};
+  --accent-secondary: #{$theme-dark-accent-secondary};
+  --accent-tertiary: #{rgba($color-light-theme-blue-50, 0.9)};
 
   --shadow-01: #{$theme-dark-shadow-01};
   --shadow-02: #{$theme-dark-shadow-02};
@@ -551,34 +485,13 @@ $theme-dark-code-background-block: $color-neutral-80;
   --apis-accent-background-color: #{$color-light-theme-violet-50}30;
   --learn-accent-background-color: #{$color-light-theme-pink-50}30;
 
-  // --plus-accent-engage: #{color.adjust(
-  //     $color-dark-theme-red-40,
-  //     $alpha: -0.3
-  //   )};
-  // --html-accent-engage: #{color.adjust(
-  //     $color-dark-theme-red-40,
-  //     $alpha: -0.3
-  //   )};
-  // --css-accent-engage: #{color.adjust(
-  //     $color-dark-theme-blue-30,
-  //     $alpha: -0.3
-  //   )};
-  // --js-accent-engage: #{color.adjust(
-  //     $color-dark-theme-yellow-40,
-  //     $alpha: -0.3
-  //   )};
-  // --http-accent-engage: #{color.adjust(
-  //     $color-dark-theme-green-40,
-  //     $alpha: -0.3
-  //   )};
-  // --apis-accent-engage: #{color.adjust(
-  //     $color-dark-theme-violet-40,
-  //     $alpha: -0.3
-  //   )};
-  // --learn-accent-engage: #{color.adjust(
-  //     $color-dark-theme-pink-40,
-  //     $alpha: -0.3
-  //   )};
+  --plus-accent-engage: #{rgba($color-dark-theme-red-40, 0.3)};
+  --html-accent-engage: #{rgba($color-dark-theme-red-40, 0.3)};
+  --css-accent-engage: #{rgba($color-dark-theme-blue-30, 0.3)};
+  --js-accent-engage: #{rgba($color-dark-theme-yellow-40,0.3)};
+  --http-accent-engage: #{rgba($color-dark-theme-green-40, 0.3)};
+  --apis-accent-engage: #{rgba($color-dark-theme-violet-40, 0.3)};
+  --learn-accent-engage: #{rgba($color-dark-theme-pink-40, 0.3)};
 
   --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.7)};
   --blend-color: #{rgba($color-black, 0.8)};
@@ -607,24 +520,24 @@ $theme-dark-code-background-block: $color-neutral-80;
   color-scheme: dark;
 }
 
-body,
-:root {
-  --color-white: #{$color-white};
-  --color-black: #{$color-black};
-  --color-ads: #{$color-ads};
-  --color-background-highlight: #{$color-light-theme-yellow-10};
-  --color-dark-grey: #{$color-neutral-70};
-  --background-dark: #{$theme-dark-background-primary};
-  --background-light: #{$theme-light-background-primary};
-  --background-light-grey: #{$color-neutral-10};
-  --color-announcement-banner-accent: #{$color-light-theme-pink-40};
-}
+// body,
+// :root {
+//   --color-white: #{$color-white};
+//   --color-black: #{$color-black};
+//   --color-ads: #{$color-ads};
+//   --color-background-highlight: #{$color-light-theme-yellow-10};
+//   --color-dark-grey: #{$color-neutral-70};
+//   --background-dark: #{$theme-dark-background-primary};
+//   --background-light: #{$theme-light-background-primary};
+//   --background-light-grey: #{$color-neutral-10};
+//   --color-announcement-banner-accent: #{$color-light-theme-pink-40};
+// }
 
-.light {
+[data-light-theme=light] {
   @include light-theme;
 }
 
-.dark {
+[data-dark-theme=dark] {
   @include dark-theme;
 }
 

@@ -1,24 +1,23 @@
-pre, code, tt {
+pre, code, tt, kbd, samp {
 	font-family: Inconsolata, Consolas, Courier, "Courier New", "Liberation Mono", monospace;
-	font-size: 0.85em;
-	white-space: pre-wrap;
-	border-radius: 2px;
 	line-height: 1.4;
 	font-weight: 400;
+	font-size: 1.2rem;
+	color: var(--text-primary);
+	border-radius: 0.3rem;
 	background-color: #404145;
-	color: #FAFAFA;
-	border-radius: 2px;
+    color: #fafafa;
+	// background: var(--code-background-block);
+    // border: 1px solid var(--border-primary);
+	white-space: pre-wrap;
 }
 
 pre {
-	box-sizing: border-box;
-	margin: 0 0 1.75em 0;
-	width: 100%;
-	padding: 10px;
-	font-size: 0.9em;
-	white-space: pre;
 	overflow: auto;
-	border-radius: 3px;
+	margin: 0;
+	width: 100%;
+	padding: 1rem;
+	white-space: pre;
 
 	code, tt {
 		font-size: inherit;
@@ -32,6 +31,6 @@ pre {
 blockquote > code,
 li > code,
 p > code {
-	padding: 4px 6px;
+	padding: 0.4rem 0.6rem;
 	white-space: nowrap;
 }

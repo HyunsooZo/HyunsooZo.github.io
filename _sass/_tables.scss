@@ -1,8 +1,4 @@
 table {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
-	table-layout: fixed;
 	border-top: 1px solid var(--border-secondary);
 }
 
@@ -18,8 +14,8 @@ tr:nth-child(even) {
 	background: var(--background-secondary);
 }
 
-td, th {
-	padding: 8px;
+th, td {
+	padding: 0.8rem;
 	text-align: left;
 	word-break: break-all;
 }
