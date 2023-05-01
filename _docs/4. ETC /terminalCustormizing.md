@@ -8,7 +8,6 @@ order: 1
 Here are some commonly used terminal commands on MacOs.<br>
 actually there are many other utilities and commands available as well..
 
-
 |Command|Description|
 |-------|-----------|
 |ls| Lists the files and directories in the current directory|
