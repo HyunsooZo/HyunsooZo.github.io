@@ -5,10 +5,9 @@ toc: false
 ### TIL (Today I Learned) blog where I record what I learned each day
 
 <div>
-  <img src="https://i.imgur.com/tpr5jcv.png" width="170" height="220" style="float:left; margin-right:10px;" />
-  <p>
   <table>
   <tr>
+    <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="220" height="200" /></td>
     <th colspan="2">Hyunsoo Zo</th>
   </tr>
   <tr>
@@ -34,13 +33,14 @@ toc: false
     <td><b>Contact</b></td>
     <td><img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" width="19" height="19" style="float:left; margin-right:10px;" /> <a href= https://github.com/HyunsooZo> Git hub</a><br>
     <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width="19" height="19" style="float:left; margin-right:10px;" />
-    LinkedIn</td>
+    <a href=#>
+    LinkedIn</a></td>
   </tr>
 </table>
-https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg
   </p>
 </div>
 
 
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
+
 
