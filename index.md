@@ -72,13 +72,17 @@ toc: false
             <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" />
             <a href="#">LinkedIn</a>
           </p>
+            <p>
+            <img src="https://em-content.zobj.net/thumbs/240/twitter/348/envelope_2709-fe0f.png" />
+            bzhs1992@icloud.com
+          </p>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-this is a blog where I record what I learned each day 
+* This is a blog where I record what I learned each day 
 
 
 
