@@ -179,16 +179,16 @@ Deque<String> deque = new LinkedList<>();
 
 **Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
 
-**Hash-Collision** : HashTable의 같은 공간에 서로다른 값을 저장하여 하는 경우를 말함. 해결방법으로는 OpenAddressing / Chaining 이 있음. 
+**Hash-Collision** : HashTable의 같은 공간에 서로다른 값을 저장하여 하는 경우를 말함. 해결방법으로는 개방주소법(Oepn Addressing)/분리연결법 (Separate Chaining) 이 있음. 
 
-|**Open Addressing**|How it works|remark|
+|**개방주소법**|특징|기타|
 |--|--|--|
 |선형탐사법|빈 공간을 순차적으로 탐사| 일차군집화 발생||
 |제곱탐사법|빈 공간을 n제곱만큼 간격을 두고 탐사| 이차군집화 발생||
 |이중해싱|해싱함수를 이중으로 사용|선형/제곱탐사에 비해 골고루 분포됨|
 
 
-|**Chaining**|How it works|remark|
+|**분리연결법**|특징|기타|
 |--|--|--
 |분리연결법|HashTable을 연결리스트로 구현, 충동 시 같은위치에 연결리스트 내 저장|-|
 
