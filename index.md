@@ -5,13 +5,13 @@ toc: false
 ### TIL (Today I Learned) blog where I record what I learned each day
 
 <div>
-<style>
+  <table>
+  <style>
   .tdtd {
     width: 20%;
 }
-
 </style>
-  <table>
+
   <tr>
     <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="240" height="240" /></td>
     <th colspan="1">Hyunsoo Zo</th>
