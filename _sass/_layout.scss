@@ -521,6 +521,9 @@ table {
 	&._type__01 {
 		.img_hyunsoo {
 			padding-right: 1.5rem;
+			img {
+				max-width: 180px;
+			}
 		}
 		td p {
 			display: flex;
