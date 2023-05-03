@@ -7,8 +7,8 @@ toc: false
 <div>
   <table class="_type__01">
     <colgroup>
-      <col />
-      <col style="width:20%" />
+      <col style="width:30%;" />
+      <col style="width:20%;" />
       <col />
     </colgroup>
     <tbody>
@@ -68,11 +68,11 @@ toc: false
         <td>
           <p>
             <img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" />
-            <a href= https://github.com/HyunsooZo>Git hub</a>
+            <a href="https://github.com/HyunsooZo">Git hub</a>
           </p>
           <p>
             <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" />
-            <a href=#>LinkedIn</a>
+            <a href="#">LinkedIn</a>
           </p>
         </td>
       </tr>
