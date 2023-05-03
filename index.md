@@ -85,7 +85,8 @@ toc: false
 <div style="text-align:center">This is a blog where I record what I learned each day
 </div>
 
----   
+<br>
+
 
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
 
