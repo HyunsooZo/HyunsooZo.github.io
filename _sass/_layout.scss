@@ -524,15 +524,23 @@ table {
 		}
 		td p {
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			img {
 				height: 1.5rem;
+				margin-top: 0.2rem;
 			}
+			span {
+				margin-left: 0.6rem;
+				line-height: 1.8rem;
+			}
+		}
+		td p + p {
+			margin-top: 0.4rem;
 		}
 	}
 }
 
 table + table {
-	margin-top: 1.75em;
+	margin-top: 2rem;
 }
 
