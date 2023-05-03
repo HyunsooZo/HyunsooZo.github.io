@@ -2,8 +2,6 @@
 title: About
 toc: false
 ---
-### TIL (Today I Learned) blog where I record what I learned each day
-
 <div>
   <table class="_type__01">
     <colgroup>
@@ -32,7 +30,7 @@ toc: false
             <span>Bachelor's degree in International Trade</span>
           </p>
           <p>
-            <img src="https://em-content.zobj.net/thumbs/240/openmoji/338/desktop-computer_1f5a5-fe0f.png" />
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/tent_26fa.png" />
             <span>ZeroBase BootCamp(BackEnd course)</span>
           </p>
         </td>
@@ -41,7 +39,7 @@ toc: false
         <th>Primary Language</th>
         <td>
           <p>
-            <img src="https://em-content.zobj.net/thumbs/240/facebook/355/keyboard_2328-fe0f.png" />
+            <img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" />
             <span>Java , Spring(Boot)</span>
           </p>
         </td>
@@ -50,16 +48,16 @@ toc: false
         <th>Interests</th>
         <td>
           <p>
-            <img src="https://em-content.zobj.net/thumbs/240/apple/354/laptop_1f4bb.png" />
-            <span>Web development</span>
+            <img src="https://em-content.zobj.net/thumbs/240/microsoft/319/globe-with-meridians_1f310.png" />
+            <span>Web Application,Server</span>
           </p>
           <p>
-            <img src="https://em-content.zobj.net/thumbs/240/emojidex/112/chart-with-upwards-trend_1f4c8.png" />
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/high-voltage_26a1.png" />
             <span>Performance optimization</span>
           </p>
           <p>
             <img src="https://em-content.zobj.net/thumbs/240/apple/354/person-lifting-weights_1f3cb-fe0f.png" />
-            <span>Weigth Lifting</span>
+            <span>Weight Lifting</span>
           </p>
         </td>
       </tr>
@@ -79,6 +77,9 @@ toc: false
     </tbody>
   </table>
 </div>
+
+this is a blog where I record what I learned each day 
+
 
 
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
