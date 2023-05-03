@@ -3,7 +3,6 @@ title: About
 toc: false
 ---
 ### TIL (Today I Learned) blog where I record what I learned each day
-
 <div>
   <table>
   <style>
@@ -14,7 +13,7 @@ toc: false
 
   <tr>
     <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="240" height="240" /></td>
-    <th colspan="1">Hyunsoo Zo</th>
+    <th class="tdtd"colspan="2">Hyunsoo Zo</th>
   </tr>
   <tr>
     <td class="tdtd"><b>Name</b></td>
