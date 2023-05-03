@@ -82,10 +82,10 @@ toc: false
   </table>
 </div>
 <div>
-<div style="text-align:center">This is a blog where I record what I learned each day</div>
+<div style="text-align:center">This is a blog where I record what I learned each day
+</div>   
 
-
-
+<div>
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
-
+<div>
 
