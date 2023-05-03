@@ -5,7 +5,7 @@ order: 1
 ---
 ### Demo Video
 
-[](https://vimeo.com/823358509?share=copy)
+![](https://vimeo.com/823358509?share=copy)
 
 ### Scenario
 
