@@ -7,7 +7,7 @@ toc: false
 <div>
   <table>
   <tr>
-    <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="220" height="200" /></td>
+    <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="250" height="230" /></td>
     <th colspan="2">Hyunsoo Zo</th>
   </tr>
   <tr>
@@ -37,7 +37,6 @@ toc: false
     LinkedIn</a></td>
   </tr>
 </table>
-  </p>
 </div>
 
 
