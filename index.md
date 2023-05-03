@@ -7,7 +7,7 @@ toc: false
 <div>
 <style>
   .tdtd {
-    width: 20gi%;
+    width: 20%;
 }
 
 </style>
