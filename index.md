@@ -74,7 +74,7 @@ toc: false
           </p>
             <p>
             <img src="https://em-content.zobj.net/thumbs/240/twitter/348/envelope_2709-fe0f.png" />
-            bzhs1992@icloud.com
+             bzhs1992@icloud.com
           </p>
         </td>
       </tr>
@@ -83,9 +83,10 @@ toc: false
 </div>
 <div>
 <div style="text-align:center">This is a blog where I record what I learned each day
-</div>   
+</div>
 
-<div>
+---   
+
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
-<div>
+
 
