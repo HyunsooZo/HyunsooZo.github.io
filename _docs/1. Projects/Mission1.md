@@ -5,13 +5,14 @@ order: 1
 ---
 ### Demo Video
 
-![](https://vimeo.com/823358509?share=copy)
+[Demo Video](https://vimeo.com/823358509?share=copy)
+
 
 ### Scenario
 
 **1.** Design data using ERD.
 
-**2.** Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - [https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do](https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do)).
+**2.** Implement a web application by utilizing an open API provided by Seoul City (Public WiFi List - [link](https://data.seoul.go.kr/dataList/OA-20883/S/1/datasetView.do)).
 
 **3.** Develop a dynamic web service (w/o Spring) based on Java (JSP)
 
