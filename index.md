@@ -5,6 +5,7 @@ toc: false
 ### TIL (Today I Learned) blog where I record what I learned each day
 
 <div>
+
   <table>
   <tr>
     <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="250" height="230" /></td>
