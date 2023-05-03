@@ -6,37 +6,34 @@ toc: false
 
 <div>
 <style>
-  .td-td {
-  word-wrap: break-word;
-  max-width: none;
-}
+  
 </style>
   <table>
   <tr>
-    <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="220" height="230" /></td>
-    <th class='td-td' colspan="2">Hyunsoo Zo</th>
+    <td rowspan="6"><img src="https://i.imgur.com/tpr5jcv.png" width="240" height="240" /></td>
+    <th colspan="1">Hyunsoo Zo</th>
   </tr>
   <tr>
-    <td class='td-td'><b>Name</b></td>
+    <td><b>Name</b></td>
     <td> <img src="https://em-content.zobj.net/thumbs/240/apple/354/technologist-light-skin-tone_1f9d1-1f3fb-200d-1f4bb.png" width="15" height="17" style="float:left; margin-right:10px;" />Hyunsoo Zo</td>
   </tr>
   <tr>
-    <td class='td-td'><b>Education</b></td>
-    <td ><img src="https://em-content.zobj.net/thumbs/240/apple/354/student-light-skin-tone_1f9d1-1f3fb-200d-1f393.png" width="15" height="17" style="float:left; margin-right:10px;" /> Bachelor's degree in International Trade <br>
+    <td><b>Education</b></td>
+    <td><img src="https://em-content.zobj.net/thumbs/240/apple/354/student-light-skin-tone_1f9d1-1f3fb-200d-1f393.png" width="15" height="17" style="float:left; margin-right:10px;" /> Bachelor's degree in International Trade <br>
     <img src="https://em-content.zobj.net/thumbs/240/openmoji/338/desktop-computer_1f5a5-fe0f.png" width="15" height="17" style="float:left; margin-right:10px;" /> ZeroBase BootCamp(BackEnd course)
     </td>
   </tr>
  
   <tr>
-    <td class='td-td'><b>Primary Language</b></td>
+    <td><b>Primary Language</b></td>
     <td><img src="https://em-content.zobj.net/thumbs/240/facebook/355/keyboard_2328-fe0f.png" width="15" height="19" style="float:left; margin-right:10px;" /> Java , Spring(Boot)</td>
   </tr>
   <tr>
-    <td class='td-td'><b>Interests</b></td>
+    <td><b>Interests</b></td>
     <td><img src="https://em-content.zobj.net/thumbs/240/apple/354/laptop_1f4bb.png" width="15" height="17" style="float:left; margin-right:10px;" /> Web development<br> <img src="https://em-content.zobj.net/thumbs/240/emojidex/112/chart-with-upwards-trend_1f4c8.png" width="15" height="17" style="float:left; margin-right:10px;" /> Performance optimization<br> <img src="https://em-content.zobj.net/thumbs/240/apple/354/person-lifting-weights_1f3cb-fe0f.png" width="15" height="17" style="float:left; margin-right:10px;" /> Weigth Lifting</td>
   </tr>
    <tr>
-    <td class='td-td'><b>Contact</b></td>
+    <td><b>Contact</b></td>
     <td><img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" width="19" height="19" style="float:left; margin-right:10px;" /> <a href= https://github.com/HyunsooZo> Git hub</a><br>
     <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width="19" height="19" style="float:left; margin-right:10px;" />
     <a href=#>
