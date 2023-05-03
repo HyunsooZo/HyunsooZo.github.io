@@ -116,6 +116,7 @@ LinkedList<String> list = new LinkedList<>();
 - 데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)
 - 사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 
 
+**[sample]**
 ```java
 //Stack creation
 Stack<String> stack = new Stack<>();  
@@ -136,6 +137,7 @@ Stack<String> stack = new Stack<>();
 - 입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)
 - 빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환
 
+**[sample]**
 ```java
 // new LinkedList<>() in General 
 Queue<String> queue = new LinkedList<>();
@@ -179,20 +181,21 @@ Deque<String> deque = new LinkedList<>();
 
 **Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
 
-**Hash-Collision** : HashTable의 같은 공간에 서로다른 값을 저장하여 하는 경우를 말함. 해결방법으로는 개방주소법(Oepn Addressing)/분리연결법 (Separate Chaining) 이 있음. 
+**Hash-Collision** : HashTable의 같은 공간에 서로다른 값을 저장하여 하는 경우를 말함. 해결방법으로는 개방주소법(Open Addressing)/분리연결법 (Separate Chaining) 이 있음. 
 
+**[Open Addressing]**
 |**개방주소법**|특징|기타|
 |--|--|--|
 |선형탐사법|빈 공간을 순차적으로 탐사| 일차군집화 발생||
 |제곱탐사법|빈 공간을 n제곱만큼 간격을 두고 탐사| 이차군집화 발생||
 |이중해싱|해싱함수를 이중으로 사용|선형/제곱탐사에 비해 골고루 분포됨|
 
-
+**[Separate Chaining]**
 |**분리연결법**|특징|기타|
 |--|--|--
 |분리연결법|HashTable을 연결리스트로 구현, 충동 시 같은위치에 연결리스트 내 저장|-|
 
-
+**[sample]**
 ```java
 HashTable<String,Integer> hashTable = new HashTable<>();
 
