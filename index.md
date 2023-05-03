@@ -81,8 +81,8 @@ toc: false
     </tbody>
   </table>
 </div>
-
-* This is a blog where I record what I learned each day 
+<div>
+<div style="text-align:center">This is a blog where I record what I learned each day</div>
 
 
 
