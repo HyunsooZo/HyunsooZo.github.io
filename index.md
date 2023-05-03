@@ -5,7 +5,7 @@ toc: false
 ### TIL (Today I Learned) blog where I record what I learned each day
 
 <div>
-  <img src="https://i.imgur.com/tpr5jcv.png" width="200" height="220" style="float:left; margin-right:10px;" />
+  <img src="https://i.imgur.com/tpr5jcv.png" width="170" height="220" style="float:left; margin-right:10px;" />
   <p>
   <table>
   <tr>
@@ -30,8 +30,14 @@ toc: false
     <td><b>Interests</b></td>
     <td><img src="https://em-content.zobj.net/thumbs/240/apple/354/laptop_1f4bb.png" width="15" height="17" style="float:left; margin-right:10px;" /> Web development<br> <img src="https://em-content.zobj.net/thumbs/240/emojidex/112/chart-with-upwards-trend_1f4c8.png" width="15" height="17" style="float:left; margin-right:10px;" /> Performance optimization<br> <img src="https://em-content.zobj.net/thumbs/240/apple/354/person-lifting-weights_1f3cb-fe0f.png" width="15" height="17" style="float:left; margin-right:10px;" /> Weigth Lifting</td>
   </tr>
+   <tr>
+    <td><b>Contact</b></td>
+    <td><img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" width="19" height="19" style="float:left; margin-right:10px;" /> <a href= https://github.com/HyunsooZo> Git hub</a><br>
+    <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width="19" height="19" style="float:left; margin-right:10px;" />
+    LinkedIn</td>
+  </tr>
 </table>
-
+https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg
   </p>
 </div>
 
