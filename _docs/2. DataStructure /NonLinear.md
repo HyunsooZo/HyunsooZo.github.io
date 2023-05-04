@@ -219,3 +219,145 @@ isn't Allowed)
 **+** 위 조건이 깨지는 상황에서 Rebalancing 진행. 
 
 **+** Java에서 제공하는 TreeSet은 RedBlackTree를 구현한 라이브러리 임. 
+
+
+### Gragh
+
+
+
+**Graph**
+
+· Tree의 상위 개념이라고 볼 수 있다. 
+
+· 정점과 간선으로 이루어진 자료구조 (Cyclic)
+
+· 지하철 노선도, 통신 네트워크 등에 사용. 
+
+**[Term]**
+
+|Term|Description|
+|--|--|
+|Vertex| 각 노드 (정점)|
+|Edge| 링크|
+|Adjacent Vertex|간선하나를 두고 바로 연결된 인접정점|
+|Degree|무방향그래프에서 하나의 정점에 인접한 정점 수|
+||(무방향) 그래프 모든 정점차수의 합 = 그래프 간선 수 *2|
+|In-Degree| 방향그래프에서 외부에서 들어오는 간선 수|
+|Out-Degree|방향그래프에서 외부로 나가는 간선 수|
+|Path Length|경로구성에 사용된 간선 수|
+|Simple Path|경로 중 반복되는 정점이 없는 경우|
+|Cycle|단순 경로의 시작정점 = 끝정점|
+
+**[Comparison of Tree and Graph]**
+
+||Graph|Tree|
+|--|--|--|
+|개요|노드,간선으로 이루어진 자료구조| 그래프의 한 종류|
+|방향성|방향그래프, 무방향그래프| 방향그래프|
+|사이클|Cyclic| Acyclic|
+|모델|네트워크 모델|계층 모델|
+|루트 노드|x|최상위 노드|
+|부모 자식|x|인접 상-하위 노드|
+|간선 수|그래프에 따라 다름|N(노드수)-1개|
+|순회|DFS , BFS|DFS(Pre/In/Post Order),BFS(LevelOrder)|
+|경로|2개이상의 경로 가능| 두 노드간의 경로는 1개|
+
+**[그래프의 종류]**
+
+![](https://ifh.cc/g/ODllcx.jpg)
+
+**[그래프의 구현]**
+
+· 인접리스트를 활용 (Adjacent List) : 연결리스트 사용
+· 메모리 사용량이 상대적으로 적고, 노드의 추가 삭제가 빠르나 간선정보 확인시 시간이 걸림
+```
+ A--------B            Arr    LinkedList
+ |      / |            |A|-->|B|*|-->|C|*| 
+ |    /   |            |B|-->|A|*|-->|C|*|-->|D|*|  
+ |  /     |            |C|-->|A|*|-->|B|*|-->|D|*|  
+ C--------D            |D|-->|B|*|-->|C|*| 
+```
+
+`인접행렬` -> 노드의 개수가 적고 간선의 수가 많을 때 유리 (밀집그래프)
+`인접리스트` -> 노드의 개수가 많고 간선의 수가 적을 때 유리 (희소그래프)
+
+**[인접행렬 과 인접리스트]**
+
+||인접행렬|인접리스트|
+|--|--|--|
+|특정 간선 검색|O(1)|O(degree(V)|
+|정점의 차수 계산|O(N)|O(degree(V)|
+|전체노드 탐색|O(N^2)|O(E)|
+|메모리|N*N | N+E|
+
+### BFS , DFS For Graph
+
+**[DFS]**: 각 노드 방문 여부를 체크할 `Array`+`Stack` 이용하여 구현
+
+**[BFS]**:각 노드 방문 여부를 체크할 `Array`+`Queue` 이용하여 구현
+
+```java
+// 그래프 클래스
+class Graph {
+    private int V; // 노드의 수
+    private LinkedList<Integer>[] adj; // 인접 리스트
+
+    // 생성자
+    Graph(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i = 0; i < v; ++i) {
+            adj[i] = new LinkedList<>();
+        }
+    }
+
+    // 노드와 연결된 간선 추가
+    void addEdge(int v, int w) {
+        adj[v].add(w);
+    }
+
+    // DFS 알고리즘
+    void DFS(int v) {
+        boolean[] visited = new boolean[V]; // 노드의 방문 여부 저장
+        DFSUtil(v, visited); // DFSUtil 호출
+    }
+
+    void DFSUtil(int v, boolean[] visited) {
+        visited[v] = true; // 현재 노드 방문 표시
+        System.out.print(v + " "); // 현재 노드 출력
+
+        Iterator<Integer> i = adj[v].listIterator();
+        while (i.hasNext()) {
+            int n = i.next();
+            if (!visited[n]) { // 방문하지 않은 인접 노드면
+                DFSUtil(n, visited); // 재귀 호출
+            }
+        }
+    }
+
+    // BFS 알고리즘
+    void BFS(int v) {
+        boolean[] visited = new boolean[V]; // 노드의 방문 여부 저장
+
+        LinkedList<Integer> queue = new LinkedList<>(); // 큐 생성
+
+        visited[v] = true; // 시작 노드 방문 표시
+        queue.add(v); // 큐에 추가
+
+        while (queue.size() != 0) {
+            v = queue.poll(); // 큐에서 첫번째 노드 추출
+            System.out.print(v + " "); // 현재 노드 출력
+
+            Iterator<Integer> i = adj[v].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                if (!visited[n]) { // 방문하지 않은 인접 노드면
+                    visited[n] = true; // 방문 표시
+                    queue.add(n); // 큐에 추가
+                }
+            }
+        }
+    }
+}
+```
+
