@@ -497,22 +497,47 @@ blockquote {
 //table
 table {
 	border-top: 1px solid var(--border-secondary);
+	
+	tr {
+		border-bottom: 1px solid var(--border-secondary);
+		
+		&:nth-child(even) {
+			background: var(--background-secondary);
+		}
+	}
+	
+	
+	th, td {
+		padding: 0.8rem;
+		text-align: left;
+		word-break: break-all;
+	}
+	
+	&._type__01 {
+		.img_hyunsoo {
+			padding: 0.8rem 1.5rem 0.8rem 0;
+			img {
+				max-width: 180px;
+			}
+		}
+		td p {
+			display: flex;
+			align-items: flex-start;
+			img {
+				height: 1.5rem;
+				margin: 0.2rem 0.6rem 0 0;
+			}
+			span {
+				line-height: 1.8rem;
+			}
+		}
+		td p + p {
+			margin-top: 0.4rem;
+		}
+	}
 }
 
 table + table {
-	margin-top: 1.75em;
+	margin-top: 2rem;
 }
 
-tr {
-	border-bottom: 1px solid var(--border-secondary);
-}
-
-tr:nth-child(even) {
-	background: var(--background-secondary);
-}
-
-th, td {
-	padding: 0.8rem;
-	text-align: left;
-	word-break: break-all;
-}

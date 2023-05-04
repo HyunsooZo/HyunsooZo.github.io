@@ -2,33 +2,92 @@
 title: About
 toc: false
 ---
+<div>
+  <table class="_type__01">
+    <colgroup>
+      <col style="width:30%;" />
+      <col style="width:20%;" />
+      <col />
+    </colgroup>
+    <tbody>
+      <tr>
+        <th rowspan="5" class="img_hyunsoo">
+          <img src="https://i.imgur.com/tpr5jcv.png" />
+        </th>
+        <th>Name</th>
+        <td>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/technologist-light-skin-tone_1f9d1-1f3fb-200d-1f4bb.png" />
+            <span>Hyunsoo Zo</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>Education</th>
+        <td>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/student-light-skin-tone_1f9d1-1f3fb-200d-1f393.png" />
+            <span>Bachelor's degree in International Trade</span>
+          </p>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/tent_26fa.png" />
+            <span>ZeroBase BootCamp(BackEnd course)</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>Primary Language</th>
+        <td>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" />
+            <span>Java , Spring(Boot)</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>Interests</th>
+        <td>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/microsoft/319/globe-with-meridians_1f310.png" />
+            <span>Web Application,Server</span>
+          </p>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/high-voltage_26a1.png" />
+            <span>Performance optimization</span>
+          </p>
+          <p>
+            <img src="https://em-content.zobj.net/thumbs/240/apple/354/person-lifting-weights_1f3cb-fe0f.png" />
+            <span>Weight Lifting</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>Contact</th>
+        <td>
+          <p>
+            <img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" />
+            <a href="https://github.com/HyunsooZo">Git hub</a>
+          </p>
+          <p>
+            <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" />
+            <a href="https://www.linkedin.com/in/hyunsoo-jo-605554186/?locale=en_US">LinkedIn</a>
+          </p>
+            <p>
+            <img src="https://em-content.zobj.net/thumbs/240/twitter/348/envelope_2709-fe0f.png" />
+             bzhs1992@icloud.com
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+<div style="text-align:center">This is a blog where I record what I learned each day
+</div>
+
+<br>
+
 
 <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
-
-안녕하세요! 
-매일 새로운 것을 배우고 성장하고 있는 주니어 개발자 **조현수**입니다. 
-이 블로그에는 제가 그날 배운 것들을 매일 정리하여 TIL(Today I Learned) 블로그에 올리려고 합니다.
-
-저의 TIL 블로그는 프로그래밍에 대한 주제를 주로 다룰 예정이며, 
-혹시 제 블로그를 보는 분이 계시다면 습득한내용을 다른 분들과 공유하면서 함께 성장하고자 합니다.
-
-TIL 블로그를 통해 새로운 기술과 개발 방법론에 대한 이해도를 높이고, 
-개발 과정에서 겪는 문제들을 해결하고 그날 그날의 배움을 회고 해보려 합니다. 
-또한 다양한 개발 관련 이슈들을 다루면서 개발자로서의 역량을 키워나가고 싶네요.
-
-블로그를 통해 배운 내용들을 정리, 공유하며 한 층 성장할 수 있기를 기대합니다.
-이 블로그를 보고계신 모두 좋은 하루 되세요!
-
-
-
-Hello!
-I am a junior developer **Hyunsoo Jo**, who is learning and growing by learning something new every day. I plan to share what I learned each day by posting on my TIL (Today I Learned) blog.
-
-My TIL blog will mainly cover programming topics and i'd like to share what I learned with others to grow together.
-
-Through my TIL blog, I want to improve my understanding of new technologies and development methodologies, solve problems encountered in the development process, and reflect on what I learned each day. I also want to improve my skills as a developer by addressing various development-related issues.
-
-I hope to learn, share, and grow through this blog. Have a good one for you all!
-
 
 

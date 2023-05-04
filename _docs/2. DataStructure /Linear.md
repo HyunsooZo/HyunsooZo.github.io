@@ -28,6 +28,20 @@ order: 1
 
 
 ### Array
+
+- 많은 수의 데이터를 다룰때 사용하는 자료구조. 
+- 각 데이터를 인덱스와 1:1 대응하도록 구성한다.
+- 데이터가 메모리상에 연속적으로 저장됨. 
+
+|Pros|Cons|
+|--|--|
+|Index통해 데이터에 빠르게 접근가능|데이터의 추가/삭제가 번거로움|
+||최대길이를 미리 정하여 생성해야함|
+||가변길이 배열은 배열의 크기변경 시마다 새로운 배열 생성|
+||삭제 시 Index유지를 위해 빈 공간 유지|
+
+
+**[Sample]**
 ```java
 //array creation 
 int[] arr = new int[n]                  // 배열 생성 (길이 n)
@@ -52,10 +66,21 @@ IntStream()
                   .range(int startInclusive, int endExclusive)
                   // startInclusive부터 endExclusive-1까지 정수 값으로 이루어진 새로운 IntStream 생성
 ```
-![](https://ifh.cc/g/63da9k.jpg)
 
 
 ### Linked List
+
+- data를 link하여 관리하는 구조
+- 자료의 순서가 정해져있음. 
+- 단 메모리의 연속성을 보장하는것은 아님. 
+
+|Pros|Cons|
+|--|--|
+|데이터 공간을 미리 할당하지 않아도 됨|연결구조를 위한 별도 데이터 공간필요|
+|리스트의 길이가 가변적이라 데이터 삭제/추가 용이|연결정보 탐색 시간 필요(비교적 느림)|
+||데이터 추가/삭제 시 앞 뒤 데이터의 연결 재구성필요|
+
+**[sample]**
 ~~~java
 //LinkedList creation
 LinkedList<String> list = new LinkedList<>();    
@@ -84,11 +109,15 @@ LinkedList<String> list = new LinkedList<>();
 .removeLast()                                      //리스트의 마지막 요소를 제거
 ~~~
 
-![](https://ifh.cc/g/Sfm4yH.jpg)
-
 
 ### Stack
-~~~java
+
+- LIFO(Last In First Out) 구조
+- 데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)
+- 사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 
+
+**[sample]**
+```java
 //Stack creation
 Stack<String> stack = new Stack<>();  
 
@@ -97,16 +126,22 @@ Stack<String> stack = new Stack<>();
 .pop()              // 스택의 맨 위에 있는 요소를 제거하고 반환. 스택이 비어있을 경우 EmptyStackException을 발생
 .push(E item)       // 지정된 요소를 스택의 맨 위에 추가
 .search(Object o)   // 지정된 요소(o)가 스택의 위치 반환. 가장 최근에 추가된 요소=1,스택에 없을 경우 -1을 반환합니다.
-
-~~~
-![](https://ifh.cc/g/QYDpQS.jpg)
+```
 
 
-### Queue & Deque
-~~~java
+### Queue 
+
+**Queue**
+
+- FIFO(First In First Out) 구조
+- 입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)
+- 빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환
+
+**[sample]**
+```java
 // new LinkedList<>() in General 
 Queue<String> queue = new LinkedList<>();
-Deque<String> deque = new LinkedList<>(); 
+
 
 //Methods for Queue
 .add(e)       // 지정된 요소(e)를 큐의 끝에 추가. 큐가 가득 차 있을 경우 IllegalStateException을 발생
@@ -114,7 +149,19 @@ Deque<String> deque = new LinkedList<>();
 .poll()       // 큐의 맨 앞에 있는 요소를 제거하고 반환. 큐가 비어있을 경우 null을 반환
 .element()    // 큐의 맨 앞에 있는 요소를 반환. 큐가 비어있을 경우 NoSuchElementException을 발생
 .peek()       // 큐의 맨 앞에 있는 요소를 반환. 큐가 비어있을 경우 null을 반환.
+```
 
+
+### Deque
+
+- 양쪽에서 삽입/삭제 가능
+- Double Ended Queue임. 
+- Stack 과 Queue를 합친 형태라고 볼 수 있음. 
+- Front 또는 Reat의 입력을 제한하여 입력제한(scroll) 또는 출력제한(shelf)로 사용 할 수 있음.  
+
+**[sample]**
+```java
+Deque<String> deque = new LinkedList<>(); 
 //Methods for Deque
 .addFirst(e)  // 지정된 요소(e)를 덱의 맨 앞에 추가. 덱이 가득 차 있을 경우 IllegalStateException을 발생
 .addLast(e)   // 지정된 요소(e)를 덱의 맨 끝에 추가. 덱이 가득 차 있을 경우 IllegalStateException을 발생
@@ -124,12 +171,34 @@ Deque<String> deque = new LinkedList<>();
 .removeLast() // 덱의 맨 끝에 있는 요소를 제거하고 반환. 덱이 비어있을 경우 NoSuchElementException을 발생
 .pollFirst()  // 덱의 맨 앞에 있는 요소를 제거하고 반환. 덱이 비어있을 경우 null을 반환
 .pollLast()   // 덱의 맨 끝에 있는 요소를 제거하고 반환. 덱이 비어있을 경우 null을 반환
-~~~
-![](https://ifh.cc/g/vPArx7.jpg)
+```
 
 
 ### Hash Table
-~~~java
+
+- Key, Value 를 대응하여 저장하는 데이터구조. 
+- 요즘에는 HashMap을 많이 사용함. 
+
+**Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
+
+**Hash-Collision** : HashTable의 같은 공간에 서로다른 값을 저장하여 하는 경우를 말함. 해결방법으로는 개방주소법(Open Addressing)/분리연결법 (Separate Chaining) 이 있음. 
+
+**[Open Addressing]**
+
+|**개방주소법**|특징|기타|
+|--|--|--|
+|선형탐사법|빈 공간을 순차적으로 탐사| 일차군집화 발생|
+|제곱탐사법|빈 공간을 n제곱만큼 간격을 두고 탐사| 이차군집화 발생|
+|이중해싱|해싱함수를 이중으로 사용|선형/제곱탐사에 비해 골고루 분포됨|
+
+**[Separate Chaining]**
+
+|**분리연결법**|특징|기타|
+|--|--|--|
+|분리연결법|HashTable을 연결리스트로 구현, 충동 시 같은위치에 연결리스트 내 저장|-|
+
+**[sample]**
+```java
 HashTable<String,Integer> hashTable = new HashTable<>();
 
 .put(Object key, Object value)  //지정된 key-value 쌍을 해시 테이블에 추가 또는 value 대체
@@ -146,8 +215,4 @@ HashTable<String,Integer> hashTable = new HashTable<>();
 .keys()                         //해시 테이블에 저장된 모든 key를 Enumeration 객체로 반환
 .keySet()                       //해시 테이블에 저장된 모든 key를 Set 객체로 반환
 .values()                       //해시 테이블에 저장된 모든 value를 Collection 객체로 반환
-~~~
-![](https://ifh.cc/g/1z1ov6.jpg)
-
-
-
+```

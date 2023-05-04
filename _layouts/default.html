@@ -76,7 +76,23 @@
 				<h6 class="toc-heading">Table of Contents</h6>
 				{% include toc.html html=content %}
 				<div class="top-button">
-					<a href="#" class="btn-top">TOP</a>
+					<a href="#" id="btn-top" class="btn-top">TOP</a>
+					<script>
+						window.onload = function() {
+							var scrollToTop = document.querySelector(".btn-top");
+
+							scrollToTop.addEventListener("click", function(event) {
+								event.preventDefault();
+								var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+								if (scrollTop > 0) {
+									window.scrollTo({
+									top: 0,
+									behavior: "smooth"
+									});
+								}
+							});
+						}
+					  </script>
 				</div>
 			</div>			
 		</section>
