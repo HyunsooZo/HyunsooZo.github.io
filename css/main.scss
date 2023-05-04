@@ -7,8 +7,8 @@ $baseurl: "{{ site.baseurl }}";
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 @import "themes";
-@import "mixins";
 @import "normalize";
+@import "mixins";
 @import "pygments";
-@import "code";
+// @import "code";
 @import "layout";

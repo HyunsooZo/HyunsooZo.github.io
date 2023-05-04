@@ -34,6 +34,9 @@ body {
 
 		header {
 			bottom: 0;
+			.open-nav {
+				filter: opacity(0.5);
+			}
 		}
 	}
 
@@ -47,7 +50,6 @@ body {
 		}
 	}
 }
-
 header {
 	position: absolute;
 	top: 0;
@@ -83,7 +85,8 @@ header {
 		> a {
 			height: $nav-btn-size;
 			width: $nav-btn-size;
-			margin-right: $space - 5;
+			margin-right: 0.6rem;
+			padding: 0.3rem;
 			filter: opacity(0.8);
 		}
 	}
@@ -91,19 +94,15 @@ header {
 	$nav-image: $baseurl + "/images/menu.svg";
 	
 	.open-nav {
-		border: 0;
-		position: absolute;
-		top: $header-vertical-gap;
-		right: $header-horizontal-gap;
 		width: $nav-btn-size;
 		height: $nav-btn-size;
-		border-radius: 2px;
+		margin-left: auto;
 		background: transparent url($nav-image) no-repeat center center / 100%;
 
-		&:focus,
-		&:hover {
-			filter: opacity(0.5);
-		}
+		// &:focus,
+		// &:hover {
+		// 	filter: opacity(0.5);
+		// }
 
 		header {
 			height: 100%;
@@ -277,11 +276,6 @@ nav > ul {
 			max-width: 100%;
 		}
 	}
-}
-
-.highlight {
-	margin-left: 0;
-	margin-right: 0;
 }
 
 h4 code {

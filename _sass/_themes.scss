@@ -1,6 +1,7 @@
 $color-black: #000;
 $color-white: #fff;
-$color-ads: #00d0aa;
+// $color-ads: #00d0aa;
+$color-ads: #8cf0e8;
 
 $color-neutral-10: #e2e2e2;
 $color-neutral-20: #cdcdcd;
@@ -15,12 +16,12 @@ $color-neutral-light-70: #f9f9fb;
 $color-neutral-light-80: #f2f1f1;
 $color-neutral-light-90: #ebeaea;
 
-//
+//color-theme
 $color-theme-blue-10: #dce2f2;
 $color-theme-blue-20: #c1cff1;
 $color-theme-blue-30: #8cb4ff;
 $color-theme-blue-40: #5e9eff;
-$color-theme-blue-50: #0085f2; //default
+$color-theme-blue-50: #0085f2; //default-blue
 $color-theme-blue-60: #0069c2;
 $color-theme-blue-70: #004d92;
 $color-theme-blue-80: #003465;
@@ -30,7 +31,7 @@ $color-theme-green-10: #a9f3ba;
 $color-theme-green-20: #73e693;
 $color-theme-green-30: #00d061;
 $color-theme-green-40: #00b755;
-$color-theme-green-50: #009a46; //default
+$color-theme-green-50: #009a46; //default-green
 $color-theme-green-60: #007936;
 $color-theme-green-70: #005a26;
 $color-theme-green-80: #003d18;
@@ -40,7 +41,7 @@ $color-theme-yellow-10: #f0e498;
 $color-theme-yellow-20: #dfd172;
 $color-theme-yellow-30: #c7b700;
 $color-theme-yellow-40: #afa100;
-$color-theme-yellow-50: #938700; //default
+$color-theme-yellow-50: #938700; //default-yellow
 $color-theme-yellow-60: #746a00;
 $color-theme-yellow-70: #564e00;
 $color-theme-yellow-80: #3a3500;
@@ -50,7 +51,7 @@ $color-theme-violet-10: #e6deff;
 $color-theme-violet-20: #d4c5ff;
 $color-theme-violet-30: #bea5ff;
 $color-theme-violet-40: #ae8aff;
-$color-theme-violet-50: #9b65ff; //default
+$color-theme-violet-50: #9b65ff; //default-violet
 $color-theme-violet-60: #872bff;
 $color-theme-violet-70: #6800cf;
 $color-theme-violet-80: #480091;
@@ -61,7 +62,7 @@ $color-theme-pink-20: #ffbbc8;
 $color-theme-pink-30: #ff93aa;
 $color-theme-pink-40: #ff6d91;
 $color-theme-pink-50: #ff1f72;
-$color-theme-pink-60: #d00058; //default
+$color-theme-pink-60: #d00058; //default-pink
 $color-theme-pink-70: #9e0041;
 $color-theme-pink-80: #6d002b;
 $color-theme-pink-90: #3f0015;
@@ -71,10 +72,41 @@ $color-theme-red-20: #ffc0c4;
 $color-theme-red-30: #ff97a0;
 $color-theme-red-40: #ff707f;
 $color-theme-red-50: #ff2a51;
-$color-theme-red-60: #d30038; //default
+$color-theme-red-60: #d30038; //default-red
 $color-theme-red-70: #9e0027;
 $color-theme-red-80: #6f0019;
 $color-theme-red-90: #40000a;
+
+//light
+$color-theme-code-10: #87ceeb;
+$color-theme-code-20: #cd5c5c;
+$color-theme-code-30: #c0c0c0;
+$color-theme-code-40: #add8e6;
+$color-theme-code-50: #f0e68c;
+$color-theme-code-60: #bdb76b;
+$color-theme-code-70: #eab289;
+$color-theme-code-80: #8cf0e8;
+$color-theme-code-90: #ffa0a0;
+$color-theme-code-100: #ffdead;
+$color-theme-code-110: #98fb98;
+$color-theme-code-light-bg: #d8dceb;//
+$color-theme-code-light-primary: #101010;
+$color-theme-code-light-hll: #fbfb29;
+//dark
+$color-theme-code-10: #87ceeb;
+$color-theme-code-20: #cd5c5c;
+$color-theme-code-30: #c0c0c0;
+$color-theme-code-40: #add8e6;
+$color-theme-code-50: #f0e68c;
+$color-theme-code-60: #bdb76b;
+$color-theme-code-70: #eab289;
+$color-theme-code-80: #8cf0e8;
+$color-theme-code-90: #ffa0a0;
+$color-theme-code-100: #ffdead;
+$color-theme-code-110: #98fb98;
+$color-theme-code-dark-bg: #404145;
+$color-theme-code-dark-primary: #fafafa;
+$color-theme-code-dark-hll: #ffffcc;
 
 //theme-light
 $theme-light-text-primary: $color-neutral-90;
@@ -221,16 +253,6 @@ $theme-dark-code-background-block: $color-neutral-80;
   --focus-01: #{$theme-light-focus-01};
   --field-focus-border: #{$theme-light-field-focus-border};
 
-  --code-token-tag: #{$theme-light-code-token-tag};
-  --code-token-punctuation: #{$theme-light-code-token-punctuation};
-  --code-token-attribute-name: #{$theme-light-code-token-attribute-name};
-  --code-token-attribute-value: #{$theme-light-code-token-attribute-value};
-  --code-token-comment: #{$theme-light-code-token-comment};
-  --code-token-default: #{$theme-light-code-token-default};
-  --code-token-selector: #{$theme-light-code-token-selector};
-  --code-background-inline: #{$theme-light-code-background-inline};
-  --code-background-block: #{$theme-light-code-background-block};
-
   --notecard-link-color: #{$color-neutral-80};
 
   --scrollbar-bg: transparent;
@@ -305,6 +327,16 @@ $theme-dark-code-background-block: $color-neutral-80;
   --form-invalid-focus-color: #{$color-theme-red-50};
   --form-invalid-focus-effect-color: #{rgba($color-theme-red-50, 0.2)};
 
+  --code-token-tag: #{$theme-light-code-token-tag};
+  --code-token-punctuation: #{$theme-light-code-token-punctuation};
+  --code-token-attribute-name: #{$theme-light-code-token-attribute-name};
+  --code-token-attribute-value: #{$theme-light-code-token-attribute-value};
+  --code-token-comment: #{$theme-light-code-token-comment};
+  --code-token-default: #{$theme-light-code-token-default};
+  --code-token-selector: #{$theme-light-code-token-selector};
+  --code-background-inline: #{$theme-light-code-background-inline};
+  --code-background-block: #{$theme-light-code-background-block};
+
   color-scheme: light;
 }
 
@@ -359,16 +391,6 @@ $theme-dark-code-background-block: $color-neutral-80;
   --shadow-02: #{$theme-dark-shadow-02};
   --focus-01: #{$theme-dark-focus-01};
   --field-focus-border: #{$theme-dark-field-focus-border};
-
-  --code-token-tag: #{$theme-dark-code-token-tag};
-  --code-token-punctuation: #{$theme-dark-code-token-punctuation};
-  --code-token-attribute-name: #{$theme-dark-code-token-attribute-name};
-  --code-token-attribute-value: #{$theme-dark-code-token-attribute-value};
-  --code-token-comment: #{$theme-dark-code-token-comment};
-  --code-token-default: #{$theme-dark-code-token-default};
-  --code-token-selector: #{$theme-dark-code-token-selector};
-  --code-background-inline: #{$theme-dark-code-background-inline};
-  --code-background-block: #{$theme-dark-code-background-block};
 
   --notecard-link-color: #{$color-neutral-10};
 
@@ -443,6 +465,16 @@ $theme-dark-code-background-block: $color-neutral-80;
   --form-invalid-color: #{$color-theme-red-30};
   --form-invalid-focus-color: #{$color-theme-red-40};
   --form-invalid-focus-effect-color: #{rgba($color-theme-red-40, 0.2)};
+
+  --code-token-tag: #{$theme-dark-code-token-tag};//.keyword
+  --code-token-punctuation: #{$theme-dark-code-token-punctuation};//.punctuation
+  --code-token-attribute-name: #{$theme-dark-code-token-attribute-name};//.attr-name, .builtin, .inserted, .selector, .property, .class-name, .function
+  --code-token-attribute-value: #{$theme-dark-code-token-attribute-value};//.atrule, .attr-value, .tag, .char, .string, .boolean, .number, .constant, .symbol, .deleted
+  --code-token-comment: #{$theme-dark-code-token-comment};//.comment, .prolog, .doctype, .cdata
+  --code-token-default: #{$theme-dark-code-token-default};
+  --code-token-selector: #{$theme-dark-code-token-selector};//.selector, .builtin, .template-string > .string, .inserted
+  --code-background-inline: #{$theme-dark-code-background-inline};
+  --code-background-block: #{$theme-dark-code-background-block};
 
   color-scheme: dark;
 }
