@@ -1,5 +1,5 @@
 ---
-title: Non-Linear Data Structure(1)
+title: Non-Linear Data Structure
 category: DataStructures
 order: 1
 ---
@@ -58,26 +58,29 @@ order: 1
 ```s 
 #[Perfect Binary Tree]            #[Complete Binary Tree]
 #[포화 이진트리]                     #[완전 이진트리]   
+#모든 level에 노드들이 꽉 채워져있다.    #마지막 레벨을 제외한 모든 노드들이 채워진 트리  
+
           A                                  A
        B     C                            B     C
      D   E F   G                        D   E F   
-#모든 level에 노드들이 꽉 채워져있다.    #마지막 레벨을 제외한 모든 노드들이 채워진 트리  
 ```
 ```s 
 #[Full Binary Tree]               #[Skewed Binary Tree]
-#[점 이진트리]                       #[편향 이진트리]   
+#[점 이진트리]                       #[편향 이진트리] 
+# 모든 노드가 0 or 2개의 자식노드를 가짐.  #한쪽으로 기울어진 트리  
+
           A                                  A
        B     C                            B     
      D   E                              C      
-# 모든 노드가 0 or 2개의 자식노드를 가짐.  #한쪽으로 기울어진 트리
 ```
 ```s 
 #[Balanced Binary Tree]               
-#[균형 이진트리]                     
+#[균형 이진트리]          
+# 좌우 서브노트 트리높이 차가 1이하            
+
     A        A           A                
   B        B   C       B   D              
                      C
-# 좌우 서브노트 트리높이 차가 1이하  
 ```
 
 **[Tree Traversal]**
@@ -221,9 +224,8 @@ isn't Allowed)
 **+** Java에서 제공하는 TreeSet은 RedBlackTree를 구현한 라이브러리 임. 
 
 
+
 ### Gragh
-
-
 
 **Graph**
 
@@ -279,6 +281,7 @@ isn't Allowed)
 ```
 
 `인접행렬` -> 노드의 개수가 적고 간선의 수가 많을 때 유리 (밀집그래프)
+
 `인접리스트` -> 노드의 개수가 많고 간선의 수가 적을 때 유리 (희소그래프)
 
 **[인접행렬 과 인접리스트]**
