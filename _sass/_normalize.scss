@@ -105,14 +105,16 @@ hr {
 /* Forms content
    ========================================================================== */
 
-button,
-input,
-optgroup,
-select,
-textarea {
+button, input, select, optgroup, textarea {
   color: inherit; /* 1 */
   font: inherit; /* 2 */
   margin: 0; /* 3 */
+  border: 0;
+  outline: none;
+}
+
+input {
+  line-height: normal;
 }
 
 button {
@@ -125,7 +127,7 @@ select {
 }
 
 button,
-html input[type="button"], /* 1 */
+input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
@@ -138,7 +140,7 @@ input::-ms-reveal {
 }
 
 button[disabled],
-html input[disabled] {
+input[disabled] {
   cursor: default;
 }
 
@@ -146,10 +148,6 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
-}
-
-input {
-  line-height: normal;
 }
 
 input[type="checkbox"],
@@ -219,8 +217,7 @@ p, figure {
 h1, h2, h3, h4, h5, h6 {
 	color: var(--text-primary);
 	line-height: 1.2;
-	margin: 0 0 2rem 0;
-	font-weight: 600;
+	font-weight: 700;
 }
 
 h1 {
@@ -249,37 +246,21 @@ ol, ul {
 	list-style-type: none;
 }
 
-dl dt {
-	float: left;
-	width: 180px;
-	overflow: hidden;
-	clear: left;
-	text-align: right;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	font-weight: 700;
-	margin-bottom: 1em;
-}
-
-dl dd {
-	margin-left: 200px;
-	margin-bottom: 1em;
-}
-
 mark {
-	background-color: #fdffb6
+	background-color: #fdffb6;
+	background-color: #{rgba($color-theme-yellow-10, 0.5)};
 }
 
 kbd {
 	display: inline-block;
 	margin-bottom: 0.4em;
 	padding: 1px 8px;
-	border: #CCC 1px solid;
+	border: #ccc 1px solid;
 	color: #666;
-	text-shadow: #FFF 0 1px 0;
+	text-shadow: #fff 0 1px 0;
 	font-size: 0.9em;
 	font-weight: 700;
-	background: #F4F4F4;
+	background: #f4f4f4;
 	border-radius: 4px;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff inset;
+	box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 0 #fff;
 }
