@@ -543,7 +543,7 @@ table {
 		}
 	}
 	
-	@media (min-width: $mobile-break) {
+	@media (max-width: $mobile-break) {
 		flex-direction: column;
 		.img_char {
 			border: 0;
