@@ -196,14 +196,14 @@ header {
 .main {
 	overflow-y: auto;
 	max-width: $content-max-width;
-	padding: 5rem 2.5rem 2.5rem;
-	margin: 0 auto;
+	margin: $nav-header-height auto 0;
+	padding: 2rem 2.5rem 2.5rem;
 	
 	@media (min-width: $mobile-break) {
 		flex: 0 1 auto;
 		width: 100%;
-		margin-top: $nav-header-height;
-		padding-top: 2rem;
+		margin-top: 0;
+		padding-top: 5rem;
 	}
 	@media (min-width: $full-width-break) {
 		padding-top: 5rem;
