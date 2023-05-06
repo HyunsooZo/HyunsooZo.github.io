@@ -510,12 +510,11 @@ table {
 			i {
 				display: flex;
 				align-items: center;
-				min-height: 18px;
-				margin: 1px 6px 0 0;
+				height: 1.8rem;
+				margin: 0.1rem 0.6rem 0 0;
 
 				img {
-				height: 1.5rem;
-				margin: 0.2rem 0.6rem 0 0;
+					height: 1.5rem;
 				}
 			}
 			
@@ -569,6 +568,6 @@ table {
 	text-align: center;
 
 	h4 {
-		margin-top: 5rem;
+		margin: 5rem 0 3rem;
 	}
 }
