@@ -565,10 +565,13 @@ table {
 }
 
 .box-ghchart {
-	margin-top: 5rem;
 	text-align: center;
-
+	
 	p {
-		margin-bottom: 3rem;
+		margin: 5rem 0 3rem;
+		line-height: 1.2;
+		font-weight: 700;
+		font-size: 1.8rem;
+		color: var(--text-primary);
 	}
 }
