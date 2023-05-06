@@ -115,6 +115,8 @@ button, input, select, optgroup, textarea {
 
 input {
   line-height: normal;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 button {

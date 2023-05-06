@@ -5,7 +5,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		{% seo %}
 		{% feed_meta %}
-		<!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Merriweather:400,400italic,700,700italic|Open+Sans:400,400italic,600,600italic,700,700italic|Inconsolata:400,700"> -->
 		<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
@@ -71,31 +70,31 @@
 			<article class ="content">
 				{{ content }}
 			</article>
-			
-			<div class="toc">
-				<h6 class="toc-heading">Table of Contents</h6>
-				{% include toc.html html=content %}
-				<div class="top-button">
-					<a href="#" id="btn-top" class="btn-top">TOP</a>
-					<script>
-						window.onload = function() {
-							var scrollToTop = document.querySelector(".btn-top");
-
-							scrollToTop.addEventListener("click", function(event) {
-								event.preventDefault();
-								var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-								if (scrollTop > 0) {
-									window.scrollTo({
-									top: 0,
-									behavior: "smooth"
-									});
-								}
-							});
-						}
-					  </script>
-				</div>
-			</div>			
 		</section>
+		
+		<div class="toc">
+			<h6 class="toc-heading">Table of Contents</h6>
+			{% include toc.html html=content %}
+			<div class="top-button">
+				<a href="#" id="btn-top" class="btn-top">TOP</a>
+				<script>
+					window.onload = function() {
+						var scrollToTop = document.querySelector(".btn-top");
+
+						scrollToTop.addEventListener("click", function(event) {
+							event.preventDefault();
+							var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+							if (scrollTop > 0) {
+								window.scrollTo({
+								top: 0,
+								behavior: "smooth"
+								});
+							}
+						});
+					}
+				  </script>
+			</div>
+		</div>			
 
 		<script>
 			document.getElementById("open-nav").addEventListener("click", function () {
