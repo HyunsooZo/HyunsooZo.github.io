@@ -189,7 +189,7 @@ header {
 	    border: 1px solid var(--border-primary);
 		background: transparent;
 
-		&:after, &:before {
+		&:before, &:after {
 			content: '';
 			position: absolute;
 			top: 50%;
@@ -199,9 +199,9 @@ header {
 			background: var(--border-primary);
 			transform: rotate(45deg);
 		}
-		&:before {
+		&:after {
 			left: 24%;
-			transform: rotate(45deg);
+			transform: rotate(-45deg);
 		}
 
 		span {
