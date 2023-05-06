@@ -425,28 +425,22 @@ blockquote {
 .toc {
 	display: none;
 	margin: 0 1rem;
-	min-width: 15.5rem;
-
+	
 	@media (min-width: 1000px){
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex: 1 0 15rem;
 	}
 
 	&-heading {
-		font-size: 1.6rem;
 		margin: 0 0 2.5rem;
 		padding: 0 0 0 1rem;
+		font-size: 1.6rem;
 	}
 
 	ul {
-	  margin-bottom: 0.1rem;
-	  padding-left: 0rem;
-	  
 	  li {
-		margin: 0;
-		padding-left: .5rem;
-	
 		a {
 			display: block;
 			padding: 0.5rem 1rem;
@@ -510,12 +504,6 @@ table {
 	}
 	
 	&._type__01 {
-		.img_hyunsoo {
-			padding: 0.8rem 1.5rem 0.8rem 0;
-			img {
-				max-width: 180px;
-			}
-		}
 		td p {
 			display: flex;
 			align-items: flex-start;
@@ -537,4 +525,27 @@ table {
 	}
 }
 
-
+.flex-box_wrap {
+	display: flex;
+	
+	.img_char {
+		flex: 0 1 auto;
+		display: inline-flex;
+		padding: 0 2rem 0 0;
+		border: solid var(--border-secondary);
+		border-width: 1px 0;
+		
+		span {
+			display: inline-block;
+			max-width: 180px;
+			margin: auto;
+		}
+	}
+	
+	@media (min-width: $mobile-break) {
+		flex-direction: column;
+		.img_char {
+			border-width: 1px 0 0;
+		}
+	}
+}

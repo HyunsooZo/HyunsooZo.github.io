@@ -29,16 +29,14 @@ audio:not([controls]), [hidden], template {
 
 a {
 	display: inline-block;
-	color: var(--text-secondary);
-	// transition: color 0.2s ease;
 	text-decoration: none;
-  background-color: transparent;
+	color: var(--text-secondary);
 }
 
 a:active,
 a:hover {
-	color: var(--text-primary);
   outline: 0;
+	color: var(--text-primary);
 }
 
 abbr[title] {
@@ -66,11 +64,11 @@ sub, sup {
 }
 
 sup {
-  top: -0.5em;
+  top: -0.5rem;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -0.25rem;
 }
 
 /* Embedded content

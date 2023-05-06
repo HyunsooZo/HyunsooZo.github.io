@@ -2,18 +2,17 @@
 title: About
 toc: false
 ---
-<div>
+<div class="flex-box_wrap">
+  <div class="img_char">
+    <span><img src="https://i.imgur.com/tpr5jcv.png" /></span>
+  </div>
   <table class="_type__01">
     <colgroup>
-      <col style="width:30%;" />
       <col style="width:20%;" />
       <col />
     </colgroup>
     <tbody>
       <tr>
-        <th rowspan="5" class="img_hyunsoo">
-          <img src="https://i.imgur.com/tpr5jcv.png" />
-        </th>
         <th>Name</th>
         <td>
           <p>
