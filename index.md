@@ -2,6 +2,12 @@
 title: About
 toc: false
 ---
+<style>
+.toc {
+    display: none;
+}
+</style>
+
 <div class="flex-box_wrap">
     <div class="img_char">
         <span><img src="https://i.imgur.com/tpr5jcv.png" /></span>
