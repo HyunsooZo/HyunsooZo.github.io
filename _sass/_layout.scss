@@ -494,29 +494,38 @@ table {
 		&:nth-child(even) {
 			background: var(--background-secondary);
 		}
-	}
-	
-	
-	th, td {
-		padding: 0.8rem;
-		text-align: left;
-		word-break: break-word;
+		
+		th, td {
+			padding: 0.8rem;
+			text-align: left;
+			word-break: break-word;
+		}
 	}
 	
 	&._type__01 {
 		td p {
 			display: flex;
 			align-items: flex-start;
-			img {
+			
+			i {
+				display: flex;
+				align-items: center;
+				min-height: 18px;
+				margin: 1px 6px 0 0;
+
+				img {
 				height: 1.5rem;
 				margin: 0.2rem 0.6rem 0 0;
+				}
 			}
+			
 			span, a {
 				line-height: 1.8rem;
 			}
-		}
-		td p + p {
-			margin-top: 0.4rem;
+			
+			& + p {
+				margin-top: 0.4rem;
+			}
 		}
 	}
 	
@@ -531,7 +540,7 @@ table {
 	.img_char {
 		flex: 0 1 auto;
 		display: inline-flex;
-		padding: 0 2rem 0 0;
+		padding: 0 1rem;
 		border: solid var(--border-secondary);
 		border-width: 1px 0;
 		line-height: 0;
@@ -540,6 +549,7 @@ table {
 			display: inline-block;
 			max-width: 180px;
 			margin: auto;
+			padding:0 1rem 0 0;
 		}
 	}
 	
@@ -547,6 +557,18 @@ table {
 		flex-direction: column;
 		.img_char {
 			border: 0;
+
+			span {
+				max-width: 150px;
+			}
 		}
+	}
+}
+
+.box-ghchart {
+	text-align: center;
+
+	h4 {
+		margin-top: 5rem;
 	}
 }
