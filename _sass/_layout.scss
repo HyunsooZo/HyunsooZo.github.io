@@ -501,6 +501,7 @@ table {
 	}
 
 	._type__01 {
+		width: 100%;
 		border-top: 1px solid var(--border-secondary);
 		
 		li {
@@ -512,11 +513,12 @@ table {
 			}
 			strong {
 				display: inline-block;
-				width: 20%;
+				width: 40%;
 				padding: 0.8rem;
 				word-break: break-word;
 			}
 			.list_text {
+				flex: 0 1 100%;
 				padding: 0.8rem;
 	
 				p {
@@ -555,6 +557,13 @@ table {
 		}
 		._type__01 li {
 			flex-direction: column;
+			padding: 0.8rem 0;
+
+			strong {
+				width: 100%;
+				padding-bottom: 0;
+				font-size: 1.5rem;
+			}
 		}
 	}
 }

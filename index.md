@@ -57,7 +57,7 @@ toc: false
         </li>
         <li>
             <strong>Contact</strong>
-            <div>
+            <div class="list_text">
                 <p>
                     <i><img src="https://velog.velcdn.com/images/augus-xury/post/a3c5cffd-1919-4976-a82d-62826a4f020c/GitHub-APK-MOD-Download-1.18.0.png" /></i>
                     <a href="https://github.com/HyunsooZo">Git hub</a>
