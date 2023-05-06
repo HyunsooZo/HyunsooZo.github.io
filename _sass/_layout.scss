@@ -534,6 +534,7 @@ table {
 		padding: 0 2rem 0 0;
 		border: solid var(--border-secondary);
 		border-width: 1px 0;
+		line-height: 0;
 		
 		span {
 			display: inline-block;
@@ -545,7 +546,7 @@ table {
 	@media (min-width: $mobile-break) {
 		flex-direction: column;
 		.img_char {
-			border-width: 1px 0 0;
+			border: 0;
 		}
 	}
 }
