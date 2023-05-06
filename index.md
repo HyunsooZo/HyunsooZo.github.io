@@ -71,9 +71,9 @@ toc: false
             <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" />
             <a href="https://www.linkedin.com/in/hyunsoo-jo-605554186/?locale=en_US">LinkedIn</a>
           </p>
-            <p>
+          <p>
             <img src="https://em-content.zobj.net/thumbs/240/twitter/348/envelope_2709-fe0f.png" />
-             <span>bzhs1992@icloud.com</span>
+            <a href="mailto:bzhs1992@icloud.com">bzhs1992@icloud.com</a>
           </p>
         </td>
       </tr>
