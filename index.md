@@ -82,8 +82,8 @@ toc: false
 </div>
 
 <div class="box-ghchart">
-  <h4>This is a blog where I record what I learned each day</h4>
-  <p>
+  <p>This is a blog where I record what I learned each day</p>
+  <div>
     <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
-  </p>
+  </div>
 </div>
