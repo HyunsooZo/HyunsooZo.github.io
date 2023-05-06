@@ -42,7 +42,6 @@ body {
 
 	//min-width: 700px
 	@media (min-width: $mobile-break) {
-		// padding: 0 0 0 $nav-width;
 		@include flex-direction(row);
 
 		&.nav-open {
@@ -50,6 +49,7 @@ body {
 		}
 	}
 }
+
 header {
 	position: absolute;
 	top: 0;
@@ -60,11 +60,6 @@ header {
 	background-color: var(--background-primary);
 	z-index: 1;
 
-	ul {
-		padding: 0;
-		margin: 0;
-	}
-
 	h1 {
 		@include display-flex();
 		@include flex-direction(row);
@@ -73,8 +68,7 @@ header {
 		top: 0;
 		padding: $header-vertical-gap $header-horizontal-gap;
 		height: $nav-header-height;
-		margin: 0;
-		line-height: 0.8;
+		line-height: 2.4rem;
 		font-size: 1.7rem;
 		font-weight: 600;
 		letter-spacing: 0;
@@ -92,21 +86,58 @@ header {
 		}
 	}
 
-	$nav-image: $baseurl + "/images/menu.svg";
-	
 	.open-nav {
 		width: $nav-btn-size;
 		height: $nav-btn-size;
 		margin-left: auto;
-		background: transparent url($nav-image) no-repeat center center / 100%;
-
-		// &:focus,
-		// &:hover {
-		// 	filter: opacity(0.5);
-		// }
+		background: transparent url($baseurl + "/images/menu.svg") no-repeat center center / 100%;
 
 		header {
 			height: 100%;
+		}
+	}
+
+	form,
+	nav {
+		display: none;
+	
+		@media (min-width: $mobile-break) {
+			display: block;
+		}
+	}
+	
+	nav {
+		padding: $space / 2 0;
+	
+		.nav-item {
+			display: block;
+			line-height: 1;
+			margin: 0;
+			
+			> a {
+				color: var(--text-tertiary);
+				text-decoration: none;
+				font-size: 1.4rem;
+				padding: $space / 2 0 $space / 2 $space * 2;
+				display: block;
+			}
+			&.current > a,
+			> a:active,
+			> a:hover {
+				color: var(--text-primary);
+			}
+			&.top-level > a {
+				line-height: 1.5;
+				font-weight: 600;
+				padding-left: $space;
+			}
+			
+			nav:not(.full-navigation) & > ul {
+				display: none;
+			}
+			nav:not(.full-navigation) &.current > ul {
+				display: block;
+			}
 		}
 	}
 
@@ -125,120 +156,100 @@ header {
 	}
 }
 
-nav,
-header > form {
-	display: none;
-
-	@media (min-width: $mobile-break) {
-		display: block;
-	}
-}
-
-nav > ul {
-	padding: $space / 2 0;
-
-	& + ul {
-		border-top: 1px solid rgba(0, 0, 0, 0.075);
-	}
-}
-
-.nav-item {
+//search
+#search-input {
 	display: block;
-	line-height: 1;
 	margin: 0;
+	padding: 1rem 2rem;
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid var(--border-secondary);
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: 1.8;
+	background: transparent;
 
-	nav:not(.full-navigation) & > ul {
-		display: none;
+	&:focus {
+		outline: none;
 	}
+}
 
-	nav:not(.full-navigation) &.current > ul {
-		display: block;
-	}
+#search-results {
+	margin: 0;
+	padding: 0;
 
-	> a {
-		color: var(--text-tertiary);
-		text-decoration: none;
-		font-size: 1.4rem;
-		padding: $space / 2 0 $space / 2 $space * 2;
-		display: block;
-	}
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
 
-	&.current > a,
-	> a:active,
-	> a:hover {
-		color: var(--text-primary);
-	}
+		h4 {
+			font-size: 2rem;
+		}
 
-	&.top-level > a {
-		line-height: 1.5;
-		font-weight: 600;
-		padding-left: $space;
+		p {
+			line-height: 1.5;
+		}
 	}
 }
 
 .main {
 	overflow-y: auto;
-	padding-top: $space + 60px;
+	max-width: $content-max-width;
+	padding: ($space * 4) ($space + 5) ($space + 5);
+	margin: $space auto 0 auto;
 	
 	@media (min-width: $mobile-break) {
 		flex: 0 1 auto;
 		width: 100%;
 		padding-top: 0;
 	}
-}
-
-.page-header,
-.content {
-	max-width: $content-max-width;
-	padding: 0 ($space + 5) $space;
-	margin: $space auto 0 auto;
-}
-
-.page-header {
-	h2,
-	h3 {
-		margin: 0;
-		line-height: 1.2;
-		letter-spacing: -1px;
-	}
-
-	h2 {
-		font-size: 2rem;
-		margin-left: -1px;
-		color: #888;
-		letter-spacing: 0;
-	}
-
-	h3 {
-		font-size: 2.4rem;
-		margin: 15px 0 0 -4px;
-	}
-
-	@media (min-width: $mobile-break) {
-		h2 {
-			font-size: 1.8rem;
-		}
-
-		h3 {
-			font-size: 3.2rem;
-		}
-	}
-
 	@media (min-width: $full-width-break) {
-		margin-top: 55px;
+		margin-top: 5rem;
 	}
-}
-
-.content {
-	position: relative;
-	color: var(--text-secondary);
-
-	h3::before {
-		content: "";
-		@extend hr;
+	.page-header {
+		h2,
+		h3 {
+			margin: 0;
+			line-height: 1.2;
+			letter-spacing: -1px;
+		}
+	
+		h2 {
+			font-size: 2rem;
+			margin-left: -1px;
+			color: #888;
+			letter-spacing: 0;
+		}
+	
+		h3 {
+			font-size: 2.4rem;
+			margin: 15px 0 0 -4px;
+		}
+	
+		@media (min-width: $mobile-break) {
+			h2 {
+				font-size: 1.8rem;
+			}
+	
+			h3 {
+				font-size: 3.2rem;
+			}
+		}
 	}
-	> * + *:not(h2):not(h3) {
-		margin: 2rem 0 0 0;
+	
+	.content {
+		position: relative;
+		margin-top: 2rem;
+		color: var(--text-secondary);
+	
+		h3::before {
+			content: "";
+			@extend hr;
+		}
+		> * + *:not(h2):not(h3) {
+			margin: 2rem 0 0 0;
+		}
 	}
 }
 
@@ -308,43 +319,6 @@ h4 svg {
 	line-height: 1;
 	color: var(--text-primary-blue);
 	padding-left: 5px;
-}
-
-//search
-#search-input {
-	display: block;
-	margin: 0;
-	padding: 1rem 2rem;
-	width: 100%;
-	border: 0;
-	border-bottom: 1px solid var(--border-secondary);
-	font-size: 1.5rem;
-	font-weight: 600;
-	line-height: 1.8;
-	background: transparent;
-
-	&:focus {
-		outline: none;
-	}
-}
-
-#search-results {
-	margin: 0;
-	padding: 0;
-
-	li {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-
-		h4 {
-			font-size: 2rem;
-		}
-
-		p {
-			line-height: 1.5;
-		}
-	}
 }
 
 .changelog {
@@ -444,8 +418,8 @@ blockquote {
 	  li {
 		a {
 			display: block;
-			padding: 0.5rem 1rem;
-			line-height: 1.4rem;
+			padding: 0.8rem 1rem;
+			line-height: 1.6rem;
 			font-size: 1.2rem;
 			text-decoration: none;
 			color: var(--text-secondary);
@@ -495,7 +469,6 @@ table {
 		&:nth-child(even) {
 			background: var(--background-secondary);
 		}
-		
 		th, td {
 			padding: 0.8rem;
 			text-align: left;
@@ -518,11 +491,9 @@ table {
 					height: 1.5rem;
 				}
 			}
-			
 			span, a {
 				line-height: 1.8rem;
 			}
-			
 			& + p {
 				margin-top: 0.4rem;
 			}
@@ -544,7 +515,6 @@ table {
 		border: solid var(--border-secondary);
 		border-width: 1px 0;
 		line-height: 0;
-		
 		span {
 			display: inline-block;
 			max-width: 180px;
@@ -557,7 +527,6 @@ table {
 		flex-direction: column;
 		.img_char {
 			border: 0;
-
 			span {
 				max-width: 150px;
 			}

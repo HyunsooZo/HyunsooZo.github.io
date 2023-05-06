@@ -202,315 +202,315 @@ $theme-dark-code-background-inline: $color-neutral-80;
 $theme-dark-code-background-block: $color-neutral-80;
 
 @mixin light-theme {
-  --text-primary: #{$theme-light-text-primary};
-  --text-secondary: #{$theme-light-text-secondary};
-  --text-tertiary: #{$theme-light-text-tertiary};
-  --text-inactive: #{$theme-light-text-inactive};
-  --text-link: #{$theme-light-text-link};
-  --text-invert: #{$theme-light-text-invert};
+    --text-primary: #{$theme-light-text-primary};
+    --text-secondary: #{$theme-light-text-secondary};
+    --text-tertiary: #{$theme-light-text-tertiary};
+    --text-inactive: #{$theme-light-text-inactive};
+    --text-link: #{$theme-light-text-link};
+    --text-invert: #{$theme-light-text-invert};
 
-  --background-primary: #{$theme-light-background-primary};
-  --background-secondary: #{$theme-light-background-secondary};
-  --background-tertiary: #{$theme-light-background-tertiary};
-  --background-toc-active: #{$theme-light-background-toc-active};
-  --background-mark-yellow: #{rgba($color-theme-yellow-30, 0.6)};
-  --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
-  --background-information: #{rgba($theme-light-icon-information, 0.9)};
-  --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
-  --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
-  --background-success: #{rgba($theme-light-icon-success, 0.9)};
+    --background-primary: #{$theme-light-background-primary};
+    --background-secondary: #{$theme-light-background-secondary};
+    --background-tertiary: #{$theme-light-background-tertiary};
+    --background-toc-active: #{$theme-light-background-toc-active};
+    --background-mark-yellow: #{rgba($color-theme-yellow-30, 0.6)};
+    --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
+    --background-information: #{rgba($theme-light-icon-information, 0.9)};
+    --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
+    --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
+    --background-success: #{rgba($theme-light-icon-success, 0.9)};
 
-  --border-primary: #{$theme-light-border-primary};
-  --border-secondary: #{$theme-light-border-secondary};
+    --border-primary: #{$theme-light-border-primary};
+    --border-secondary: #{$theme-light-border-secondary};
 
-  --button-primary-default: #{$theme-light-button-primary-default};
-  --button-primary-hover: #{$theme-light-button-primary-hover};
-  --button-primary-active: #{$theme-light-button-primary-active};
-  --button-primary-inactive: #{$theme-light-button-primary-inactive};
+    --button-primary-default: #{$theme-light-button-primary-default};
+    --button-primary-hover: #{$theme-light-button-primary-hover};
+    --button-primary-active: #{$theme-light-button-primary-active};
+    --button-primary-inactive: #{$theme-light-button-primary-inactive};
 
-  --button-secondary-default: #{$theme-light-button-secondary-default};
-  --button-secondary-hover: #{$theme-light-button-secondary-hover};
-  --button-secondary-active: #{$theme-light-button-secondary-active};
-  --button-secondary-inactive: #{$theme-light-button-secondary-inactive};
-  --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
-  --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
-  --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
+    --button-secondary-default: #{$theme-light-button-secondary-default};
+    --button-secondary-hover: #{$theme-light-button-secondary-hover};
+    --button-secondary-active: #{$theme-light-button-secondary-active};
+    --button-secondary-inactive: #{$theme-light-button-secondary-inactive};
+    --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
+    --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
+    --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
 
-  --icon-primary: #{$theme-light-icon-primary};
-  --icon-secondary: #{$theme-light-icon-secondary};
-  --icon-information: #{$theme-light-icon-information};
-  --icon-warning: #{$theme-light-icon-warning};
-  --icon-critical: #{$theme-light-icon-critical};
-  --icon-success: #{$theme-light-icon-success};
+    --icon-primary: #{$theme-light-icon-primary};
+    --icon-secondary: #{$theme-light-icon-secondary};
+    --icon-information: #{$theme-light-icon-information};
+    --icon-warning: #{$theme-light-icon-warning};
+    --icon-critical: #{$theme-light-icon-critical};
+    --icon-success: #{$theme-light-icon-success};
 
-  --accent-primary: #{$theme-light-accent-primary};
-  --accent-primary-engage: #{rgba($theme-light-accent-primary, 0.9)};
-  --accent-secondary: #{$theme-light-accent-secondary};
-  --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
+    --accent-primary: #{$theme-light-accent-primary};
+    --accent-primary-engage: #{rgba($theme-light-accent-primary, 0.9)};
+    --accent-secondary: #{$theme-light-accent-secondary};
+    --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
 
-  --shadow-01: #{$theme-light-shadow-01};
-  --shadow-02: #{$theme-light-shadow-02};
-  --focus-01: #{$theme-light-focus-01};
-  --field-focus-border: #{$theme-light-field-focus-border};
+    --shadow-01: #{$theme-light-shadow-01};
+    --shadow-02: #{$theme-light-shadow-02};
+    --focus-01: #{$theme-light-focus-01};
+    --field-focus-border: #{$theme-light-field-focus-border};
 
-  --notecard-link-color: #{$color-neutral-80};
+    --notecard-link-color: #{$color-neutral-80};
 
-  --scrollbar-bg: transparent;
-  --scrollbar-color: #{rgba($color-black, 0.25)};
+    --scrollbar-bg: transparent;
+    --scrollbar-color: #{rgba($color-black, 0.25)};
 
-  --category-color: #{$color-theme-blue-50};
-  --category-color-background: #{rgba($color-theme-blue-50, 0.1)};
-  --code-color: #{$color-theme-blue-40};
-  --mark-color: #{$color-theme-blue-10};
+    --category-color: #{$color-theme-blue-50};
+    --category-color-background: #{rgba($color-theme-blue-50, 0.1)};
+    --code-color: #{$color-theme-blue-40};
+    --mark-color: #{$color-theme-blue-10};
 
-  --plus-accent-color: #{$color-theme-red-60};
-  --html-accent-color: #{$color-theme-red-60};
-  --css-accent-color: #{$color-theme-blue-60};
-  --js-accent-color: #{$color-theme-yellow-40};
-  --http-accent-color: #{$color-theme-green-60};
-  --apis-accent-color: #{$color-theme-violet-60};
-  --learn-accent-color: #{$color-theme-pink-60};
+    --plus-accent-color: #{$color-theme-red-60};
+    --html-accent-color: #{$color-theme-red-60};
+    --css-accent-color: #{$color-theme-blue-60};
+    --js-accent-color: #{$color-theme-yellow-40};
+    --http-accent-color: #{$color-theme-green-60};
+    --apis-accent-color: #{$color-theme-violet-60};
+    --learn-accent-color: #{$color-theme-pink-60};
 
-  --plus-code-color: #{$color-theme-blue-60};
-  --html-code-color: #{$color-theme-red-70};
-  --css-code-color: #{$color-theme-blue-60};
-  --js-code-color: #{$color-theme-yellow-60};
-  --http-code-color: #{$color-theme-green-60};
-  --apis-code-color: #{$color-theme-violet-60};
-  --learn-code-color: #{$color-theme-pink-60};
+    --plus-code-color: #{$color-theme-blue-60};
+    --html-code-color: #{$color-theme-red-70};
+    --css-code-color: #{$color-theme-blue-60};
+    --js-code-color: #{$color-theme-yellow-60};
+    --http-code-color: #{$color-theme-green-60};
+    --apis-code-color: #{$color-theme-violet-60};
+    --learn-code-color: #{$color-theme-pink-60};
 
-  --plus-mark-color: #{$color-theme-red-10};
-  --html-mark-color: #{$color-theme-red-10};
-  --css-mark-color: #{$color-theme-blue-10};
-  --js-mark-color: #{$color-theme-yellow-10};
-  --http-mark-color: #{$color-theme-green-10};
-  --apis-mark-color: #{$color-theme-violet-10};
-  --learn-mark-color: #{$color-theme-pink-10};
+    --plus-mark-color: #{$color-theme-red-10};
+    --html-mark-color: #{$color-theme-red-10};
+    --css-mark-color: #{$color-theme-blue-10};
+    --js-mark-color: #{$color-theme-yellow-10};
+    --http-mark-color: #{$color-theme-green-10};
+    --apis-mark-color: #{$color-theme-violet-10};
+    --learn-mark-color: #{$color-theme-pink-10};
 
-  --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
-  --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
-  --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
-  --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
-  --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
+    --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
+    --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
+    --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
+    --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
+    --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
+    --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
+    --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
 
-  --plus-accent-engage: #{rgba($color-theme-red-50, 0.3)};
-  --html-accent-engage: #{rgba($color-theme-red-50, 0.3)};
-  --css-accent-engage: #{rgba($color-theme-blue-50, 0.3)};
-  --js-accent-engage: #{rgba($color-theme-yellow-50, 0.3)};
-  --http-accent-engage: #{rgba($color-theme-green-50, 0.3)};
-  --apis-accent-engage: #{rgba($color-theme-violet-50, 0.3)};
-  --learn-accent-engage: #{rgba($color-theme-pink-50, 0.3)};
+    --plus-accent-engage: #{rgba($color-theme-red-50, 0.3)};
+    --html-accent-engage: #{rgba($color-theme-red-50, 0.3)};
+    --css-accent-engage: #{rgba($color-theme-blue-50, 0.3)};
+    --js-accent-engage: #{rgba($color-theme-yellow-50, 0.3)};
+    --http-accent-engage: #{rgba($color-theme-green-50, 0.3)};
+    --apis-accent-engage: #{rgba($color-theme-violet-50, 0.3)};
+    --learn-accent-engage: #{rgba($color-theme-pink-50, 0.3)};
 
-  --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.1)};
-  --blend-color: #{rgba($color-white, 0.8)};
+    --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.1)};
+    --blend-color: #{rgba($color-white, 0.8)};
 
-  --text-primary-red: #{$color-theme-red-60};
-  --text-primary-green: #{$color-theme-green-60};
-  --text-primary-blue: #{$color-theme-blue-60};
-  --text-primary-yellow: #{$color-theme-yellow-60};
+    --text-primary-red: #{$color-theme-red-60};
+    --text-primary-green: #{$color-theme-green-60};
+    --text-primary-blue: #{$color-theme-blue-60};
+    --text-primary-yellow: #{$color-theme-yellow-60};
 
-  --collections-link: #{$color-theme-red-70};
-  --collections-header: #{$color-theme-red-10};
-  --collections-mandala: #{$color-theme-red-30};
-  --collections-icon: #{$color-theme-red-50};
+    --collections-link: #{$color-theme-red-70};
+    --collections-header: #{$color-theme-red-10};
+    --collections-mandala: #{$color-theme-red-30};
+    --collections-icon: #{$color-theme-red-50};
 
-  --updates-link: #{$color-theme-blue-60};
-  --updates-header: #{$color-neutral-light-70};
-  --updates-mandala: #{$color-theme-blue-30};
-  --updates-icon: #{$color-theme-blue-50};
+    --updates-link: #{$color-theme-blue-60};
+    --updates-header: #{$color-neutral-light-70};
+    --updates-mandala: #{$color-theme-blue-30};
+    --updates-icon: #{$color-theme-blue-50};
 
-  --form-limit-color: #{$color-neutral-60};
-  --form-limit-color-emphasis: #{$color-neutral-70};
-  --form-invalid-color: #{$color-theme-red-60};
-  --form-invalid-focus-color: #{$color-theme-red-50};
-  --form-invalid-focus-effect-color: #{rgba($color-theme-red-50, 0.2)};
+    --form-limit-color: #{$color-neutral-60};
+    --form-limit-color-emphasis: #{$color-neutral-70};
+    --form-invalid-color: #{$color-theme-red-60};
+    --form-invalid-focus-color: #{$color-theme-red-50};
+    --form-invalid-focus-effect-color: #{rgba($color-theme-red-50, 0.2)};
 
-  --code-token-tag: #{$theme-light-code-token-tag};
-  --code-token-punctuation: #{$theme-light-code-token-punctuation};
-  --code-token-attribute-name: #{$theme-light-code-token-attribute-name};
-  --code-token-attribute-value: #{$theme-light-code-token-attribute-value};
-  --code-token-comment: #{$theme-light-code-token-comment};
-  --code-token-default: #{$theme-light-code-token-default};
-  --code-token-selector: #{$theme-light-code-token-selector};
-  --code-background-inline: #{$theme-light-code-background-inline};
-  --code-background-block: #{$theme-light-code-background-block};
+    --code-token-tag: #{$theme-light-code-token-tag};
+    --code-token-punctuation: #{$theme-light-code-token-punctuation};
+    --code-token-attribute-name: #{$theme-light-code-token-attribute-name};
+    --code-token-attribute-value: #{$theme-light-code-token-attribute-value};
+    --code-token-comment: #{$theme-light-code-token-comment};
+    --code-token-default: #{$theme-light-code-token-default};
+    --code-token-selector: #{$theme-light-code-token-selector};
+    --code-background-inline: #{$theme-light-code-background-inline};
+    --code-background-block: #{$theme-light-code-background-block};
 
-  color-scheme: light;
+    color-scheme: light;
 }
 
 @mixin dark-theme {
-  --text-primary: #{$theme-dark-text-primary};
-  --text-secondary: #{$theme-dark-text-secondary};
-  --text-tertiary: #{$theme-dark-text-tertiary};
-  --text-inactive: #{$theme-dark-text-inactive};
-  --text-link: #{$theme-dark-text-link};
-  --text-invert: #{$theme-dark-text-invert};
+    --text-primary: #{$theme-dark-text-primary};
+    --text-secondary: #{$theme-dark-text-secondary};
+    --text-tertiary: #{$theme-dark-text-tertiary};
+    --text-inactive: #{$theme-dark-text-inactive};
+    --text-link: #{$theme-dark-text-link};
+    --text-invert: #{$theme-dark-text-invert};
 
-  --background-primary: #{$theme-dark-background-primary};
-  --background-secondary: #{$theme-dark-background-secondary};
-  --background-tertiary: #{$theme-dark-background-tertiary};
-  --background-toc-active: #{$theme-dark-background-toc-active};
-  --background-mark-yellow: #{rgba($color-theme-yellow-30, 0.6)};
-  --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
-  --background-information: #{rgba($theme-light-icon-information, 0.9)};
-  --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
-  --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
-  --background-success: #{rgba($theme-light-icon-success, 0.9)};
+    --background-primary: #{$theme-dark-background-primary};
+    --background-secondary: #{$theme-dark-background-secondary};
+    --background-tertiary: #{$theme-dark-background-tertiary};
+    --background-toc-active: #{$theme-dark-background-toc-active};
+    --background-mark-yellow: #{rgba($color-theme-yellow-30, 0.6)};
+    --background-mark-green: #{rgba($color-theme-green-30, 0.6)};
+    --background-information: #{rgba($theme-light-icon-information, 0.9)};
+    --background-warning: #{rgba($theme-light-icon-warning, 0.9)};
+    --background-critical: #{rgba($theme-light-icon-critical, 0.9)};
+    --background-success: #{rgba($theme-light-icon-success, 0.9)};
 
-  --border-primary: #{$theme-dark-border-primary};
-  --border-secondary: #{$theme-dark-border-secondary};
+    --border-primary: #{$theme-dark-border-primary};
+    --border-secondary: #{$theme-dark-border-secondary};
 
-  --button-primary-default: #{$theme-dark-button-primary-default};
-  --button-primary-hover: #{$theme-dark-button-primary-hover};
-  --button-primary-active: #{$theme-dark-button-primary-active};
-  --button-primary-inactive: #{$theme-dark-button-primary-inactive};
+    --button-primary-default: #{$theme-dark-button-primary-default};
+    --button-primary-hover: #{$theme-dark-button-primary-hover};
+    --button-primary-active: #{$theme-dark-button-primary-active};
+    --button-primary-inactive: #{$theme-dark-button-primary-inactive};
 
-  --button-secondary-default: #{$theme-dark-button-secondary-default};
-  --button-secondary-hover: #{$theme-dark-button-secondary-hover};
-  --button-secondary-active: #{$theme-dark-button-secondary-active};
-  --button-secondary-inactive: #{$theme-dark-button-secondary-inactive};
-  --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
-  --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
-  --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
+    --button-secondary-default: #{$theme-dark-button-secondary-default};
+    --button-secondary-hover: #{$theme-dark-button-secondary-hover};
+    --button-secondary-active: #{$theme-dark-button-secondary-active};
+    --button-secondary-inactive: #{$theme-dark-button-secondary-inactive};
+    --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
+    --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
+    --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
 
-  --icon-primary: #{$theme-dark-icon-primary};
-  --icon-secondary: #{$theme-dark-icon-secondary};
-  --icon-information: #{$theme-dark-icon-information};
-  --icon-warning: #{$theme-dark-icon-warning};
-  --icon-critical: #{$theme-dark-icon-critical};
-  --icon-success: #{$theme-dark-icon-success};
+    --icon-primary: #{$theme-dark-icon-primary};
+    --icon-secondary: #{$theme-dark-icon-secondary};
+    --icon-information: #{$theme-dark-icon-information};
+    --icon-warning: #{$theme-dark-icon-warning};
+    --icon-critical: #{$theme-dark-icon-critical};
+    --icon-success: #{$theme-dark-icon-success};
 
-  --accent-primary: #{$theme-dark-accent-primary};
-  --accent-primary-engage: #{rgba($theme-dark-accent-primary, 0.9)};
-  --accent-secondary: #{$theme-dark-accent-secondary};
-  --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
+    --accent-primary: #{$theme-dark-accent-primary};
+    --accent-primary-engage: #{rgba($theme-dark-accent-primary, 0.9)};
+    --accent-secondary: #{$theme-dark-accent-secondary};
+    --accent-tertiary: #{rgba($color-theme-blue-50, 0.9)};
 
-  --shadow-01: #{$theme-dark-shadow-01};
-  --shadow-02: #{$theme-dark-shadow-02};
-  --focus-01: #{$theme-dark-focus-01};
-  --field-focus-border: #{$theme-dark-field-focus-border};
+    --shadow-01: #{$theme-dark-shadow-01};
+    --shadow-02: #{$theme-dark-shadow-02};
+    --focus-01: #{$theme-dark-focus-01};
+    --field-focus-border: #{$theme-dark-field-focus-border};
 
-  --notecard-link-color: #{$color-neutral-10};
+    --notecard-link-color: #{$color-neutral-10};
 
-  --scrollbar-bg: transparent;
-  --scrollbar-color: #{rgba($color-white, 0.25)};
+    --scrollbar-bg: transparent;
+    --scrollbar-color: #{rgba($color-white, 0.25)};
 
-  --category-color: #{$color-theme-blue-30};
-  --category-color-background: #{rgba($color-theme-blue-30, 0.5)};
-  --code-color: #{$color-theme-blue-20};
-  --mark-color: #{$color-theme-blue-70};
+    --category-color: #{$color-theme-blue-30};
+    --category-color-background: #{rgba($color-theme-blue-30, 0.5)};
+    --code-color: #{$color-theme-blue-20};
+    --mark-color: #{$color-theme-blue-70};
 
-  --plus-accent-color: #{$color-theme-red-30};
-  --html-accent-color: #{$color-theme-red-40};
-  --css-accent-color: #{$color-theme-blue-30};
-  --js-accent-color: #{$color-theme-yellow-40};
-  --http-accent-color: #{$color-theme-green-40};
-  --apis-accent-color: #{$color-theme-violet-40};
-  --learn-accent-color: #{$color-theme-pink-40};
+    --plus-accent-color: #{$color-theme-red-30};
+    --html-accent-color: #{$color-theme-red-40};
+    --css-accent-color: #{$color-theme-blue-30};
+    --js-accent-color: #{$color-theme-yellow-40};
+    --http-accent-color: #{$color-theme-green-40};
+    --apis-accent-color: #{$color-theme-violet-40};
+    --learn-accent-color: #{$color-theme-pink-40};
 
-  --plus-code-color: #{$color-theme-blue-20};
-  --html-code-color: #{$color-neutral-light-70};
-  --css-code-color: #{$color-theme-blue-20};
-  --js-code-color: #{$color-theme-yellow-30};
-  --http-code-color: #{$color-theme-green-30};
-  --apis-code-color: #{$color-theme-violet-30};
-  --learn-code-color: #{$color-theme-pink-30};
+    --plus-code-color: #{$color-theme-blue-20};
+    --html-code-color: #{$color-neutral-light-70};
+    --css-code-color: #{$color-theme-blue-20};
+    --js-code-color: #{$color-theme-yellow-30};
+    --http-code-color: #{$color-theme-green-30};
+    --apis-code-color: #{$color-theme-violet-30};
+    --learn-code-color: #{$color-theme-pink-30};
 
-  --plus-mark-color: #{$color-theme-red-70};
-  --html-mark-color: #{$color-theme-red-70};
-  --css-mark-color: #{$color-theme-blue-70};
-  --js-mark-color: #{$color-theme-yellow-70};
-  --http-mark-color: #{$color-theme-green-70};
-  --apis-mark-color: #{$color-theme-violet-70};
-  --learn-mark-color: #{$color-theme-pink-70};
+    --plus-mark-color: #{$color-theme-red-70};
+    --html-mark-color: #{$color-theme-red-70};
+    --css-mark-color: #{$color-theme-blue-70};
+    --js-mark-color: #{$color-theme-yellow-70};
+    --http-mark-color: #{$color-theme-green-70};
+    --apis-mark-color: #{$color-theme-violet-70};
+    --learn-mark-color: #{$color-theme-pink-70};
 
-  --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
-  --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
-  --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
-  --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
-  --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
-  --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
+    --plus-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
+    --html-accent-background-color: #{rgba($color-theme-red-50, 0.2)};
+    --css-accent-background-color: #{rgba($color-theme-blue-50, 0.2)};
+    --js-accent-background-color: #{rgba($color-theme-yellow-50, 0.2)};
+    --http-accent-background-color: #{rgba($color-theme-green-50, 0.2)};
+    --apis-accent-background-color: #{rgba($color-theme-violet-50, 0.2)};
+    --learn-accent-background-color: #{rgba($color-theme-pink-50, 0.2)};
 
-  --plus-accent-engage: #{rgba($color-theme-red-40, 0.3)};
-  --html-accent-engage: #{rgba($color-theme-red-40, 0.3)};
-  --css-accent-engage: #{rgba($color-theme-blue-30, 0.3)};
-  --js-accent-engage: #{rgba($color-theme-yellow-40,0.3)};
-  --http-accent-engage: #{rgba($color-theme-green-40, 0.3)};
-  --apis-accent-engage: #{rgba($color-theme-violet-40, 0.3)};
-  --learn-accent-engage: #{rgba($color-theme-pink-40, 0.3)};
+    --plus-accent-engage: #{rgba($color-theme-red-40, 0.3)};
+    --html-accent-engage: #{rgba($color-theme-red-40, 0.3)};
+    --css-accent-engage: #{rgba($color-theme-blue-30, 0.3)};
+    --js-accent-engage: #{rgba($color-theme-yellow-40,0.3)};
+    --http-accent-engage: #{rgba($color-theme-green-40, 0.3)};
+    --apis-accent-engage: #{rgba($color-theme-violet-40, 0.3)};
+    --learn-accent-engage: #{rgba($color-theme-pink-40, 0.3)};
 
-  --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.7)};
-  --blend-color: #{rgba($color-black, 0.8)};
+    --modal-backdrop-color: #{rgba($theme-dark-background-primary, 0.7)};
+    --blend-color: #{rgba($color-black, 0.8)};
 
-  --text-primary-red: #{$color-theme-red-30};
-  --text-primary-green: #{$color-theme-green-30};
-  --text-primary-blue: #{$color-theme-blue-30};
-  --text-primary-yellow: #{$color-theme-yellow-30};
+    --text-primary-red: #{$color-theme-red-30};
+    --text-primary-green: #{$color-theme-green-30};
+    --text-primary-blue: #{$color-theme-blue-30};
+    --text-primary-yellow: #{$color-theme-yellow-30};
 
-  --collections-link: #{$color-theme-red-30};
-  --collections-header: #{$color-theme-red-90};
-  --collections-mandala: #{$color-theme-red-70};
-  --collections-icon: #{$color-theme-red-60};
+    --collections-link: #{$color-theme-red-30};
+    --collections-header: #{$color-theme-red-90};
+    --collections-mandala: #{$color-theme-red-70};
+    --collections-icon: #{$color-theme-red-60};
 
-  --updates-link: #{$color-theme-blue-30};
-  --updates-header: #{$color-black};
-  --updates-mandala: #{$color-theme-blue-20};
-  --updates-icon: #{$color-theme-blue-30};
+    --updates-link: #{$color-theme-blue-30};
+    --updates-header: #{$color-black};
+    --updates-mandala: #{$color-theme-blue-20};
+    --updates-icon: #{$color-theme-blue-30};
 
-  --form-limit-color: #{$color-neutral-40};
-  --form-limit-color-emphasis: #{$color-neutral-30};
-  --form-invalid-color: #{$color-theme-red-30};
-  --form-invalid-focus-color: #{$color-theme-red-40};
-  --form-invalid-focus-effect-color: #{rgba($color-theme-red-40, 0.2)};
+    --form-limit-color: #{$color-neutral-40};
+    --form-limit-color-emphasis: #{$color-neutral-30};
+    --form-invalid-color: #{$color-theme-red-30};
+    --form-invalid-focus-color: #{$color-theme-red-40};
+    --form-invalid-focus-effect-color: #{rgba($color-theme-red-40, 0.2)};
 
-  --code-token-tag: #{$theme-dark-code-token-tag};//.keyword
-  --code-token-punctuation: #{$theme-dark-code-token-punctuation};//.punctuation
-  --code-token-attribute-name: #{$theme-dark-code-token-attribute-name};//.attr-name, .builtin, .inserted, .selector, .property, .class-name, .function
-  --code-token-attribute-value: #{$theme-dark-code-token-attribute-value};//.atrule, .attr-value, .tag, .char, .string, .boolean, .number, .constant, .symbol, .deleted
-  --code-token-comment: #{$theme-dark-code-token-comment};//.comment, .prolog, .doctype, .cdata
-  --code-token-default: #{$theme-dark-code-token-default};
-  --code-token-selector: #{$theme-dark-code-token-selector};//.selector, .builtin, .template-string > .string, .inserted
-  --code-background-inline: #{$theme-dark-code-background-inline};
-  --code-background-block: #{$theme-dark-code-background-block};
+    --code-token-tag: #{$theme-dark-code-token-tag};//.keyword
+    --code-token-punctuation: #{$theme-dark-code-token-punctuation};//.punctuation
+    --code-token-attribute-name: #{$theme-dark-code-token-attribute-name};//.attr-name, .builtin, .inserted, .selector, .property, .class-name, .function
+    --code-token-attribute-value: #{$theme-dark-code-token-attribute-value};//.atrule, .attr-value, .tag, .char, .string, .boolean, .number, .constant, .symbol, .deleted
+    --code-token-comment: #{$theme-dark-code-token-comment};//.comment, .prolog, .doctype, .cdata
+    --code-token-default: #{$theme-dark-code-token-default};
+    --code-token-selector: #{$theme-dark-code-token-selector};//.selector, .builtin, .template-string > .string, .inserted
+    --code-background-inline: #{$theme-dark-code-background-inline};
+    --code-background-block: #{$theme-dark-code-background-block};
 
-  color-scheme: dark;
+    color-scheme: dark;
 }
 
 [data-light-theme=light] {
-  @include light-theme;
+    @include light-theme;
 }
 
 [data-dark-theme=dark] {
-  @include dark-theme;
+    @include dark-theme;
 }
 
 // OS Default.
 :root:not(.light):not(.dark) {
-  @media (prefers-color-scheme: light) {
-    @include light-theme;
-    header{
-      h1 {
-        a{
-          img {
-            filter: invert(0.5);
-          }
-        }
-        .open-nav {
-          filter: invert(1);
+    @media (prefers-color-scheme: light) {
+        @include light-theme;
+        header{
+            h1 {
+                a{
+                    img {
+                        filter: invert(0.5);
+                    }
+                }
+                .open-nav {
+                        filter: invert(1);
 
-          &:focus,
-          &:hover {
-            filter: opacity(0.5) invert(1);
-          }
+                    &:focus,
+                    &:hover {
+                        filter: opacity(0.5) invert(1);
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  @media (prefers-color-scheme: dark) {
-    @include dark-theme;
-  }
+    @media (prefers-color-scheme: dark) {
+        @include dark-theme;
+    }
 }
