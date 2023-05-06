@@ -196,16 +196,17 @@ header {
 .main {
 	overflow-y: auto;
 	max-width: $content-max-width;
-	padding: ($space * 4) ($space + 5) ($space + 5);
-	margin: $space auto 0 auto;
+	padding: 5rem 2.5rem 2.5rem;
+	margin: 0 auto;
 	
 	@media (min-width: $mobile-break) {
 		flex: 0 1 auto;
 		width: 100%;
-		padding-top: 0;
+		margin-top: $nav-header-height;
+		padding-top: 2rem;
 	}
 	@media (min-width: $full-width-break) {
-		margin-top: 5rem;
+		padding-top: 5rem;
 	}
 	.page-header {
 		h2,
