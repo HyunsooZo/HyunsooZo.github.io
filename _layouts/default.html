@@ -29,7 +29,10 @@
 			</h1>
 
 			<form action="{{ site.baseurl }}/search/" method="get">
-				<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+				<div class="search-wrap">
+					<input type="text" name="q" id="search-input" placeholder="Search" autofocus>
+					<button type="button" class="btn-del"><span>삭제</span></button>
+				</div>
 				<input type="submit" value="Search" style="display: none;">
 			</form>
 
