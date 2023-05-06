@@ -73,7 +73,7 @@ toc: false
           </p>
             <p>
             <img src="https://em-content.zobj.net/thumbs/240/twitter/348/envelope_2709-fe0f.png" />
-             bzhs1992@icloud.com
+             <span>bzhs1992@icloud.com</span>
           </p>
         </td>
       </tr>
