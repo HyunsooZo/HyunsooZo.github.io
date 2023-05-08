@@ -1,6 +1,6 @@
 ---
-title: Nearby Public WiFi (JSP project)
-category: Projects
+title: Project_1(Web App Using OpenAPi)
+category: ZeroBase BootCamp
 order: 1
 ---
 ### Demo Video
