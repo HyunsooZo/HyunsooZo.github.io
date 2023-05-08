@@ -1,7 +1,7 @@
 ---
-title: Spring Theory
-category: Spring
-order: 1
+title: Spring 
+category: Spring & OOP
+order: 2
 ---
 
 ### What's Spring?
@@ -48,7 +48,7 @@ IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용�
 
 > **BufferedReader와 BufferedWriter를 쉽게 사용할 수 있다.**
 
-Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferedWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
+Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
 
 **[Annotation Example]**
 
