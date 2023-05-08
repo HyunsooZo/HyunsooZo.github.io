@@ -42,6 +42,13 @@ IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용�
 
 자바에서 어노테이션은 주석 그 이상의 의미를 지닌다. Annotation은 메타데이터의 일종으로 주석의 기능 뿐만 아니라 특별한 기능을 수행한다. Annotation을 활용하여 spring은 해당 클래스가 어떤 역할인지 정하기도 하고, Bean을 주입하기도 한다.
 
+> **MessageConverter를 가지고 있다. 기본값은 현재 Json이다.**
+
+ MessageConverter는 스프링에 기본 라이브러리로 내장되어있고, 예전에는 Xml형식의 파일로 구성했다면 현재는 JSON으로 대체되었다.
+
+> **BufferedReader와 BufferedWriter를 쉽게 사용할 수 있다.**
+
+Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferedWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
 
 **[Annotation Example]**
 
@@ -64,11 +71,5 @@ IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용�
 @RequestBody // -> BufferedReader가 동작.
 ```
 
-> **MessageConverter를 가지고 있다. 기본값은 현재 Json이다.**
 
- MessageConverter는 스프링에 기본 라이브러리로 내장되어있고, 예전에는 Xml형식의 파일로 구성했다면 현재는 JSON으로 대체되었다.
-
-> **BufferedReader와 BufferedWriter를 쉽게 사용할 수 있다.**
-
-Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 <u>어노테이션을 제공한다.</u>
 
