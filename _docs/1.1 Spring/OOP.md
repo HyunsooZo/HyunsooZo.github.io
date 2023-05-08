@@ -21,7 +21,7 @@ OOP에서는 클래스(Class)를 정의하여 객체를 생성하고 이를 이�
 |다형성(Polymorphism)| 하나의 객체가 다양한 형태로 사용될 수 있음|
 |추상화(Abstraction)| 객체의 공통적인 특징을 추출하여 일반화시키는 것|
 
-### To handle OOP well 
+### SOLID OOP ? 
 
 |SOLID|Defination|Type|My Understanding|
 |--|--|--|--|
