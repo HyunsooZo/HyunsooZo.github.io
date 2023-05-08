@@ -437,6 +437,7 @@ blockquote {
 //right nav
 .toc {
 	display: none;
+	max-width: 15rem;
 	margin: 0 1rem;
 	
 	@media (min-width: 1000px){
@@ -555,6 +556,10 @@ table {
 				padding: 0.8rem;
 				word-break: break-word;
 			}
+			.list_text {
+				flex: 0 1 100%;
+				padding: 0.8rem;
+			}
 		}
 	}
 	
@@ -581,8 +586,6 @@ table {
 }
 
 .list_text {
-	flex: 0 1 100%;
-	padding: 0.8rem;
 
 	p {
 		display: flex;
