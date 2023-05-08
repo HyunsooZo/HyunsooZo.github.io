@@ -13,8 +13,9 @@ order: 1
 OOP에서는 클래스(Class)를 정의하여 객체를 생성하고 이를 이용해 프로그램을 개발.
 
 
-**Key Features Of OOP**
-|||
+**Features Of OOP**
+
+| OOP Features||
 |--|--|
 |캡슐화(Encapsulation)| 객체의 속성과 행위를 하나로 묶어 은닉화하여 객체를 보호 |
 |상속성(Inheritance)| 객체의 공통된 속성과 행위를 상위 클래스에서 정의하고, 하위 클래스에서 상속하여 사용|
