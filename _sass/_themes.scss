@@ -493,11 +493,6 @@ $theme-dark-code-background-block: $color-neutral-80;
         @include light-theme;
         header{
             h1 {
-                a{
-                    img {
-                        filter: invert(0.5);
-                    }
-                }
                 .open-nav {
                         filter: invert(1);
 

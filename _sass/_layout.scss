@@ -232,6 +232,7 @@ header {
 
 .main {
 	overflow-y: auto;
+	width: 100%;
 	max-width: $content-max-width;
 	margin: $nav-header-height auto 0;
 	padding: 2rem 2.5rem 2.5rem;

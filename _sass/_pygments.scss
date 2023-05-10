@@ -25,9 +25,11 @@ pre {
 blockquote, li, p {
 	> code {
 		padding: 0 0.2rem;
-		background: #404145;
 		color: #e28e2b;
-		border: 1px solid #606060;
+		//background: #404145;
+		//border: 1px solid #606060;
+		background: var(--code-background-block);
+		border: 1px solid var(--border-primary);
 		border-radius: 0.3rem;
 	}
 }
