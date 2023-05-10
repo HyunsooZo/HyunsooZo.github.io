@@ -29,9 +29,11 @@ order: 1
 
 ### Array
 
-- 많은 수의 데이터를 다룰때 사용하는 자료구조. 
-- 각 데이터를 인덱스와 1:1 대응하도록 구성한다.
-- 데이터가 메모리상에 연속적으로 저장됨. 
+<ul>
+<li>많은 수의 데이터를 다룰때 사용하는 자료구조. </li>
+<li>각 데이터를 인덱스와 1:1 대응하도록 구성한다.</li>
+<li>데이터가 메모리상에 연속적으로 저장됨. </li>
+</ul>
 
 |Pros|Cons|
 |--|--|
@@ -70,9 +72,11 @@ IntStream()
 
 ### Linked List
 
-- data를 link하여 관리하는 구조
-- 자료의 순서가 정해져있음. 
-- 단 메모리의 연속성을 보장하는것은 아님. 
+<ul>
+<li>data를 link하여 관리하는 구조</li>
+<li>자료의 순서가 정해져있음. </li>
+<li>단 메모리의 연속성을 보장하는것은 아님. </li>
+</ul>
 
 |Pros|Cons|
 |--|--|
@@ -112,9 +116,11 @@ LinkedList<String> list = new LinkedList<>();
 
 ### Stack
 
-- LIFO(Last In First Out) 구조
-- 데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)
-- 사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 
+<ul>
+<li>LIFO(Last In First Out) 구조</li>
+<li>데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)</li>
+<li>사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 </li>
+</ul>
 
 **[sample]**
 ```java
@@ -132,10 +138,11 @@ Stack<String> stack = new Stack<>();
 ### Queue 
 
 **Queue**
-
-- FIFO(First In First Out) 구조
-- 입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)
-- 빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환
+<ul>
+<li>FIFO(First In First Out) 구조</li>
+<li>입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)</li>
+<li>빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환</li>
+</ul>
 
 **[sample]**
 ```java
@@ -153,11 +160,12 @@ Queue<String> queue = new LinkedList<>();
 
 
 ### Deque
-
-- 양쪽에서 삽입/삭제 가능
-- Double Ended Queue임. 
-- Stack 과 Queue를 합친 형태라고 볼 수 있음. 
-- Front 또는 Reat의 입력을 제한하여 입력제한(scroll) 또는 출력제한(shelf)로 사용 할 수 있음.  
+<ul>
+<li>양쪽에서 삽입/삭제 가능</li>
+<li>Double Ended Queue임. </li>
+<li>Stack 과 Queue를 합친 형태라고 볼 수 있음. </li>
+<li>Front 또는 Reat의 입력을 제한하여 입력제한(scroll) 또는 출력제한(shelf)로 사용 할 수 있음.  </li>
+</ul>
 
 **[sample]**
 ```java
@@ -175,9 +183,10 @@ Deque<String> deque = new LinkedList<>();
 
 
 ### Hash Table
-
-- Key, Value 를 대응하여 저장하는 데이터구조. 
-- 요즘에는 HashMap을 많이 사용함. 
+<ul>
+<li>Key, Value 를 대응하여 저장하는 데이터구조. </li>
+<li>요즘에는 HashMap을 많이 사용함. </li>
+</ul>
 
 **Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
 
