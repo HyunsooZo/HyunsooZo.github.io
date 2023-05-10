@@ -24,13 +24,14 @@ pre {
 
 blockquote, li, p {
 	> code {
-		padding: 0 0.2rem;
+		padding: 0.1rem 0.2rem;
 		color: #e28e2b;
 		//background: #404145;
 		//border: 1px solid #606060;
 		background: var(--code-background-block);
 		border: 1px solid var(--border-primary);
 		border-radius: 0.3rem;
+		vertical-align: 1px;
 	}
 }
 
