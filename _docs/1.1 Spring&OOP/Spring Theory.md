@@ -50,26 +50,53 @@ IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용�
 
 Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
 
-**[Annotation Example]**
+***Lego를 만들 때 편리한 점:***
 
-```java
-@Component
-//-> Class를 Spring의 Bean으로 등록할 때 사용. (메모리에 로딩)
-	@Component(value="mycar")
-	public class Car {
-    	public Car() {
-        	System.out.println("Drive");
-    	}
-	}
-@Autowired
-//-> Bean을 주입받기 위해 사용. Spring은 class를 보고 Type에 맞게 Bean을 주입함. (Type이 없으면 Name 확인)
+*· 바닥에 넓은 판을 두고 그 위에 이것 저것 얹으면 편하다.*  
+*· 동그란 끼우는 부분이 모두 동일하므로 어떤 것들이든 서로 끼워볼 수 있다.*
+*· 너무 높은 자유도가 없기때문에 오히려 무언가를 만들기가 편하다.*
 
-@Controller
-// -> Spring에게 해당 Class가 Controller의 역할을 한다고 명시하기 위해 사용하는 Annotation.
+***Spring을 쓰면 좋은 점***
 
-@ResponseBody // -> BufferedWriter가 동작.
-@RequestBody // -> BufferedReader가 동작.
-```
+*· Spring이라는 넓은 판(Container)위에 내가 만드는 Class만 얹으면 개발이 됨*
+*· Spring Bean이라는 규격에 맞추어 만들면 서로 가져다쓰기가 좋다.*
+*· 역설적으로 너무 자유롭지 않기때문에 원리를 알면 그 틀 안에서 작업이 편하다*
+
+
+### DI : Dependency Injection**
+
+*(A가 B를 사용한다 = A가 B에 의존한다)*
+
+· Dependency Injection(DI)는 객체 지향 프로그래밍에서의 의존성(dependency)을 관리하는 디자인 패턴 중 하나다. 의존성이란, 한 객체가 다른 객체에 의존하는 관계를 말하고 예를 들면 클래스 A가 클래스 B를 사용한다면, 클래스 A는 클래스 B에 의존하는것으로 본다.
+
+· DI는 객체 생성 시점에 의존하는 객체를 주입(injection)해주는 방법을 사용하여 의존성을 관리한다. 이를 통해 객체 간의 결합도(coupling)를 낮출 수 있다. 결합도가 높다는 것은, 한 객체를 변경하면 이를 사용하는 다른 객체도 변경되어야 한다는 것을 의미하며 이는 코드의 유지보수성을 떨어뜨리고, 개발자의 작업량을 늘리는 원인이 된다.
+
+· DI를 사용하면, 객체 간의 결합도를 낮출 수 있으므로 코드의 유지보수성과 재사용성을 높일 수 있다. 또한, 테스트하기 쉬운 코드를 작성할 수 있다. 예를 들어, DI를 사용하면 테스트를 위해 가짜 객체(mock object)를 사용하여 테스트할 수 있으므로, 실제 객체를 사용하지 않아도 테스트할 수 있다.
+
+|DI 방식| 설명|
+|--|--|
+|생성자 주입<br>(Constructor Injection)|  객체 생성 시점에 의존 객체를 전달하는 방식<br>****생성자 주입 방식이 주로 사용됨***|
+|Setter 주입<br>(Setter Injection)|Setter 메서드를 통해 의존 객체를 전달하는 방식|
+|인터페이스 주입<br>(Interface Injection)| 인터페이스를 통해 의존 객체를 전달하는 방식|
+
+### IoC(Inversion Of Control)
+
+제어의 역전(IoC, Inversion of Control)는 소프트웨어 디자인 패턴 중 하나. 일반적으로 프로그램에서 객체 간의 의존성은 직접적으로 코드 내부에서 구현. 하지만 IoC는 이와 반대로, 객체 간의 의존성을 외부에서 관리하도록 구현.
+
+즉, IoC는 객체 생성, 의존성 주입, 객체 생명주기 관리 등의 일련의 작업을 프레임워크 또는 컨테이너가 대신 처리하도록 구현하는 것. 이렇게 구현하면, 개발자는 객체 간의 의존성을 관리하는 코드를 직접 작성하지 않아도 되므로, 코드의 가독성과 유지보수성이 높아짐.
+
+IoC는 대표적으로 Spring Framework, Google Guice, Dagger2 등의 프레임워크에서 지원되는 기능. 이러한 프레임워크를 사용하면 객체 생성, 의존성 주입, 객체 생명주기 관리 등을 프레임워크가 대신 처리해주므로 개발자는 비즈니스 로직에 집중할 수 있음.
+
+**예시**
+일반적인 코드에서는 객체 A가 객체 B를 생성하고, 객체 A에서 객체 B의 메서드를 호출하는 식으로 제어의 흐름이 이루어짐. 
+하지만 IoC에서는 객체 B를 외부에서 생성하여 객체 A에게 전달하고, 객체 A는 이를 사용하여 로직을 처리. 
+이렇게 되면, 객체 A는 객체 B에 의존하지만, 객체 B는 객체 A에 대한 의존성을 갖지 않음. 이렇게 구현하면, 객체 간의 결합도를 낮추고 유지보수성과 테스트 용이성을 높일 수 있음.
+
+
+
+
+### Spring Web MV
+
 
 
 
