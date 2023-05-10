@@ -13,12 +13,6 @@ Spring은 Java 기반의 오픈 소스 애플리케이션 프레임워크로, �
 
 ### Features of Spring
 
-**∙ Spring은 Java 기반의 Open Source Framework**
-
-<div class="content-box">
-Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 
-</div>
-
 **∙ Spring은 Dependency Injection(의존성 주입) 및 Inversion of Control(제어의 역전) 기능을 제공!**
 <div class="content-box">
 이 기능은 객체 간의 의존성을 제거하고 객체 간의 결합도를 낮추어 코드를 유연하고 테스트하기 쉬운 상태로 유지.
