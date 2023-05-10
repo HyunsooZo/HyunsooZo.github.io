@@ -108,13 +108,13 @@ order: 2
 
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
-**1.** `@Primary` -> 해당 빈을 최우선으로 주입
+**1.** ``@Primary`` -> 해당 빈을 최우선으로 주입
 
-**2.** `@Qualifier("beanName")` -> beanName으로 지정된 빈 주입
+**2.** ``@Qualifier("beanName")`` -> beanName으로 지정된 빈 주입
 
-**3.** `Set` 또는 `List`로 받기
+**3.** ``Set`` 또는 ``List``로 받기
 
-**4.** `Property` 이름을 `bean`과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+**4.** ``Property`` 이름을 ``bean``과 동일하게하기. (**<u>가장 흔히 사용</u>**)
 
 **∙ Bean 의 Scope**
 
@@ -145,9 +145,9 @@ order: 2
 
 ∙ 프로파일 표현식
 
-`@Profile("!production")`
+``@Profile("!production")``
 
-`!not,&and,|or`
+``!not,&and,|or``
 
 
 ### IoC(Inversion Of Control)
