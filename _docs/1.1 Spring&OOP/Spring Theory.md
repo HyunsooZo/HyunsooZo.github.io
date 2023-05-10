@@ -3,15 +3,20 @@ title: Spring
 category: Spring & OOP
 order: 2
 ---
+### What is Spring?
 
-### What's Spring?
+Spring은 Java 기반의 오픈 소스 애플리케이션 프레임워크로, 개발자들이 애플리케이션을 보다 쉽게 개발하고 유지보수할 수 있도록 다양한 기능을 제공. 대표적으로 `Dependency Injection(DI)`과 `Inversion of Control(Ioc)` 등을 제공.
 
-**[Features of Spring]**
+`객체 지향적인 설계`와 개발을 촉진하고 지원.<br> 
+스프링은 객체를 생성하고 조립하는데 있어서 위에 언급한 DI 이라는 기술을 사용하며, 이를 통해 ***객체간의 결합도를 낮추고 모듈화된 구조***를 갖출 수 있음. 또한, 스프링은 객체 지향적인 설계를 위한 다양한 패턴과 기능을 제공하며, 이를 통해 애플리케이션의 확장성과 유연성을 높일 수 있음. 따라서, 스프링은 <u><b>객체 지향 프로그래밍에 매우 적합한 프레임워크</b></u>이며, 객체 지향적인 설계와 개발을 위한 다양한 기능과 도구를 제공.
+
+
+### Features of Spring
 
 **∙ Spring은 Java 기반의 Open Source Framework**
 
 <div class="content-box">
-Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 간단한 Java Bean을 만들고 관리하는 데 사용. 이를 통해 개발자는 애플리케이션의 객체 지향 프로그래밍을 단순화하고, 유지 보수성을 높일 수 있음.
+Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 
 </div>
 
 **∙ Spring은 Dependency Injection(의존성 주입) 및 Inversion of Control(제어의 역전) 기능을 제공!**
@@ -58,6 +63,7 @@ MessageConverter는 스프링에 기본 라이브러리로 내장되어있고, �
 <div class="content-box">
 Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
 </div>
+
 
 ### Lego & Spring 
 
@@ -112,6 +118,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 @EnableAutoConfiguration // Spring Boot의 자동 설정을 활성화하기 위해 사용됨.
 @SpringBootApplication // Spring Boot 애플리케이션임을 나타내며, @Configuration, @EnableAutoConfiguration, @ComponentScan을 모두 포함하고 있음
 ```
+
 
 ### Bean 관련 설정방법
 
