@@ -61,18 +61,18 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 ### Lego & Spring 
 
-|**∙ Lego를 만들 때 편리한 점**|**∙ Spring을 쓰면 좋은 점**|
+|**∙ Lego의 편리한 점**|**∙ Spring의 좋은 점**|
 |--|--|
 |바닥에 넓은 판을 두고<br>그 위에 이것 저것 얹으면 편하다. |Spring이라는 넓은 판(Container)위에 <br>내가 만드는 Class만 얹으면 개발이 됨 |
 |동그란 끼우는 부분이 모두 동일하므로<br>어떤 것들이든 서로 끼워볼 수 있다.|Spring Bean이라는 규격에 맞추어<br> 만들면 서로 가져다쓰기가 좋다. |
 |너무 높은 자유도가 없기때문에<br> 오히려 무언가를 만들기가 편하다.| 너무 자유롭지 않기때문에 원리를<br> 알면 그 틀 안에서 작업이 편하다 |
 
 
-### DI
+### Dependency Injection
 
 **DI : Dependency Injection**
 
-핵심 : <font color="orange">*(A가 B를 사용한다 = A가 B에 의존한다)*</font>
+<font color="orange">*(A가 B를 사용한다 = A가 B에 의존한다)*</font>
 
 ∙Dependency Injection(DI)는 객체 지향 프로그래밍에서의 의존성(dependency)을 관리하는 디자인 패턴 중 하나다. 의존성이란, 한 객체가 다른 객체에 의존하는 관계를 말하고 예를 들면 클래스 A가 클래스 B를 사용한다면, 클래스 A는 클래스 B에 의존하는것으로 본다.
 
@@ -82,7 +82,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 |DI 방식| 설명|
 |--|--|
-|생성자 주입<br>(Constructor Injection)|  객체 생성 시점에 의존 객체를 전달하는 방식<br><font color="orange">****생성자 주입 방식이 주로 사용됨***</font>|
+|생성자 주입<br>(Constructor Injection)|  객체 생성 시점에 의존 객체를 전달하는 방식<br><font color="orange">***생성자 주입 방식이 주로 사용됨***</font>|
 |Setter 주입<br>(Setter Injection)|Setter 메서드를 통해 의존 객체를 전달하는 방식|
 |인터페이스 주입<br>(Interface Injection)| 인터페이스를 통해 의존 객체를 전달하는 방식|
 
@@ -111,7 +111,6 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 @Configuration // Spring의 설정 클래스임을 나타내며, Bean을 등록할 때 사용됨.
 @EnableAutoConfiguration // Spring Boot의 자동 설정을 활성화하기 위해 사용됨.
 @SpringBootApplication // Spring Boot 애플리케이션임을 나타내며, @Configuration, @EnableAutoConfiguration, @ComponentScan을 모두 포함하고 있음
-
 ```
 
 ### Bean 관련 설정방법
@@ -128,15 +127,15 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 **∙ Bean 의 Scope**
 
-<font color="orange">Singleton</font> : 일반적인 방법, 하나만 만들어 계속 재활용
+<font color="orange">Singleton</font>:일반적인 방법, 하나만 만들어 계속 재활용
 
 **∙ Prototype: 매번 새로만드는 방법 (데이터 클리어 필요 시)**
 
-<font color="orange">Request</font> : 요청에 따라 계속 새로 만듦
+<font color="orange">Request</font>: 요청에 따라 계속 새로 만듦
 
-<font color="orange">Session</font> : 세션마다 계속 새로 만듦
+<font color="orange">Session</font>: 세션마다 계속 새로 만듦
 
-<font color="orange">WebSocket</font> : 양방향 실시간 통신
+<font color="orange">WebSocket</font>: 양방향 실시간 통신
 
 **∙Spring의 환경설정 : profile**
 
