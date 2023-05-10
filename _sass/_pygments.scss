@@ -3,7 +3,7 @@ pre {
 	margin: 0;
 	width: 100%;
 	padding: 1.6rem;
-	background-color: #404145;
+	background: #404145;
 	color: #fafafa;
 	// color: #ffffff;
 	// background: var(--code-background-block);
@@ -12,6 +12,7 @@ pre {
 	font-weight: 400;
 	font-size: 1.2rem;
 	font-family: Inconsolata, Consolas, Courier, "Courier New", "Liberation Mono", monospace;
+	border: 1px solid #606060;
 	border-radius: 0.3rem;
 	white-space: pre-wrap;
 	// white-space: pre;
@@ -23,8 +24,18 @@ pre {
 
 blockquote, li, p {
 	> code {
-		padding: 0.4rem 0.6rem;
-		white-space: nowrap;
+		padding: 0 0.2rem;
+		background: #404145;
+		color: #e28e2b;
+		border: 1px solid #606060;
+		border-radius: 0.3rem;
+	}
+}
+
+p {
+	.content-box {
+		padding: 0.8rem;
+		border: 1px dotted var(--border-secondary);
 	}
 }
 
