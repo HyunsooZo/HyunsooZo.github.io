@@ -8,7 +8,6 @@ order: 2
 
 **[Features of Spring]**
 
-
 |**∙ Spring은 Java 기반의 Open Source Framework**|
 |--|
 | Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 간단한 Java Bean을 만들고 관리하는 데 사용. 이를 통해 개발자는 애플리케이션의 객체 지향 프로그래밍을 단순화하고, 유지 보수성을 높일 수 있음.|
@@ -50,7 +49,7 @@ order: 2
 |Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).|
 
 
-### Lego와 Spring의 공통점 
+### Lego & Spring 
 
 |**∙ Lego를 만들 때 편리한 점**|**∙ Spring을 쓰면 좋은 점**|
 |--|--|
@@ -59,9 +58,11 @@ order: 2
 |너무 높은 자유도가 없기때문에<br> 오히려 무언가를 만들기가 편하다.| 너무 자유롭지 않기때문에 원리를<br> 알면 그 틀 안에서 작업이 편하다 |
 
 
-### DI : Dependency Injection
+### DI
 
-<font color="yellow">*(A가 B를 사용한다 = A가 B에 의존한다)*</font>
+**DI : Dependency Injection**
+
+핵심 : <font color="yellow">*(A가 B를 사용한다 = A가 B에 의존한다)*</font>
 
 ∙Dependency Injection(DI)는 객체 지향 프로그래밍에서의 의존성(dependency)을 관리하는 디자인 패턴 중 하나다. 의존성이란, 한 객체가 다른 객체에 의존하는 관계를 말하고 예를 들면 클래스 A가 클래스 B를 사용한다면, 클래스 A는 클래스 B에 의존하는것으로 본다.
 
