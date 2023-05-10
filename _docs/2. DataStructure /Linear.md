@@ -29,11 +29,11 @@ order: 1
 
 ### Array
 
-<ul>
-<li>많은 수의 데이터를 다룰때 사용하는 자료구조. </li>
-<li>각 데이터를 인덱스와 1:1 대응하도록 구성한다.</li>
-<li>데이터가 메모리상에 연속적으로 저장됨. </li>
-</ul>
+<div class="content-box">
+많은 수의 데이터를 다룰때 사용하는 자료구조. 
+각 데이터를 인덱스와 1:1 대응하도록 구성한다.
+데이터가 메모리상에 연속적으로 저장됨. 
+</div>
 
 |Pros|Cons|
 |--|--|
@@ -72,11 +72,11 @@ IntStream()
 
 ### Linked List
 
-<ul>
-<li>data를 link하여 관리하는 구조</li>
-<li>자료의 순서가 정해져있음. </li>
-<li>단 메모리의 연속성을 보장하는것은 아님. </li>
-</ul>
+<div class="content-box">
+data를 link하여 관리하는 구조
+자료의 순서가 정해져있음. 
+단 메모리의 연속성을 보장하는것은 아님. 
+</div>
 
 |Pros|Cons|
 |--|--|
@@ -116,11 +116,11 @@ LinkedList<String> list = new LinkedList<>();
 
 ### Stack
 
-<ul>
-<li>LIFO(Last In First Out) 구조</li>
-<li>데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)</li>
-<li>사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 </li>
-</ul>
+<div class="content-box">
+LIFO(Last In First Out) 구조
+데이터가 입력된 순서의 역순으로 처리해야할 내용에 유리(함수콜스택/수식/인터럽트 처리 등)
+사실 Stack Queue 보다는 Deque 사용하는 것이 시간효율면에서 유리 
+</div>
 
 **[sample]**
 ```java
@@ -138,11 +138,12 @@ Stack<String> stack = new Stack<>();
 ### Queue 
 
 **Queue**
-<ul>
-<li>FIFO(First In First Out) 구조</li>
-<li>입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)</li>
-<li>빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환</li>
-</ul>
+
+<div class="content-box">
+FIFO(First In First Out) 구조
+입력 순서대로 데이터 처리가 필요한 경우 유리(프린터 출력대기열, BFS등..)
+빈 큐에서 poll() 시 Stack은 Error / Queue 는 null 반환
+</div>
 
 **[sample]**
 ```java
@@ -160,12 +161,13 @@ Queue<String> queue = new LinkedList<>();
 
 
 ### Deque
-<ul>
-<li>양쪽에서 삽입/삭제 가능</li>
-<li>Double Ended Queue임. </li>
-<li>Stack 과 Queue를 합친 형태라고 볼 수 있음. </li>
-<li>Front 또는 Reat의 입력을 제한하여 입력제한(scroll) 또는 출력제한(shelf)로 사용 할 수 있음.  </li>
-</ul>
+
+<div class="content-box">
+양쪽에서 삽입/삭제 가능
+Double Ended Queue임. 
+Stack 과 Queue를 합친 형태라고 볼 수 있음. 
+Front 또는 Reat의 입력을 제한하여 입력제한(scroll) 또는 출력제한(shelf)로 사용 할 수 있음.  
+</div>
 
 **[sample]**
 ```java
@@ -183,10 +185,11 @@ Deque<String> deque = new LinkedList<>();
 
 
 ### Hash Table
-<ul>
-<li>Key, Value 를 대응하여 저장하는 데이터구조. </li>
-<li>요즘에는 HashMap을 많이 사용함. </li>
-</ul>
+
+
+Key, Value 를 대응하여 저장하는 데이터구조. 
+요즘에는 HashMap을 많이 사용함. 
+
 
 **Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
 
@@ -216,7 +219,6 @@ HashTable<String,Integer> hashTable = new HashTable<>();
 .clear()                        //저장된 모든 key-value 쌍을 삭제
 .size()                         //저장된 key-value 쌍의 개수를 반환
 .isEmpty()                      //해시 테이블이 비어있는지 여부를 반환
-
 .contains(Object value)         //지정된 value가 해시 테이블에 포함되어 있는지 여부를 반환
 .containsKey(Object key)        //지정된 key가 해시 테이블에 포함되어 있는지 여부를 반환
 .containsValue(Object value)    //지정된 value가 해시 테이블에 포함되어 있는지 여부를 반환
