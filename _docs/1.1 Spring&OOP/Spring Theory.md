@@ -76,11 +76,11 @@ order: 2
 |Setter 주입<br>(Setter Injection)|Setter 메서드를 통해 의존 객체를 전달하는 방식|
 |인터페이스 주입<br>(Interface Injection)| 인터페이스를 통해 의존 객체를 전달하는 방식|
 
-****xml을 통해 Bean을 등록하는 방식은 현재 거의 사용되지 않고 있다.***
+*-* ***xml을 통해 Bean을 등록하는 방식은 현재 거의 사용되지 않고 있다.***
 
-****Java Configuration을 이용한 Bean 등록을 하기도 한다***
+*-* ***Java Configuration을 이용한 Bean 등록을 하기도 한다***
 
-****<u><font color="orange">Annotation</font>을 이용한 Bean 등록 및 DI가 가장 많이, 자주 쓰인다.</u>***
+*-* ***<u><font color="orange">Annotation</font>을 이용한 Bean 등록 및 DI가 가장 많이, 자주 쓰인다.</u>***
 
 **[Commonly used Annotations]**
 ```java
