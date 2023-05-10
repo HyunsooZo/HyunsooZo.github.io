@@ -186,10 +186,10 @@ Deque<String> deque = new LinkedList<>();
 
 ### Hash Table
 
-
+<div class="content-box">
 Key, Value 를 대응하여 저장하는 데이터구조. 
 요즘에는 HashMap을 많이 사용함. 
-
+</div>
 
 **Hashing** : Key를 특정 계산식에 넣어 나온결과를 사용하여 값에 접근
 

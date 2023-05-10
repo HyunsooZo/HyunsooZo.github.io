@@ -14,19 +14,16 @@ order: 1
 
 **[Tree]**
 
-· Node와 Link로 구성된 자료구조 (그래프의 일종이며 Acyclic)
-
-· 계층적 구조를 나타낼 때 유용 (folder..조직도..등)
-
-· 하나의 노드에서 다른 노드로 이동하는 경로는 유일함. 
-
-· 노드가 N개인 트리의 Edge수는 N-1개.
-
-· 모든 노드는 서로 연결되어 있음. 
-
+<div class="content-box">
+· Node와 Link로 구성된 자료구조 (그래프의 일종이며 Acyclic)<br>
+· 계층적 구조를 나타낼 때 유용 (folder..조직도..등)<br>
+· 하나의 노드에서 다른 노드로 이동하는 경로는 유일함. <br>
+· 노드가 N개인 트리의 Edge수는 N-1개.<br>
+· 모든 노드는 서로 연결되어 있음. <br>
 · 하나의 Edge를 끊으면 두개의 Sub Tree로 분리된다. 
+</div>
 
-**[Term]**
+**[Terms]**
 
 |Term|Description|
 |--|--|
@@ -85,10 +82,11 @@ order: 1
 
 **[Tree Traversal]**
 
-· 모든노드를 누락/중복하지 않고 방문하는 연산
-
+<div class="content-box">
+· 모든노드를 누락/중복하지 않고 방문하는 연산<br>
 · 순회의 종류는 4가지가 존재. (다음페이지에 코드 작성 예정)
-  
+</div>
+
   `DFS` {Pre-Order , In-Order , Post-Order}
   `BFS` {Level-Order}. 
 
@@ -174,11 +172,13 @@ class Solution {
 
 **Binary Search Tree**
 
-· Left Node < Parent Node
-· Right Node > Parent Node
-· 모든 키는 중복되지 않음. 
-· 데이터가 정렬되어 있음 (중위순회)
+<div class="content-box">
+· Left Node < Parent Node<br>
+· Right Node > Parent Node<br>
+· 모든 키는 중복되지 않음. <br>
+· 데이터가 정렬되어 있음 (중위순회)<br>
 · 이진트리에 비해 탐색이 빠른편 (균형상태 O(logn) 불균형상태 O(N))
+</div>
 
 **Balanced Binary Search Tree**
 
@@ -229,11 +229,11 @@ isn't Allowed)
 
 **Graph**
 
-· Tree의 상위 개념이라고 볼 수 있다. 
-
-· 정점과 간선으로 이루어진 자료구조 (Cyclic)
-
+<div class="content-box">
+· Tree의 상위 개념이라고 볼 수 있다. <br>
+· 정점과 간선으로 이루어진 자료구조 (Cyclic)<br>
 · 지하철 노선도, 통신 네트워크 등에 사용. 
+</div>
 
 **[Term]**
 
@@ -270,8 +270,11 @@ isn't Allowed)
 
 **[그래프의 구현]**
 
-· 인접리스트를 활용 (Adjacent List) : 연결리스트 사용
+<div class="content-box">
+· 인접리스트를 활용 (Adjacent List) : 연결리스트 사용<br>
 · 메모리 사용량이 상대적으로 적고, 노드의 추가 삭제가 빠르나 간선정보 확인시 시간이 걸림
+</div>
+
 ```
  A--------B            Arr    LinkedList
  |      / |            |A|-->|B|*|-->|C|*| 
