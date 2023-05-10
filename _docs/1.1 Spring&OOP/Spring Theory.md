@@ -9,66 +9,54 @@ order: 2
 **[Features of Spring]**
 
 
-**∙ Spring은 Java 기반의 Open Source Framework**
+|**∙ Spring은 Java 기반의 Open Source Framework**|
+|--|
+| Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 간단한 Java Bean을 만들고 관리하는 데 사용. 이를 통해 개발자는 애플리케이션의 객체 지향 프로그래밍을 단순화하고, 유지 보수성을 높일 수 있음.|
 
- Spring은 대규모 웹 애플리케이션 개발을 위해 만들어졌으며, 간단한 Java Bean을 만들고 관리하는 데 사용. 이를 통해 개발자는 애플리케이션의 객체 지향 프로그래밍을 단순화하고, 유지 보수성을 높일 수 있음.
+|**∙ Spring은 Dependency Injection(의존성 주입) 및 Inversion of Control(제어의 역전) 기능을 제공!**|
+|--|
+|이 기능은 객체 간의 의존성을 제거하고 객체 간의 결합도를 낮추어 코드를 유연하고 테스트하기 쉬운 상태로 유지.|
 
-**∙ Spring은 Dependency Injection(의존성 주입) 및 Inversion of Control(제어의 역전) 기능을 제공!**
+|**∙ Spring은 관점 지향 프로그래밍(Aspect Oriented Programming, AOP)을 지원.**|
+|--|
+|AOP는 애플리케이션에서 발생하는 공통적인 문제를 처리하기 위한 방법으로, 로깅, 보안, 트랜잭션 관리 등 다양한 기능을 제공.|
 
-이 기능은 객체 간의 의존성을 제거하고 객체 간의 결합도를 낮추어 코드를 유연하고 테스트하기 쉬운 상태로 유지.
+|**∙ Spring은 모듈화가 잘 되어 있어 필요한 모듈만 사용할 수 있음.**|
+|--|
+|예를 들어, 웹 개발을 위한 Spring MVC 모듈, 데이터베이스 처리를 위한 Spring JDBC 모듈, 보안 기능을 위한 Spring Security 모듈 등.|
 
-**∙ Spring은 관점 지향 프로그래밍(Aspect Oriented Programming, AOP)을 지원.**
+|**∙ Spring은 다양한 라이브러리와 통합이 가능**|
+|--|
+|예를 들어, Hibernate와 JPA를 이용한 ORM(Object Relational Mapping) 기능, MyBatis와 같은 데이터베이스 처리 라이브러리, Jackson과 같은 JSON 라이브러리 등을 Spring과 함께 사용할 수 있음.|
 
-AOP는 애플리케이션에서 발생하는 공통적인 문제를 처리하기 위한 방법으로, 로깅, 보안, 트랜잭션 관리 등 다양한 기능을 제공.
+|**∙ IOC 컨테이너를 가진다.**|
+|--|
+|IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용자가 가지고 있던 주도권을 스프링으로 넘기게 된다는 뜻이다. 일반적인 자바 프로그램에서는 사용자가 직접 객체를 생성하고 메소드를 호출하는 방식의 흐름이었지만 스프링에게 이를 위임함으로써 스프링에서 모든 객체를 생성, 관리하여 필요한 곳에 주입시켜주게 된다.|
 
-**∙ Spring은 모듈화가 잘 되어 있어 필요한 모듈만 사용할 수 있음.**
+|**∙ 많은 필터를 가지고 있음**|
+|--|
+|필터는 쉽게 말해, 문지기이다.<br>톰캣과 같은 웹 컨테이너를 관리하는 것을 필터(Filter) 라고 하고, 스프링 컨테이너를 관리하는 것은 인터셉터(Interceptor) 라고 한다. <br>필터는 Request/Response 객체를 조작할 수 있지만, 인터셉터는 불가능하다.필터의 경우 전역적인 보안과 인증 작업, 이미지/데이터 압축 및 문자열 인코딩 등의 역할을 수행하고, 인터셉터는 클라이언트의 요청과 관련한 세부적인 보안과 인증 작업, API 호출에 대한 로깅, Controller로 넘겨주는 정보의 가공 등을 수행한다.|
 
-예를 들어, 웹 개발을 위한 Spring MVC 모듈, 데이터베이스 처리를 위한 Spring JDBC 모듈, 보안 기능을 위한 Spring Security 모듈 등.
+|**∙ 많은 Annotation(@)을 가지고 있다.**|
+|--|
+|자바에서 어노테이션은 주석 그 이상의 의미를 지닌다. Annotation은 메타데이터의 일종으로 주석의 기능 뿐만 아니라 특별한 기능을 수행한다. Annotation을 활용하여 spring은 해당 클래스가 어떤 역할인지 정하기도 하고, Bean을 주입하기도 한다.|
 
-**∙ Spring은 다양한 라이브러리와 통합이 가능**
+|**∙ MessageConverter를 가지고 있다. 기본값은 현재 Json이다.**|
+|--|
+|MessageConverter는 스프링에 기본 라이브러리로 내장되어있고, 예전에는 Xml형식의 파일로 구성했다면 현재는 JSON으로 대체되었다.|
 
-예를 들어, Hibernate와 JPA를 이용한 ORM(Object Relational Mapping) 기능, MyBatis와 같은 데이터베이스 처리 라이브러리, Jackson과 같은 JSON 라이브러리 등을 Spring과 함께 사용할 수 있음.
-
-**∙ IOC 컨테이너를 가진다.**
-
-IOC (Inversion Of Control) : 제어의 역전이라는 뜻으로 본래 사용자가 가지고 있던 주도권을 스프링으로 넘기게 된다는 뜻이다. 일반적인 자바 프로그램에서는 사용자가 직접 객체를 생성하고 메소드를 호출하는 방식의 흐름이었지만 스프링에게 이를 위임함으로써 스프링에서 모든 객체를 생성, 관리하여 필요한 곳에 주입시켜주게 된다.
-
-**∙ 많은 필터를 가지고 있음**
-
-필터는 쉽게 말해, 문지기이다.
-톰캣과 같은 웹 컨테이너를 관리하는 것을 필터(Filter) 라고 하고, 스프링 컨테이너를 관리하는 것은 인터셉터(Interceptor) 라고 한다. 필터는 Request/Response 객체를 조작할 수 있지만, 인터셉터는 불가능하다.
-필터의 경우 전역적인 보안과 인증 작업, 이미지/데이터 압축 및 문자열 인코딩 등의 역할을 수행하고, 인터셉터는 클라이언트의 요청과 관련한 세부적인 보안과 인증 작업, API 호출에 대한 로깅, Controller로 넘겨주는 정보의 가공 등을 수행한다.
-
-**∙ 많은 Annotation(@)을 가지고 있다.**
-
-자바에서 어노테이션은 주석 그 이상의 의미를 지닌다. Annotation은 메타데이터의 일종으로 주석의 기능 뿐만 아니라 특별한 기능을 수행한다. Annotation을 활용하여 spring은 해당 클래스가 어떤 역할인지 정하기도 하고, Bean을 주입하기도 한다.
-
-**∙ MessageConverter를 가지고 있다. 기본값은 현재 Json이다.**
-
- MessageConverter는 스프링에 기본 라이브러리로 내장되어있고, 예전에는 Xml형식의 파일로 구성했다면 현재는 JSON으로 대체되었다.
-
-**∙ BufferedReader와 BufferedWriter를 쉽게 사용할 수 있다.**
-
-Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).
+|**∙ BufferedReader와 BufferedWriter를 쉽게 사용할 수 있다.**|
+|--|
+|Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 스프링은 버퍼를 이용해서 읽고 쓰는 함수인 BufferedReader/ BufferWriter를 직접 구현할 필요 없이 관련 어노테이션을 제공한다 (ResponseBody(=BufferedWriter)/RequestBody(=bufferedReader)).|
 
 
 ### Lego와 Spring의 공통점 
 
-
-
-**∙ Lego를 만들 때 편리한 점**
-
-∙바닥에 넓은 판을 두고 그 위에 이것 저것 얹으면 편하다. 
-∙동그란 끼우는 부분이 모두 동일하므로 어떤 것들이든 서로 끼워볼 수 있다. 
-∙너무 높은 자유도가 없기때문에 오히려 무언가를 만들기가 편하다. 
-
-**∙ Spring을 쓰면 좋은 점**
-
-∙Spring이라는 넓은 판(Container)위에 내가 만드는 Class만 얹으면 개발이 됨 
-∙Spring Bean이라는 규격에 맞추어 만들면 서로 가져다쓰기가 좋다. 
-∙역설적으로 너무 자유롭지 않기때문에 원리를 알면 그 틀 안에서 작업이 편하다 
-
-
+|**∙ Lego를 만들 때 편리한 점**|**∙ Spring을 쓰면 좋은 점**|
+|--|--|
+|바닥에 넓은 판을 두고<br>그 위에 이것 저것 얹으면 편하다. |Spring이라는 넓은 판(Container)위에 <br>내가 만드는 Class만 얹으면 개발이 됨 |
+|동그란 끼우는 부분이 모두 동일하므로<br>어떤 것들이든 서로 끼워볼 수 있다.|Spring Bean이라는 규격에 맞추어<br> 만들면 서로 가져다쓰기가 좋다. |
+|너무 높은 자유도가 없기때문에<br> 오히려 무언가를 만들기가 편하다.| 너무 자유롭지 않기때문에 원리를<br> 알면 그 틀 안에서 작업이 편하다 |
 
 
 ### DI : Dependency Injection
@@ -119,25 +107,25 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
-@Primary // 해당 빈을 최우선으로 주입
+**1.** `@Primary` -> 해당 빈을 최우선으로 주입
 
-@Qualifier("beanName") // beanName으로 지정된 빈 주입
+**2.** `@Qualifier("beanName")` -> beanName으로 지정된 빈 주입
 
-Set 또는 List로 받기
+**3.** `Set` 또는 `List`로 받기
 
-Property 이름을 bean과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+**4.** `Property` 이름을 `bean`과 동일하게하기. (**<u>가장 흔히 사용</u>**)
 
 **∙ Bean 의 Scope**
 
-Singleton : 일반적인 방법, 하나만 만들어 계속 재활용
+`Singleton` : 일반적인 방법, 하나만 만들어 계속 재활용
 
 **∙ Prototype: 매번 새로만드는 방법 (데이터 클리어 필요 시)**
 
-Request : 요청에 따라 계속 새로 만듦
+`Request` : 요청에 따라 계속 새로 만듦
 
-Session : 세션마다 계속 새로 만듦
+`Session` : 세션마다 계속 새로 만듦
 
-WebSocket : 양방향 실시간 통신
+`WebSocket` : 양방향 실시간 통신
 
 **∙Spring의 환경설정 : profile**
 
@@ -178,12 +166,9 @@ WebSocket : 양방향 실시간 통신
 이렇게 되면, 객체 A는 객체 B에 의존하지만, 객체 B는 객체 A에 대한 의존성을 갖지 않음. 이렇게 구현하면, 객체 간의 결합도를 낮추고 유지보수성과 테스트 용이성을 높일 수 있음.
 
 
-
 ### Spring의 부가기능
 
 **1. Resource 가져오기**
-
-
 
 Java의 표준 클래스들은 다양한 Resource에 접근할 때 충분한 기능을 제공하지 않음. 스프링은 필요한 기능을 만들어서 제공함. 
 
@@ -226,7 +211,6 @@ classPath(소스코드를 빌드한 결과(기본적으로 target/classes폴더)
 servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스트림을 가져오기 위한 구현체
 
 
-### Spring ResourceLoader
 
 
 
