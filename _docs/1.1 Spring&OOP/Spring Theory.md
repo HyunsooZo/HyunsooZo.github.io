@@ -72,7 +72,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 **DI : Dependency Injection**
 
-<font color="orange">*(A가 B를 사용한다 = A가 B에 의존한다)*</font>
+`(A가 B를 사용한다 = A가 B에 의존한다)`
 
 ∙Dependency Injection(DI)는 객체 지향 프로그래밍에서의 의존성(dependency)을 관리하는 디자인 패턴 중 하나다. 의존성이란, 한 객체가 다른 객체에 의존하는 관계를 말하고 예를 들면 클래스 A가 클래스 B를 사용한다면, 클래스 A는 클래스 B에 의존하는것으로 본다.
 
@@ -82,7 +82,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 |DI 방식| 설명|
 |--|--|
-|생성자 주입<br>(Constructor Injection)|  객체 생성 시점에 의존 객체를 전달하는 방식<br><font color="orange">***생성자 주입 방식이 주로 사용됨***</font>|
+|생성자 주입<br>(Constructor Injection)|  객체 생성 시점에 의존 객체를 전달하는 방식<br>`생성자 주입 방식이 주로 사용됨`|
 |Setter 주입<br>(Setter Injection)|Setter 메서드를 통해 의존 객체를 전달하는 방식|
 |인터페이스 주입<br>(Interface Injection)| 인터페이스를 통해 의존 객체를 전달하는 방식|
 
@@ -90,7 +90,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 *-* ***Java Configuration을 이용한 Bean 등록을 하기도 한다***
 
-*-* ***<u><font color="orange">Annotation</font>을 이용한 Bean 등록 및 DI가 가장 많이, 자주 쓰인다.</u>***
+*-* ***<u>`Annotation`을 이용한 Bean 등록 및 DI가 가장 많이, 자주 쓰인다.</u>***
 
 **[Commonly used Annotations]**
 ```java
@@ -117,25 +117,25 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
-**1.** <font color="orange">@Primary</font> -> 해당 빈을 최우선으로 주입
+**1.** `@Primary` -> 해당 빈을 최우선으로 주입
 
-**2.** <font color="orange">@Qualifier("beanName")</font> -> beanName으로 지정된 빈 주입
+**2.** `@Qualifier("beanName")` -> beanName으로 지정된 빈 주입
 
-**3.** <font color="orange">Set</font> 또는 <font color="orange">List</font>로 받기
+**3.** `Set` 또는 `List`로 받기
 
-**4.** <font color="orange">Property</font> 이름을 <font color="orange">bean</font>과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+**4.** `Property` 이름을 `bean`과 동일하게하기. (**<u>가장 흔히 사용</u>**)
 
 **∙ Bean 의 Scope**
 
-<font color="orange">Singleton</font>:일반적인 방법, 하나만 만들어 계속 재활용
+`Singleton`:일반적인 방법, 하나만 만들어 계속 재활용
 
 **∙ Prototype: 매번 새로만드는 방법 (데이터 클리어 필요 시)**
 
-<font color="orange">Request</font>: 요청에 따라 계속 새로 만듦
+`Request`: 요청에 따라 계속 새로 만듦
 
-<font color="orange">Session</font>: 세션마다 계속 새로 만듦
+`Session`: 세션마다 계속 새로 만듦
 
-<font color="orange">WebSocket</font>: 양방향 실시간 통신
+`WebSocket`: 양방향 실시간 통신
 
 **∙Spring의 환경설정 : profile**
 
@@ -154,9 +154,9 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 
 ∙ 프로파일 표현식
 
-``@Profile("!production")``
+`@Profile("!production")`
 
-``!not,&and,|or``
+`!not,&and,|or`
 
 
 ### IoC(Inversion Of Control)
@@ -172,7 +172,7 @@ Buffer는 자바 I/O를 공부했다면 한번쯤은 들어봤을 내용이다. 
 **∙** [예시]
 
 일반적인 코드에서는 객체 A가 객체 B를 생성하고, 객체 A에서 객체 B의 메서드를 호출하는 식으로 제어의 흐름이 이루어짐. 
-하지만 <font color="orange">**IoC에서는 객체 B를 외부에서 생성하여 객체 A에게 전달하고, 객체 A는 이를 사용하여 로직을 처리.**</font> 
+하지만 `IoC에서는 객체 B를 외부에서 생성하여 객체 A에게 전달하고, 객체 A는 이를 사용하여 로직을 처리.` 
 이렇게 되면, 객체 A는 객체 B에 의존하지만, 객체 B는 객체 A에 대한 의존성을 갖지 않음. 이렇게 구현하면, 객체 간의 결합도를 낮추고 유지보수성과 테스트 용이성을 높일 수 있음.
 
 
@@ -206,7 +206,8 @@ public interface Resource extends InputStreamSource{
 
 **∙ URLResource**
 
-java.net.URL 을 래핑한 버전. 다양한 종류(ftp:,file:,http: 등의 prefix로 접근유형을 판단) 의 Resource에 접근 가능하지만 <u>기본적으로는 http(s)로 원격접근</u>
+java.net.URL 을 래핑한 버전. <br>
+다양한 종류(ftp:,file:,http: 등의 prefix로 접근유형을 판단) 의 Resource에 접근 가능하지만 <u>기본적으로는 http(s)로 원격접근</u>
 
 **∙ ClassPathResource**
 
