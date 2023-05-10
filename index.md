@@ -36,7 +36,7 @@ toc: false
             </div>
         </li>
         <li>
-            <strong>Primary Language</strong>
+            <strong>Technical Skills</strong>
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" /></i>
