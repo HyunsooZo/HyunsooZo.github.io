@@ -32,11 +32,9 @@ blockquote, li, p {
 	}
 }
 
-p {
-	.content-box {
-		padding: 0.8rem;
-		border: 1px dotted var(--border-secondary);
-	}
+.content-box {
+	padding: 0.8rem;
+	border: 1px dotted var(--border-secondary);
 }
 
 .highlight {
