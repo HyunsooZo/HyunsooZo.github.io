@@ -131,7 +131,7 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 
 3. <span class="emphasis">Set</span>  또는 <span class="emphasis">List</span>로 받기<br>
 
-4. </span>Property</span>  이름을 <span class="emphasis">bean</span> 과 동일하게하기. <u><b>가장 흔히 사용</b></u>
+4. <span class="emphasis">Property</span>  이름을 <span class="emphasis">bean</span> 과 동일하게하기. <u><b>가장 흔히 사용</b></u>
 </div>
 
 
