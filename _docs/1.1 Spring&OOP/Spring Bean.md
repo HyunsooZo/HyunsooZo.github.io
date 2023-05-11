@@ -138,7 +138,7 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 **∙ Bean 의 Scope**
 
 <div class="content-box">
-</span>Singleton</span>:일반적인 방법, 하나만 만들어 계속 재활용
+<span class="emphasis">Singleton</span>:일반적인 방법, 하나만 만들어 계속 재활용
 </div>
 
 **∙ Prototype: 매번 새로만드는 방법 (데이터 클리어 필요 시)**
