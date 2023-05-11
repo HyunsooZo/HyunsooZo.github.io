@@ -125,13 +125,13 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
 <div class="content-box">
-1. <code class="language-plaintext highlighter-rouge">@Primary</code> -> 해당 빈을 최우선으로 주입
+1. <span class="emphasis">@Primary</span> -> 해당 빈을 최우선으로 주입<br>
 
-2. <code class="language-plaintext highlighter-rouge">@Qualifier("beanName")</code> -> beanName으로 지정된 빈 주입
+2. <span class="emphasis">@Qualifier("beanName")</span>  -> beanName으로 지정된 빈 주입<br>
 
-3. <code class="language-plaintext highlighter-rouge">Set</code> 또는 <code class="language-plaintext highlighter-rouge">List</code>로 받기
+3. <span class="emphasis">Set</span>  또는 <span class="emphasis">List</span>로 받기<br>
 
-4. <code class="language-plaintext highlighter-rouge">Property</code> 이름을 <code class="language-plaintext highlighter-rouge">bean</code>과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+4. <span class="emphasis">Property</span>  이름을 <span class="emphasis">bean</span> 과 동일하게하기. <u><b>가장 흔히 사용</b></u>
 </div>
 
 
