@@ -23,7 +23,7 @@ Spring Container는 <b>XMl 기반</b>으로 생성 또는 <b>Annotation기반 �
 **∙ Spring Bean 조회 시 상속관계가 존재 할 경우에는 부모타입으로 조회시 자식타입도 모두 조회된다.**
 
 
-**BeanFactory & ApplicationContext**
+### BeanFactory & ApplicationContext
 
 <div class="content-box">
 ∙ Application Context는 BeanFactory의 모든 기능을 상속받는다.<br> 
@@ -120,17 +120,20 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 |Constructor arguments<br>Properties|의존관계 주입에서 사용.<br>(자바설정처럼 팩토리 역할의 빈을 사용하면 없음)|
 
 
-### Bean 관련 설정방법
+### 여러가지 Bean 설정방법
 
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
-**1.** `@Primary` -> 해당 빈을 최우선으로 주입
+<div class="content-box">
+1. <code class="language-plaintext highlighter-rouge">@Primary</code> -> 해당 빈을 최우선으로 주입
 
-**2.** `@Qualifier("beanName")` -> beanName으로 지정된 빈 주입
+2. <code class="language-plaintext highlighter-rouge">@Qualifier("beanName")</code> -> beanName으로 지정된 빈 주입
 
-**3.** `Set` 또는 `List`로 받기
+3. <code class="language-plaintext highlighter-rouge">Set</code> 또는 <code class="language-plaintext highlighter-rouge">List</code>로 받기
 
-**4.** `Property` 이름을 `bean`과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+4. <code class="language-plaintext highlighter-rouge">Property</code> 이름을 <code class="language-plaintext highlighter-rouge">bean</code>과 동일하게하기. (**<u>가장 흔히 사용</u>**)
+</div>
+
 
 **∙ Bean 의 Scope**
 
