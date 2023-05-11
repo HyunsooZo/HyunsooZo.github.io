@@ -26,7 +26,7 @@ Spring Container는 <b>XMl 기반</b>으로 생성 또는 <b>Annotation기반 �
 **BeanFactory & ApplicationContext**
 
 <div class="content-box">
-∙ Application Context는 BeanFactory의 모든 기능을 상속받는다. 
+∙ Application Context는 BeanFactory의 모든 기능을 상속받는다.<br> 
 ∙ Application Context는 Bean의 모든 기능 + 부가기능을 제공한다.
 </div>
 
