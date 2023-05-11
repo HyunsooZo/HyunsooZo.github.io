@@ -191,8 +191,56 @@ IoC는 대표적으로 Spring Framework, Google Guice, Dagger2 등의 프레임�
 </div>
 
 
-### Spring의 부가기능
+### Spring Container?
 
+<div class="content-box">
+<b>ApplicationContext</b>를 Spring Container라고 한다. <br>
+<b>ApplicationContext</b>는 <b>Interfaced이다.</b> <br>
+Spring Container는 <b>XMl 기반</b>으로 생성 또는 <b>Annotation기반 자바설정 클래스</b>로 생성.<br>
+</div>
+
+**∙ Spring Container는 `@Configuration` Annotation을 가진 클래스를 구성정보로 사용한다.**
+
+**∙ `@Bean`이라고 적힌 Method를 모두 호출해서 반환된 객체를 Spring Container에 등록한다.(Spring Bean)**
+
+**∙ `applicationContext.getBean("메서드명",클래스명.class)`를 통해 SpringBean 을 찾을 수 있다.** 
+
+**(implement)  `applicationContext.getBean(클래스명.class)` 또는 `구현체.class`를 통해서도 SpringBean 을 찾을 수 있다.** 
+
+**∙ Spring Bean 조회 시 상속관계가 존재 할 경우에는 부모타입으로 조회시 자식타입도 모두 조회된다.**
+
+
+**BeanFactory & ApplicationContext**
+<div class="content-box">
+∙ Application Context는 BeanFactory의 모든 기능을 상속받는다. 
+∙ Application Context는 Bean의 모든 기능 + 부가기능을 제공한다.
+</div>
+
+|Application Context<br>의 부가기능|부가기능 설명|
+|--|--|
+|`MessageSource`|국제화기능(언어)|
+|`EnvironmentCapable`|Local,dev,prod 구분하여 처리|
+|`ApplicationEventPublisher`|이벤트 발행, 구독하는 모델 편리하게지원|
+|`ResourceLoader`|파일,클래스패스,외부 등에서 리소스 편리하게 조회|
+
+```
++-------------+
+|Bean Factory |
+|(interface)  |
++-------------+
+      ↑ (implement) 
++-------------+
+|App Context  |
+|(interface)  |
++-------------+       
+       ↑ (implement) 
++------------------+
+|AnnotationConfig  |
+|ApplicationContext| --> AppConfig.class
++------------------+    
+```
+### Spring의 부가기능
+ 
 **1. Resource 가져오기**
 
 Java의 표준 클래스들은 다양한 Resource에 접근할 때 충분한 기능을 제공하지 않음. 스프링은 필요한 기능을 만들어서 제공함. 
@@ -237,6 +285,8 @@ classPath(소스코드를 빌드한 결과(기본적으로 target/classes폴더)
 servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스트림을 가져오기 위한 구현체
 
 
+### BeanDefinition
 
+**∙** `BeanDefiniation(Bean 설정 Meta Info)`은 "역할과 구현을 개념적으로 나눈 것" 즉, 추상화 이다. 
 
-
+**∙** `AnnotationConfigApplicationContext`는 `AnnotatedBeanDefinitionReader`를 사용해서 `App.Config.class`를 읽고 `BeanDefinition`을 생성한다. 
