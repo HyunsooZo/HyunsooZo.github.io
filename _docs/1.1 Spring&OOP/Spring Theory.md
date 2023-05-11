@@ -183,6 +183,14 @@ IoC는 대표적으로 Spring Framework, Google Guice, Dagger2 등의 프레임�
 </div>
 
 
+**IoC Container (DI Contaniner)**
+<div class="content-box">
+객체를 생성하고 관리하면서 의존관계를 연결해주는 것을 `IoC Container` 또는 `DI Container`라고 한다. 
+의존관계 주입에 초점을 맞추어 최근에는 주로 `DI Container`라고 한다. 
+또는 Assembler, Object Factory 라고도 불린다. 
+</div>
+
+
 ### Spring의 부가기능
 
 **1. Resource 가져오기**
