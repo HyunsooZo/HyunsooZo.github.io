@@ -131,26 +131,28 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 
 3. <span class="emphasis">Set</span>  또는 <span class="emphasis">List</span>로 받기<br>
 
-4. <span class="emphasis">Property</span>  이름을 <span class="emphasis">bean</span> 과 동일하게하기. <u><b>가장 흔히 사용</b></u>
+4. </span>Property</span>  이름을 <span class="emphasis">bean</span> 과 동일하게하기. <u><b>가장 흔히 사용</b></u>
 </div>
 
 
 **∙ Bean 의 Scope**
 
-`Singleton`:일반적인 방법, 하나만 만들어 계속 재활용
+<div class="content-box">
+</span>Singleton</span>:일반적인 방법, 하나만 만들어 계속 재활용
+</div>
 
 **∙ Prototype: 매번 새로만드는 방법 (데이터 클리어 필요 시)**
 
-`Request`: 요청에 따라 계속 새로 만듦
-
-`Session`: 세션마다 계속 새로 만듦
-
-`WebSocket`: 양방향 실시간 통신
+<div class="content-box">
+<span class="emphasis">Request</span>: 요청에 따라 계속 새로 만듦<br>
+<span class="emphasis">Session</span>: 세션마다 계속 새로 만듦<br>
+<span class="emphasis">WebSocket</span>: 양방향 실시간 통신
+</div>
 
 **∙Spring의 환경설정 : profile**
 
-∙ 현업에서는 환경을 다양하게 하여 해당 환경에서만 동작하는 Bean을 만드는 경우가있음. 
-
-∙ 클래스단위에 정용하거나 메서드 단위에 적용가능 
-
+<div class="content-box">
+∙ 현업에서는 환경을 다양하게 하여 해당 환경에서만 동작하는 Bean을 만드는 경우가있음.<br> 
+∙ 클래스단위에 적용하거나 메서드 단위에 적용가능 
+<div>
 
