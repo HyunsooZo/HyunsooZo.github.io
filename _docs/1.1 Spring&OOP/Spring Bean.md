@@ -12,13 +12,13 @@ order: 3
 Spring Container는 <b>XMl 기반</b>으로 생성 또는 <b>Annotation기반 자바설정 클래스</b>로 생성.<br>
 </div>
 
-**∙ Spring Container는 `@Configuration` Annotation을 가진 클래스를 구성정보로 사용한다.**
+**∙ Spring Container는** `@Configuration` **Annotation을 가진 클래스를 구성정보로 사용한다.**
 
-**∙ `@Bean`이라고 적힌 Method를 모두 호출해서 반환된 객체를 Spring Container에 등록한다.(Spring Bean)**
+**∙** `@Bean`**이라고 적힌 Method를 모두 호출해서 반환된 객체를 Spring Container에 등록한다.(Spring Bean)**
 
-**∙ `applicationContext.getBean("메서드명",클래스명.class)`를 통해 SpringBean 을 찾을 수 있다.** 
+**∙** `applicationContext.getBean("메서드명",클래스명.class)`**를 통해 SpringBean 을 찾을 수 있다.** 
 
-**(implement)  `applicationContext.getBean(클래스명.class)` 또는 `구현체.class`를 통해서도 SpringBean 을 찾을 수 있다.** 
+**(implement)**  `applicationContext.getBean(클래스명.class)` **또는** `구현체.class`**를 통해서도 SpringBean 을 찾을 수 있다.** 
 
 **∙ Spring Bean 조회 시 상속관계가 존재 할 경우에는 부모타입으로 조회시 자식타입도 모두 조회된다.**
 
