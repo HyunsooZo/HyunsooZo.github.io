@@ -201,11 +201,22 @@
 
 	//
 	const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
-	switchTheme.addEventListener('change', function () {
-		if (this.checked) {
-			document.documentElement.setAttribute('data-theme', 'dark');
+	function setThemePreference() {
+		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		if (isDarkMode) {
+			switchTheme.checked = true;
+			document.documentElement.setAttribute("data-theme", "dark");
 		} else {
-			document.documentElement.setAttribute('data-theme', 'light');
+			switchTheme.checked = false;
+			document.documentElement.setAttribute("data-theme", "light");
+		}
+	}
+	setThemePreference(); // 페이지 로드시 테마 모드에 따라 input 상태와 :root의 data-theme을 설정
+	switchTheme.addEventListener("change", function () {
+		if (this.checked) {
+			document.documentElement.setAttribute("data-theme", "dark");
+		} else {
+			document.documentElement.setAttribute("data-theme", "light");
 		}
 	});
 	
