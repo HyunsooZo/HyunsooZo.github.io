@@ -101,8 +101,8 @@ public class AutoAppConfigTest {
 <div class="content-box">
 프로젝트구조
 <div class="content-box">
-com.hello
-com.hello.service
+com.hello<br>
+com.hello.service<br>
 com.hello.repository
 ..
 </div>
