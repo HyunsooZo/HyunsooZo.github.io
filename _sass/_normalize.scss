@@ -116,23 +116,40 @@ input {
     line-height: normal;
     -webkit-appearance: none;
     -webkit-border-radius: 0;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 0 transparent inset;
+      box-shadow: 0 0 0 0 transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    &:autofill,
+    &:autofill:hover,
+    &:autofill:focus,
+    &:autofill:active {
+      -webkit-box-shadow: 0 0 0 0 transparent inset;
+      box-shadow: 0 0 0 0 transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
 }
 
 button {
-    overflow: visible;
+  overflow: visible;
 }
 
 button,
 select {
-    text-transform: none;
+  text-transform: none;
 }
 
 button,
 input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
-    cursor: pointer; /* 3 */
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
 }
 
 input::-ms-clear,

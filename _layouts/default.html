@@ -38,6 +38,12 @@
 			</form>
 
 			<nav {% if site.show_full_navigation %}class="full-navigation"{% endif %}>
+				<div class="switch__wrap">
+					<label class="switch" for="switch-1" data-input-selector="checkbox">
+						<input type="checkbox" id="switch-1" data-input-name="switch__toggle-open">
+						<span class="switch__toggle" aria-hidden="true"></span>
+					</label>
+				</div>
 				<ul>
 					<li class="nav-item top-level {% if page.url == '/' %}current{% endif %}">
 						{% assign home = site.html_pages | where: 'url', '/' | first %}
