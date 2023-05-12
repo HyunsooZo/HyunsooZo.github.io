@@ -102,26 +102,6 @@ classPath(소스코드를 빌드한 결과(기본적으로 target/classes폴더)
 servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스트림을 가져오기 위한 구현체
 
 
-### BeanDefinition
-
-**∙** `BeanDefiniation(Bean 설정 Meta Info)`은 "역할과 구현을 개념적으로 나눈 것" 즉, 추상화 이다. 
-
-**∙** `AnnotationConfigApplicationContext`는 `AnnotatedBeanDefinitionReader`를 사용해서 `App.Config.class`를 읽고 `BeanDefinition`을 생성한다. 
-
-|BeanDefinition||
-|--|--|
-|BeanClassName|생성할 빈의 클래스명(자바설정처럼 팩토리 역할의 빈을 사용하면 없음.)|
-|factoryBeanName|팩토리 역할의 빈을 사용할 경우 이름|
-|factoryMethodName|빈을 생성할 팩토리 메서드 지정|
-|Scope|싱글톤(Default)|
-|LazyInit|스프링 컨테이너를 생성할 때 빈을 생성하는 것이 아니라<br>실제 빈을 사용할 때 까지 최대한 생성을 지연처리하는 지 여부|
-|InitMethodName|빈을 생성하고, 의존관계를 적용한 뒤에 호출되는 초기화 메서드명|
-|DestroyMethodName|빈의 생명주기가 끝나서 제거하기 직전에 호출되는 메서드명|
-|Constructor arguments<br>Properties|의존관계 주입에서 사용.<br>(자바설정처럼 팩토리 역할의 빈을 사용하면 없음)|
-
-
-### 여러가지 Bean 설정방법
-
 **∙ Bean의 구현체가 여러개인 경우 주입 받는 방법**
 
 <div class="content-box">

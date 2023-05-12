@@ -103,3 +103,35 @@ Singleton으로 유지할 수 있다. (DIP/OCP/등의 단점으로부터 자유�
 
 ***따라서, 스프링을 사용하면, 고객의 요청이 올 때마다 객체를 생성하는 것이 아니라, 이미 만들어진 객체를 공유하여 효율적으로 재사용 할 수 있다.***
 
+### Singleton 방식의 주의점
+
+<div class="content-box">
+∙ 싱글톤 패던이든, 스프링 같은 싱글톤 컨테이너를 사용하든, 객체 인스턴스를 하나만 생성해서 공유하는 싱글톤 방식은 여러 클라이언트가 하나의 같은 객체 인스턴스를 공유하므로, <span class="emphasis">싱글톤 객체는 상태를 Stateful하게 설계하면안된다.</span><br>
+∙ Stateless하게 설계해야한다!<br>
+∙ Spring Bean의 feild에 공유값을 설정하면 큰 장애가 발생할 수도 있다. 
+ </div>
+
+ |Stateless 한 설계방법|
+ |--|
+ |특정 클라이언트에 의존적인 필드가 존재하면 안된다.|
+ |특정 클라이언트가 값을 변경할 수 있는 필드가 있으면 안된다.|
+ |가급적이면 읽기만 가능해야한다.|
+ |필드 대신에 자바에서 공유되지 않는, 지역변수, 파라미터, ThreadLocal 등을 사용해야한다.|
+
+
+### @Configuration & Singleton
+
+
+<div class="content-box">
+∙ Spring Container는 Singleton Registry이다. 따라서 Spring Bean이 Singleton이 되도록 보장한다.
+∙ 그러나 Spring이 Java코드까지 컨트롤 할 수 는 없다.
+∙ 그래서 Spring은 Class의 ByteCode를 조작하는 Library(CGLIB)를 사용한다.
+</div>
+
+```
+
+```
+
+
+
+
