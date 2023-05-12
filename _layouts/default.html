@@ -39,8 +39,8 @@
 
 			<nav {% if site.show_full_navigation %}class="full-navigation"{% endif %}>
 				<div class="switch__wrap">
-					<label class="switch" for="switch-1" data-input-selector="checkbox">
-						<input type="checkbox" id="switch-1" data-input-name="switch__theme">
+					<label class="switch" for="switch-1">
+						<input type="checkbox" id="switch-1" data-input="switch__theme">
 						<span class="switch__toggle" aria-hidden="true"></span>
 					</label>
 				</div>
@@ -201,7 +201,7 @@
 	});
 
 	//switch theme
-	const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
+	const switchTheme = document.querySelector('[data-input="switch__theme"]');
 	function setThemePreference() {
 		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 		if (isDarkMode) {
@@ -212,7 +212,7 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	}
-	// setThemePreference(); // 페이지 로드시 테마모드에 따라 input, :root의 data-theme 설정
+	setThemePreference(); // 페이지 로드시 테마모드에 따라 input, :root의 data-theme 설정
 	switchTheme.addEventListener("change", function () {
 		if (this.checked) {
 			document.documentElement.setAttribute("data-theme", "dark");
@@ -221,12 +221,14 @@
 		}
 	});
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-		if (e.matches) {
-			switchTheme.checked = true;
-			document.documentElement.setAttribute("data-theme", "dark");
-		} else {
-			switchTheme.checked = false;
-			document.documentElement.setAttribute("data-theme", "light");
+		if (!document.documentElement.hasAttribute("data-theme")) { // :root 선택자에 data-theme 속성이 없으면
+			if (e.matches) {
+				switchTheme.checked = true;
+				document.documentElement.setAttribute("data-theme", "dark");
+			} else {
+				switchTheme.checked = false;
+				document.documentElement.setAttribute("data-theme", "light");
+			}
 		}
 	});
 
