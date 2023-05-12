@@ -154,8 +154,9 @@ $theme-light-button-secondary-hover: $color-neutral-20;
 $theme-light-button-secondary-active: $color-neutral-20;
 $theme-light-button-secondary-inactive: $color-neutral-light-70;
 $theme-light-button-secondary-border-focus: $color-theme-blue-50;
-$theme-light-button-secondary-border-red: $color-theme-red-30;
-$theme-light-button-secondary-border-red-focus: $color-theme-red-10;
+$theme-light-toggle-primary-default: $color-white;
+$theme-light-toggle-primary-active: $color-neutral-40;
+$theme-light-toggle-primary-inactive: $color-neutral-10;
 $theme-light-icon-primary: $color-neutral-60;
 $theme-light-icon-secondary: $color-neutral-30;
 $theme-light-icon-information: $color-theme-blue-50;
@@ -203,6 +204,9 @@ $theme-dark-button-secondary-default: $color-neutral-70;
 $theme-dark-button-secondary-hover: $color-neutral-50;
 $theme-dark-button-secondary-active: $color-neutral-40;
 $theme-dark-button-secondary-inactive: $color-neutral-70;
+$theme-dark-toggle-primary-default: $color-white;
+$theme-dark-toggle-primary-active: $color-neutral-40;
+$theme-dark-toggle-primary-inactive: $color-neutral-10;
 $theme-dark-icon-primary: $color-white;
 $theme-dark-icon-secondary: $color-neutral-30;
 $theme-dark-icon-information: $color-theme-blue-40;
@@ -260,8 +264,10 @@ $theme-dark-code-background-block: $color-neutral-80;
     --button-secondary-active: #{$theme-light-button-secondary-active};
     --button-secondary-inactive: #{$theme-light-button-secondary-inactive};
     --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
-    --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
-    --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
+
+    --toggle-primary-default: #{$theme-light-toggle-primary-default};
+    --toggle-primary-active: #{$theme-light-toggle-primary-active};
+    --toggle-primary-inactive: #{$theme-light-toggle-primary-inactive};
 
     --icon-primary: #{$theme-light-icon-primary};
     --icon-secondary: #{$theme-light-icon-secondary};
@@ -395,14 +401,16 @@ $theme-dark-code-background-block: $color-neutral-80;
     --button-primary-hover: #{$theme-dark-button-primary-hover};
     --button-primary-active: #{$theme-dark-button-primary-active};
     --button-primary-inactive: #{$theme-dark-button-primary-inactive};
-
+    
     --button-secondary-default: #{$theme-dark-button-secondary-default};
     --button-secondary-hover: #{$theme-dark-button-secondary-hover};
     --button-secondary-active: #{$theme-dark-button-secondary-active};
     --button-secondary-inactive: #{$theme-dark-button-secondary-inactive};
     --button-secondary-border-focus: #{$theme-light-button-secondary-border-focus};
-    --button-secondary-border-red: #{$theme-light-button-secondary-border-red};
-    --button-secondary-border-red-focus: #{$theme-light-button-secondary-border-red-focus};
+    
+    --toggle-primary-default: #{$theme-dark-toggle-primary-default};
+    --toggle-primary-active: #{$theme-dark-toggle-primary-active};
+    --toggle-primary-inactive: #{$theme-dark-toggle-primary-inactive};
 
     --icon-primary: #{$theme-dark-icon-primary};
     --icon-secondary: #{$theme-dark-icon-secondary};
