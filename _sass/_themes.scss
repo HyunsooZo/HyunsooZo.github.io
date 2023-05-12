@@ -518,16 +518,9 @@ $theme-dark-code-background-block: $color-neutral-80;
     color-scheme: dark;
 }
 
-[data-light-theme=light] {
-    @include light-theme;
-}
-
-[data-dark-theme=dark] {
-    @include dark-theme;
-}
-
 // OS Default.
-:root:not(.light):not(.dark) {
+// :root:not(.light):not(.dark) {
+:root {
     @media (prefers-color-scheme: light) {
         @include light-theme;
         header{
@@ -547,4 +540,24 @@ $theme-dark-code-background-block: $color-neutral-80;
     @media (prefers-color-scheme: dark) {
         @include dark-theme;
     }
+}
+
+:root[data-light-theme=light] {
+    @include light-theme;
+    header{
+        h1 {
+            .open-nav {
+                    filter: invert(1);
+
+                &:focus,
+                &:hover {
+                    filter: opacity(0.5) invert(1);
+                }
+            }
+        }
+    }
+}
+
+:root[data-dark-theme=dark] {
+    @include dark-theme;
 }
