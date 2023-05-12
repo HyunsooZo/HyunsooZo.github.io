@@ -242,7 +242,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     --text-inactive: #{$theme-light-text-inactive};
     --text-link: #{$theme-light-text-link};
     --text-invert: #{$theme-light-text-invert};
-    --text-highlight: #{$theme-light-text-highlight, 0.8};
+    --text-highlight: #{rgba($theme-light-text-highlight, 0.8)};
 
     --background-primary: #{$theme-light-background-primary};
     --background-secondary: #{$theme-light-background-secondary};
@@ -386,7 +386,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     --text-inactive: #{$theme-dark-text-inactive};
     --text-link: #{$theme-dark-text-link};
     --text-invert: #{$theme-dark-text-invert};
-    --text-highlight: #{$theme-dark-text-highlight, 0.2};
+    --text-highlight: #{rgba($theme-dark-text-highlight, 0.2)};
 
     --background-primary: #{$theme-dark-background-primary};
     --background-secondary: #{$theme-dark-background-secondary};
