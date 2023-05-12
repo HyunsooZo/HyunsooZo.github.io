@@ -1,7 +1,7 @@
 ---
 title: Componant Scan
 category: Spring Framework
-order: 4
+order: 5
 ---
 
 ### ComponentScan & AutoWired
