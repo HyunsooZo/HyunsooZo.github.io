@@ -258,29 +258,66 @@
 	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onColorSchemeChange);
 	// setInitialThemePreference();
 
+	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
+	// function setThemePreference() {
+	// 	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	// 	if (isDarkMode) {
+	// 		switchTheme.checked = true;
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		switchTheme.checked = false;
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// }
+	// function setTheme() {
+	// 	const currentTheme = document.documentElement.getAttribute("data-theme");
+	// 	if (!currentTheme) {
+	// 		setThemePreference();
+	// 	}
+	// 	switchTheme.checked = currentTheme === "dark";
+	// }
+	// setTheme();
+	// switchTheme.addEventListener("change", function () {
+	// 	if (this.checked) {
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// });
+	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+	// 	if (!document.documentElement.hasAttribute("data-theme")) {
+	// 		setThemePreference();
+	// 	}
+	// 	switchTheme.checked = e.matches;
+	// 	document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
+	// });
+
+	//
 	const switchTheme = document.querySelector('[data-input="switch__theme"]');
 
+	// set data-theme and checkbox state based on prefers-color-scheme
 	function setThemePreference() {
 		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		if (isDarkMode) {
-			switchTheme.checked = true;
+
+		if (switchTheme.checked) {
 			document.documentElement.setAttribute("data-theme", "dark");
 		} else {
-			switchTheme.checked = false;
 			document.documentElement.setAttribute("data-theme", "light");
 		}
-	}
 
-	function setTheme() {
-		const currentTheme = document.documentElement.getAttribute("data-theme");
-		if (!currentTheme) {
-			setThemePreference();
+		if (isDarkMode && !switchTheme.checked) {
+			switchTheme.checked = true;
+		} else if (!isDarkMode && switchTheme.checked) {
+			switchTheme.checked = false;
 		}
-		switchTheme.checked = currentTheme === "dark";
 	}
 
-	setTheme();
+	// set data-theme and checkbox state on initial load
+	if (!document.documentElement.hasAttribute("data-theme")) {
+		setThemePreference();
+	}
 
+	// update data-theme and checkbox state when switch is toggled
 	switchTheme.addEventListener("change", function () {
 		if (this.checked) {
 			document.documentElement.setAttribute("data-theme", "dark");
@@ -289,12 +326,15 @@
 		}
 	});
 
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-		if (!document.documentElement.hasAttribute("data-theme")) {
-			setThemePreference();
+	// update checkbox state when prefers-color-scheme changes
+	window
+	.matchMedia("(prefers-color-scheme: dark)")
+	.addEventListener("change", function (e) {
+		if (e.matches && !switchTheme.checked) {
+			switchTheme.checked = true;
+		} else if (!e.matches && switchTheme.checked) {
+			switchTheme.checked = false;
 		}
-		switchTheme.checked = e.matches;
-		document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light");
 	});
 </script>
 </html>
