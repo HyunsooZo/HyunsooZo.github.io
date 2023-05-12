@@ -24,7 +24,8 @@ pre {
 
 blockquote, li, p {
 	> code {
-		padding: 0.1rem 0.2rem;
+		display: inline-block;
+		padding: 0 0.2rem;
 		color: #e28e2b;
 		//background: #404145;
 		//border: 1px solid #606060;
@@ -38,6 +39,18 @@ blockquote, li, p {
 .content-box {
 	padding: 0.8rem;
 	border: 1px dashed var(--border-secondary);
+
+	.content-box {
+		display: block;
+		padding: 0.8rem;
+		line-height: 1.6rem;
+		font-size: 1.3rem;
+		color: #e28e2b;
+		background: var(--code-background-block);
+		border: 1px solid var(--border-primary);
+		border-radius: 0.3rem;
+		vertical-align: 1px;
+	}
 }
 
 .highlight {
