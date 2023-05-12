@@ -177,13 +177,21 @@
 		}
 	});	
 	
-	$(".search-wrap .btn-del").on("click", function() {
-		$(this).parents(".search-wrap").find("#search-input").val().focus();
-	})
-	if($("#search-input").is(":focus")){
-		$(this).next(".btn-del").show();
-	}else{ 
-		$(this).next(".btn-del").hide();
-	}
+	//search value delete
+	const inputEl = document.querySelector("#search-input");
+	const buttonEl = document.querySelector(".btn-del");
+	buttonEl.style.display = "none";
+	inputEl.addEventListener("input", function() {
+		if (inputEl.value !== "") {
+			buttonEl.style.display = "inline-block";
+		} else {
+			buttonEl.style.display = "none";
+		}
+	});
+	buttonEl.addEventListener("click", function() {
+		inputEl.value = "";
+		buttonEl.style.display = "none";
+	});
+	
 </script>
 </html>
