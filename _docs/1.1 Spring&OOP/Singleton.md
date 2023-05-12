@@ -123,14 +123,28 @@ Singleton으로 유지할 수 있다. (DIP/OCP/등의 단점으로부터 자유�
 
 
 <div class="content-box">
-∙ Spring Container는 Singleton Registry이다. 따라서 Spring Bean이 Singleton이 되도록 보장한다.
-∙ 그러나 Spring이 Java코드까지 컨트롤 할 수 는 없다.
-∙ 그래서 Spring은 Class의 ByteCode를 조작하는 Library(CGLIB)를 사용한다.
+∙ Spring Container는 Singleton Registry이다. 따라서 Spring Bean이 Singleton이 되도록 보장한다.<br>
+∙ 그러나 Spring이 Java코드까지 컨트롤 할 수 는 없다.<br>
+∙ 그래서 Spring은 Class의 ByteCode를 조작하는 Library(CGLIB)를 사용한다.<br>
+∙ (예상) <br>
+<span class="emphasis">IF</span> 호출 되었을때 이미 Spring Container에 등록된 빈?-> 컨테이너에서 호출<br>
+<span class="emphasis">ELSE</span> 상속받아 새로 생성
+∙ 다만 위 CGLIB는 @Configuration 을 사용하고 @Bean에 추가해야 사용된다. 
 </div>
 
 ```
++----------+            +---Spring Container-----+
+| AppConfig|            |                        |
++----------+            |     appConfig          |
+      |                 |instance:Appconfig@CGLIB|
+      |(extends)        |                        |
++----------------+      |                        |
+| AppConfig@CGLIB|----> |                        |
++----------------+      +------------------------+
 
 ```
+***Spring은 위 임의 클래스 AppConfig@CGLIB 가 싱글톤이 되도록 보장한다.***
+
 
 
 

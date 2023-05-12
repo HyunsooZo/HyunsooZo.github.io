@@ -107,6 +107,24 @@ com.hello.repository
 ..
 </div>
 프로젝트 구조가 위와 같다면,<br>
-`com.hello`가 프로젝트 시작루트이므로, 여기에 AppConfig같은 메인설정정보를 두고<br>
-`@ComponentScan` 을 붙이고 `basePackages`는 생략. 
+com.hello가 프로젝트 시작루트이므로, 여기에 AppConfig같은 메인설정정보를 두고<br>
+@ComponentScan 을 붙이고 basePackages는 생략. <br><br>
+이렇게 하면 com.hello 를 포함한 하위패키지는 모두 자동으로 컴포넌트 스캔의 대상이 된다.<br>
 </div>
+
+**ComponentScan 기본 Scan 대상**
+
+|기본스캔대상|설명|부가기능|
+|--|--|--|
+|@Component|ComponentScan에서 사용|-|
+|@Controller|Spring MVC Controller에서 사용|Spring MVC Controller로 인식|
+|@Service|Spring Business Logic에서 사용| - |
+|@Repository|Spring 데이터 접근 계층에서 사용|Spring Data 접근 계층으로 인식하고<br>데이터 계층의 예외를 스프링 예외로 변환|
+|@Configuration|Spring 설정정보에서 사용|스프링설정정보로 인식,<br>스프링 빈이 싱글톤 유지하도록 추가처리
+
+
+***참고***
+
+사실 Annotation에는 상속관계라는 것이 없다. <br>
+그래서 Annotation이 특정 Annotation을 상속하는 것처럼 동작하는 것은 <br>
+Java 언어가 지원하는 기능이 아니고 Spring에서 지원하는 기능이다.<br>
