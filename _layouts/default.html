@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko"><!-- data-color-mode="auto" data-light-theme="light" data-dark-theme="dark" -->
+<html lang="ko">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -201,42 +201,9 @@
 	});
 
 	//switch theme
-	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
-	// function setThemePreference() {
-	// 	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-	// 	if (isDarkMode) {
-	// 		switchTheme.checked = true;
-	// 		document.documentElement.setAttribute("data-theme", "dark");
-	// 	} else {
-	// 		switchTheme.checked = false;
-	// 		document.documentElement.setAttribute("data-theme", "light");
-	// 	}
-	// }
-	// setThemePreference();
-	// switchTheme.addEventListener("change", function () {
-	// 	if (this.checked) {
-	// 		document.documentElement.setAttribute("data-theme", "dark");
-	// 	} else {
-	// 		document.documentElement.setAttribute("data-theme", "light");
-	// 	}
-	// });
-	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-	// 	if (!document.documentElement.hasAttribute("data-theme")) {
-	// 		if (e.matches) {
-	// 			switchTheme.checked = true;
-	// 			document.documentElement.setAttribute("data-theme", "dark");
-	// 		} else {
-	// 			switchTheme.checked = false;
-	// 			document.documentElement.setAttribute("data-theme", "light");
-	// 		}
-	// 	}
-	// });
-
-	//
-	const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
-
+	const switchTheme = document.querySelector('[data-input="switch__theme"]');
 	function setThemePreference() {
-	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 		if (isDarkMode) {
 			switchTheme.checked = true;
 			document.documentElement.setAttribute("data-theme", "dark");
@@ -245,13 +212,7 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	}
-
-	function toggleTheme() {
-		const isDarkMode = document.documentElement.getAttribute("data-theme") === "dark";
-		switchTheme.checked = isDarkMode;
-		document.documentElement.setAttribute("data-theme", isDarkMode ? "light" : "dark");
-	}
-
+	setThemePreference();
 	switchTheme.addEventListener("change", function () {
 		if (this.checked) {
 			document.documentElement.setAttribute("data-theme", "dark");
@@ -259,14 +220,53 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	});
-
 	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
 		if (!document.documentElement.hasAttribute("data-theme")) {
-			setThemePreference();
-		} else {
-			toggleTheme();
+			if (e.matches) {
+				switchTheme.checked = true;
+				document.documentElement.setAttribute("data-theme", "dark");
+			} else {
+				switchTheme.checked = false;
+				document.documentElement.setAttribute("data-theme", "light");
+			}
 		}
 	});
+
+	//
+	// const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
+
+	// function setThemePreference() {
+	// const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	// 	if (isDarkMode) {
+	// 		switchTheme.checked = true;
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		switchTheme.checked = false;
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// }
+
+	// function toggleTheme() {
+	// 	const isDarkMode = document.documentElement.getAttribute("data-theme") === "dark";
+	// 	switchTheme.checked = isDarkMode;
+	// 	document.documentElement.setAttribute("data-theme", isDarkMode ? "light" : "dark");
+	// }
+
+	// switchTheme.addEventListener("change", function () {
+	// 	if (this.checked) {
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// });
+
+	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+	// 	if (!document.documentElement.hasAttribute("data-theme")) {
+	// 		setThemePreference();
+	// 	} else {
+	// 		toggleTheme();
+	// 	}
+	// });
 
 	//
 	// const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
