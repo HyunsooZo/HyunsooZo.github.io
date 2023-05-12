@@ -212,7 +212,7 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	}
-	setThemePreference(); // 페이지 로드시 테마모드에 따라 input, :root의 data-theme 설정
+	setThemePreference();
 	switchTheme.addEventListener("change", function () {
 		if (this.checked) {
 			document.documentElement.setAttribute("data-theme", "dark");
@@ -220,8 +220,8 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	});
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-		if (!document.documentElement.hasAttribute("data-theme")) { // :root 선택자에 data-theme 속성이 없으면
+	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+		if (!document.documentElement.hasAttribute("data-theme")) {
 			if (e.matches) {
 				switchTheme.checked = true;
 				document.documentElement.setAttribute("data-theme", "dark");
@@ -230,7 +230,7 @@
 				document.documentElement.setAttribute("data-theme", "light");
 			}
 		}
-	});
+	// });
 
 </script>
 </html>
