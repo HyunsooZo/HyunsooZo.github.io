@@ -9,6 +9,7 @@
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
+		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
@@ -175,5 +176,14 @@
 			toc.classList.add("sticky");
 		}
 	});	
+
+	$('.search-wrap .btn-del').off("click").on("click", function() {
+		if($(this).parent(".search-wrap").find("#search-input").is(":focus")){
+			$(this).next(".btn-del").show();
+		}else{ 
+			$(this).next(".btn-del").hide();
+			$("#search-input").val($("#search-input").val() + $(this).html() + " ").focus();
+		}
+	})
 </script>
 </html>
