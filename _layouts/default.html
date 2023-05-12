@@ -178,19 +178,19 @@
 	});	
 	
 	//search value delete
-	const inputEl = document.querySelector("#search-input");
-	const buttonEl = document.querySelector(".btn-del");
-	buttonEl.add("hide");
-	inputEl.addEventListener("input", function() {
+	const inputEl = document.querySelector('#search-input');
+	const buttonEl = document.querySelector('.btn-del');
+	buttonEl.classList.add('hide');
+	inputEl.addEventListener('input', function() {
 		if (inputEl.value !== "") {
-			buttonEl.add("show");
+			buttonEl.classList.remove('hide');
 		} else {
-			buttonEl.add("hide");
+			buttonEl.classList.add('hide');
 		}
 	});
-	buttonEl.addEventListener("click", function() {
+	buttonEl.addEventListener('click', function() {
 		inputEl.value = "";
-		buttonEl.add("hide");
+		buttonEl.classList.add('hide');
 	});
 	
 </script>
