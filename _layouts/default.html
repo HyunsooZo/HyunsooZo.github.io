@@ -176,14 +176,14 @@
 			toc.classList.add("sticky");
 		}
 	});	
-
-	$('.search-wrap .btn-del').off("click").on("click", function() {
-		if($(this).parent(".search-wrap").find("#search-input").is(":focus")){
-			$(this).next(".btn-del").show();
-		}else{ 
-			$(this).next(".btn-del").hide();
-			$("#search-input").val($("#search-input").val() + $(this).html() + " ").focus();
-		}
+	
+	$(".search-wrap .btn-del").on("click", function() {
+		$(this).parents(".search-wrap").find("#search-input").val().focus();
 	})
+	if($("#search-input").is(":focus")){
+		$(this).next(".btn-del").show();
+	}else{ 
+		$(this).next(".btn-del").hide();
+	}
 </script>
 </html>
