@@ -40,7 +40,7 @@
 			<nav {% if site.show_full_navigation %}class="full-navigation"{% endif %}>
 				<div class="switch__wrap">
 					<label class="switch" for="switch-1" data-input-selector="checkbox">
-						<input type="checkbox" id="switch-1" data-input-name="switch__toggle-open">
+						<input type="checkbox" id="switch-1" data-input-name="switch__theme">
 						<span class="switch__toggle" aria-hidden="true"></span>
 					</label>
 				</div>
@@ -197,6 +197,16 @@
 	buttonEl.addEventListener('click', function() {
 		inputEl.value = "";
 		buttonEl.classList.add('hide');
+	});
+
+	//
+	const switchTheme = document.querySelector('[data-input-name="switch__theme"]');
+	switchTheme.addEventListener('change', function () {
+		if (this.checked) {
+			document.documentElement.setAttribute('data-theme', 'dark');
+		} else {
+			document.documentElement.setAttribute('data-theme', 'light');
+		}
 	});
 	
 </script>

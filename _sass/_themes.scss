@@ -542,7 +542,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     }
 }
 
-:root[data-light-theme=light] {
+:root[data-theme=light] {
     @include light-theme;
     header{
         h1 {
@@ -558,6 +558,6 @@ $theme-dark-code-background-block: $color-neutral-80;
     }
 }
 
-:root[data-dark-theme=dark] {
+:root[data-theme=dark] {
     @include dark-theme;
 }
