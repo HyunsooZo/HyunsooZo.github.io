@@ -180,17 +180,17 @@
 	//search value delete
 	const inputEl = document.querySelector("#search-input");
 	const buttonEl = document.querySelector(".btn-del");
-	buttonEl.style.display = "none";
+	buttonEl.add("hide");
 	inputEl.addEventListener("input", function() {
 		if (inputEl.value !== "") {
-			buttonEl.style.display = "inline-block";
+			buttonEl.add("show");
 		} else {
-			buttonEl.style.display = "none";
+			buttonEl.add("hide");
 		}
 	});
 	buttonEl.addEventListener("click", function() {
 		inputEl.value = "";
-		buttonEl.style.display = "none";
+		buttonEl.add("hide");
 	});
 	
 </script>
