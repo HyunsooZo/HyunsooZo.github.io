@@ -2,6 +2,7 @@ $color-black: #000;
 $color-white: #fff;
 // $color-ads: #00d0aa;
 $color-ads: #8cf0e8;
+$color-highlight: #ffff00;
 
 $color-neutral-10: #e2e2e2;
 $color-neutral-20: #cdcdcd;
@@ -138,6 +139,7 @@ $theme-light-text-tertiary: $color-neutral-50;
 $theme-light-text-inactive: #{rgba($color-neutral-40, 0.6)};
 $theme-light-text-link: $color-theme-blue-60;
 $theme-light-text-invert: $color-white;
+$theme-light-text-highlight: $color-highlight;
 $theme-light-background-primary: $color-white;
 $theme-light-background-secondary: $color-neutral-light-70;
 $theme-light-background-tertiary: $color-white;
@@ -189,6 +191,7 @@ $theme-dark-text-tertiary: $color-neutral-40;
 $theme-dark-text-inactive: #{rgba($color-neutral-20, 0.6)};
 $theme-dark-text-link: $color-theme-blue-30;
 $theme-dark-text-invert: $color-neutral-90;
+$theme-dark-text-highlight: $color-highlight;
 $theme-dark-background-primary: $color-neutral-90;
 $theme-dark-background-secondary: $color-neutral-80;
 $theme-dark-background-tertiary: $color-neutral-70;
@@ -239,6 +242,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     --text-inactive: #{$theme-light-text-inactive};
     --text-link: #{$theme-light-text-link};
     --text-invert: #{$theme-light-text-invert};
+    --text-highlight: #{$theme-light-text-highlight, 0.8};
 
     --background-primary: #{$theme-light-background-primary};
     --background-secondary: #{$theme-light-background-secondary};
@@ -382,6 +386,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     --text-inactive: #{$theme-dark-text-inactive};
     --text-link: #{$theme-dark-text-link};
     --text-invert: #{$theme-dark-text-invert};
+    --text-highlight: #{$theme-dark-text-highlight, 0.2};
 
     --background-primary: #{$theme-dark-background-primary};
     --background-secondary: #{$theme-dark-background-secondary};
@@ -519,7 +524,6 @@ $theme-dark-code-background-block: $color-neutral-80;
 }
 
 // OS Default.
-// :root:not(.light):not(.dark) {
 :root {
     @media (prefers-color-scheme: light) {
         @include light-theme;
@@ -542,6 +546,7 @@ $theme-dark-code-background-block: $color-neutral-80;
     }
 }
 
+//
 :root[data-theme=light] {
     @include light-theme;
     header{
@@ -557,7 +562,6 @@ $theme-dark-code-background-block: $color-neutral-80;
         }
     }
 }
-
 :root[data-theme=dark] {
     @include dark-theme;
 }

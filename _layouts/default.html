@@ -44,6 +44,7 @@
 						<span class="switch__toggle" aria-hidden="true"></span>
 					</label>
 				</div>
+
 				<ul>
 					<li class="nav-item top-level {% if page.url == '/' %}current{% endif %}">
 						{% assign home = site.html_pages | where: 'url', '/' | first %}
@@ -219,15 +220,15 @@
 			document.documentElement.setAttribute("data-theme", "light");
 		}
 	});
-	window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
-		if (e.matches) {
-			switchTheme.checked = true;
-			document.documentElement.setAttribute("data-theme", "dark");
-		} else {
-			switchTheme.checked = false;
-			document.documentElement.setAttribute("data-theme", "light");
-		}
-	});
-	
+	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+	// 	if (e.matches) {
+	// 		switchTheme.checked = true;
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		switchTheme.checked = false;
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// });
+
 </script>
 </html>
