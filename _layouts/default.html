@@ -202,16 +202,16 @@
 
 	//switch theme
 	const switchTheme = document.querySelector('[data-input="switch__theme"]');
-	function setThemePreference() {
-		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		if (isDarkMode) {
-			switchTheme.checked = true;
-			document.documentElement.setAttribute("data-theme", "dark");
-		} else {
-			switchTheme.checked = false;
-			document.documentElement.setAttribute("data-theme", "light");
-		}
-	}
+	// function setThemePreference() {
+	// 	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	// 	if (isDarkMode) {
+	// 		switchTheme.checked = true;
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		switchTheme.checked = false;
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// }
 	// setThemePreference();
 	switchTheme.addEventListener("change", function () {
 		if (this.checked) {
@@ -232,9 +232,5 @@
 	// 	}
 	// });
 
-	//
-	if (!document.documentElement.hasAttribute("data-theme")) {
-		setThemePreference();
-	}
 </script>
 </html>
