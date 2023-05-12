@@ -181,7 +181,7 @@ header {
 	.btn-del {
 		flex: 1 0 auto;
 		position: relative;
-		display: none;
+		display: inline-block;
 		width: 2rem;
 		height: 2rem;
 		margin-right: 1rem;
@@ -202,6 +202,10 @@ header {
 		&:after {
 			left: 24%;
 			transform: rotate(-45deg);
+		}
+
+		&.hide {
+			display: none;
 		}
 
 		span {
