@@ -201,58 +201,58 @@
 	});
 
 	//switch theme
-	const rootElement = document.documentElement;
-	const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
-	const localStorageKey = 'theme';
+	// const rootElement = document.documentElement;
+	// const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
+	// const localStorageKey = 'theme';
 
-	function setThemePreference(theme) {
-		if (theme === 'dark') {
-			rootElement.setAttribute('data-theme', 'dark');
-			themeSwitchCheckbox.checked = true;
-		} else {
-			rootElement.setAttribute('data-theme', 'light');
-			themeSwitchCheckbox.checked = false;
-		}
-	}
-	function toggleTheme() {
-		if (themeSwitchCheckbox.checked) {
-			localStorage.setItem(localStorageKey, 'dark');
-			rootElement.setAttribute('data-theme', 'dark');
-		} else {
-			localStorage.setItem(localStorageKey, 'light');
-			rootElement.setAttribute('data-theme', 'light');
-		}
-	}
-
-	themeSwitchCheckbox.addEventListener('change', toggleTheme);
-
-	const storedTheme = localStorage.getItem(localStorageKey);
-	if (storedTheme) {
-		setThemePreference(storedTheme);
-	} else {
-		const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		setThemePreference(isDarkMode ? 'dark' : 'light');
-	}
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-		if (!localStorage.getItem(localStorageKey)) {
-			setThemePreference(e.matches ? 'dark' : 'light');
-		}
-	});
-
-	//
-	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
-	// const root = document.documentElement;
-	// const setTheme = () => {
-	// 	if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-	// 		root.setAttribute('data-theme', 'dark');
-	// 		switchTheme.checked = true;
+	// function setThemePreference(theme) {
+	// 	if (theme === 'dark') {
+	// 		rootElement.setAttribute('data-theme', 'dark');
+	// 		themeSwitchCheckbox.checked = true;
 	// 	} else {
-	// 		root.setAttribute('data-theme', 'light');
-	// 		switchTheme.checked = false;
+	// 		rootElement.setAttribute('data-theme', 'light');
+	// 		themeSwitchCheckbox.checked = false;
 	// 	}
 	// }
-	// setTheme();
+	// function toggleTheme() {
+	// 	if (themeSwitchCheckbox.checked) {
+	// 		localStorage.setItem(localStorageKey, 'dark');
+	// 		rootElement.setAttribute('data-theme', 'dark');
+	// 	} else {
+	// 		localStorage.setItem(localStorageKey, 'light');
+	// 		rootElement.setAttribute('data-theme', 'light');
+	// 	}
+	// }
+
+	// themeSwitchCheckbox.addEventListener('change', toggleTheme);
+
+	// const storedTheme = localStorage.getItem(localStorageKey);
+	// if (storedTheme) {
+	// 	setThemePreference(storedTheme);
+	// } else {
+	// 	const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	// 	setThemePreference(isDarkMode ? 'dark' : 'light');
+	// }
+
+	// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+	// 	if (!localStorage.getItem(localStorageKey)) {
+	// 		setThemePreference(e.matches ? 'dark' : 'light');
+	// 	}
+	// });
+
+	//
+	const switchTheme = document.querySelector('[data-input="switch__theme"]');
+	const root = document.documentElement;
+	const setTheme = () => {
+		if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+			root.setAttribute('data-theme', 'dark');
+			switchTheme.checked = true;
+		} else {
+			root.setAttribute('data-theme', 'light');
+			switchTheme.checked = false;
+		}
+	}
+	setTheme();
 
 	//
 	// const switchTheme = document.querySelector('input[data-input="switch__theme"]');

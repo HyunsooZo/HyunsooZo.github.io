@@ -168,12 +168,12 @@ header {
 	#search-input {
 		display: block;
 		margin: 0;
-		padding: 1rem 1rem 1rem 2rem;
+		padding: 0.8rem 1rem 0.8rem 2rem;
 		width: 100%;
 		border: 0;
 		font-size: 1.5rem;
 		font-weight: 600;
-		line-height: 1.8;
+		line-height: 2rem;
 		background: transparent;
 	
 		&:focus {
@@ -184,8 +184,8 @@ header {
 		flex: 1 0 auto;
 		position: relative;
 		display: inline-block;
-		width: 2rem;
-		height: 2rem;
+		width: 1.6rem;
+		height: 1.6rem;
 		margin-right: 1rem;
 		border-radius: 50%;
 	    border: 1px solid var(--border-primary);
@@ -195,14 +195,13 @@ header {
 			content: '';
 			position: absolute;
 			top: 50%;
-			left: 24%;
-			width: 1rem;
+			left: 23%;
+			width: 0.8rem;
 			height: 0.1rem;
 			background: var(--border-primary);
 			transform: rotate(45deg);
 		}
 		&:after {
-			left: 24%;
 			transform: rotate(-45deg);
 		}
 
@@ -278,7 +277,7 @@ header {
 	
 		h2 {
 			font-size: 2rem;
-			color: #888;
+			color: var(--text-tertiary);
 			letter-spacing: 0;
 		}
 	
