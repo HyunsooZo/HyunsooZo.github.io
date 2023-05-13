@@ -201,7 +201,7 @@
 	});
 
 	//switch theme
-	const switchTheme = document.querySelector('[data-input="switch__theme"]');
+	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
 	// function setThemePreference() {
 	// 	const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	// 	if (isDarkMode) {
@@ -213,13 +213,13 @@
 	// 	}
 	// }
 	// setThemePreference();
-	switchTheme.addEventListener("change", function () {
-		if (this.checked) {
-			document.documentElement.setAttribute("data-theme", "dark");
-		} else {
-			document.documentElement.setAttribute("data-theme", "light");
-		}
-	});
+	// switchTheme.addEventListener("change", function () {
+	// 	if (this.checked) {
+	// 		document.documentElement.setAttribute("data-theme", "dark");
+	// 	} else {
+	// 		document.documentElement.setAttribute("data-theme", "light");
+	// 	}
+	// });
 	// window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
 	// 	if (!document.documentElement.hasAttribute("data-theme")) {
 	// 		if (e.matches) {
@@ -231,6 +231,40 @@
 	// 		}
 	// 	}
 	// });
+
+	//
+	const switchTheme = document.querySelector('[data-input="switch__theme"]');
+	const root = document.documentElement;
+
+	function setThemePreference() {
+		const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+		if (isDarkMode) {
+			switchTheme.checked = true;
+			root.setAttribute("data-theme", "dark");
+		} else {
+			switchTheme.checked = false;
+			root.setAttribute("data-theme", "light");
+		}
+	}
+
+	if (!root.hasAttribute("data-theme")) {
+		setThemePreference();
+	} else {
+		if (root.getAttribute("data-theme") === "dark") {
+			switchTheme.checked = true;
+		} else {
+			switchTheme.checked = false;
+		}
+	}
+
+	switchTheme.addEventListener("change", function () {
+		if (this.checked) {
+			root.setAttribute("data-theme", "dark");
+		} else {
+			root.setAttribute("data-theme", "light");
+		}
+	});
 
 </script>
 </html>
