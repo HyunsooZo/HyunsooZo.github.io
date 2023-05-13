@@ -242,29 +242,48 @@
 	// });
 
 	//
-	const switchTheme = document.querySelector('[data-input="switch__theme"]');
-	const root = document.documentElement;
-	const setTheme = () => {
-		if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-			root.setAttribute('data-theme', 'dark');
-			switchTheme.checked = true;
-		} else {
-			root.setAttribute('data-theme', 'light');
-			switchTheme.checked = false;
-		}
-	}
+	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
+	// const root = document.documentElement;
+	// const setTheme = () => {
+	// 	if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+	// 		root.setAttribute('data-theme', 'dark');
+	// 		switchTheme.checked = true;
+	// 	} else {
+	// 		root.setAttribute('data-theme', 'light');
+	// 		switchTheme.checked = false;
+	// 	}
+	// }
 
-	switchTheme.addEventListener('click', () => {
-		if (switchTheme.checked) {
-			root.setAttribute('data-theme', 'dark');
+	// switchTheme.addEventListener('click', () => {
+	// 	if (switchTheme.checked) {
+	// 		root.setAttribute('data-theme', 'dark');
+	// 		localStorage.setItem('theme', 'dark');
+	// 	} else {
+	// 		root.setAttribute('data-theme', 'light');
+	// 		localStorage.setItem('theme', 'light');
+	// 	}
+	// });
+
+	// setTheme();
+
+	//
+	const switchTheme = document.querySelector('input[data-input="switch__theme"]');
+	const root = document.querySelector(':root');
+
+	switchTheme.addEventListener('click', function() {
+		if (this.checked) {
+			root.dataset.theme = 'dark';
 			localStorage.setItem('theme', 'dark');
 		} else {
-			root.setAttribute('data-theme', 'light');
+			root.dataset.theme = 'light';
 			localStorage.setItem('theme', 'light');
 		}
 	});
 
-	setTheme();
+	if (localStorage.getItem('theme')) {
+		root.dataset.theme = localStorage.getItem('theme');
+		switchTheme.checked = localStorage.getItem('theme') === 'dark';
+	}
 
 </script>
 </html>

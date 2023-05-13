@@ -278,14 +278,13 @@ header {
 	
 		h2 {
 			font-size: 2rem;
-			margin-left: -1px;
 			color: #888;
 			letter-spacing: 0;
 		}
 	
 		h3 {
 			font-size: 2.4rem;
-			margin: 15px 0 0 -4px;
+			margin: 1.5rem 0 0;
 		}
 	
 		@media (min-width: $mobile-break) {
@@ -682,7 +681,7 @@ table {
 		// background: var(--notecard-link-color);
 		background: var(--toggle-primary-inactive);
 		transition: .4s;
-		border-radius: 0.6rem;
+		border-radius: 0.7rem;
 		
 		&:before {
 			content: "";
