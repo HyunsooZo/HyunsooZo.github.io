@@ -154,4 +154,149 @@ servlet 어플리케이션 루트 하위 파일, InputStream,ByteArrayInput 스�
 |Constructor arguments<br>Properties|의존관계 주입에서 사용.<br>(자바설정처럼 팩토리 역할의 빈을 사용하면 없음)|
 
 
-### 여러가지 Bean 설정방법
+### Bean 생명주기 Callback
+
+<div class="content-box">
+DB Connection pull이나 Network socket처럼 Application시작 시점에 필요한 연결을 미리 해두고, Application 종료 시점에 연결을 모두 종료하는 작업을 진행하려면, 객체의 초기화와 종료 작업이 필요하다. <br>
+</div>
+
+**[Spring Bean 은 간단히 다음과 같은 LifeCycle을 가진다]**<br>
+***" Object생성 - > DI "***
+<div class="content-box">
+Spring Bean은 객체를 생성하고, 의존관계주입이 다 끝난 다음에야 필요한 데이터를 사용할 수 있는 준비가 완료된다. <span class="emphasis">따라서 초기화 작업은 의존관계 주입이 모두 완료되고 난 다음에 호출되어야한다.</span> Spring은 의존관계 주입이 완료되면 Spring Bean에게 <span class="emphasis">CallBack Method를 통해 초기화 시점을 알려주는 다양한 기능을 제공한다,</span><br>
+또한 <span class="emphasis">Spring Container가 종료되지 직전에 소멸 Callback</span>을 준다. <br>
+따라서 안전하게 종료 작업을 진행 할 수 있다. 
+</div>
+
+**[Spring Bean 의 event LifeCycle]-(Singleton)**
+***Spring Container 생성 -> Spring Bean 생성 -> 의존관계 주입 ->초기화 콜백 -> 사용 -> 소멸전 콜백 -> Spring 종료***
+
+**++참고 : 객체의 생성과 초기화는 분리하도록 하자**<br>
+**생성자는 필수정보(파라미터)를 받고, 메모리를 할당해 객체를 생성***하는 책임을 가진다.* **반면 초기화는 이렇게 생성된 값들을 활용해 외부커넥션을 연결하는 등 무거운 동작을 수행***한다.*<br>
+*따라서 생성자 안에서 무거운 초기화 작업을 진행하기보다는 객체생성부분과 초기화 부분을 명확하게 나누는 것이 유지보수관점에서 좋다. 물론 초기화 작업이 내부 값들만 약간 변경하는 정도로 단순한 경우에는 생성자에서 한번에 다 처리하는게 나을 때도 있다!*
+
+
+### Bean LifeCycle Callback (InterFace)
+
+**Interface(InitializingBean, DisposableBean)**
+```java
+//InitializingBean , DisposableBran Interface
+public class NetworkClient implements InitializingBean, DisposableBean {
+    private String url;
+    public NetworkClient() {
+        System.out.println("생성자 호출, url" + url);
+    }
+    public void setUrl(String url){
+        this.url = url;
+    }
+
+    public void connect(){
+        System.out.println("connect :" + url);
+    }
+
+    public void call(String message){
+        System.out.println("call : " + url + " message :" + message);
+    }
+
+    public void disconnect(){
+        System.out.println("close " + url);
+    }
+    //afterPropertiesSet Method(by InitializingBean i/f)
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("NetworkClient.afterPropertiesSet");;
+        connect();
+        call("초기화 연결메세지");
+    }
+    //destroy Method (by DisposableBean)
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("NetworkClient.destroy");
+        disconnect();
+    }
+}
+```
+**출력결과**
+```
+생성자 호출, urlnull
+NetworkClient.afterPropertiesSet
+connect :http://hello.com
+call : http://hello.com message :초기화 연결메세지
+15:13:11.816 [main] DEBUG org.springframework.context.annotation.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@22a637e7, started on Sat May 13 15:13:11 KST 2023
+NetworkClient.destroy
+close http://hello.com
+```
+
+**초기화,소멸 Interface의 단점**
+<div class="content-box">
+이 인터페이스는 Spring 전용 인터페이스이므로 해당 코드가 Spring 전용 인터페이스에 의존하게 된다. <br>
+초기화,소명 메서드의 이름을 변경할 수 없다 <br>
+내가 코드를 고칠수 없는 외부라이브러리에 적용할 수 없다.
+</div>
+
+### Bean LifeCycle Callback (Method)
+
+**임의 메서드 방식의 장점**
+<div class="content-box">
+메서드이름을 자유롭게 지정할 수 있다. <br>
+Spring Bean이 Spring Code에 의존하지 않는다. <br>
+코드가 아니라 설정정보를 사용하므로, 코드를 고칠 수 없는 외부라이브러리에도 초기화,종료메세지를 사용할 수 있다.
+</div>
+
+**사용예시(1)**
+```java
+public void init() {
+        System.out.println("NetworkClient.init");
+        connect();
+        call("초기화 연결메세지");
+    }
+
+    public void close() {
+        System.out.println("NetworkClient.close");
+        disconnect();
+    }
+```
+
+```java
+public class BeanLifeCycleTrst {
+    @Test
+    public void lifeCycleTest() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(LifeCycleConfig.class);
+        NetworkClient client = ac.getBean(NetworkClient.class);
+        ac.close();
+    }
+
+    @Configuration
+    static class LifeCycleConfig{
+        @Bean(initMethod = "init",destroyMethod = "close")
+        public NetworkClient networkClient(){
+            NetworkClient networkClient = new NetworkClient();
+            networkClient.setUrl("http://hello.com");
+            return networkClient;
+        }
+    }
+}
+```
+
+**출력결과(1)**
+```
+생성자 호출, urlnull
+NetworkClient.init
+connect :http://hello.com
+call : http://hello.com message :초기화 연결메세지
+15:33:48.088 [main] DEBUG org.springframework.context.annotation.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@22a637e7, started on Sat May 13 15:33:47 KST 2023
+NetworkClient.close
+close http://hello.com
+```
+
+**설정정보 사용 특징**
+<div class="content-box">
+`@Bean` 의 `destroyMethod` 속성에는 특별한 기능이 있다. <br>
+외부 라이브러리들은 대부분 `close` ,`shutdown`이라는 종료메서드 를 사용.<br>
+`@Bean` 의 `destroyMethod`는 기본값이 `(inferred)`이다. <br>
+이 기능은 `close`, `shutdown` 의 이름을 가진 메서드를 자동으로 호출해준다. 즉, inferred 뜻 그대로 추론하여 종료메서드들을 호출해준다. 따라서 Spring Bean으로 등록하면 굳이 다른 종료메서드를 적어줄 필요가 없다.<br>
+사용을 원하지 않을 시에는 `destroyMethod=""`이렇게 공백을 넣어두면 된다. 
+</div>
+
+
+### `@Construct` , `@PreDestory` Annotation Callback**
