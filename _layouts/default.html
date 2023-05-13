@@ -201,45 +201,44 @@
 	});
 
 	//switch theme
-	// const rootElement = document.documentElement;
-	// const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
-	// const localStorageKey = 'theme';
+	const rootElement = document.documentElement;
+	const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
+	const localStorageKey = 'theme';
 
-	// function setThemePreference(theme) {
-	// 	if (theme === 'dark') {
-	// 		rootElement.setAttribute('data-theme', 'dark');
-	// 		themeSwitchCheckbox.checked = true;
-	// 	} else {
-	// 		rootElement.setAttribute('data-theme', 'light');
-	// 		themeSwitchCheckbox.checked = false;
-	// 	}
-	// }
-	
-	// function toggleTheme() {
-	// 	if (themeSwitchCheckbox.checked) {
-	// 		localStorage.setItem(localStorageKey, 'dark');
-	// 		rootElement.setAttribute('data-theme', 'dark');
-	// 	} else {
-	// 		localStorage.setItem(localStorageKey, 'light');
-	// 		rootElement.setAttribute('data-theme', 'light');
-	// 	}
-	// }
+	function setThemePreference(theme) {
+		if (theme === 'dark') {
+			rootElement.setAttribute('data-theme', 'dark');
+			themeSwitchCheckbox.checked = true;
+		} else {
+			rootElement.setAttribute('data-theme', 'light');
+			themeSwitchCheckbox.checked = false;
+		}
+	}
+	function toggleTheme() {
+		if (themeSwitchCheckbox.checked) {
+			localStorage.setItem(localStorageKey, 'dark');
+			rootElement.setAttribute('data-theme', 'dark');
+		} else {
+			localStorage.setItem(localStorageKey, 'light');
+			rootElement.setAttribute('data-theme', 'light');
+		}
+	}
 
-	// themeSwitchCheckbox.addEventListener('change', toggleTheme);
+	themeSwitchCheckbox.addEventListener('change', toggleTheme);
 
-	// const storedTheme = localStorage.getItem(localStorageKey);
-	// if (storedTheme) {
-	// 	setThemePreference(storedTheme);
-	// } else {
-	// 	const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-	// 	setThemePreference(isDarkMode ? 'dark' : 'light');
-	// }
+	const storedTheme = localStorage.getItem(localStorageKey);
+	if (storedTheme) {
+		setThemePreference(storedTheme);
+	} else {
+		const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		setThemePreference(isDarkMode ? 'dark' : 'light');
+	}
 
-	// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-	// 	if (!localStorage.getItem(localStorageKey)) {
-	// 		setThemePreference(e.matches ? 'dark' : 'light');
-	// 	}
-	// });
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+		if (!localStorage.getItem(localStorageKey)) {
+			setThemePreference(e.matches ? 'dark' : 'light');
+		}
+	});
 
 	//
 	// const switchTheme = document.querySelector('[data-input="switch__theme"]');
@@ -253,37 +252,26 @@
 	// 		switchTheme.checked = false;
 	// 	}
 	// }
+	// setTheme();
 
-	// switchTheme.addEventListener('click', () => {
-	// 	if (switchTheme.checked) {
-	// 		root.setAttribute('data-theme', 'dark');
+	//
+	// const switchTheme = document.querySelector('input[data-input="switch__theme"]');
+	// const root = document.querySelector(':root');
+
+	// switchTheme.addEventListener('click', function() {
+	// 	if (this.checked) {
+	// 		root.dataset.theme = 'dark';
 	// 		localStorage.setItem('theme', 'dark');
 	// 	} else {
-	// 		root.setAttribute('data-theme', 'light');
+	// 		root.dataset.theme = 'light';
 	// 		localStorage.setItem('theme', 'light');
 	// 	}
 	// });
 
-	// setTheme();
-
-	//
-	const switchTheme = document.querySelector('input[data-input="switch__theme"]');
-	const root = document.querySelector(':root');
-
-	switchTheme.addEventListener('click', function() {
-		if (this.checked) {
-			root.dataset.theme = 'dark';
-			localStorage.setItem('theme', 'dark');
-		} else {
-			root.dataset.theme = 'light';
-			localStorage.setItem('theme', 'light');
-		}
-	});
-
-	if (localStorage.getItem('theme')) {
-		root.dataset.theme = localStorage.getItem('theme');
-		switchTheme.checked = localStorage.getItem('theme') === 'dark';
-	}
+	// if (localStorage.getItem('theme')) {
+	// 	root.dataset.theme = localStorage.getItem('theme');
+	// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
+	// }
 
 </script>
 </html>
