@@ -1,5 +1,5 @@
 ---
-title: Componant Scan
+title: Component Scan
 category: Spring Framework
 order: 5
 ---
@@ -14,7 +14,7 @@ Spring은 설정정보가 없어도 자동으로 Spring Bean을 등록하는<br>
 Class 의 Constructor 위에 <span class="emphasis">@Autowired</span> Annotation을 붙여주면 된다.
 </div>
 
-**ComponantScan 생성**
+**ComponentScan 생성**
 ```java
 package hello.core;
 
@@ -33,7 +33,7 @@ public class AutoAppConfig {
 }
 ```
 
-**Componant & Autowired 설정**
+**Component & Autowired 설정**
 ```java
 package hello.core.member;
 

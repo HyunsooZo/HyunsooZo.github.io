@@ -299,4 +299,26 @@ close http://hello.com
 </div>
 
 
-### `@Construct` , `@PreDestory` Annotation Callback**
+### Bean LifeCycle Callback (Annotation)
+
+
+최신 Spring에서 권장하는 방식이다. 
+
+메서드에 `@PostConstruct` , `@PreDestory` 를 붙여주기만 하면 된다!<br> Component 과도 호환이 편하다. <br>
+
+유일한 단점은 외부라이브러리에 적용하기 힘들다는 것이다. 외부라이브러리 초기화,종료 필요시 위의 메서드방식을 사용하면 된다. `@Bean(initMethod = "init",destroyMethod = "close")`
+
+```java
+ @PostConstruct
+    public void init() {
+        System.out.println("NetworkClient.init");
+        connect();
+        call("초기화 연결메세지");
+    }
+
+    @PreDestroy
+    public void close() {
+        System.out.println("NetworkClient.close");
+        disconnect();
+    }
+```
