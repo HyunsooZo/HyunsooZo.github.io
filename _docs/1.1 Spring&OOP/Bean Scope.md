@@ -45,6 +45,33 @@ Singleton Scope Bean을 조회하면 Spring Container는 항상 같은 인스턴
 <b>3.</b> 이후 스프링 컨테이너에 같은 요청이 와도 같은 객체 인스턴스의 스프링 빈 반환
 </div>
 
+```java
+public class SingletonTest {
+    @Test
+    void singleTonBeanFind() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SingletonBean.class);
+        SingletonBean bean1 = ac.getBean(SingletonBean.class);
+        SingletonBean bean2 = ac.getBean(SingletonBean.class);
+        System.out.println("bean1 = " + bean1);
+        System.out.println("bean2 = " + bean2);
+        Assertions.assertThat(bean1).isSameAs(bean2);
+        ac.close();
+    }
+
+    @Scope("singleton") //("singleton") 생략가능
+    static class SingletonBean{
+        @PostConstruct
+        public void init(){
+            System.out.println("SingletonBean.init");
+        }
+        @PreDestroy
+        public void destroy(){
+            System.out.println("SingletonBean.destroy");
+        }
+    }
+}
+```
+
 
 ### Prototype Scope
 
@@ -61,5 +88,274 @@ Prototype Scope 를 Spring Container에 조회하면 Spring Container는 항상 
 클라이언트에 Bean을 반환하고, 이후 Spring Container는 생성된 prototype Bean을 관리하지 않는다. 즉, prototype Bean을 관리할 책임은 prototype Bean을 받은 Client에 있다. <br>
 그러므로 `@PreDestroy` 같은 종료 메서드가 호출되지 않는다. 
 
+```java
+public class PrototypeTest {
+    @Test
+    void prototypeBeanFind() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
+        System.out.println("find prototypeBean1");
+        PrototypeBean bean1 = ac.getBean(PrototypeBean.class);
+        System.out.println("find prototypeBean1");
+        PrototypeBean bean2 = ac.getBean(PrototypeBean.class);
+        System.out.println("bean1 = " + bean1);
+        System.out.println("bean2 = " + bean2);
+        Assertions.assertThat(bean1).isNotSameAs(bean2);
+        ac.close();
+    }
 
+    @Scope("prototype")
+    @Component
+    static class PrototypeBean{
+        @PostConstruct
+        public void init(){
+            System.out.println("prototypeBean.init");
+        }
+        @PreDestroy
+        public void destroy(){
+            System.out.println("prototypeBean.destroy");
+        }    
+    }
+}
+```
 
+**테스트 결과**
+```java
+find prototypeBean1 // 두 개 빈 조회될때마다 따로 생성
+prototypeBean.init
+find prototypeBean2 // 두 개 빈 조회될때마다 따로 생성
+prototypeBean.init
+bean1 = hello.core.scope.PrototypeTest$PrototypeBean@3f4faf53  // 인스턴스 다름
+bean2 = hello.core.scope.PrototypeTest$PrototypeBean@7fd50002  // 인스턴스 다름
+
+//close되지 않음. -> @preDestroy 실행 안되었음을 확인할 수 있음
+
+23:17:14.257 [main] DEBUG org.springframework.context.annotation.AnnotationConfigApplicationContext - Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@69b2283a, started on Sat May 13 23:17:14 KST 2023
+
+```
+
+### Prototype, Singleton Scope를 같이 쓸때 문제점
+
+<div class="content-box">
+Spring Container에서 prototype scope Bean을 요청하면, 항상 새로운 객체 인스턴스를 생성하여 반환한다. <br>
+하지만 Singleton Bean과 함께 사용할때에는 의도한 대로 잘 동작하지 않으므로 주의가 필요하다 
+</div>
+
+```java
+public class SingletonWPrototypeTest1 {
+    @Test
+    void prototypeFind() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
+        PrototypeBean bean1 = ac.getBean(PrototypeBean.class);
+        bean1.addCount();
+        Assertions.assertThat(bean1.getCount()).isEqualTo(1);
+
+        PrototypeBean bean2 = ac.getBean(PrototypeBean.class);
+        bean2.addCount();
+        Assertions.assertThat(bean2.getCount()).isEqualTo(1);
+    }
+
+    @Test
+    void singletonClientUsePrototype() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ClientBean.class,PrototypeBean.class);
+        ClientBean clientBean1 = ac.getBean(ClientBean.class);
+        int count1 = clientBean1.logic();
+        Assertions.assertThat(count1).isEqualTo(1);
+
+        ClientBean clientBean2 = ac.getBean(ClientBean.class);
+        int count2 = clientBean2.logic();
+        Assertions.assertThat(count2).isEqualTo(2);
+    }
+    @Scope("singleton")
+    static class ClientBean{
+        //생성시점에 주입 되어 계속 같은걸 씀.
+        private final PrototypeBean prototypeBean;  
+
+        @Autowired
+        public ClientBean(PrototypeBean prototypeBean) {
+            this.prototypeBean = prototypeBean;
+        }
+
+        public int logic(){
+            prototypeBean.addCount();
+            int count = prototypeBean.getCount();
+            return count;
+        }
+    }
+
+    @Scope("prototype")
+    static class PrototypeBean{
+        private int count = 0 ;
+
+        public void addCount(){
+            count++;
+        }
+
+        public int getCount(){
+            return count;
+        }
+
+        @PostConstruct
+        public void init(){
+            System.out.println("PrototypeBean.inti"+this);
+        }
+        @PreDestroy
+        public void destroy(){
+            System.out.println("PrototypeBean.destroy");
+        }
+    }
+}
+```
+**++참고 해결방법 (prototype Bean을 사용할때마다 생성하기)**
+
+Singleton Bean이 prototype Bean을 사용할 때 마다 Spring Container에 새로 요청하기. (원시적인 방법이므로 추천되지 않음)<br>
+
+### 해결방법(2) (@ObjectProvider 사용하기)
+
+ `@ObjectFactory` or `ObjectProvider` Annotation 사용하기!!
+
+`@ObjectProvider`의 핵심 컨셉은 prototype Bean을 대신 조회해 주는 대리인 같은 느낌이다!
+
+다만 Spring에 의존적인 코드가 된다는 단점도 존재한다. 
+
+```java
+@Autowired
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+```
+
+```java
+public class SingletonWPrototypeTest1 {
+    @Test
+    void prototypeFind() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
+        PrototypeBean bean1 = ac.getBean(PrototypeBean.class);
+        bean1.addCount();
+        Assertions.assertThat(bean1.getCount()).isEqualTo(1);
+
+        PrototypeBean bean2 = ac.getBean(PrototypeBean.class);
+        bean2.addCount();
+        Assertions.assertThat(bean2.getCount()).isEqualTo(1);
+    }
+
+    @Test
+    void singletonClientUsePrototype() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ClientBean.class,PrototypeBean.class);
+        ClientBean clientBean1 = ac.getBean(ClientBean.class);
+        int count1 = clientBean1.logic();
+        Assertions.assertThat(count1).isEqualTo(1);
+
+        ClientBean clientBean2 = ac.getBean(ClientBean.class);
+        int count2 = clientBean2.logic();
+        Assertions.assertThat(count2).isEqualTo(1);
+    }
+    @Scope("singleton")
+    static class ClientBean{
+        @Autowired
+        private ObjectProvider<PrototypeBean> prototypeBeanProvider;
+
+        public int logic(){
+            PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
+            prototypeBean.addCount();
+            int count = prototypeBean.getCount();
+            return count;
+        }
+    }
+
+    @Scope("prototype")
+    static class PrototypeBean{
+        private int count = 0 ;
+
+        public void addCount(){
+            count++;
+        }
+
+        public int getCount(){
+            return count;
+        }
+
+        @PostConstruct
+        public void init(){
+            System.out.println("PrototypeBean.inti"+this);
+        }
+        @PreDestroy
+        public void destroy(){
+            System.out.println("PrototypeBean.destroy");
+        }
+    }
+}
+/*
+PrototypeBean.intihello.core.scope.SingletonWPrototypeTest1$PrototypeBean@6f10d5b6
+PrototypeBean.intihello.core.scope.SingletonWPrototypeTest1$PrototypeBean@222a59e6
+두 개의 각각 다른 인스턴스가 반환되는 것을 볼 수 있다. 
+*/
+
+```
+
+### 해결방법(3) - Provider 라이브러리 사용하기
+
+<div class="content-box">
+`get()` 메서드 하나로 기능이 매우 단순한편 <br>
+별도의 라이브러리가 필요함. <br>
+하지만 자바 표준이므로 Spring이 아닌 다른 Container에서도 사용가능!
+</div>
+
+**Dependency**
+```java
+//build.gradle
+dependencies {
+    ...
+    // 라이브러리 추가! 
+	implementation 'javax.inject:javax.inject:1'
+    ...
+}
+```
+**사용예시**
+```java
+    @Scope("singleton")
+    static class ClientBean{
+        @Autowired
+        private Provider<PrototypeBean> prototypeBeanProvider;
+
+        public int logic(){
+            PrototypeBean prototypeBean = prototypeBeanProvider.get();
+            prototypeBean.addCount();
+            int count = prototypeBean.getCount();
+            return count;
+        }
+    }
+```
+
+### Web Scope
+
+<div class="content-box">
+web scope는 웹 환경에서만 동작한다. <br>
+프로토타입과는 다르게 Spring이 해당 스코프의 종료시점까지 관리하므로, 종료메서드가 호출된다.
+</div>
+
+|web scope 종류|-|
+|--|--|
+|**request**<br>(web)|web 요청이 들어오고 나갈 때까지 유지되는 스코프<br> 각 Http 요청마다 별도의 빈 인스턴스가 생성되고 관리된다.|
+|**session**<br>(web)|Web 세션이 생성되고 종료될 때까지 유지되는 스코프<br>HTTP Session과 동일한 생명주기를 가진다.|
+|**application**<br>(web)|웹의 서블릿 컨텍스와 같은 범위로 유지되는 스코프<br> 서블릿 컨텍스트와 동일한 생명주기를 가진다.|
+|**websocket**<br>(web)|웹소켓과 동일한 생명주기를 가지는 스코프|
+
+**Request Scope**
+
+**web library 추가**
+
+<div class="content-box">
+`spring-boot-starter-web` 라이브러리를 추가하면 스프링부트는 내장 톰캣 서버를 활용해서 웹서버와 스프링을 함께 실행시킨다. 
+</div>
+
+```
+dependencies {
+    ...
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    ...
+}
+```
+
+아래와 같이 로그가 남도록 Request Scope를 활용해볼 것이다. 
+UUID를 이용해 HTTP요청을 구분할 것이고, <br>
+requestURL정보도 추가로 넣어 어떤 URL을 요청해서 남은 로그인지 확인해보겠다.
+```
+```
