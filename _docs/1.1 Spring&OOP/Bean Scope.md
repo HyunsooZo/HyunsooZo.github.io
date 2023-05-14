@@ -357,5 +357,144 @@ dependencies {
 아래와 같이 로그가 남도록 Request Scope를 활용해볼 것이다. 
 UUID를 이용해 HTTP요청을 구분할 것이고, <br>
 requestURL정보도 추가로 넣어 어떤 URL을 요청해서 남은 로그인지 확인해보겠다.
+
+```java
+@Component
+@Scope(value = "request")
+public class MyLogger {
+    private String uuid;
+    private String requestURL;
+
+    public void setRequestURL(String requestURL) {
+        this.requestURL = requestURL;
+    }
+
+    public void log(String message) {
+        System.out.println("[" + uuid + "]" + " [" + requestURL + "] " + message);
+    }
+
+    @PostConstruct
+    public void init() {
+        this.uuid = UUID.randomUUID().toString();
+        System.out.println("[" + uuid + "] request scope bean crete:" + this);
+    }
+
+    @PreDestroy
+    public void close() {
+        System.out.println("[" + uuid + "] request scope bean close:" + this);
+    }
+}
 ```
+
+```java
+@Service
+@RequiredArgsConstructor
+public class LogDemoService {
+    private final ObjectProvider<MyLogger> myLoggerProvider;
+    public void logic(String testId) {
+        MyLogger myLogger = myLoggerProvider.getObject();
+        myLogger.log("service id = " + testId);
+    }
+}
+
 ```
+
+
+```java
+@Controller
+@RequiredArgsConstructor
+public class LogDemoController {
+    private final LogDemoService logDemoService;
+    private final ObjectProvider<MyLogger> myLoggerProvider;
+
+    @RequestMapping("log-demo")
+    @ResponseBody
+    public String logDemo(HttpServletRequest request){
+        String requestURL = request.getRequestURL().toString();
+        MyLogger myLogger = myLoggerProvider.getObject();
+        myLogger.setRequestURL(requestURL);
+        myLogger.log("controllet test");
+        logDemoService.logic("testId");
+        return "ok";
+    }
+}
+```
+
+**Log**
+```
+[5d138431-afac-4ab0-a20c-a9f5b25409be] request scope bean crete:hello.core.common.MyLogger@4b153236
+[5d138431-afac-4ab0-a20c-a9f5b25409be] [http://localhost:8080/log-demo] controllet test
+[5d138431-afac-4ab0-a20c-a9f5b25409be] [http://localhost:8080/log-demo] service id = testId
+[5d138431-afac-4ab0-a20c-a9f5b25409be] request scope bean close:hello.core.common.MyLogger@4b153236
+```
+
+
+### Scope 와 Proxy
+
+<div class="content-box">
+다만 위와 같이 web scope를 사용하게 되면 <br>
+`ObjectProvider<MyLogger>`와 같은 추가적인 코드작성이 필요하다. 하지만 Proxy를사용하면 위와 같은 코드추가 없이 해결이 가능하다.<br>
+가짜 Proxy Class(CGLIB)를 만들어 주입시키는 개념이다.<br>
+단 무분별한 사용은 유지보수에 어려움을 주므로 꼭 필요할 때 사용하도록..
+</div>
+
+***@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)추가***
+```java
+@Component
+@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS) //proxyMode = ScopedProxyMode.TARGET_CLASS 추가
+public class MyLogger {
+    private String uuid;
+    private String requestURL;
+
+    public void setRequestURL(String requestURL) {
+        this.requestURL = requestURL;
+    }
+
+    public void log(String message) {
+        System.out.println("[" + uuid + "]" + " [" + requestURL + "] " + message);
+    }
+
+    @PostConstruct
+    public void init() {
+        this.uuid = UUID.randomUUID().toString();
+        System.out.println("[" + uuid + "] request scope bean crete:" + this);
+    }
+
+    @PreDestroy
+    public void close() {
+        System.out.println("[" + uuid + "] request scope bean close:" + this);
+    }
+}
+
+```
+
+```java
+   @RequestMapping("log-demo")
+    @ResponseBody
+    public String logDemo(HttpServletRequest request){
+        String requestURL = request.getRequestURL().toString();
+        myLogger.setRequestURL(requestURL);
+        myLogger.log("controllet test");
+        logDemoService.logic("testId");
+        return "ok";
+    }
+```
+
+```java
+    @Service
+    @RequiredArgsConstructor
+    public class LogDemoService {
+        private final MyLogger myLogger;
+        public void logic(String testId) {
+            myLogger.log("service id = " + testId);
+        }
+    }
+```
+**Log**
+```
+[09fcbeae-8fc8-49da-b309-b958e1e63f0b] request scope bean crete:hello.core.common.MyLogger@7b7b8f33
+[09fcbeae-8fc8-49da-b309-b958e1e63f0b] [http://localhost:8080/log-demo] controllet test
+[09fcbeae-8fc8-49da-b309-b958e1e63f0b] [http://localhost:8080/log-demo] service id = testId
+[09fcbeae-8fc8-49da-b309-b958e1e63f0b] request scope bean close:hello.core.common.MyLogger@7b7b8f33
+```
+
