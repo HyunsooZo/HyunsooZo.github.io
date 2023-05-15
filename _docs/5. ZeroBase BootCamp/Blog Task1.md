@@ -1,5 +1,5 @@
 ---
-title: ZeroBase Career Road Map
+title: Career Road Map
 category: ZeroBase BootCamp
 order: 1
 ---

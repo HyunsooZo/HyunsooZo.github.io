@@ -1,5 +1,5 @@
 ---
-title: Project_1(Web App Using OpenAPi)
+title: Project(1) Public Wifi (OpenAPi)
 category: ZeroBase BootCamp
 order: 3
 ---
