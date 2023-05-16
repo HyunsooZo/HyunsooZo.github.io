@@ -260,13 +260,22 @@
 	// }
 
 	document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("btn-top").addEventListener("click", function(event) {
+  var btnTop = document.getElementById("btn-top");
+  btnTop.addEventListener("click", function(event) {
     event.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    scrollToTop();
   });
+
+  function scrollToTop() {
+    var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (currentScroll > 0) {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+      });
+    }
+  }
 });
 </script>
 </html>
