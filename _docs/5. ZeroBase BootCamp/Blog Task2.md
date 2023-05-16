@@ -1,5 +1,5 @@
 ---
-title: Sprint Core Guide
+title: Spring Core Guide
 category: ZeroBase BootCamp
 order: 2
 ---
