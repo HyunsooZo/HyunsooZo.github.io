@@ -259,12 +259,14 @@
 	// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
 	// }
 
-	document.getElementById("btn-top").addEventListener("click", function(event) {
-	event.preventDefault();
-	window.scrollTo({
-		top: 0,
-		behavior: "smooth"
-	});
-	});
+	document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("btn-top").addEventListener("click", function(event) {
+    event.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
 </script>
 </html>
