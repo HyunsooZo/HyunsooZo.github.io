@@ -55,10 +55,6 @@ toc: false
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/high-voltage_26a1.png" /></i>
                     <span>Performance optimization</span>
                 </p>
-                <p>
-                    <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/person-lifting-weights_1f3cb-fe0f.png" /></i>
-                    <span>Weight Lifting</span>
-                </p>
             </div>
         </li>
         <li>
