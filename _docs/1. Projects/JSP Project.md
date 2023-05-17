@@ -13,13 +13,13 @@ order: 1
 
 추후 작성예정
 
-### Features
+### Features/Tools I've used
 
-추후 작성예정
-
-### How did i Implement?
-
-추후 작성예정
+<div class="content-box">
+- JSP/Servlet 사용<br>
+- MariaDB 사용<br>
+- tomcat(WAS) 사용<br>
+</div>
 
 ### Challenges i've faced.
 
