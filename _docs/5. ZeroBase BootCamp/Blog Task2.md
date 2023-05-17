@@ -28,7 +28,7 @@ order: 2
 
 |Spring Boot 의 장점||
 |-|-|
-|의존성 관리 & 자동설정| `@SpringBootApplication`은 크게 세가지 기능<br> `@ComponentScan`,<br>`@EnableAutoConfiguration`,<br>`@SpringBootConfiguration`<br> 을 합쳐놓은 것과 같고 자동으로 빈을 등록, 관리하여 어플리케이션에 반영함|
+|의존성 관리 & 자동설정| `@SpringBootApplication`은 자동으로 빈을 등록, 관리하여 어플리케이션에 반영함|
 |내장 WAS| 내장 웹서버(WAS-tomcat)이 있어 별도 설정 불필요|
 |모니터링| Spring Boot Actuator 툴을 사용해 시스템이 사용하는 주요요소를 모니터링 할 수 있음 |
 
