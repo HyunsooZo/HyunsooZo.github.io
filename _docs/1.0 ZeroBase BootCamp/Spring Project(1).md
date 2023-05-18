@@ -1,6 +1,6 @@
 ---
 title: Spring(boot)Project (Acc Manage Sys)
-category: Projects
+category: ZeroBase BootCamp
 order: 2
 ---
 ### Demo Video & Repository

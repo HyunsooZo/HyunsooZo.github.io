@@ -1,6 +1,6 @@
 ---
 title: JSP Project (Using Seoul-OpenAPi)
-category: Projects
+category: ZeroBase BootCamp
 order: 1
 ---
 ### Demo Video & Repository
