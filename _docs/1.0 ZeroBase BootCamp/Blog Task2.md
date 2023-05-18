@@ -12,26 +12,24 @@ order: 2
 03장: 개발 환경 구성
 
 **[1]. 리딩 내용 점검**
+<div class="content-box">
+<b>Ioc : Inversion Of Control</b><br>
+제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. <br>
 
-|Ioc : Inversion Of Control|
-|--|
-|제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. |
-
-`DI` : Dependency Injection<br>
+<b>DI : Dependency Injection</b><br>
 -Ioc 방법 중 하나로, 의존성 주입을 컨테이너가 생성한 객체를 주입받아 사용. (Annotation을 통해 주입하며 생성자 주입 방식이 권장됨)<br>
 
-`AOP` : Aspect Oriented Programming<br>
+<b>AOP : Aspect Oriented Programming</b><br>
 -반복되는 부가기능 로직(로깅,트랜잭션,인증 등)을 모듈화 하여 여러 메서드 호출 전, 후 추가할 수 있다.<br> 
 -AOP로 OOP를 더 잘 사용하도록 할 수 있다.<br>
 -Spring은 proxy패턴을 이용하여 AOP를 제공한다.<br> 
+</div>
 
 |Spring Boot 의 장점||
 |-|-|
 |의존성 관리 & 자동설정| `@SpringBootApplication`은 자동으로 빈을 등록, 관리하여 어플리케이션에 반영함|
 |내장 WAS| 내장 웹서버(WAS-tomcat)이 있어 별도 설정 불필요|
 |모니터링| Spring Boot Actuator 툴을 사용해 시스템이 사용하는 주요요소를 모니터링 할 수 있음 |
-
----
 
 |Rest의 특징||
 |-|-|
