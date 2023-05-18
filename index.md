@@ -36,6 +36,15 @@ toc: false
             </div>
         </li>
         <li>
+            <strong>Speaks</strong>
+            <div class="list_text">
+                <p>
+                    <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/speaking-head_1f5e3-fe0f.png" /></i>
+                    <span>Korean(Native) , English(Advanced)</span>
+                </p>
+            </div>
+        </li>
+        <li>
             <strong>Technical Skills</strong>
             <div class="list_text">
                 <p>

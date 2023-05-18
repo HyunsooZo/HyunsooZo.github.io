@@ -1,5 +1,5 @@
 ---
-title: Spring(boot)-ACC Manage Sys
+title: Spring(boot)Project (Acc Manage Sys)
 category: Projects
 order: 2
 ---
