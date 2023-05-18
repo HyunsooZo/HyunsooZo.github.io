@@ -71,7 +71,7 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://github.com/fluidicon.png" /></i>
-                    <a href="https://github.com/HyunsooZo">Git hub</a>
+                    <a href="https://github.com/HyunsooZo">Github</a>
                 </p>
                 <p>
                     <i><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" /></i>
