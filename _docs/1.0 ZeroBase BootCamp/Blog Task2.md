@@ -14,7 +14,7 @@ order: 2
 **[1]. 리딩 내용 점검**
 <div class="content-box">
 <b>Ioc : Inversion Of Control</b><br>
-제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. <br>
+-제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. <br>
 
 <b>DI : Dependency Injection</b><br>
 -Ioc 방법 중 하나로, 의존성 주입을 컨테이너가 생성한 객체를 주입받아 사용. (Annotation을 통해 주입하며 생성자 주입 방식이 권장됨)<br>

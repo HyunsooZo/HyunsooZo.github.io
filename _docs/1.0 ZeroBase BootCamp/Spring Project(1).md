@@ -3,9 +3,7 @@ title: Spring(boot)Project (Acc Manage Sys)
 category: ZeroBase BootCamp
 order: 4
 ---
-### Demo Video & Repository
-
-[**[Demo Video Link]**](#)
+### Repository
 
 [**[Repository Link]**](#)
 
