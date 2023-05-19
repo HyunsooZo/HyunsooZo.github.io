@@ -1,5 +1,5 @@
 ---
-title: JSP (1) - Public Wifi List
+title: JSP(1)-Public Wifi List
 category: ZeroBase BootCamp
 order: 3
 ---
