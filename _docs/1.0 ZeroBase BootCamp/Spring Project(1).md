@@ -1,5 +1,5 @@
 ---
-title: Spring(1)-Account Management System
+title: Spring(1)-Acc Management Sys
 category: ZeroBase BootCamp
 order: 4
 ---
