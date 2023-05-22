@@ -1,5 +1,5 @@
 ---
-title: Spring(1)-Acc Management Sys
+title: Spring(Boot) Mini Project-(1)
 category: ZeroBase BootCamp
 order: 4
 ---
