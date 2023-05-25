@@ -1,5 +1,5 @@
 ---
-title: Spring(Boot) Mini Project-(2)
+title: Spring(Boot) Mini Project-(3)
 category: ZeroBase BootCamp
 order: 5
 ---
