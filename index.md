@@ -45,7 +45,7 @@ toc: false
             </div>
         </li>
         <li>
-            <strong>Technical Skills</strong>
+            <strong>Skills</strong>
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" /></i>
