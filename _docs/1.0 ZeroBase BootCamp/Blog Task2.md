@@ -52,7 +52,165 @@ DI를 통해 객체는 직접 의존하는 객체를 생성하거나 관리하�
 <div class="content-box">
 04장: 스프링 부트 애플리케이션 개발하기<br>
 05장: API를 작성하는 다양한 방법
+
+**메이븐(Maven)**
+<div class="content-box">
+아파치 메이븐은 자바 기반의 프로젝트를 빌드하고 관리하는 데 사용되는 도구<br>
+pom.xml 파일에 필요한 라이브러리를 추가하면 해당 라이브러리에 필요한 라이브러리까지 함께 내려받아 관리함.
 </div>
+
+|메이븐의 대표 기능||
+|--|--|
+|프로젝트 관리 | 프로젝트 버전과 아티팩트를 관리|
+|빌드 및 패키징 | 의존성 관리, 설정된 패키지 형식으로 빌드 수행|
+|테스트 | 빌드를 수행하기 전 단위 테스트를 통해 작성된 애플리케이션 코드의 정상 동작 여부 확인|
+|배포 | 빌드가 완료된 패키지를 원격 저장소에 배포|
+
+
+**메이븐의 생명 주기**
+<div class="content-box">
+메이븐의 기능은 생명주기에 따라 관리/ 동작됨.
+</div>
+
+|**기본 생명 주기(Default Lifecycle)**||
+|--|--|
+|validate | 프로젝트를 빌드하는데 필요한 모든 정보를 사용할 수 있는지 검토|
+|compile | 프로젝트의 소스코드를 컴파일|
+|test | 단위 테스트 프레임워크를 사용해 테스트를 실행|
+|pakage | 컴파일한 코드를 가져와서 JAR 등의 형식으로 패키징을 수행|
+|verify | 패키지가 유효하며 일정 기준을 충족하는지 확인|
+|install | 프로젝트를 사용하는 데 필요한 패키지를 로컬 저장소에 설치|
+|deploy | 프로젝트를 통합 또는 릴리스 환경에서 다른 곳에 공유하기 위해 원격 |저장소에 패키지를 복사|
+
+
+**클린 생명 주기(Clean LifeCycle)** : 이전 빌드가 생성한 모든 파일 제거
+<br>
+
+**사이트 생명 주기(Site LifeCycle)**<br>
+`site` : 메이븐의 설정 파일 정보를 기반으로 프로젝트의 문서 사이트를 생성<br>
+`site-deploy` : 생성된 사이트 문서를 웹 서버에 배포
+
+**API 작성방법**
+
+|**용어정리**||
+|--|--|
+|URL | 흔히 말하는 웹 주소, 리소스가 어디에 있는지 알려주기 위한 경로.|
+|URI |  특정 리소스를 식별할 수 있는 식별자. 웹에서는 URL을 통해 리소스가 어느 서버에 위치해 있는지 알 수 있으며, 그 서버에 접근해서 리소스에 접근하기 위해서는 대부분 URI가 필요.|
+|DTO |  Data Transfer Object로, 다른 레이어 간의 데이터 교환에 활용. DTO는 데이터를 교환하는 용도로만 이용되기에 별도의 로직이 포함되지 않음.|
+|VO | 데이터 그 자체로 의미가 있는 객체. 읽기 전용이고, 값을 변경할 수 없게 만들어 데이터의 신뢰성을 유지해야 할 필요있음.|
+|Swagger | API 명세를 관리하기 위해 도움을 주는 오픈소스 프로젝트|
+|Logging|애플리케이션이 동장하는 동안 시스템의 상태나 동작 정보를 시간순으로 기록하는 것.|
+|Logback|스프링 부트의 spirng-boot-starter-web 라이브러리 내부에 내장돼있어 별도의 의존성을 추가필요 x|
+
+> GET API 만들기
+
+```java
+@GetMapping(value="/hello") // 4.3 이후 버전
+public String getHello() {
+	return "Hello World";
+}
+```
+`@PathVariable`을 활용한 GET 메서드
+```java
+@GetMapping(value = "/variable1/{variable}")
+public String getVariable1(@PathVariable String variable) {
+	return variable;
+}
+```
+
+`@RequestParam`을 활용한 GET 메서드
+```java
+// http://localhost:8080/api/v1/get-api/request1?name=value1&email=value2&organization=value3
+@GetMapping(value = "/request1")
+public String getRequestParam1(
+	@RequestParam String name,
+	@RequestParam String email,
+	@RequestParam String organization) {
+    return name + " " + email + " " + organization;
+}
+```
+
+> POST API 만들기
+
+`@RequestBody`로 `MemberDto`를 설정해두면 `MemberDto`의 멤버 변수를 요청 메시지의 키와 매핑에 값을 가져온다.
+```java
+// http://localhost:8080/api/v1/post-api/member2
+@PostMapping(value = "/member2")
+public String postMemberDto(@RequestBody MemberDto memberDto) {
+	return memberDto.toString();
+}
+```
+
+> PUT API 만들기
+<div class="content-box">
+Web Application Server 를 통해 저장소(DB 등..)에 존재하는 리소스 값을 업데이트 하는 데 사용. <br> POST와 비교하면 요청을 받아 실제 데이터베이스가 반영하는 과정(서비스 로직)에서 차이가 있지만 컨트롤러 클래스 구현 방법은 POST와 거의 동일. 리소스를 서버에 전달하기 위해 HTTP Body 활용
+</div>
+
+```java
+// http://localhost:8080/api/v1/put-api/member1
+@PutMapping(value = "/member1")
+public String putMemberDto(@RequestBody MemberDto memberDto) { // A - MemberDto 클래스에서 오버라이딩한 .toString() 메서드를 리턴
+public MemberDto putMemberDto(@RequestBody MemberDto memberDto) { // B - memberDto 인스턴스 자체를 리턴
+	return memberDto.toString(); // A
+    return memberDto;			 // B
+}
+```
+Response
+```java
+//A 응답(context-type: text/plain;charset=UTF-8)
+//-> body에 toString() 메서드 결괏값이 text/plain 형태의 content-type으로 응답
+MemberDTO{name='Flature', email='thinkground.flature@gmail.com', organization='Around Hub Studio'}
+
+//B 응답(context-type: application/json;charset=UTF-8)
+//-> body에 json 형태의 결괏값이 application/json 형태의 content-type으로 응답
+{
+	name : "Flature",
+    email : "thinkground.flature@gmail.com",
+    organization : "Around Hub Studio"
+}
+```
+> DELETE API 만들기
+<div class = "content-box">
+Delete는 데이터베이스 등의 저장소에 있는 리소스를 삭제할 때 사용.<br> 서버에서는 클라이언트로부터 리소스를 식별할 수 있는 값을 받아 데이터베이스나 캐시에 있는 리소스를 조회하고 삭제. <br> 이 때 컨트롤러를 통해 값을 받는 단계에서 간단한 값만을 받기 때문에 Get 메서드와 같이 URI에 값을 넣어 요청을 받는 형식으로 구현.
+</div>
+
+```java
+@RestController  
+@RequestMapping("/api/v1/delete-api")
+public class DeleteController {
+      
+}
+```
+`@PathVariable`을 사용한 DELETE 메서드 구현
+```java
+//http://localhost:8080/api/vi/delete-api/{String 값}
+@DeleteMapping ( value = "/{vatiable}" )
+public String DeleteVariable(@PathVariable String variable){
+    return variable;
+}
+```
+`@RequestParam`을 사용한 DELETE 메서드 구현
+```java
+//http://localhost:8080/api/vi/delete-api/request1?email=value
+@DeleteMapping ( value = "/request1" )
+public String getRequestParam1(@RequestParam String email){
+    return "e-mail : " + email;
+}
+```
+
+> 참고
+
+`ResponseEntity`를 사용하면 원하는 HttpStatus와 body를 간단하게 결합하여 응답을 만들 수 있음.<br>
+
+```java
+// http://localhost:8080/api/v1/put-api/member3
+@PutMapping(value = "/member3")
+public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) {
+	return ResponseEntity
+    	.status(HttpStatus.ACCEPTED) // 응답코드 202
+    	.body(memberDto);
+}
+```
 
 ### 3주차(5.29-6.5)
 
