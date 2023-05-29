@@ -93,24 +93,32 @@
 
 	</body>
 <script>
-	document.getElementById("open-nav").addEventListener("click", function () {
-		document.body.classList.toggle("nav-open");
-	});
-	
-	function getTOCNodes(master) {
-		var nodes = Array.prototype.slice.call(master.getElementsByTagName("*"), 0);
-		var tocNodes = nodes.filter(function(elem) {
-			return elem.tagName == "A";
-		});
-		return tocNodes;
-	}
-	function getHeaderNodes(master) {
-		var nodes = Array.prototype.slice.call(master.getElementsByTagName("*"), 0);
-		var headerNodes = nodes.filter(function(elem) {
-			return elem.tagName == "H1" || elem.tagName == "H2" || elem.tagName == "H3" || elem.tagName == "H4" || elem.tagName == "H5" || elem.tagName == "H6";
-		});
-		return headerNodes;
-	}
+	    document.getElementById("open-nav").addEventListener("click", function () {
+        document.body.classList.toggle("nav-open");
+    });
+
+    function getTOCNodes(master) {
+        var nodes = Array.from(master.getElementsByTagName("*"));
+        var tocNodes = nodes.filter(function (elem) {
+            return elem.tagName === "A";
+        });
+        return tocNodes;
+    }
+
+    function getHeaderNodes(master) {
+        var nodes = Array.from(master.getElementsByTagName("*"));
+        var headerNodes = nodes.filter(function (elem) {
+            return (
+                elem.tagName === "H1" ||
+                elem.tagName === "H2" ||
+                elem.tagName === "H3" ||
+                elem.tagName === "H4" ||
+                elem.tagName === "H5" ||
+                elem.tagName === "H6"
+            );
+        });
+        return headerNodes;
+    }
 	
 	var title = document.getElementsByClassName("post-title")[0];
 	var titleY = window.pageYOffset + title.getBoundingClientRect().top;
