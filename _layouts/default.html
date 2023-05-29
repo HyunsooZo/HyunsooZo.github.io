@@ -70,140 +70,6 @@
       </li>
     </ul>
   </nav>
-  <script>
-	  document.getElementById("open-nav").addEventListener("click", function () {
-    document.body.classList.toggle("nav-open");
-  });
-
-  document.addEventListener("DOMContentLoaded", function () {
-      // 이 부분을 추가하여 TOP 버튼 클릭 이벤트 처리
-      var btnTop = document.getElementById("btn-top");
-      btnTop.addEventListener("click", function (event) {
-        event.preventDefault();
-        scrollToTop();
-      });
-
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-      }
-    });
-
-  function getTOCNodes(master) {
-  var nodes = Array.from(master.getElementsByTagName("*"));
-  var tocNodes = nodes.filter(function (elem) {
-    return elem.tagName === "A";
-  });
-  return tocNodes;
-}
-
-function getHeaderNodes(master) {
-  var nodes = Array.from(master.getElementsByTagName("*"));
-  var headerNodes = nodes.filter(function (elem) {
-    return (
-      elem.tagName === "H1" ||
-      elem.tagName === "H2" ||
-      elem.tagName === "H3" ||
-      elem.tagName === "H4" ||
-      elem.tagName === "H5" ||
-      elem.tagName === "H6"
-    );
-  });
-  return headerNodes;
-}
-
-function smoothScrollTo(element) {
-  window.scrollTo({
-    behavior: "smooth",
-    top: element.offsetTop
-  });
-}
-
-var title = document.getElementsByClassName("post-title")[0];
-var titleY = window.pageYOffset + title.getBoundingClientRect().top;
-
-var article = document.getElementsByClassName("post-article")[0];
-var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-
-var toc = document.getElementsByClassName("toc")[0];
-
-var headerNodes = getHeaderNodes(article);
-var tocNodes = getTOCNodes(toc);
-
-var before = undefined;
-
-function updateActiveTOCNode() {
-  var current = headerNodes.filter(function (header) {
-    var headerY = window.pageYOffset + header.getBoundingClientRect().top;
-    return window.scrollY >= headerY - 60;
-  });
-
-  if (current.length > 0) {
-    current = current[current.length - 1];
-
-    var currentA = tocNodes.filter(function (tocNode) {
-      return tocNode.innerHTML === current.innerHTML;
-    });
-
-    currentA = currentA[0];
-    if (currentA) {
-      if (before === undefined) before = currentA;
-
-      if (before !== currentA) {
-        before.classList.remove("toc-active");
-        before = currentA;
-      }
-
-      currentA.classList.add("toc-active");
-    } else {
-      if (before) before.classList.remove("toc-active");
-    }
-  } else {
-    if (before) before.classList.remove("toc-active");
-  }
-}
-
-// Handle smooth scrolling when TOC nodes are clicked
-tocNodes.forEach(function (tocNode) {
-  tocNode.addEventListener("click", function (event) {
-    event.preventDefault();
-    var targetId = tocNode.getAttribute("href").substr(1);
-    var targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      smoothScrollTo(targetElement);
-    }
-  });
-});
-
-document.addEventListener("scroll", function (e) {
-  if (window.scrollY >= articleY - 60) {
-    toc.style.cssText = "position: fixed; top: 60px;";
-  } else {
-    toc.style.cssText = "";
-  }
-
-  updateActiveTOCNode();
-}, false);
-
-window.addEventListener("scroll", function () {
-  var toc = document.getElementsByClassName("toc")[0];
-  var article = document.getElementsByClassName("post-article")[0];
-  var footer = document.getElementsByTagName("footer")[0];
-  var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
-  var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-  var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
-  if (tocY < titleY) {
-    toc.classList.remove("sticky");
-  } else if (articleY > footerY) {
-    toc.classList.remove("sticky");
-  } else {
-    toc.classList.add("sticky");
-  }
-});
-
-  </script>
 </header>
 </body>
 
@@ -225,8 +91,109 @@ window.addEventListener("scroll", function () {
     <a href="#" id="btn-top" class="btn-top">TOP</a>
   </div>
 </div>
-
 <script>
+document.getElementById("open-nav").addEventListener("click", function () {
+	document.body.classList.toggle("nav-open");
+  });
+  
+  function getTOCNodes(master) {
+	var nodes = Array.from(master.getElementsByTagName("*"));
+	var tocNodes = nodes.filter(function (elem) {
+	  return elem.tagName === "A";
+	});
+	return tocNodes;
+  }
+  
+  function getHeaderNodes(master) {
+	var nodes = Array.from(master.getElementsByTagName("*"));
+	var headerNodes = nodes.filter(function (elem) {
+	  return (
+		elem.tagName === "H1" ||
+		elem.tagName === "H2" ||
+		elem.tagName === "H3" ||
+		elem.tagName === "H4" ||
+		elem.tagName === "H5" ||
+		elem.tagName === "H6"
+	  );
+	});
+	return headerNodes;
+  }
+  
+  function smoothScrollTo(element) {
+	window.scrollTo({
+	  behavior: "smooth",
+	  top: element.offsetTop
+	});
+  }
+  
+  var title = document.getElementsByClassName("post-title")[0];
+  var titleY = window.pageYOffset + title.getBoundingClientRect().top;
+  
+  var article = document.getElementsByClassName("post-article")[0];
+  var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+  
+  var toc = document.getElementsByClassName("toc")[0];
+  var tocNodes = getTOCNodes(toc);
+  var headerNodes = getHeaderNodes(article);
+  var before = undefined;
+  
+  function updateActiveTOCNode() {
+	var current = headerNodes.filter(function (header) {
+	  var headerY = window.pageYOffset + header.getBoundingClientRect().top;
+	  return window.scrollY >= headerY - 60;
+	});
+  
+	if (current.length > 0) {
+	  current = current[current.length - 1];
+  
+	  var currentA = tocNodes.filter(function (tocNode) {
+		return tocNode.innerHTML === current.innerHTML;
+	  });
+  
+	  currentA = currentA[0];
+	  if (currentA) {
+		if (before === undefined) before = currentA;
+  
+		if (before !== currentA) {
+		  before.classList.remove("toc-active");
+		  before = currentA;
+		}
+  
+		currentA.classList.add("toc-active");
+	  } else {
+		if (before) before.classList.remove("toc-active");
+	  }
+	} else {
+	  if (before) before.classList.remove("toc-active");
+	}
+  }
+  
+  tocNodes.forEach(function (tocNode) {
+	tocNode.addEventListener("click", function (event) {
+	  event.preventDefault();
+	  var targetId = tocNode.getAttribute("href").substr(1);
+	  var targetElement = document.getElementById(targetId);
+	  if (targetElement) {
+		smoothScrollTo(targetElement);
+	  }
+	});
+  });
+  
+  window.addEventListener("scroll", function () {
+	var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
+	var footer = document.getElementsByTagName("footer")[0];
+	var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
+  
+	if (tocY < titleY || articleY > footerY) {
+	  toc.classList.remove("sticky");
+	} else {
+	  toc.classList.add("sticky");
+	}
+  
+	updateActiveTOCNode();
+  });
+  
+
   //search value delete
   const inputEl = document.querySelector("#search-input");
   const buttonEl = document.querySelector(".btn-del");
