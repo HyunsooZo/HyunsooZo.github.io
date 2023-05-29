@@ -191,6 +191,23 @@
 			toc.classList.add("sticky");
 		}
 	});	
+
+		// TOC 링크 클릭 시 스크롤 이동
+	toc.addEventListener('click', function (event) {
+		event.preventDefault();
+		if (event.target.tagName === 'A') {
+			var targetId = event.target.getAttribute('href').slice(1);
+			var targetElement = document.getElementById(targetId);
+			if (targetElement) {
+				var offsetTop = targetElement.offsetTop;
+				window.scrollTo({
+					top: offsetTop,
+					behavior: 'smooth'
+				});
+			}
+		}
+	});
+
 	
 	//search value delete
 	const inputEl = document.querySelector('#search-input');
