@@ -75,6 +75,22 @@
     document.body.classList.toggle("nav-open");
   });
 
+  document.addEventListener("DOMContentLoaded", function () {
+      // 이 부분을 추가하여 TOP 버튼 클릭 이벤트 처리
+      var btnTop = document.getElementById("btn-top");
+      btnTop.addEventListener("click", function (event) {
+        event.preventDefault();
+        scrollToTop();
+      });
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      }
+    });
+
   function getTOCNodes(master) {
   var nodes = Array.from(master.getElementsByTagName("*"));
   var tocNodes = nodes.filter(function (elem) {
