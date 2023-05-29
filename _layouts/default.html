@@ -93,120 +93,122 @@
 
 	</body>
 <script>
-	    document.getElementById("open-nav").addEventListener("click", function () {
-        document.body.classList.toggle("nav-open");
+document.getElementById("open-nav").addEventListener("click", function () {
+  document.body.classList.toggle("nav-open");
+});
+
+function getTOCNodes(master) {
+  var nodes = Array.from(master.getElementsByTagName("*"));
+  var tocNodes = Array.from(nodes).filter(function (elem) {
+    return elem.tagName === "A";
+  });
+  return tocNodes;
+}
+
+function getHeaderNodes(master) {
+  var nodes = Array.from(master.getElementsByTagName("*"));
+  var headerNodes = Array.from(nodes).filter(function (elem) {
+    return (
+      elem.tagName === "H1" ||
+      elem.tagName === "H2" ||
+      elem.tagName === "H3" ||
+      elem.tagName === "H4" ||
+      elem.tagName === "H5" ||
+      elem.tagName === "H6"
+    );
+  });
+  return headerNodes;
+}
+
+var title = document.getElementsByClassName("post-title")[0];
+var titleY = window.pageYOffset + title.getBoundingClientRect().top;
+
+var article = document.getElementsByClassName("post-article")[0];
+var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+
+var toc = document.getElementsByClassName("toc")[0];
+
+var headerNodes = getHeaderNodes(article);
+var tocNodes = getTOCNodes(toc);
+
+updateActiveTOCNode();
+
+function updateActiveTOCNode() {
+  var current = headerNodes.filter(function (header) {
+    var headerY = window.pageYOffset + header.getBoundingClientRect().top;
+    return window.scrollY >= headerY - 60;
+  });
+
+  if (current.length > 0) {
+    current = current[current.length - 1];
+
+    var currentA = tocNodes.filter(function (tocNode) {
+      return tocNode.innerHTML === current.innerHTML;
     });
 
-    function getTOCNodes(master) {
-        var nodes = Array.from(master.getElementsByTagName("*"));
-        var tocNodes = nodes.filter(function (elem) {
-            return elem.tagName === "A";
-        });
-        return tocNodes;
+    currentA = currentA[0];
+    if (currentA) {
+      if (before === undefined) before = currentA;
+
+      if (before !== currentA) {
+        before.classList.remove("toc-active");
+        before = currentA;
+      }
+
+      currentA.classList.add("toc-active");
+    } else {
+      if (before) before.classList.remove("toc-active");
+    }
+  } else {
+    if (before) before.classList.remove("toc-active");
+  }
+}
+
+document.addEventListener(
+  "scroll",
+  function (e) {
+    if (window.scrollY >= articleY - 60) {
+      toc.style.cssText = "position: fixed; top: 60px;";
+    } else {
+      toc.style.cssText = "";
     }
 
-    function getHeaderNodes(master) {
-        var nodes = Array.from(master.getElementsByTagName("*"));
-        var headerNodes = nodes.filter(function (elem) {
-            return (
-                elem.tagName === "H1" ||
-                elem.tagName === "H2" ||
-                elem.tagName === "H3" ||
-                elem.tagName === "H4" ||
-                elem.tagName === "H5" ||
-                elem.tagName === "H6"
-            );
-        });
-        return headerNodes;
+    updateActiveTOCNode();
+  },
+  false
+);
+
+window.addEventListener("scroll", function () {
+  var toc = document.getElementsByClassName("toc")[0];
+  var article = document.getElementsByClassName("post-article")[0];
+  var footer = document.getElementsByTagName("footer")[0];
+  var tocY = toc.offsetTop;
+  var articleY = article.offsetTop;
+  var footerY = footer.offsetTop;
+  if (tocY < titleY) {
+    toc.classList.remove("sticky");
+  } else if (articleY > footerY) {
+    toc.classList.remove("sticky");
+  } else {
+    toc.classList.add("sticky");
+  }
+});
+
+// TOC 링크 클릭 시 스크롤 이동
+toc.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (event.target.tagName === "A") {
+    var targetId = event.target.getAttribute("href").slice(1);
+    var targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      var offsetTop = targetElement.offsetTop;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
     }
-	
-	var title = document.getElementsByClassName("post-title")[0];
-	var titleY = window.pageYOffset + title.getBoundingClientRect().top;
-	
-	var article = document.getElementsByClassName("post-article")[0];
-	var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-	
-	var toc = document.getElementsByClassName("toc")[0];
-	
-	var headerNodes = getHeaderNodes(article);
-	var tocNodes = getTOCNodes(toc);
-	
-	var before = undefined;
-	
-	document.addEventListener('scroll', function(e) {
-		if (window.scrollY >= articleY - 60) {
-			toc.style.cssText = "position: fixed; top: 60px;";
-		}
-		else {
-			toc.style.cssText = "";
-		}
-	
-		var current = headerNodes.filter(function(header) {
-			var headerY = window.pageYOffset + header.getBoundingClientRect().top;
-			return window.scrollY >= headerY - 60;
-		});
-	
-		if (current.length > 0) {
-		current = current[current.length-1];
-	
-		var currentA = tocNodes.filter(function(tocNode) {
-			return tocNode.innerHTML == current.innerHTML;
-		})
-		
-		currentA = currentA[0];
-		if (currentA) {
-			if (before == undefined) before = currentA;
-	
-			if (before != currentA) {
-			before.classList.remove("toc-active");
-			before = currentA;
-			}
-	
-			currentA.classList.add("toc-active");
-		}
-		else {
-			if (before) 
-			before.classList.remove("toc-active");
-		}
-		}
-		else {
-		if (before) 
-			before.classList.remove("toc-active");
-		}
-	
-	}, false);
-
-	window.addEventListener("scroll", function() {
-		var toc = document.getElementsByClassName("toc")[0];
-		var article = document.getElementsByClassName("post-article")[0];
-		var footer = document.getElementsByTagName("footer")[0];
-		var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
-		var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-		var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
-		if (tocY < titleY) {
-			toc.classList.remove("sticky");
-		} else if (articleY > footerY) {
-			toc.classList.remove("sticky");
-		} else {
-			toc.classList.add("sticky");
-		}
-	});	
-
-		// TOC 링크 클릭 시 스크롤 이동
-	toc.addEventListener('click', function (event) {
-		event.preventDefault();
-		if (event.target.tagName === 'A') {
-			var targetId = event.target.getAttribute('href').slice(1);
-			var targetElement = document.getElementById(targetId);
-			if (targetElement) {
-				var offsetTop = targetElement.offsetTop;
-				window.scrollTo({
-					top: offsetTop,
-					behavior: 'smooth'
-				});
-			}
-		}
-	});
+  }
+});
 
 	
 	//search value delete
