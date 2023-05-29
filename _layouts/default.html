@@ -70,29 +70,8 @@
       </li>
     </ul>
   </nav>
-</header>
-
-<section class="main post-article">
-  <div class="page-header">
-    <h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
-    <h3>{{ page.title }}</h3>
-  </div>
-
-  <article class="content">
-    {{ content }}
-  </article>
-</section>
-
-<div class="toc">
-  <!-- <h6 class="toc-heading">Table of Contents</h6> -->
-  {% include toc.html html=content %}
-  <div class="top-button">
-    <button id="btn-top" class="btn-top">TOP</button>
-  </div>
-</div>
-
-<script>
-  document.getElementById("open-nav").addEventListener("click", function () {
+  <script>
+	  document.getElementById("open-nav").addEventListener("click", function () {
     document.body.classList.toggle("nav-open");
   });
 
@@ -188,24 +167,31 @@
       toc.classList.add("sticky");
     }
   });
+  </script>
+</header>
+
+<section class="main post-article">
+  <div class="page-header">
+    <h2>{% if page.category %}{{ page.category }}{% else %}{{ site.title }}{% endif %}</h2>
+    <h3>{{ page.title }}</h3>
+  </div>
+
+  <article class="content">
+    {{ content }}
+  </article>
+</section>
+
+<div class="toc">
+  <!-- <h6 class="toc-heading">Table of Contents</h6> -->
+  {% include toc.html html=content %}
+  <div class="top-button">
+    <button id="btn-top" class="btn-top">TOP</button>
+  </div>
+</div>
+
+<script>
+
  
-  // TOC 링크 클릭 시 스크롤 이동
-toc.addEventListener('click', function (event) {
-    event.preventDefault();
-    if (event.target.tagName === 'A') {
-        var targetId = event.target.getAttribute('href').slice(1);
-        var targetElement = document.getElementById(targetId);
-        if (targetElement) {
-            var offsetTop = targetElement.offsetTop;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-        }
-    }
-});
-
-
   //search value delete
   const inputEl = document.querySelector("#search-input");
   const buttonEl = document.querySelector(".btn-del");
