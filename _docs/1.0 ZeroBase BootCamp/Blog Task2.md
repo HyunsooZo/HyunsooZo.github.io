@@ -11,7 +11,7 @@ order: 2
 02장: 개발에 앞서 알면 좋은 기초 지식<br>
 03장: 개발 환경 구성
 
-### -Spring Boot
+##### Spring Boot
 <div class="content-box">
 <b>Ioc : Inversion Of Control</b><br>
 -제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. <br>
