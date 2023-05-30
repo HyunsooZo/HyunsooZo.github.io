@@ -86,10 +86,11 @@
 		<div class="toc">
 			<!-- <h6 class="toc-heading">Table of Contents</h6> -->
 			{% include toc.html html=content %}
-				<a href="#" onclick="scrollToTop()" class="btn-top">TOP</a>
+				<button onclick="scrollToTop()" class="btn-top">TOP</button>
 		</div>			
 
 		<script>
+		//top btn smooth scrolling
 		function scrollToTop() {
 			window.scrollTo({
 			top: 0,
