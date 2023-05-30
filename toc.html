@@ -14,29 +14,17 @@
     return tocNodes;
   }
 
-  function getHeaderNodes(master) {
-    var nodes = Array.from(master.getElementsByTagName("*"));
-    var headerNodes = nodes.filter(function (elem) {
-      if (elem.tagName === "H3" || elem.tagName === "H5") {
-        // Check if it's an H5 element
-        if (elem.tagName === "H5") {
-          // Find the nearest ancestor H3 element
-          var h3Element = elem.closest("h3");
-          if (h3Element) {
-            // Append the H5 element to the H3 element
-            h3Element.appendChild(elem);
-          } else {
-            // If no H3 ancestor found, remove the H5 element
-            elem.parentNode.removeChild(elem);
-          }
-        }
-        return true;
-      } else {
-        return false;
-      }
-    });
-    return headerNodes;
-  }
+  function getAllHeaderNodes(master) {
+  var nodes = Array.from(master.getElementsByTagName("*"));
+  var headerNodes = nodes.filter(function (elem) {
+    if (elem.tagName.match(/^H[1-6]$/)) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+  return headerNodes;
+}
 
   var title = document.getElementsByClassName("post-title")[0];
   var titleY = window.pageYOffset + title.getBoundingClientRect().top;
@@ -63,10 +51,6 @@
     }
   }
 </script>
-
-<!-- Insert the <a> tag here -->
-<a href="#section1" onclick="smoothScroll('#section1')">Go to Section 1</a>
-<!-- Rest of the code -->
 
 
     {% comment %}
@@ -195,18 +179,19 @@
         {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
 
         {% if htmlID %}
-            {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
+        {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
 
-            {% if include.anchor_class %}
-                {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
-            {% endif %}
+        {% if include.anchor_class %}
+            {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
+        {% endif %}
 
-            {% capture listItem %}<a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
+        {% capture listItem %}<a{{ anchorAttributes }} onclick="smoothScroll('#{{ htmlID }}')">{{ anchorBody }}</a>{% endcapture %}
         {% elsif skipNoIDs == true %}
             {% continue %}
         {% else %}
             {% capture listItem %}{{ anchorBody }}{% endcapture %}
         {% endif %}
+
 
         {% if currLevel > lastLevel %}
             {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
