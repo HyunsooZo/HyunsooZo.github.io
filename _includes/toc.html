@@ -237,7 +237,7 @@
             {% assign nodes = jekyll_toc | split: '>' %}
             {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}{% endcapture %}
         {% endif %}
-        {% assign jekyll_toc = jekyll_toc | append: '</li></{{ listModifier }}>' %}
+        {% assign jekyll_toc = jekyll_toc | append: '</{{ listModifier }}>' %}
     {% endif %}
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
