@@ -92,13 +92,14 @@
 		</div>			
 
 		<script>
-		function scrollToTop() {
-			const section = document.querySelector('section.main.post-article');
-			section.scrollIntoView({
-			behavior: 'smooth',
-			top : 0
-			});
-		}
+			function scrollToTop() {
+			  const section = document.querySelector('.main.post-article');
+			  const topPos = section.offsetTop;
+			  window.scrollTo({
+				top: topPos,
+				behavior: 'smooth'
+			  });
+			}
 		//search value delete
 		const inputEl = document.querySelector('#search-input');
 		const buttonEl = document.querySelector('.btn-del');
