@@ -86,24 +86,16 @@
 		<div class="toc">
 			<!-- <h6 class="toc-heading">Table of Contents</h6> -->
 			{% include toc.html html=content %}
-			<div class="top-button">
-				<a href="/#" onclick="smoothScroll('#sectionID')" class="btn-top">TOP</a>
-			</div>
+				<a href="/#" onclick="scrollToTop()" class="btn-top">TOP</a>
 		</div>			
 
 		<script>
-		// Smooth scrolling function
-		function smoothScroll(target) {
-			const element = document.querySelector(target);
-
-			if (element) {
+		function scrollToTop() {
 			window.scrollTo({
-				top: element.offsetTop,
-				behavior: "smooth"
+			top: 0,
+			behavior: "smooth"
 			});
-			}
 		}
-		
 		//search value delete
 		const inputEl = document.querySelector('#search-input');
 		const buttonEl = document.querySelector('.btn-del');
