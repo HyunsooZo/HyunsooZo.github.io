@@ -87,21 +87,13 @@
 			<!-- <h6 class="toc-heading">Table of Contents</h6> -->
 			{% include toc.html html=content %}
 			<div class="top-button">
-				<a href="#" onclick="scrollToTop()" class="btn-top" >TOP</a>
+				<a href="#" class="btn-top">TOP</a>
 			  </div>
 		</div>			
 
 		<script>
-			// function scrollToTop() {
-			//   const section = document.querySelector('.main.post-article');
-			//   const topPos = section.offsetTop;
-			//   window.scrollTo({
-			// 	top: topPos,
-			// 	behavior: 'smooth'
-			//   });
-			// }
-		
-		document.querySelector('.btn-top').addEventListener("click", function() {
+		//scrollTop
+		document.querySelector('.btn-top').addEventListener('click', function() {
 			var section = document.querySelector('.main.post-article');
 			section.scrollTo({
 				top: 0,
