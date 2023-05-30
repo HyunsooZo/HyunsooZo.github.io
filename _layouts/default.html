@@ -92,14 +92,13 @@
 		</div>			
 
 		<script>
-			function scrollToTop() {
-			  const section = document.querySelector('.main.post-article');
-			  const topPos = section.offsetTop;
-			  window.scrollTo({
-				top: topPos,
-				behavior: 'smooth'
-			  });
-			}
+		function scrollToTop() {
+			const section = document.querySelector('section.main.post-article');
+			section.scrollIntoView({
+			behavior: 'smooth'
+			});
+		}
+
 		//search value delete
 		const inputEl = document.querySelector('#search-input');
 		const buttonEl = document.querySelector('.btn-del');
@@ -115,12 +114,12 @@
 			inputEl.value = "";
 			buttonEl.classList.add('hide');
 		});
-	
+
 		//switch theme
 		const rootElement = document.documentElement;
 		const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
 		const localStorageKey = 'theme';
-	
+
 		function setThemePreference(theme) {
 			if (theme === 'dark') {
 				rootElement.setAttribute('data-theme', 'dark');
@@ -139,9 +138,9 @@
 				rootElement.setAttribute('data-theme', 'light');
 			}
 		}
-	
+
 		themeSwitchCheckbox.addEventListener('change', toggleTheme);
-	
+
 		const storedTheme = localStorage.getItem(localStorageKey);
 		if (storedTheme) {
 			setThemePreference(storedTheme);
@@ -149,17 +148,17 @@
 			const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 			setThemePreference(isDarkMode ? 'dark' : 'light');
 		}
-	
+
 		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
 			if (!localStorage.getItem(localStorageKey)) {
 				setThemePreference(e.matches ? 'dark' : 'light');
 			}
 		});
-	
+
 		//
 		// const switchTheme = document.querySelector('input[data-input="switch__theme"]');
 		// const root = document.querySelector(':root');
-	
+
 		// switchTheme.addEventListener('click', function() {
 		// 	if (this.checked) {
 		// 		root.dataset.theme = 'dark';
@@ -169,13 +168,32 @@
 		// 		localStorage.setItem('theme', 'light');
 		// 	}
 		// });
-	
+
 		// if (localStorage.getItem('theme')) {
 		// 	root.dataset.theme = localStorage.getItem('theme');
 		// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
 		// }
 	
 
+
+		document.addEventListener("DOMContentLoaded", function() {
+			var btnTop = document.getElementById("btn-top");
+			btnTop.addEventListener("click", function(event) {
+				event.preventDefault();
+				scrollToTop();
+			});
+
+			function scrollToTop() {
+				var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+				if (currentScroll > 0) {
+				window.scroll({
+					top: 0,
+					left: 0,
+					behavior: "smooth"
+				});
+				}
+			}
+		});
 	</script>
 	</body>
 </html>
