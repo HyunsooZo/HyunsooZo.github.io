@@ -9,7 +9,7 @@
 		<link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/touch-icon.png" sizes="192x192">
 		<link rel="icon" type="image/png" href="{{ site.baseurl }}/images/favicon.png">
-		<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 		{% if jekyll.environment == 'production' and site.google_analytics_key != '' %}
 			<script>
@@ -85,205 +85,205 @@
 		
 		<div class="toc">
 			<!-- <h6 class="toc-heading">Table of Contents</h6> -->
-			<!-- {% include toc.html html=content %} -->
+			{% include toc.html html=content %}
 			<div class="top-button">
 				<button id="btn-top" class="btn-top">TOP</button>
 			</div>
 		</div>			
 
-	</body>
-<script>
-	    document.getElementById("open-nav").addEventListener("click", function () {
-        document.body.classList.toggle("nav-open");
-    });
-
-    function getTOCNodes(master) {
-        var nodes = Array.from(master.getElementsByTagName("*"));
-        var tocNodes = nodes.filter(function (elem) {
-            return elem.tagName === "A";
-        });
-        return tocNodes;
-    }
-
-    function getHeaderNodes(master) {
-        var nodes = Array.from(master.getElementsByTagName("*"));
-        var headerNodes = nodes.filter(function (elem) {
-            return (
-                elem.tagName === "H1" ||
-                elem.tagName === "H2" ||
-                elem.tagName === "H3" ||
-                elem.tagName === "H4" ||
-                elem.tagName === "H5" ||
-                elem.tagName === "H6"
-            );
-        });
-        return headerNodes;
-    }
-	
-	var title = document.getElementsByClassName("post-title")[0];
-	var titleY = window.pageYOffset + title.getBoundingClientRect().top;
-	
-	var article = document.getElementsByClassName("post-article")[0];
-	var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-	
-	var toc = document.getElementsByClassName("toc")[0];
-	
-	var headerNodes = getHeaderNodes(article);
-	var tocNodes = getTOCNodes(toc);
-	
-	var before = undefined;
-	
-	document.addEventListener('scroll', function(e) {
-		if (window.scrollY >= articleY - 60) {
-			toc.style.cssText = "position: fixed; top: 60px;";
-		}
-		else {
-			toc.style.cssText = "";
-		}
-	
-		var current = headerNodes.filter(function(header) {
-			var headerY = window.pageYOffset + header.getBoundingClientRect().top;
-			return window.scrollY >= headerY - 60;
+		<script>
+			document.getElementById("open-nav").addEventListener("click", function () {
+			document.body.classList.toggle("nav-open");
 		});
 	
-		if (current.length > 0) {
-		current = current[current.length-1];
+		function getTOCNodes(master) {
+			var nodes = Array.from(master.getElementsByTagName("*"));
+			var tocNodes = nodes.filter(function (elem) {
+				return elem.tagName === "A";
+			});
+			return tocNodes;
+		}
 	
-		var currentA = tocNodes.filter(function(tocNode) {
-			return tocNode.innerHTML == current.innerHTML;
-		})
+		function getHeaderNodes(master) {
+			var nodes = Array.from(master.getElementsByTagName("*"));
+			var headerNodes = nodes.filter(function (elem) {
+				return (
+					elem.tagName === "H1" ||
+					elem.tagName === "H2" ||
+					elem.tagName === "H3" ||
+					elem.tagName === "H4" ||
+					elem.tagName === "H5" ||
+					elem.tagName === "H6"
+				);
+			});
+			return headerNodes;
+		}
 		
-		currentA = currentA[0];
-		if (currentA) {
-			if (before == undefined) before = currentA;
-	
-			if (before != currentA) {
-			before.classList.remove("toc-active");
-			before = currentA;
-			}
-	
-			currentA.classList.add("toc-active");
-		}
-		else {
-			if (before) 
-			before.classList.remove("toc-active");
-		}
-		}
-		else {
-		if (before) 
-			before.classList.remove("toc-active");
-		}
-	
-	}, false);
-
-	window.addEventListener("scroll", function() {
-		var toc = document.getElementsByClassName("toc")[0];
+		var title = document.getElementsByClassName("post-title")[0];
+		var titleY = window.pageYOffset + title.getBoundingClientRect().top;
+		
 		var article = document.getElementsByClassName("post-article")[0];
-		var footer = document.getElementsByTagName("footer")[0];
-		var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
 		var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-		var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
-		if (tocY < titleY) {
-			toc.classList.remove("sticky");
-		} else if (articleY > footerY) {
-			toc.classList.remove("sticky");
-		} else {
-			toc.classList.add("sticky");
-		}
-	});	
+		
+		var toc = document.getElementsByClassName("toc")[0];
+		
+		var headerNodes = getHeaderNodes(article);
+		var tocNodes = getTOCNodes(toc);
+		
+		var before = undefined;
+		
+		document.addEventListener('scroll', function(e) {
+			if (window.scrollY >= articleY - 60) {
+				toc.style.cssText = "position: fixed; top: 60px;";
+			}
+			else {
+				toc.style.cssText = "";
+			}
+		
+			var current = headerNodes.filter(function(header) {
+				var headerY = window.pageYOffset + header.getBoundingClientRect().top;
+				return window.scrollY >= headerY - 60;
+			});
+		
+			if (current.length > 0) {
+			current = current[current.length-1];
+		
+			var currentA = tocNodes.filter(function(tocNode) {
+				return tocNode.innerHTML == current.innerHTML;
+			})
+			
+			currentA = currentA[0];
+			if (currentA) {
+				if (before == undefined) before = currentA;
+		
+				if (before != currentA) {
+				before.classList.remove("toc-active");
+				before = currentA;
+				}
+		
+				currentA.classList.add("toc-active");
+			}
+			else {
+				if (before) 
+				before.classList.remove("toc-active");
+			}
+			}
+			else {
+			if (before) 
+				before.classList.remove("toc-active");
+			}
+		
+		}, false);
 	
-	//search value delete
-	const inputEl = document.querySelector('#search-input');
-	const buttonEl = document.querySelector('.btn-del');
-	buttonEl.classList.add('hide');
-	inputEl.addEventListener('input', function() {
-		if (inputEl.value !== "") {
-			buttonEl.classList.remove('hide');
-		} else {
-			buttonEl.classList.add('hide');
-		}
-	});
-	buttonEl.addEventListener('click', function() {
-		inputEl.value = "";
+		window.addEventListener("scroll", function() {
+			var toc = document.getElementsByClassName("toc")[0];
+			var article = document.getElementsByClassName("post-article")[0];
+			var footer = document.getElementsByTagName("footer")[0];
+			var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
+			var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+			var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
+			if (tocY < titleY) {
+				toc.classList.remove("sticky");
+			} else if (articleY > footerY) {
+				toc.classList.remove("sticky");
+			} else {
+				toc.classList.add("sticky");
+			}
+		});	
+		
+		//search value delete
+		const inputEl = document.querySelector('#search-input');
+		const buttonEl = document.querySelector('.btn-del');
 		buttonEl.classList.add('hide');
-	});
-
-	//switch theme
-	const rootElement = document.documentElement;
-	const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
-	const localStorageKey = 'theme';
-
-	function setThemePreference(theme) {
-		if (theme === 'dark') {
-			rootElement.setAttribute('data-theme', 'dark');
-			themeSwitchCheckbox.checked = true;
+		inputEl.addEventListener('input', function() {
+			if (inputEl.value !== "") {
+				buttonEl.classList.remove('hide');
+			} else {
+				buttonEl.classList.add('hide');
+			}
+		});
+		buttonEl.addEventListener('click', function() {
+			inputEl.value = "";
+			buttonEl.classList.add('hide');
+		});
+	
+		//switch theme
+		const rootElement = document.documentElement;
+		const themeSwitchCheckbox = document.querySelector('[data-input="switch__theme"]');
+		const localStorageKey = 'theme';
+	
+		function setThemePreference(theme) {
+			if (theme === 'dark') {
+				rootElement.setAttribute('data-theme', 'dark');
+				themeSwitchCheckbox.checked = true;
+			} else {
+				rootElement.setAttribute('data-theme', 'light');
+				themeSwitchCheckbox.checked = false;
+			}
+		}
+		function toggleTheme() {
+			if (themeSwitchCheckbox.checked) {
+				localStorage.setItem(localStorageKey, 'dark');
+				rootElement.setAttribute('data-theme', 'dark');
+			} else {
+				localStorage.setItem(localStorageKey, 'light');
+				rootElement.setAttribute('data-theme', 'light');
+			}
+		}
+	
+		themeSwitchCheckbox.addEventListener('change', toggleTheme);
+	
+		const storedTheme = localStorage.getItem(localStorageKey);
+		if (storedTheme) {
+			setThemePreference(storedTheme);
 		} else {
-			rootElement.setAttribute('data-theme', 'light');
-			themeSwitchCheckbox.checked = false;
+			const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+			setThemePreference(isDarkMode ? 'dark' : 'light');
 		}
-	}
-	function toggleTheme() {
-		if (themeSwitchCheckbox.checked) {
-			localStorage.setItem(localStorageKey, 'dark');
-			rootElement.setAttribute('data-theme', 'dark');
-		} else {
-			localStorage.setItem(localStorageKey, 'light');
-			rootElement.setAttribute('data-theme', 'light');
-		}
-	}
-
-	themeSwitchCheckbox.addEventListener('change', toggleTheme);
-
-	const storedTheme = localStorage.getItem(localStorageKey);
-	if (storedTheme) {
-		setThemePreference(storedTheme);
-	} else {
-		const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		setThemePreference(isDarkMode ? 'dark' : 'light');
-	}
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-		if (!localStorage.getItem(localStorageKey)) {
-			setThemePreference(e.matches ? 'dark' : 'light');
-		}
+	
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+			if (!localStorage.getItem(localStorageKey)) {
+				setThemePreference(e.matches ? 'dark' : 'light');
+			}
+		});
+	
+		//
+		// const switchTheme = document.querySelector('input[data-input="switch__theme"]');
+		// const root = document.querySelector(':root');
+	
+		// switchTheme.addEventListener('click', function() {
+		// 	if (this.checked) {
+		// 		root.dataset.theme = 'dark';
+		// 		localStorage.setItem('theme', 'dark');
+		// 	} else {
+		// 		root.dataset.theme = 'light';
+		// 		localStorage.setItem('theme', 'light');
+		// 	}
+		// });
+	
+		// if (localStorage.getItem('theme')) {
+		// 	root.dataset.theme = localStorage.getItem('theme');
+		// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
+		// }
+	
+		document.addEventListener("DOMContentLoaded", function() {
+	var btnTop = document.getElementById("btn-top");
+	btnTop.addEventListener("click", function(event) {
+		event.preventDefault();
+		scrollToTop();
 	});
-
-	//
-	// const switchTheme = document.querySelector('input[data-input="switch__theme"]');
-	// const root = document.querySelector(':root');
-
-	// switchTheme.addEventListener('click', function() {
-	// 	if (this.checked) {
-	// 		root.dataset.theme = 'dark';
-	// 		localStorage.setItem('theme', 'dark');
-	// 	} else {
-	// 		root.dataset.theme = 'light';
-	// 		localStorage.setItem('theme', 'light');
-	// 	}
-	// });
-
-	// if (localStorage.getItem('theme')) {
-	// 	root.dataset.theme = localStorage.getItem('theme');
-	// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
-	// }
-
-	document.addEventListener("DOMContentLoaded", function() {
-  var btnTop = document.getElementById("btn-top");
-  btnTop.addEventListener("click", function(event) {
-    event.preventDefault();
-    scrollToTop();
-  });
-
-  function scrollToTop() {
-    var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    if (currentScroll > 0) {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth"
-      });
-    }
-  }
-});
-</script>
+	
+	function scrollToTop() {
+		var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+		if (currentScroll > 0) {
+		window.scroll({
+			top: 0,
+			left: 0,
+			behavior: "smooth"
+		});
+		}
+	}
+	});
+	</script>
+	</body>
 </html>
