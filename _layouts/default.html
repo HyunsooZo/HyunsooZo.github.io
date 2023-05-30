@@ -173,24 +173,7 @@
 		// 	switchTheme.checked = localStorage.getItem('theme') === 'dark';
 		// }
 	
-		document.addEventListener("DOMContentLoaded", function() {
-	var btnTop = document.getElementById("btn-top");
-	btnTop.addEventListener("click", function(event) {
-		event.preventDefault();
-		scrollToTop();
-	});
-	
-	function scrollToTop() {
-		var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-		if (currentScroll > 0) {
-		window.scroll({
-			top: 0,
-			left: 0,
-			behavior: "smooth"
-		});
-		}
-	}
-	});
+
 	</script>
 	</body>
 </html>
