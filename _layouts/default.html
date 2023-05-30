@@ -92,15 +92,23 @@
 		</div>			
 
 		<script>
-			function scrollToTop() {
-			  const section = document.querySelector('.main.post-article');
-			  const topPos = section.offsetTop;
-			  window.scrollTo({
-				top: topPos,
+			// function scrollToTop() {
+			//   const section = document.querySelector('.main.post-article');
+			//   const topPos = section.offsetTop;
+			//   window.scrollTo({
+			// 	top: topPos,
+			// 	behavior: 'smooth'
+			//   });
+			// }
+		
+		document.querySelector('.btn-top').addEventListener("click", function() {
+			var section = document.querySelector('.main.post-article');
+			section.scrollTo({
+				top: 0,
 				behavior: 'smooth'
-			  });
-			}
-			
+			});
+		});
+
 		//search value delete
 		const inputEl = document.querySelector('#search-input');
 		const buttonEl = document.querySelector('.btn-del');
