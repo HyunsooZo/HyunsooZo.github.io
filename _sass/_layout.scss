@@ -480,11 +480,12 @@ blockquote {
 			display: block;
 			padding: 0.8rem 1rem;
 			line-height: 1.6rem;
+			font-weight: 700;
 			font-size: 1.2rem;
 			text-decoration: none;
 			color: var(--text-secondary);
 			border-left: 2px solid var(--border-secondary);
-		
+			
 			&:hover,
 			&[aria-current]:not([aria-current=""]):not([aria-current="false"]),
 			&.toc-active {
@@ -493,7 +494,12 @@ blockquote {
 				background-color: var(--background-toc-active);
 			}
 		}
-	
+		li {
+			a {
+				padding: 0.5rem 1rem 0.5rem 1.5rem;
+				font-weight: 400;
+			}
+		}
 	  }
 	}
 
@@ -517,8 +523,6 @@ blockquote {
 			}
 		}
 	}
-	
-
 }
 
 //table
