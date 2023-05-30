@@ -509,25 +509,24 @@ blockquote {
 
 		.btn-top {
 			display:inline-block;
-			padding: 5px 10px;
+			padding: 0.5rem 3rem;
 			text-align: center;
-			border-radius: 6px;
+			border-radius: 0.6rem;
 			color: var(--text-primary);
 			border-color: var(--border-primary);
 			background: var(--background-secondary);
 			font-size: 1.2rem;
 
-			background: linear-gradient(-45deg, #343434 20%, #4E4E4E 60%, #696969 100%);
-  			background-size: 400% 400%;
+			// background: linear-gradient(-45deg, #343434 20%, #4E4E4E 60%, #696969 100%);
 			
 			&:hover {
-				animation: topHover 15s ease infinite;
+				// animation: topHover 5s ease infinite;
 			}
-			@keyframes topHover { 
-				0%{background-position:0% 50%}
-				50%{background-position:100% 50%}
-				100%{background-position:0% 50%}
-			}
+			// @keyframes topHover { 
+			// 	0%{background-position:0% 50%}
+			// 	50%{background-position:100% 50%}
+			// 	100%{background-position:0% 50%}
+			// }
 		}
 	}
 }
