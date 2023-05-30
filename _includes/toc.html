@@ -83,23 +83,6 @@
 			}
 		
 		}, false);
-	
-		window.addEventListener("scroll", function() {
-			var toc = document.getElementsByClassName("toc")[0];
-			var article = document.getElementsByClassName("post-article")[0];
-			var footer = document.getElementsByTagName("footer")[0];
-			var tocY = window.pageYOffset + toc.getBoundingClientRect().top;
-			var articleY = window.pageYOffset + article.getBoundingClientRect().top;
-			var footerY = window.pageYOffset + footer.getBoundingClientRect().top;
-			if (tocY < titleY) {
-				toc.classList.remove("sticky");
-			} else if (articleY > footerY) {
-				toc.classList.remove("sticky");
-			} else {
-				toc.classList.add("sticky");
-			}
-		});	
-
 </script>
     {% comment %}
         Copyright (c) 2017 Vladimir "allejo" Jimenez
