@@ -93,9 +93,9 @@
 
 		<script>
 		function scrollToTop() {
-			window.scrollTo({
-			top: 0,
-			behavior: "smooth"
+			const section = document.querySelector('.main.post-article');
+			section.scrollIntoView({
+			behavior: 'smooth'
 			});
 		}
 		//search value delete
