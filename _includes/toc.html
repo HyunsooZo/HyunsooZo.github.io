@@ -219,7 +219,7 @@
     {% assign repeatCount = minHeader | minus: 1 %}
     {% assign repeatCount = lastLevel | minus: repeatCount %}
     {% for i in (1..repeatCount) %}
-        {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
+        {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}>{{ newline }}{% endcapture %}
     {% endfor %}
     
     {% if jekyll_toc != '' %}
@@ -236,7 +236,9 @@
             {% assign nodes = jekyll_toc | split: '>' %}
             {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}{% endcapture %}
         {% endif %}
+    
         {% assign jekyll_toc = jekyll_toc | append: '</{{ listModifier }}>' %}
     {% endif %}
+    
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
