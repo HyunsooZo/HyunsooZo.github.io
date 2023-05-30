@@ -44,9 +44,13 @@
     const element = document.querySelector(target);
 
     if (element) {
-      window.scrollTo({
-        top: element.offsetTop,
-        behavior: "smooth"
+        var section = document.querySelector('.main.post-article');
+			section.scrollTo({
+				top: element.offsetTop,
+				behavior: 'smooth'
+    //   window.scrollTo({
+    //     top: element.offsetTop,
+    //     behavior: "smooth"
       });
     }
   }
