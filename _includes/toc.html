@@ -178,7 +178,7 @@
         {% endif %}
 
         {% capture listItem %}<a{{ anchorAttributes }} onclick="smoothScroll('#{{ htmlID }}')">{{ anchorBody }}</a>{% endcapture %}
-        {% elsif skipNoIDs == true %}
+        {% elseif skipNoIDs == true %}
             {% continue %}
         {% else %}
             {% capture listItem %}{{ anchorBody }}{% endcapture %}
@@ -187,7 +187,7 @@
 
         {% if currLevel > lastLevel %}
             {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
-        {% elsif currLevel < lastLevel %}
+        {% elseif currLevel < lastLevel %}
             {% assign repeatCount = lastLevel | minus: currLevel %}
 
             {% for i in (1..repeatCount) %}
@@ -214,7 +214,7 @@
                     {% assign indent = indent | append: "</ul>" %}
                 {% endif %}
                 {% assign indent = indent | append: "<ul><li>" %}
-            {% elsif level < prevLevel %}
+            {% elseif level < prevLevel %}
                 {% assign diff = prevLevel | minus: level %}
                 {% for i in (1..diff) %}
                     {% assign indent = indent | append: "</li></ul>" %}
