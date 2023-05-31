@@ -186,7 +186,7 @@
         {% if htmlID %}
         {% capture anchorAttributes %} href="javascript:;"
 
-        <!-- "{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %} -->
+      
 
         {% if include.anchor_class %}
             {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
@@ -245,7 +245,7 @@
             
             {% assign indent = indent | append: "<a href=\"javascript:;" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
             {% endfor %}
-            <!-- #{{ node.id }}\ -->
+           
         {% if prevLevel != 0 %}
             {% for i in (1..prevLevel) %}
                 {% assign indent = indent | append: "</li></ul>" %}
@@ -256,3 +256,5 @@
 
         
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
+  <!-- "{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %} -->
+   <!-- #{{ node.id }}\ -->
