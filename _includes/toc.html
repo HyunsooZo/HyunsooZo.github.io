@@ -216,32 +216,34 @@
         {% assign firstHeader = false %}
     {% endfor %}
 
-    {% assign prevLevel = 0 %}
-    {% assign indent = "" %}
-    {% for node in headerNodes %}
-        {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
-        {% if level > prevLevel %}
-            {% if prevLevel != 0 %}
-                {% assign indent = indent | append: "</ul>" %}
+    <ul>
+        {% assign prevLevel = 0 %}
+        {% for node in headerNodes %}
+            {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
+            {% if level > prevLevel %}
+                {% if prevLevel != 0 %}
+                    {% if prevLevel == 1 %}</li></ul>{% else %}</li>{% endif %}
+                {% endif %}
+                {% if level == 1 %}<li>{% else %}<ul><li>{% endif %}
+            {% elsif level < prevLevel %}
+                {% if prevLevel == 1 %}</li></ul>{% else %}</li></ul>{% endif %}
+                {% assign diff = prevLevel | minus: level %}
+                {% for i in (1..diff) %}
+                    </ul></li>
+                {% endfor %}
+                <li>
+            {% else %}
+                {% if forloop.index != 1 %}</li>{% endif %}
+                <li>
             {% endif %}
-            {% assign indent = indent | append: "<ul><li>" %}
-        {% elsif level < prevLevel %}
-            {% assign indent = indent | remove: "</li></ul>" %}
-            {% assign indent = indent | remove: "</ul>" %}
-            {% assign indent = indent | append: "</li></ul><li>" %}
-        {% else %}
-            {% if forloop.index != 1 %}
-                {% assign indent = indent | append: "</li><li>" %}
-            {% endif %}
-        {% endif %}
-    
-        {% assign prevLevel = level %}
-    
-        {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
-    {% endfor %}
-    
-    {% assign indent = indent | append: "</li></ul>" %}
-    {{ indent }}
-    
+            
+            <a href="#{{ node.id }}" onclick="smoothScroll('#{{ node.id }}')">{{ node.innerHTML }}</a>
+        
+            {% assign prevLevel = level %}
+        {% endfor %}
+        
+        {% if prevLevel == 1 %}</li></ul>{% else %}</li></ul></li></ul>{% endif %}
+        </ul>
+        
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
