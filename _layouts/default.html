@@ -99,13 +99,14 @@
 		const element = document.querySelector(target);
 		const section = document.querySelector('.main.post-article');
 
-		if (element) {
-			element.scrollIntoView({
+		if (element && section) {
+			section.scrollTo({
+			top: element.offsetTop,
 			behavior: 'smooth'
-			});	
+			});
 		}
 		}
-		
+
 
 		//scrollTop
 		document.querySelector('.btn-top').addEventListener('click', function() {
