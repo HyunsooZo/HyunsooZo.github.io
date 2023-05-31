@@ -11,18 +11,18 @@ order: 5
 
 추후 작성예정
 
-### Features/Tools I've used
+### Project Tech Stack
 
 <div class="content-box">
 
 </div>
 
-### Challenges i've faced.
+### Challenges Faced
 
 추후 작성예정
 
-### Things need to be complemented
+### Areas for Improvement   
 
-### Lessons
+### Lessons Learned
 
 추후 작성예정

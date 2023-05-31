@@ -11,7 +11,7 @@ order: 4
 
 추후 작성예정
 
-### Features/Tools I've used
+### Project Tech Stack
 
 <div class="content-box">
 - JPA 활용<br>
@@ -22,12 +22,12 @@ order: 4
 - 계좌,거래관련 API 생성 및 사용
 </div>
 
-### Challenges i've faced.
+### Challenges Faced
 
 추후 작성예정
 
-### Things need to be complemented
+### Areas for Improvement   
 
-### Lessons
+### Lessons Learned
 
 추후 작성예정

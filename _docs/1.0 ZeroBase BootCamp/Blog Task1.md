@@ -4,7 +4,7 @@ category: ZeroBase BootCamp
 order: 1
 ---
 
-### Why Backend Developer? 
+### Why Backend Developer
 
 **프로그래밍에 입문하기까지**
 

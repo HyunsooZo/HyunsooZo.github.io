@@ -3,7 +3,7 @@ title: JSP(1)-Public Wifi List
 category: ZeroBase BootCamp
 order: 3
 ---
-### Demo Video & Repository
+### Repository and Demo Video
 
 [**[Demo Video Link]**](https://vimeo.com/823358509?share=copy)
 
@@ -13,7 +13,7 @@ order: 3
 
 추후 작성예정
 
-### Features/Tools I've used
+### Project Tech Stack
 
 <div class="content-box">
 - JSP/Servlet 사용<br>
