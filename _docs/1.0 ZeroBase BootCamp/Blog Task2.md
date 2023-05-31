@@ -246,5 +246,3 @@ public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) 
 <div class="content-box">
 13장: 서비스의 인증과 권한 부여
 </div>
-
-### 리딩 테스트
