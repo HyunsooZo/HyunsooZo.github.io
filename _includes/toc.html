@@ -222,12 +222,14 @@
         {% if level > prevLevel %}
             {% if level - prevLevel == 1 %}
                 {% if prevLevel != 0 %}
-                    <ul>
+                    </ul>
                 {% endif %}
+                <ul>
             {% else %}
                 {% for i in (1..(level - prevLevel - 1)) %}
-                    <ul>
+                    </ul>
                 {% endfor %}
+                <ul>
             {% endif %}
         {% elsif level < prevLevel %}
             {% for i in (1..(prevLevel - level)) %}
@@ -245,5 +247,6 @@
     {% for i in (1..prevLevel) %}
         </ul>
     {% endfor %}
+    
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
