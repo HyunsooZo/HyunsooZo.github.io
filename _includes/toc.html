@@ -41,18 +41,18 @@
 
     // Smooth scrolling function
     function smoothScroll(target) {
-    const element = document.querySelector(target);
+  const element = document.querySelector(target);
 
-    if (element) {
-        var section = document.querySelector('.main.post-article');
-        var topOffset = element.offsetTop - section.offsetTop;
+  if (element) {
+    var section = document.querySelector('.main.post-article');
+    var topOffset = element.offsetTop - section.offsetTop;
 
-        section.scrollTo(
-        top: topOffset,
-        behavior: 'smooth'
-        });
-    }
-    }
+    section.scrollTo({
+      top: topOffset,
+      behavior: 'smooth'
+    });
+  }
+}
 </script>
 
 
