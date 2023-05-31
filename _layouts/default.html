@@ -94,11 +94,10 @@
 		</div>			
 
 		<script>
-
 		const section = document.querySelector('.main.post-article');
 		var before = null;
 
-		//노드찾기 함수
+		// 노드 찾기 함수
 		function findActiveNode() {
 		var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
 		var activeNodeId = "";
@@ -119,20 +118,18 @@
 		return activeNodeId;
 		}
 
-		// 스크롤 이벤트 핸들러 등록
-		section.addEventListener("scroll", handleScroll);
-		var before = null; // 전역 변수로 선언
-
 		function handleScroll() {
 		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
 		if (before.getAttribute("href") !== "#" + activeNode) {
 			activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
 		}
 		}
-		
+
+		// 스크롤 이벤트 핸들러 등록
+		section.addEventListener("scroll", handleScroll);
+
 		function activateTOCNode(nodeId) {
 		var tocLinks = document.querySelectorAll(".toc a");
-
 
 		// 해당 nodeId에 해당하는 토글 요소를 활성화
 		for (var i = 0; i < tocLinks.length; i++) {
@@ -145,13 +142,11 @@
 		}
 		}
 
-		//
 		function deactivateTOCNode() {
-		if(before !== null){
+		if (before !== null) {
 			before.classList.remove("toc-active");
 		}
 		}
-		
 		//smooth scroll
 		function smoothScroll(target) {
 		event.preventDefault();
