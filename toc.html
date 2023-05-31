@@ -25,12 +25,12 @@
   });
   return headerNodes;
 }
-
+  const section = document.querySelector('.main.post-article');
   var title = document.getElementsByClassName("post-title")[0];
-  var titleY = window.pageYOffset + title.getBoundingClientRect().top;
+  var titleY = section.pageYOffset + title.getBoundingClientRect().top;
 
   var article = document.getElementsByClassName("post-article")[0];
-  var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+  var articleY = section.pageYOffset + article.getBoundingClientRect().top;
 
   var toc = document.getElementsByClassName("toc")[0];
 
@@ -38,16 +38,22 @@
   var tocNodes = getTOCNodes(toc);
 
   var before = undefined;
+  
+  function activateTOCNode(nodeId) {
+    var tocLinks = document.querySelectorAll(".toc a");
 
-  // Smooth scrolling function
-  function smoothScroll(target) {
-    const element = document.querySelector(target);
+    // 이전에 활성화된 링크가 있다면 비활성화
+    if (before) {
+      before.classList.remove("active");
+    }
 
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop,
-        behavior: "smooth"
-      });
+    // 해당 nodeId에 해당하는 톡 요소를 활성화
+    for (var i = 0; i < tocLinks.length; i++) {
+      if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
+        tocLinks[i].classList.add("active");
+        before = tocLinks[i];
+        break;
+      }
     }
   }
 </script>

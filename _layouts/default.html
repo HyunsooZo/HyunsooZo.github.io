@@ -92,40 +92,26 @@
 		</div>			
 
 		<script>
-		//톡 활성화
-		function activateTOC() {
-    var tocLinks = document.querySelectorAll(".toc a"); // TOC 항목 링크 선택
+		  function activateTOCNode(nodeId) {
+			var tocLinks = document.querySelectorAll(".toc a");
 
-    // 스크롤 이벤트 처리
-    window.addEventListener("scroll", function () {
-      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+			// 이전에 활성화된 링크가 있다면 비활성화
+			if (before) {
+			before.classList.remove("active");
+			}
 
-      // TOC 항목 순회
-      tocLinks.forEach(function (link) {
-        var sectionId = link.getAttribute("href").substring(1); // 링크의 대상 섹션 ID 가져오기
-        var section = document.getElementById(sectionId); // 대상 섹션 요소 선택
+			// 해당 nodeId에 해당하는 톡 요소를 활성화
+			for (var i = 0; i < tocLinks.length; i++) {
+			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
+				tocLinks[i].classList.add("active");
+				before = tocLinks[i];
+				break;
+			}
+			}
+		}
 
-        if (section) {
-          var sectionTop = section.offsetTop; // 대상 섹션의 위쪽 위치
-
-          if (scrollPosition >= sectionTop) {
-            // 스크롤 위치와 대상 섹션 위치 비교
-            tocLinks.forEach(function (link) {
-              link.classList.remove("active"); // 모든 TOC 항목 비활성화
-            });
-            link.classList.add("active"); // 현재 섹션에 해당하는 TOC 항목 활성화
-          }
-        }
-      });
-    });
-  }
-
-  // 페이지 로드 시 TOC 활성화
-  document.addEventListener("DOMContentLoaded", function () {
-    activateTOC();
-  });
-
-		//스무스 스크롤
+		
+		//smooth scroll
 		function smoothScroll(target) {
 		console.log('Target:', target);
 		const element = document.querySelector(target);
