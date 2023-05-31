@@ -127,8 +127,8 @@
 		section.addEventListener("scroll", handleScroll);
 		
 		
-		function deactivateTOCNode() {
-		if (before.getAttribute("href")!== "#" + nodeId && before !== null) {
+		function deactivateTOCNode(Id) {
+		if (Id  !== before && before !== null) {
 			before.classList.remove("toc-active");
 		}
 		}
@@ -141,7 +141,7 @@
 		for (var i = 0; i < tocLinks.length; i++) {
 			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
 			tocLinks[i].classList.add("toc-active");
-			deactivateTOCNode();
+			deactivateTOCNode(tocLinks[i].getAttribute("href"));
 			before = tocLinks[i];
 			break;
 			}
