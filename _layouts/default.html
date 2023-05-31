@@ -136,20 +136,12 @@
 		for (var i = 0; i < tocLinks.length; i++) {
 			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
 			tocLinks[i].classList.add("toc-active");
-			deactivateTOCNode(before);
+			before.classList.remove("toc-active");
 			before = tocLinks[i];
 			break;
 			}
 		}
 		}
-
-		// 이전에 활성화된 링크를 비활성화
-		function deactivateTOCNode(nodeId) {
-		
-			before.classList.remove("toc-active");
-		
-		}
-
 		
 		//smooth scroll
 		function smoothScroll(target) {
