@@ -110,7 +110,7 @@ function findActiveNode() {
   for (var i = headers.length - 1; i >= 0; i--) {
     var header = headers[i];
     var rect = header.getBoundingClientRect();
-    if (rect.top <= 300 && rect.bottom >= -600){
+    if (rect.top <= 300 && rect.bottom >= -700){
       activeNodeId = header.id;
       break;
     }
