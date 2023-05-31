@@ -240,8 +240,8 @@
             
             {% assign prevLevel = level %}
             
-            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
-        {% endfor %}
+            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#" | append: node.id | append: "')\">{{ node.innerHTML }}</a>" %}
+            {% endfor %}
         
         {% if prevLevel != 0 %}
             {% for i in (1..prevLevel) %}
