@@ -121,6 +121,7 @@
 
 		// 스크롤 이벤트 핸들러 등록
 		section.addEventListener("scroll", handleScroll);
+		var before = null; // 전역 변수로 선언
 
 		function handleScroll() {
 		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
@@ -130,7 +131,7 @@
 		}
 		}
 
-		var before = null; // 전역 변수로 선언
+		
 
 		function activateTOCNode(nodeId) {
 		var tocLinks = document.querySelectorAll(".toc a");
