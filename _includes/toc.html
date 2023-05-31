@@ -184,9 +184,7 @@
         {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
 
         {% if htmlID %}
-        {% capture anchorAttributes %} href="javascript:;"
-
-        <!-- "{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %} -->
+        {% capture anchorAttributes %} href="javascript:;"{% endcapture %}
 
         {% if include.anchor_class %}
             {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
