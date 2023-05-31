@@ -125,7 +125,9 @@
 
 		function handleScroll() {
 		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
-		activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
+		if(before === "#" + activeNode){
+			activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
+		}
 		}
 		
 		function activateTOCNode(nodeId) {
@@ -134,7 +136,7 @@
 
 		// 해당 nodeId에 해당하는 토글 요소를 활성화
 		for (var i = 0; i < tocLinks.length; i++) {
-			if (before!==tocLinks[i].getAttribute("href") &&tocLinks[i].getAttribute("href") === "#" + nodeId) {
+			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
 			tocLinks[i].classList.add("toc-active");
 			deactivateTOCNode();
 			before = tocLinks[i];
@@ -162,10 +164,7 @@
 			top: element.offsetTop +50,
 			behavior: 'smooth'
 			});
-			var tocLinks = document.querySelectorAll(".toc a");
-		tocLinks[i].classList.add("toc-active");
-			deactivateTOCNode();
-			before = tocLinks[i];
+			
 		}
 		
 		}
