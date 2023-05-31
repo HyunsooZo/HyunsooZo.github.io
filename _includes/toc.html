@@ -216,29 +216,35 @@
         {% assign firstHeader = false %}
     {% endfor %}
 
-    {% assign repeatCount = minHeader | minus: 1 %}
-    {% assign repeatCount = lastLevel | minus: repeatCount %}
-    {% for i in (1..repeatCount) %}
-        {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}>{{ newline }}{% endcapture %}
-    {% endfor %}
-    
-    {% if jekyll_toc != '' %}
-        {% assign rootAttributes = '' %}
-        {% if include.class and include.class != blank %}
-            {% capture rootAttributes %} class="{{ include.class | split: '.' | join: ' ' }}"{% endcapture %}
+    {% assign headerLevels = headers | map: 'level' %}
+{% assign minLevel = headerLevels | min %}
+{% assign maxLevel = headerLevels | max %}
+
+{% for i in (minLevel..maxLevel) %}
+    {% assign levelHeaders = headers | where: 'level', i %}
+    {% if levelHeaders.size > 0 %}
+        {% if i > minLevel %}
+            </ul>
         {% endif %}
-    
-        {% if include.id and include.id != blank %}
-            {% capture rootAttributes %}{{ rootAttributes }} id="{{ include.id }}"{% endcapture %}
-        {% endif %}
-    
-        {% if rootAttributes %}
-            {% assign nodes = jekyll_toc | split: '>' %}
-            {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}{% endcapture %}
-        {% endif %}
-    
-        {% assign jekyll_toc = jekyll_toc | append: '</{{ listModifier }}>' %}
+        {% for header in levelHeaders %}
+            {% if i == minLevel %}
+                <ul>
+            {% endif %}
+            
+            <!-- 목차 항목 생성 -->
+            
+            {% if i < maxLevel %}
+                {% assign nextLevelHeaders = headers | where: 'level', (i + 1) %}
+                {% if nextLevelHeaders.size > 0 %}
+                    <ul>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% for j in (minLevel..(i-1)) reversed %}
+            </ul>
+        {% endfor %}
     {% endif %}
+{% endfor %}
     
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
