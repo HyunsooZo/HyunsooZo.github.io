@@ -162,7 +162,12 @@
 			top: element.offsetTop +50,
 			behavior: 'smooth'
 			});
+			var tocLinks = document.querySelectorAll(".toc a");
+		tocLinks[i].classList.add("toc-active");
+			deactivateTOCNode();
+			before = tocLinks[i];
 		}
+		
 		}
 
 		//scrollTop
