@@ -222,13 +222,13 @@
     {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
     {% if level > prevLevel %}
         {% if prevLevel != 0 %}
-            {% assign indent = indent | append: "</li></ul>" %}
+            {% assign indent = indent | append: "</ul></li>" %}
         {% endif %}
         {% assign indent = indent | append: "<ul><li>" %}
     {% elsif level < prevLevel %}
-        {% assign indent = indent | remove: "</li></ul>" %}
+        {% assign indent = indent | remove: "</ul></li>" %}
         {% assign indent = indent | remove: "</ul>" %}
-        {% assign indent = indent | append: "</li></ul><li>" %}
+        {% assign indent = indent | append: "</ul></li><li>" %}
     {% else %}
         {% if forloop.index != 1 %}
             {% assign indent = indent | append: "</li><li>" %}
