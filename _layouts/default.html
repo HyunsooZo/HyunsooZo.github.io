@@ -136,19 +136,22 @@
 		for (var i = 0; i < tocLinks.length; i++) {
 			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
 			tocLinks[i].classList.add("toc-active");
-			deactivateTOCNode(before);
-			before = tocLinks[i];
+			if(i!==0){
+				tocLinks[i-1].classList.remove("toc-active");
+			}
+			// deactivateTOCNode(before);
+			// before = tocLinks[i];
 			break;
 			}
 		}
 		}
 
-		// 이전에 활성화된 링크를 비활성화
-		function deactivateTOCNode(nodeId) {
-		if (before !== null) {
-			before.classList.remove("toc-active");
-		}
-		}
+		// // 이전에 활성화된 링크를 비활성화
+		// function deactivateTOCNode(nodeId) {
+		// if (before !== null) {
+		// 	before.classList.remove("toc-active");
+		// }
+		// }
 
 		
 		//smooth scroll
