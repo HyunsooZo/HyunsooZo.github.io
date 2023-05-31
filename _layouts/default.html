@@ -92,6 +92,16 @@
 		</div>			
 
 		<script>
+		// 스크롤 이벤트 핸들러 등록
+		window.addEventListener("scroll", handleScroll);
+
+		function handleScroll() {
+		// 여기에 스크롤 이벤트 발생 시 호출할 함수를 넣으시면 됩니다.
+		// 예시로 activateTOCNode 함수를 호출하도록 설정합니다.
+		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
+		activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
+		}
+
 		function activateTOCNode(nodeId) {
 		var tocLinks = document.querySelectorAll(".toc a");
 
@@ -110,6 +120,23 @@
 			break;
 			}
 		}
+		}
+
+		// 활성 노드를 찾는 함수 예시 (참고용)
+		function findActiveNode() {
+		// 스크롤 위치에 따라 활성 노드를 결정하는 로직을 작성하세요.
+		// 예시로 현재 보여지고 있는 섹션의 id를 반환하도록 설정합니다.
+		var sections = document.querySelectorAll("section");
+		var activeNodeId = "";
+		for (var i = 0; i < sections.length; i++) {
+			var section = sections[i];
+			var rect = section.getBoundingClientRect();
+			if (rect.top <= 0 && rect.bottom >= 0) {
+			activeNodeId = section.id;
+			break;
+			}
+		}
+		return activeNodeId;
 		}
 
 		
