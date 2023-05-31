@@ -216,35 +216,34 @@
         {% assign firstHeader = false %}
     {% endfor %}
 
-    {% assign headerLevels = headers | map: 'level' %}
-{% assign minLevel = headerLevels | min %}
-{% assign maxLevel = headerLevels | max %}
-
-{% for i in (minLevel..maxLevel) %}
-    {% assign levelHeaders = headers | where: 'level', i %}
-    {% if levelHeaders.size > 0 %}
-        {% if i > minLevel %}
-            </ul>
-        {% endif %}
-        {% for header in levelHeaders %}
-            {% if i == minLevel %}
-                <ul>
-            {% endif %}
-            
-            <!-- 목차 항목 생성 -->
-            
-            {% if i < maxLevel %}
-                {% assign nextLevelHeaders = headers | where: 'level', (i + 1) %}
-                {% if nextLevelHeaders.size > 0 %}
+    {% assign prevLevel = 0 %}
+    {% for node in headerNodes %}
+        {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
+        {% if level > prevLevel %}
+            {% if level - prevLevel == 1 %}
+                {% if prevLevel != 0 %}
                     <ul>
                 {% endif %}
+            {% else %}
+                {% for i in (1..(level - prevLevel - 1)) %}
+                    <ul>
+                {% endfor %}
             {% endif %}
-        {% endfor %}
-        {% for j in (minLevel..(i-1)) reversed %}
-            </ul>
-        {% endfor %}
-    {% endif %}
-{% endfor %}
+        {% elsif level < prevLevel %}
+            {% for i in (1..(prevLevel - level)) %}
+                </ul>
+            {% endfor %}
+        {% endif %}
     
+        <li>
+            <a href="#{{ node.id }}" onclick="smoothScroll('#{{ node.id }}')">{{ node.innerHTML }}</a>
+        </li>
+    
+        {% assign prevLevel = level %}
+    {% endfor %}
+    
+    {% for i in (1..prevLevel) %}
+        </ul>
+    {% endfor %}
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
