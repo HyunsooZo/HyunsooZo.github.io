@@ -42,18 +42,19 @@
 
     // Smooth scrolling function
     function smoothScroll(target) {
-  const element = document.querySelector(target);
+    const element = document.querySelector(target);
 
-  if (element) {
+if (element) {
     var section = document.querySelector('.main.post-article');
     var topOffset = element.offsetTop - section.offsetTop;
 
     section.scrollTo({
-      top: topOffset,
-      behavior: 'smooth'
+    top: topOffset,
+    behavior: 'smooth'
     });
-  }
 }
+}
+
 </script>
 
 
@@ -240,7 +241,7 @@
             
             {% assign prevLevel = level %}
             
-            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#" | append: node.id | append: "')\">{{ node.innerHTML }}</a>" %}
+            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" class=\"{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
             {% endfor %}
         
         {% if prevLevel != 0 %}
