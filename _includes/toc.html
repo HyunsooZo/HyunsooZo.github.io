@@ -184,13 +184,13 @@
         {% capture anchorBody %}{% if include.sanitize %}{{ header | strip_html }}{% else %}{{ header }}{% endif %}{% endcapture %}
 
         {% if htmlID %}
-        {% capture anchorAttributes %} href="{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %}
+        {% capture anchorAttributes %} href="<!--{% if baseURL %}{{ baseURL }}{% endif %} #{{ htmlID }}-->"<!--{% endcapture %}-->
 
         {% if include.anchor_class %}
             {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
         {% endif %}
 
-        {% capture listItem %}<a{{ anchorAttributes }} onclick="smoothScroll('#{{ htmlID }}')">{{ anchorBody }}</a>{% endcapture %}
+        {% capture listItem %}<a{{ anchorAttributes }}>{{ anchorBody }}</a>{% endcapture %}
         {% elsif skipNoIDs == true %}
             {% continue %}
         {% else %}
@@ -241,8 +241,9 @@
             
             {% assign prevLevel = level %}
             
-            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
+            {% assign indent = indent | append: "<a href=\"" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
             {% endfor %}
+            <!-- #{{ node.id }}\ -->
         
         {% if prevLevel != 0 %}
             {% for i in (1..prevLevel) %}
