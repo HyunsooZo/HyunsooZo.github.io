@@ -125,14 +125,9 @@
 
 		function handleScroll() {
 		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
-		if(before!== activeNode){
-			before.classList.remove("toc-active");
-			activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
+		activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
 		}
-		}
-
 		
-
 		function activateTOCNode(nodeId) {
 		var tocLinks = document.querySelectorAll(".toc a");
 
