@@ -100,10 +100,9 @@
 		const section = document.querySelector('.main.post-article');
 
 		if (element) {
-			section.scrollTo({
-			top: element.offsetTop,
+			element.scrollIntoView({
 			behavior: 'smooth'
-			});
+			});	
 		}
 		}
 		
