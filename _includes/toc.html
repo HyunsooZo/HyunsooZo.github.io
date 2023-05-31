@@ -34,7 +34,8 @@
 
   var toc = document.getElementsByClassName("toc")[0];
 
-  var headerNodes = getHeaderNodes(article);
+  var headerNodes = getAllHeaderNodes(article); // 수정된 부분
+
   var tocNodes = getTOCNodes(toc);
 
   var before = undefined;
