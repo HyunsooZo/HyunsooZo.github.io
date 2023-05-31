@@ -97,15 +97,15 @@
 
 		// 이전에 활성화된 링크가 있다면 비활성화
 		if (before) {
-			before.classList.remove("active");
-			before.style.cursor = "";
+			before.classList.remove("toc-active");
+			// before.style.cursor = "";
 		}
 
 		// 해당 nodeId에 해당하는 톡 요소를 활성화
 		for (var i = 0; i < tocLinks.length; i++) {
 			if (tocLinks[i].getAttribute("href") === "#" + nodeId) {
-			tocLinks[i].classList.add("active");
-			tocLinks[i].style.cursor = "pointer";
+			tocLinks[i].classList.add("toc-active");
+			// tocLinks[i].style.cursor = "pointer";
 			before = tocLinks[i];
 			break;
 			}
