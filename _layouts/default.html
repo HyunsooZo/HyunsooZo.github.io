@@ -149,6 +149,7 @@
 		
 		//smooth scroll
 		function smoothScroll(target) {
+		event.preventDefault();
 		console.log('Target:', target);
 		const element = document.querySelector(target);
 		const section = document.querySelector('.main.post-article');
