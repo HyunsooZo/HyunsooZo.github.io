@@ -220,17 +220,9 @@
     {% for node in headerNodes %}
         {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
         {% if level > prevLevel %}
-            {% if level - prevLevel == 1 %}
-                {% if prevLevel != 0 %}
-                    </ul>
-                {% endif %}
+            {% for i in (1..(level - prevLevel)) %}
                 <ul>
-            {% else %}
-                {% for i in (1..(level - prevLevel - 1)) %}
-                    </ul>
-                {% endfor %}
-                <ul>
-            {% endif %}
+            {% endfor %}
         {% elsif level < prevLevel %}
             {% for i in (1..(prevLevel - level)) %}
                 </ul>
@@ -247,6 +239,7 @@
     {% for i in (1..prevLevel) %}
         </ul>
     {% endfor %}
+    
     
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
