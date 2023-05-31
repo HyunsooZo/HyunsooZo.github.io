@@ -94,7 +94,7 @@
 		<script>
 
 		const section = document.querySelector('.main.post-article');
-		var before;
+		var before = null;
 
 		//노드찾기 함수
 		function findActiveNode() {
@@ -130,7 +130,7 @@
 		var tocLinks = document.querySelectorAll(".toc a");
 
 		// 이전에 활성화된 링크가 있다면 비활성화
-		if (before) {
+		if (before !== null) {
 			before.classList.remove("toc-active");
 			// before.style.cursor = "";
 		}
