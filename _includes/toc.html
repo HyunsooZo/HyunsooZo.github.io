@@ -186,8 +186,6 @@
         {% if htmlID %}
         {% capture anchorAttributes %} href="javascript:;"
 
-        <!-- "{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %} -->
-
         {% if include.anchor_class %}
             {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
         {% endif %}
