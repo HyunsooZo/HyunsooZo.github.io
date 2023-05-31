@@ -92,6 +92,21 @@
 		</div>			
 
 		<script>
+
+		
+		function smoothScroll(target) {
+		const element = document.querySelector(target);
+		const section = document.querySelector('.main.post-article');
+
+		if (element) {
+			section.scrollTo({
+			top: element.offsetTop,
+			behavior: 'smooth'
+			});
+		}
+		}
+		
+
 		//scrollTop
 		document.querySelector('.btn-top').addEventListener('click', function() {
 			var section = document.querySelector('.main.post-article');
