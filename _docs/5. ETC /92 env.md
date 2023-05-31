@@ -1,10 +1,34 @@
 ---
-title: Docker
+title: Environment Settings
 category: Et Cetera
 order: 11
 ---
 
-### Docker?
+### Sdkman
+
+##### sdkman 설치
+```bash
+$curl -s "https://get.sdkman.io" |bash
+```
+##### sdkman 초기화
+```bash
+$source ~/.sdkman/bin/sdkman-init.sh
+```
+##### sdkman를 통한 환경설정
+```bash
+$sdk version               ## sdkman 버전확인
+
+$sdk list java             ## 자바 버전 리스트조회
+$sdk install 11.0.17-zulu  ## 원하는 버전의 자바 설치
+$sdk use java 11.0.17-zulu ## 디폴트 버전으로 설정
+
+$sdk list gradle           ## 그래들 버전 리스트 조회
+$sdk install gradle 7.3.1  ## 원하는 버전의 그래들 설치
+$sdk use gradle 7.3.1      ## 디폴트 버전으로 설정
+
+```
+
+### Docker
 
 Docker는 컨테이너화된 애플리케이션을 관리하기 위한 오픈 소스 플랫폼. 
 
@@ -32,7 +56,7 @@ Docker는 컨테이너화된 애플리케이션을 관리하기 위한 오픈 �
 도커이미지를 저장하고 다운로드 할 수 있는 저장수 
 </div>
 
-### Docker에서 자주 쓰는 명령어
+##### Docker에서 자주 쓰는 명령어
 
 |Command|Description|
 |--|--|
@@ -49,7 +73,7 @@ Docker는 컨테이너화된 애플리케이션을 관리하기 위한 오픈 �
 |$docker logs CONTAINER|컨테이너 로그 확인|
 
 
-### 사용예시 (mySql)
+##### 사용예시 (mySql)
 `docker image pull mysql` : mysql 이미지 불러오기
 ```bash
 hyunsoojo@HYUNSOOui-MacBook-Pro:~$docker image pull mysql
