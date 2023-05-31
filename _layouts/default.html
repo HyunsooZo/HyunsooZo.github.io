@@ -120,7 +120,7 @@
 
 		function handleScroll() {
 		var activeNode = findActiveNode(); // 활성 노드를 찾는 함수 예시
-			activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
+		activateTOCNode(activeNode); // 활성 노드를 갱신하는 함수 호출
 		}
 
 		// 스크롤 이벤트 핸들러 등록
@@ -128,7 +128,7 @@
 		
 		
 		function deactivateTOCNode() {
-		if (before.getAttribute("href")!== tocLinks[i].getAttribute("href") && before !== null) {
+		if (before.getAttribute("href")!== "#" + nodeId && before !== null) {
 			before.classList.remove("toc-active");
 		}
 		}
