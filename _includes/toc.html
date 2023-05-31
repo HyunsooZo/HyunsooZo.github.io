@@ -203,21 +203,20 @@
             {% assign repeatCount = lastLevel | minus: currLevel %}
 
             {% for i in (1..repeatCount) %}
-                {% capture jekyll_toc %}{{ jekyll_toc }}</li></{{ listModifier }}>{% endcapture %}
+                {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui></{{ listModifier }}>{% endcapture %}
             {% endfor %}
 
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
+            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui>{% endcapture %}
         {% else %}
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li>{% endcapture %}
+            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui>{% endcapture %}
         {% endif %}
 
-        {% capture jekyll_toc %}{{ jekyll_toc }}<li{{ listItemClass }}>{{ listItem }}{% endcapture %}
+        {% capture jekyll_toc %}{{ jekyll_toc }}<ui><li{{ listItemClass }}>{{ listItem }}{% endcapture %}
 
         {% assign lastLevel = currLevel %}
         {% assign firstHeader = false %}
     {% endfor %}
 
-    <ul>
         {% assign prevLevel = 0 %}
         {% assign indent = "" %}
         {% for node in headerNodes %}
@@ -251,6 +250,6 @@
         {% endif %}
         
         {{ indent }}
-        </ul>
+
         
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
