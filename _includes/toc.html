@@ -217,34 +217,32 @@
     {% endfor %}
 
     {% assign prevLevel = 0 %}
+    {% assign indent = "" %}
     {% for node in headerNodes %}
         {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
         {% if level > prevLevel %}
-            {% for i in (1..(level - prevLevel)) %}
-                <ul>
-            {% endfor %}
+            {% assign indent = indent | append: "<ul>" %}
         {% elsif level < prevLevel %}
-            {% for i in (1..(prevLevel - level)) %}
-                </li></ul>
-            {% endfor %}
-            </li>
+            {% assign indent = indent | remove: "</li></ul>" %}
+            {% assign indent = indent | remove: "</ul>" %}
+            {% assign indent = indent | append: "</li></ul>" %}
         {% else %}
-            </li>
+            {% if forloop.index != 1 %}
+                {% assign indent = indent | append: "</li>" %}
+            {% endif %}
         {% endif %}
     
-        <li>
+        {% assign indent = indent | append: "<li>" %}
+        {% assign prevLevel = level %}
+    
+        {{ indent }}
             <a href="#{{ node.id }}" onclick="smoothScroll('#{{ node.id }}')">{{ node.innerHTML }}</a>
         </li>
-    
-        {% assign prevLevel = level %}
     {% endfor %}
     
-    {% for i in (1..prevLevel) %}
-        </li></ul>
-    {% endfor %}
-    
-
-    
+    {% assign indent = indent | remove: "</li></ul>" %}
+    {% assign indent = indent | remove: "</ul>" %}
+    {{ indent }}
     
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
