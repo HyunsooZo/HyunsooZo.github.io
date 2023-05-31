@@ -40,6 +40,21 @@
 
   var before = undefined;
 
+    // Smooth scrolling function
+//     function smoothScroll(target) {
+//     var element = document.querySelector(target);
+//     var section = document.querySelector('.main.post-article');
+
+//     if (element) {
+//     var topOffset = element.offsetTop - section.offsetTop;
+
+//     section.scrollTo({
+//     top: element.offsetTop,
+//     behavior: 'smooth'
+//     });
+// }   
+// }
+
 </script>
 
 
@@ -171,14 +186,14 @@
         {% if htmlID %}
         {% capture anchorAttributes %} href="javascript:;"
 
-      
+        <!-- "{% if baseURL %}{{ baseURL }}{% endif %}#{{ htmlID }}"{% endcapture %} -->
 
         {% if include.anchor_class %}
             {% capture anchorAttributes %}{{ anchorAttributes }} class="{{ include.anchor_class | split: '.' | join: ' ' }}"{% endcapture %}
         {% endif %}
 
         {% capture listItem %}<a{{ anchorAttributes }} onclick="smoothScroll('#{{ htmlID }}')">{{ anchorBody }}</a>{% endcapture %}
-        {% elseif skipNoIDs == true %}
+        {% elsif skipNoIDs == true %}
             {% continue %}
         {% else %}
             {% capture listItem %}{{ anchorBody }}{% endcapture %}
@@ -187,7 +202,7 @@
 
         {% if currLevel > lastLevel %}
             {% capture jekyll_toc %}{{ jekyll_toc }}<{{ listModifier }}{{ subMenuClass }}>{% endcapture %}
-        {% elseif currLevel < lastLevel %}
+        {% elsif currLevel < lastLevel %}
             {% assign repeatCount = lastLevel | minus: currLevel %}
 
             {% for i in (1..repeatCount) %}
@@ -214,7 +229,7 @@
                     {% assign indent = indent | append: "</ul>" %}
                 {% endif %}
                 {% assign indent = indent | append: "<ul><li>" %}
-            {% elseif level < prevLevel %}
+            {% elsif level < prevLevel %}
                 {% assign diff = prevLevel | minus: level %}
                 {% for i in (1..diff) %}
                     {% assign indent = indent | append: "</li></ul>" %}
@@ -230,7 +245,7 @@
             
             {% assign indent = indent | append: "<a href=\"javascript:;" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
             {% endfor %}
-           
+            <!-- #{{ node.id }}\ -->
         {% if prevLevel != 0 %}
             {% for i in (1..prevLevel) %}
                 {% assign indent = indent | append: "</li></ul>" %}
