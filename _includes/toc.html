@@ -216,7 +216,7 @@
         {% assign firstHeader = false %}
     {% endfor %}
 
-        {% assign prevLevel = 0 %}
+    {% assign prevLevel = 0 %}
     {% for node in headerNodes %}
         {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
         {% if level > prevLevel %}
@@ -229,19 +229,20 @@
             {% endfor %}
             </li>
         {% else %}
-            {% if prevLevel != 0 %}</li>{% endif %}
+            </li>
         {% endif %}
-
+    
         <li>
             <a href="#{{ node.id }}" onclick="smoothScroll('#{{ node.id }}')">{{ node.innerHTML }}</a>
         </li>
-
+    
         {% assign prevLevel = level %}
     {% endfor %}
-
+    
     {% for i in (1..prevLevel) %}
         </li></ul>
     {% endfor %}
+    
 
     
     
