@@ -5,7 +5,7 @@ order: 2
 ---
 > 제로베이스 백엔드 부트캠프 - 북스터디 (마스터반)
 
-### 1주차
+### 리딩 1주차
 
 01장: 스프링 부트란?<br>
 02장: 개발에 앞서 알면 좋은 기초 지식<br>
@@ -46,7 +46,7 @@ order: 2
 정리해보면, 이번 1,2,3 장에서 가장 중요한 내용은 <span class="emphasis">DI(의존성 주입)</span>이라고 생각한다. <br>
 DI를 통해 객체는 직접 의존하는 객체를 생성하거나 관리하지 않고, 의존성을 가진 객체를 주입받아 사용하고, Spring에서는 이를 통해 코드의 결합도를 낮추고 유연성과 확장성을 향상시킬 수 있다.
 
-### 2주차
+### 리딩 2주차
 
 04장: 스프링 부트 애플리케이션 개발하기<br>
 05장: API를 작성하는 다양한 방법
@@ -210,41 +210,41 @@ public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) 
 }
 ```
 
-### 3주차
+### 리딩 3주차
 
 <div class="content-box">
 06장: 데이터베이스 연동
 </div>
 
-### 4주차
+### 리딩 4주차
 
 <div class="content-box">
 8장: Spring Data JPA 활용
 </div>
 
-### 5주차
+### 리딩 5주차
 
 <div class="content-box">
 09장: 연관관계 매핑
 </div>
 
-### 6주차
+### 리딩 6주차
 
 <div class="content-box">
 10장: 유효성 검사와 예외 처리
 </div>
 
-### 7주차
+### 리딩 7주차
 
 <div class="content-box">
 11장: 액추에이터 활용하기 <br> 
 12장: 서버 간 통신
 </div>
 
-### 8주차
+### 리딩 8주차
 
 <div class="content-box">
 13장: 서비스의 인증과 권한 부여
 </div>
 
-### 테스트
+### 리딩 테스트
