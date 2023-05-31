@@ -218,32 +218,38 @@
 
     <ul>
         {% assign prevLevel = 0 %}
+        {% assign indent = "" %}
         {% for node in headerNodes %}
             {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
             {% if level > prevLevel %}
                 {% if prevLevel != 0 %}
-                    {% if prevLevel == 1 %}</li></ul>{% else %}</li>{% endif %}
+                    {% assign indent = indent | append: "</ul>" %}
                 {% endif %}
-                {% if level == 1 %}<li>{% else %}<ul><li>{% endif %}
+                {% assign indent = indent | append: "<ul><li>" %}
             {% elsif level < prevLevel %}
-                {% if prevLevel == 1 %}</li></ul>{% else %}</li></ul>{% endif %}
                 {% assign diff = prevLevel | minus: level %}
                 {% for i in (1..diff) %}
-                    </ul></li>
+                    {% assign indent = indent | append: "</li></ul>" %}
                 {% endfor %}
-                <li>
+                {% assign indent = indent | append: "</li><li>" %}
             {% else %}
-                {% if forloop.index != 1 %}</li>{% endif %}
-                <li>
+                {% if forloop.index != 1 %}
+                    {% assign indent = indent | append: "</li><li>" %}
+                {% endif %}
             {% endif %}
             
-            <a href="#{{ node.id }}" onclick="smoothScroll('#{{ node.id }}')">{{ node.innerHTML }}</a>
-        
             {% assign prevLevel = level %}
+            
+            {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
         {% endfor %}
         
-        {% if prevLevel == 1 %}</li></ul>{% else %}</li></ul></li></ul>{% endif %}
+        {% if prevLevel != 0 %}
+            {% for i in (1..prevLevel) %}
+                {% assign indent = indent | append: "</li></ul>" %}
+            {% endfor %}
+        {% endif %}
+        
+        {{ indent }}
         </ul>
         
-    
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
