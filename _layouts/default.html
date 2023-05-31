@@ -138,6 +138,8 @@
 			tocLinks[i].classList.add("toc-active");
 			if(i!==0){
 				tocLinks[i-1].classList.remove("toc-active");
+			}else if(i!== tocLinks.length-1){
+				tocLinks[i+1].classList.remove("toc-active");
 			}
 			// deactivateTOCNode(before);
 			// before = tocLinks[i];
