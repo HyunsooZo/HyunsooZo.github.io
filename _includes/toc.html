@@ -203,15 +203,15 @@
             {% assign repeatCount = lastLevel | minus: currLevel %}
 
             {% for i in (1..repeatCount) %}
-                {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui></{{ listModifier }}>{% endcapture %}
+                {% capture jekyll_toc %}{{ jekyll_toc }}</li></ul></{{ listModifier }}>{% endcapture %}
             {% endfor %}
 
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui>{% endcapture %}
+            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ul>{% endcapture %}
         {% else %}
-            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ui>{% endcapture %}
+            {% capture jekyll_toc %}{{ jekyll_toc }}</li></ul>{% endcapture %}
         {% endif %}
 
-        {% capture jekyll_toc %}{{ jekyll_toc }}<ui><li{{ listItemClass }}>{{ listItem }}{% endcapture %}
+        {% capture jekyll_toc %}{{ jekyll_toc }}<ul><li{{ listItemClass }}>{{ listItem }}{% endcapture %}
 
         {% assign lastLevel = currLevel %}
         {% assign firstHeader = false %}
