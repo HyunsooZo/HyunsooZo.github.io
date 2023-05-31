@@ -92,8 +92,40 @@
 		</div>			
 
 		<script>
+		//톡 활성화
+		function activateTOC() {
+    var tocLinks = document.querySelectorAll(".toc a"); // TOC 항목 링크 선택
 
-		
+    // 스크롤 이벤트 처리
+    window.addEventListener("scroll", function () {
+      var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      // TOC 항목 순회
+      tocLinks.forEach(function (link) {
+        var sectionId = link.getAttribute("href").substring(1); // 링크의 대상 섹션 ID 가져오기
+        var section = document.getElementById(sectionId); // 대상 섹션 요소 선택
+
+        if (section) {
+          var sectionTop = section.offsetTop; // 대상 섹션의 위쪽 위치
+
+          if (scrollPosition >= sectionTop) {
+            // 스크롤 위치와 대상 섹션 위치 비교
+            tocLinks.forEach(function (link) {
+              link.classList.remove("active"); // 모든 TOC 항목 비활성화
+            });
+            link.classList.add("active"); // 현재 섹션에 해당하는 TOC 항목 활성화
+          }
+        }
+      });
+    });
+  }
+
+  // 페이지 로드 시 TOC 활성화
+  document.addEventListener("DOMContentLoaded", function () {
+    activateTOC();
+  });
+
+		//스무스 스크롤
 		function smoothScroll(target) {
 		console.log('Target:', target);
 		const element = document.querySelector(target);
