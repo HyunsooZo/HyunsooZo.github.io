@@ -217,29 +217,32 @@
     {% endfor %}
 
     {% assign prevLevel = 0 %}
-    {% assign indent = "" %}
-    {% for node in headerNodes %}
-        {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
-        {% if level > prevLevel %}
-            {% assign indent = indent | append: "<ul><li>" %}
-        {% elsif level < prevLevel %}
-            {% assign indent = indent | remove: "</li></ul>" %}
-            {% assign indent = indent | remove: "</ul>" %}
-            {% assign indent = indent | append: "</li></ul><li>" %}
-        {% else %}
-            {% if forloop.index != 1 %}
-                {% assign indent = indent | append: "</li><li>" %}
-            {% endif %}
+{% assign indent = "" %}
+{% for node in headerNodes %}
+    {% assign level = node.tagName | replace: "H", "" | plus: 0 %}
+    {% if level > prevLevel %}
+        {% if prevLevel != 0 %}
+            {% assign indent = indent | append: "</li></ul>" %}
         {% endif %}
-    
-        {% assign prevLevel = level %}
-    
-        {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
-    {% endfor %}
-    
-    {% assign indent = indent | remove: "</li></ul>" %}
-    {% assign indent = indent | remove: "</ul>" %}
-    {{ indent }}
+        {% assign indent = indent | append: "<ul><li>" %}
+    {% elsif level < prevLevel %}
+        {% assign indent = indent | remove: "</li></ul>" %}
+        {% assign indent = indent | remove: "</ul>" %}
+        {% assign indent = indent | append: "</li></ul><li>" %}
+    {% else %}
+        {% if forloop.index != 1 %}
+            {% assign indent = indent | append: "</li><li>" %}
+        {% endif %}
+    {% endif %}
+
+    {% assign prevLevel = level %}
+
+    {% assign indent = indent | append: "<a href=\"#{{ node.id }}\" onclick=\"smoothScroll('#{{ node.id }}')\">{{ node.innerHTML }}</a>" %}
+{% endfor %}
+
+{% assign indent = indent | append: "</li></ul>" %}
+{{ indent }}
+
     
     
 {% endcapture %}{% assign tocWorkspace = '' %}{{ deprecation_warnings }}{{ jekyll_toc }}
