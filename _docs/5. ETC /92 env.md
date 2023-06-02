@@ -159,3 +159,40 @@ sh-4.4# exit
 exit
 hyunsoojo@HYUNSOOui-MacBook-Pro:~$
 ```
+
+### Feign
+
+Feign은 Java에서 RESTful 웹 서비스 클라이언트를 구현하기 위한 라이브러리. 
+Spring Cloud에서 사용되며, Spring 애플리케이션에서 간편하게 원격 HTTP API를 호출할 수 있는 방법을 제공.<br>
+
+Feign은 런타임 시에 인터페이스를 기반으로 REST 클라이언트를 동적으로 생성하는 프록시 기반 접근 방식을 사용. <br>Feign 인터페이스는 실제 원격 서비스의 엔드포인트, HTTP 메서드, 경로, 요청 및 응답 형식 등을 정의하는 어노테이션을 사용하여 구성. *주로 마이크로서비스 아키텍처에서 서비스 간 통신을 위해 활용.*
+
+|Feign 사용 시 이점 ||
+
+|간편한 선언적 API| Feign 인터페이스를 통해 REST API 호출을 선언적으로 정의할 수 있습니다. 메서드에 어노테이션을 추가하여 요청 URL, HTTP 메서드, 요청 및 응답 형식을 지정할 수 있습니다.|
+|인터페이스 기반 프록시 생성| Feign은 런타임 시에 Feign 인터페이스를 기반으로 동적으로 REST 클라이언트를 생성합니다. 개발자는 구현 코드를 작성할 필요 없이 인터페이스를 통해 API를 사용할 수 있습니다.|
+|통합된 로드 밸런싱| Spring Cloud의 서비스 디스커버리 기능과 통합되어 Feign은 로드 밸런싱을 자동으로 수행할 수 있습니다. 서비스의 여러 인스턴스 중 하나를 선택하여 API 호출을 수행하므로 확장성과 내결함성을 제공합니다.|
+|재시도 및 오류 처리| Feign은 기본적으로 재시도 메커니즘과 오류 처리 기능을 제공합니다. 장애가 발생한 경우 일시적인 문제일 수 있으므로 재시도를 통해 요청을 자동으로 다시 시도할 수 있습니다.|
+
+
+##### Spring에서 feign사용하기
+
+gradle에 아래와 같이 의존성을 추가해주면 feign을 사용할 수 있다. 
+
+```java
+dependencies {
+    
+ext{
+    set('springCloudVersion',"2021.0.1")
+}
+
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+}
+
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+```
