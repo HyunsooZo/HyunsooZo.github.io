@@ -11,7 +11,7 @@ order: 2
 02장: 개발에 앞서 알면 좋은 기초 지식<br>
 03장: 개발 환경 구성
 
-##### Spring Boot
+##### 1.Spring Boot
 <div class="content-box">
 <b>Ioc : Inversion Of Control</b><br>
 -제어의 역전. 즉 의존성 주입, 객체 생성 및 생명주기관리 등의 제어권한을 프레임워크에게 위임하는것. <br>
@@ -25,7 +25,7 @@ order: 2
 -Spring은 proxy패턴을 이용하여 AOP를 제공한다.<br> 
 </div>
 
-##### Spring Boot 의 장점
+##### 2.Spring Boot 의 장점
 
 |Spring Boot 의 장점||
 |-|-|
@@ -33,7 +33,7 @@ order: 2
 |내장 WAS| 내장 웹서버(WAS-tomcat)이 있어 별도 설정 불필요|
 |모니터링| Spring Boot Actuator 툴을 사용해 시스템이 사용하는 주요요소를 모니터링 할 수 있음 |
 
-##### Rest의 특징
+##### 3.Rest의 특징
 
 |Rest의 특징||
 |-|-|
@@ -51,7 +51,7 @@ DI를 통해 객체는 직접 의존하는 객체를 생성하거나 관리하�
 04장: 스프링 부트 애플리케이션 개발하기<br>
 05장: API를 작성하는 다양한 방법
 
-##### 메이븐(Maven)
+##### 1.메이븐(Maven)
 <div class="content-box">
 아파치 메이븐은 자바 기반의 프로젝트를 빌드하고 관리하는 데 사용되는 도구<br>
 pom.xml 파일에 필요한 라이브러리를 추가하면 해당 라이브러리에 필요한 라이브러리까지 함께 내려받아 관리함.
@@ -88,7 +88,7 @@ pom.xml 파일에 필요한 라이브러리를 추가하면 해당 라이브러�
 `site` : 메이븐의 설정 파일 정보를 기반으로 프로젝트의 문서 사이트를 생성<br>
 `site-deploy` : 생성된 사이트 문서를 웹 서버에 배포
 
-##### API 작성방법
+##### 2.API 작성방법
 
 |**용어정리**||
 |--|--|
@@ -214,7 +214,7 @@ public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) 
 
 06장: 데이터베이스 연동<br>
 
-##### ORM
+##### 1.ORM
 <div class="content-box">
 ORM(Object Relational Mapping): 
 자바와 같은 객체지향 언어에서의 객체와 RDB(Relational Database, 관계형 데이터베이스)의 테이블을 자동으로 매핑하는 방법.<br>
@@ -228,7 +228,7 @@ ORM을 이용하면 쿼리문을 작성이 아닌 <u>코드로 데이터를 조�
 |데이터베이스에 대한 종속성이 줄어든다||
 
 
-##### JPA
+##### 2.JPA
 JPA(Java Persistence API): 자바의 ORM 기술 표준으로 채택된 InterFace. ORM=개념, JPA=구체적인 명세 와 같이 볼 수 있음. <br>
 
 JPA는 내부적으로 JDBC를 사용, 개발자가 JDBC를 활용하여 구현하면 SQL에 의존하게 되어 효율이 떨어진다.<br> JPA는 이 문제점을 보완하여 개발자 대신 요구하는 기능에 맞는 SQL을 생성/ 데이터베이스 조작하여 객체와 데이터베이스를 연결.<br> 이를 기반으로 구현한 것 중 가장 많이 사용되는 것이 하이버네이트(Hibernate)이고, 스프링 부트에서는 이 하이버네이트의 기능을 더욱 편하게 사용하도록 구현된 Spring Data JPA를 활용할 수 있음.
@@ -253,7 +253,7 @@ JPA는 내부적으로 JDBC를 사용, 개발자가 JDBC를 활용하여 구현�
 update 라는 키워드를 따로 사용하지 않으며, 값을 find() 를 통해 가져오면 객체가 영속성 Context에 추가됨.<br> 
 컨텍스트가 유지되는 상황에서 코드에서 객체의 값을 변경하고 다시 save() 를 실행하면 변경 감지를 수행하여 값을 변경함.
 
-##### Entity
+##### 3.Entity
 
 <div class="content-box">
 데이터베이스의 테이블에 대응하는 클래스.<br> 
@@ -268,13 +268,13 @@ update 라는 키워드를 따로 사용하지 않으며, 값을 find() 를 통�
 |@GeneratedValue| 일반적으로 @Id 와 함께 사용,자동생식 방식 설정.<br> 흔히 데이터베이스에 위임하는 IDENTITY 를 많이 사용하며, 이는 DB의 AUTO_INCREMENT 를 사용해 기본값을 생성.|
 |@Column|엔티티 클래스의 멤버는 자동으로 컬럼으로 매핑되지만, 몇 가지 설정이 필요한 경우 사용.(컬럼의 이름, nullable 여부, 데이터 길이, 유니크 컬럼 등)|
 
-##### Controller 
+##### 4.Controller 
 
 <div class="content-box"> 
 Controller 클래스에 API를 구현. 여기에서 어떠한 요청을 받으면 데이터베이스는 서비스 클래스에서 핵심 기능을 제공.<br>데이터베이스와 밀접한 관련이 있는 객체는 엔티티 또는 DAO(Data Access Object)를 사용하고, 클라이언트와 가까워지는 서비스 등의 레이어에서는 데이터를 주고받을 때 DTO(Data Transfer Object) 객체 를 사용하는 것이 일반적.
 </div>
 
-##### Service
+##### 5.Service
 
 <div class="content-box">
 Service는 일반적으로 비즈니스 로직을 구현하는 계층. <br>Controller와 DAO(Data Access Object) 사이에서 데이터 처리를 담당하며, 핵심 비즈니스 로직을 실행.<br>
@@ -282,7 +282,7 @@ Service는 일반적으로 비즈니스 로직을 구현하는 계층. <br>Contr
 서비스 계층은 컨트롤러(Controller)에서 받은 요청을 처리하고, 필요한 데이터를 데이터베이스에서 가져와 가공한 후 결과를 반환.<br> 서비스 클래스는 엔티티(Entity) 또는 DAO와 밀접하게 상호작용하며, 엔티티나 DAO의 메서드를 호출하여 데이터를 읽거나 쓸 수 있음.
 </div>
 
-##### Repository
+##### 6.Repository
 
 Repository : Spring Data JPA가 제공하는 인터페이스<br>
 
