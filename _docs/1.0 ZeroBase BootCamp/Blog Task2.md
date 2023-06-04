@@ -212,37 +212,88 @@ public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) 
 
 ### 리딩 3주차
 
+06장: 데이터베이스 연동<br>
+
+##### ORM
+ORM(Object Relational Mapping): 자바와 같은 객체지향 언어에서의 객체와 RDB(Relational Database, 관계형 데이터베이스)의 테이블을 자동으로 매핑하는 방법.<br>
+ORM을 이용하면 쿼리문을 작성이 아닌 <u>코드로 데이터를 조작 가능</u>.
+
+**ORM의 장점**
 <div class="content-box">
-06장: 데이터베이스 연동
+* 쿼리를 객체지향적으로 조작가능.<br>
+* 코드가 간결해지고 재사용/유지보수 용이<br>
+* 데이터베이스에 대한 종속성이 줄어든다.<br>
 </div>
 
-### 리딩 4주차
-
+**ORM의 단점**
 <div class="content-box">
-8장: Spring Data JPA 활용
+복잡한 쿼리의 경우 구현하기 어려우며 성능 문제가 발생 가능성 존재.
+객체의 관점과 데이터베이스의 관계의 관점의 차이로 혼동이 발생 가능성있음.
 </div>
 
-### 리딩 5주차
+##### JPA
+JPA(Java Persistence API): 자바의 ORM 기술 표준으로 채택된 InterFace. ORM=개념, JPA=구체적인 명세 와 같이 볼 수 있음. <br>
+
+JPA는 내부적으로 JDBC를 사용, 개발자가 JDBC를 활용하여 구현하면 SQL에 의존하게 되어 효율이 떨어진다.<br> JPA는 이 문제점을 보완하여 개발자 대신 요구하는 기능에 맞는 SQL을 생성/ 데이터베이스 조작하여 객체와 데이터베이스를 연결.<br> 이를 기반으로 구현한 것 중 가장 많이 사용되는 것이 하이버네이트(Hibernate)이고, 스프링 부트에서는 이 하이버네이트의 기능을 더욱 편하게 사용하도록 구현된 Spring Data JPA를 활용할 수 있음.
+
+##### Entity
+데이터베이스의 테이블에 대응하는 클래스.<br> 
+데이터베이스의 테이블과 컬럼을 정의할 수 있으며, 어노테이션을 사용하여 다양한 관계 정의 가능.
+
+|관련 Annotations||
+|--|--|
+|@Entity| 해당 클래스가 엔티티임을 명시|
+|@Table|테이블 이름과 클래스 이름을 다르게 지정해야 할 때 사용.<br> 명시하지 않으면 둘의 이름이 같다는 의미이며, 다른 이름을 쓰려면 @Table(name= 이름)와 같이 별도 명시 필요.|
+|@Id|테이블의 기본 값으로 사용되며, 모든 엔티티는 @Id 어노테이션이 필요|
+|@GeneratedValue| 일반적으로 @Id 와 함께 사용,자동생식 방식 설정.<br> 흔히 데이터베이스에 위임하는 IDENTITY 를 많이 사용하며, 이는 DB의 AUTO_INCREMENT 를 사용해 기본값을 생성.|
+|@Column|엔티티 클래스의 멤버는 자동으로 컬럼으로 매핑되지만, 몇 가지 설정이 필요한 경우 사용.(컬럼의 이름, nullable 여부, 데이터 길이, 유니크 컬럼 등)|
+
+##### Repository
+
+Repository : Spring Data JPA가 제공하는 인터페이스<br>
 
 <div class="content-box">
-09장: 연관관계 매핑
+JpaRepository를 상속받는 인터페이스를 생성, 엔티티가 생성한 데이터베이스에 접근하는 데 사용.
 </div>
 
-### 리딩 6주차
+```java
+// 기본값(@id) 타입으로 지정하여 Repository I/F 생성 후 
+// JpaRepository 상속
+public interface PersonRepository extends JpaRepository<Person, Long> {
+}
+```
+
+##### 메소드 생성 규칙
 
 <div class="content-box">
-10장: 유효성 검사와 예외 처리
+기본적인 메소드는 생성이 되어있지만 규칙에 따라 커스텀 메서드도 생성가능.<br>이를 통해 CRUD(Create, Read, Update, Delete)구현 가능.
 </div>
 
-### 리딩 7주차
+|Methods||
+|--|--|
+|findBy|일치하는 값을 가지는 컬럼조회<br>SQL의 where 역할|
+|StartsWith/StartingWith<br>EndsWith/EndingWith | 특정 키워드로 시작하거나 끝나는 조건 설정|
+|Before/After| 시간을 기준으로 검색|
+|Between| 두 값 사이의 데이터를 검색|
+
+
+##### Controller 
+
+<div class="content-box"> 
+Controller 클래스에 API를 구현. 여기에서 어떠한 요청을 받으면 데이터베이스는 서비스 클래스에서 핵심 기능을 제공.<br>데이터베이스와 밀접한 관련이 있는 객체는 엔티티 또는 DAO(Data Access Object)를 사용하고, 클라이언트와 가까워지는 서비스 등의 레이어에서는 데이터를 주고받을 때 DTO(Data Transfer Object) 객체 를 사용하는 것이 일반적.
+</div>
+
+##### Service
 
 <div class="content-box">
-11장: 액추에이터 활용하기 <br> 
-12장: 서버 간 통신
+Service는 일반적으로 비즈니스 로직을 구현하는 계층. <br>Controller와 DAO(Data Access Object) 사이에서 데이터 처리를 담당하며, 핵심 비즈니스 로직을 실행.<br>
+
+서비스 계층은 컨트롤러(Controller)에서 받은 요청을 처리하고, 필요한 데이터를 데이터베이스에서 가져와 가공한 후 결과를 반환.<br> 서비스 클래스는 엔티티(Entity) 또는 DAO와 밀접하게 상호작용하며, 엔티티나 DAO의 메서드를 호출하여 데이터를 읽거나 쓸 수 있음.
 </div>
 
-### 리딩 8주차
+##### JPA 에서 값을 변경할 때
 
-<div class="content-box">
-13장: 서비스의 인증과 권한 부여
-</div>
+조회, 추가, 삭제 의 메소드와는 조금 다르다.<br> 
+update 라는 키워드를 따로 사용하지 않으며, 값을 find() 를 통해 가져오면 객체가 영속성 Context에 추가된다.<br> 
+컨텍스트가 유지되는 상황에서 코드에서 객체의 값을 변경하고 다시 save() 를 실행하면 변경 감지를 수행하여 값을 변경해줌.
+
