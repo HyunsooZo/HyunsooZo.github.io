@@ -233,6 +233,7 @@ JPA(Java Persistence API): 자바의 ORM 기술 표준으로 채택된 InterFace
 
 JPA는 내부적으로 JDBC를 사용, 개발자가 JDBC를 활용하여 구현하면 SQL에 의존하게 되어 효율이 떨어진다.<br> JPA는 이 문제점을 보완하여 개발자 대신 요구하는 기능에 맞는 SQL을 생성/ 데이터베이스 조작하여 객체와 데이터베이스를 연결.<br> 이를 기반으로 구현한 것 중 가장 많이 사용되는 것이 하이버네이트(Hibernate)이고, 스프링 부트에서는 이 하이버네이트의 기능을 더욱 편하게 사용하도록 구현된 Spring Data JPA를 활용할 수 있음.
 <br>
+
 **Method 생성 규칙**
 
 <div class="content-box">
