@@ -215,21 +215,18 @@ public ResponseEntity<MemberDto> putMemberDto(@RequestBody MemberDto memberDto) 
 06장: 데이터베이스 연동<br>
 
 ##### ORM
-ORM(Object Relational Mapping): 자바와 같은 객체지향 언어에서의 객체와 RDB(Relational Database, 관계형 데이터베이스)의 테이블을 자동으로 매핑하는 방법.<br>
+<div class="content-box">
+ORM(Object Relational Mapping): 
+자바와 같은 객체지향 언어에서의 객체와 RDB(Relational Database, 관계형 데이터베이스)의 테이블을 자동으로 매핑하는 방법.<br>
 ORM을 이용하면 쿼리문을 작성이 아닌 <u>코드로 데이터를 조작 가능</u>.
-
-**ORM의 장점**
-<div class="content-box">
-* 쿼리를 객체지향적으로 조작가능.<br>
-* 코드가 간결해지고 재사용/유지보수 용이<br>
-* 데이터베이스에 대한 종속성이 줄어든다.<br>
 </div>
 
-**ORM의 단점**
-<div class="content-box">
-복잡한 쿼리의 경우 구현하기 어려우며 성능 문제가 발생 가능성 존재.
-객체의 관점과 데이터베이스의 관계의 관점의 차이로 혼동이 발생 가능성있음.
-</div>
+|ORM의 장점|ORM의 단점|
+|--|-|
+|쿼리를 객체지향적으로 조작가능|복잡한 쿼리의 경우 구현하기 어려우며 성능 문제가 발생 가능성 존재.|
+|코드가 간결해지고 재사용/유지보수 용이|객체의 관점과 데이터베이스의 관계의 관점의 차이로 혼동이 발생 가능성있음.|
+|데이터베이스에 대한 종속성이 줄어든다||
+
 
 ##### JPA
 JPA(Java Persistence API): 자바의 ORM 기술 표준으로 채택된 InterFace. ORM=개념, JPA=구체적인 명세 와 같이 볼 수 있음. <br>
