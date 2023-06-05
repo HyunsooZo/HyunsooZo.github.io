@@ -90,6 +90,6 @@ default-character-set=utf8
 [mysql]
 default-character-set=utf8
 ```
-입력 후 `:wq!` 입력하여 저장
+추가 후 `:wq!` 입력하여 저장
 
 이후 mariadb 재시작!
