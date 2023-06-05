@@ -4,15 +4,15 @@ category: Et Cetera
 order: 13
 ---
 
-### MariaDB & MySQL Error
+### MariaDB & MySQL Error<br>
 
-##### ERROR 2002 (HY000)
+##### ERROR 2002 (HY000)<br>
 
-`ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`
-
+`ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`<br>
 mysql.sock경로 문제로 발생하는 에러.
 
 **해결방법 (1)**<br>
+
 만약 초기 세팅 단계이고 DB를 삭제 후 재설치 해도 상관없는 상황이라면 아래의 방법을 사용!!
 
 ```bash
@@ -29,6 +29,7 @@ $ brew install mariadb
 $ mysql -u root -p
 ```
 **해결방법 (2)**<br>
+
 혹시 다른 곳에서 3306 포트를 사용하고 있는지 확인 및 종료.
 
 ```bash
