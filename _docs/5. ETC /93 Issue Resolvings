@@ -4,10 +4,10 @@ category: Et Cetera
 order: 12
 ---
 
-##### ERROR 2002 (HY000) MariaDB<br>
+##### ERROR 2002 (HY000) MariaDB
 
-`ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`<br>
-mysql.sock경로 문제로 발생하는 에러.
+`ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`
+<br>mysql.sock경로 문제로 발생하는 에러.
 
 **해결방법 (1)** <br>
 
@@ -75,7 +75,8 @@ touch my-default.cnf
 $ sudo vi /etc/my.cnf 
 ```
 입력모드 전환 후 
-```
+
+```bash
 [mysqld]
 init_connect=SET collation_connection=utf8_general_ci
 init_connect=SET NAMES utf8
