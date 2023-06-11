@@ -405,7 +405,9 @@ System.out.println(productPage.getContent());
 ```
 
 ##### QueryDSL
- **QueryDSL** <br>
+
+ **QueryDSL** 
+
 <div class="content-box">
  정적 타입을 이용해 SQL과 같은 쿼리를 생성할 수 있도록 지원하는 프레임워크
  </div>
@@ -419,9 +421,11 @@ System.out.println(productPage.getContent());
 |동적으로 쿼리생성 가능.|
 |코드로 작성하므로 가독성/생산성 상승.|
 |도메인 타입과 프로퍼티를 안전하게 참조 가능.|
+
 <br>
 
 **JPA Auditing 적용**
+
 <div class="content-box">
 생성 주체, 생성 일자, 변경 주체, 변경 일자와 같은 필드들은 매번 엔티티를 생성하거나 변경할 때마다 값을 주입함. <br>
 이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!.
