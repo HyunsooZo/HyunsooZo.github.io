@@ -297,5 +297,144 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 }
 ```
 
+### 리딩 3주차
 
+08장: Spring Data JPA 활용<br>
 
+##### JPA
+
+**JPQL**
+
+<div class="content-box">
+JPA에서 사용되는 쿼리문. <br>
+SQL과 비슷한 문법을 사용하나 SQL에서는 column의 이름을 사용,PQL은 매핑된 Entity의 이름과 field의 이름 사용.
+</div>
+
+**Query Method**<br>
+<div class="content-box">
+리포지토리는 JpaRepository를 상속받는 것만으로도 기본적인 CRUD 메서드를 제공하지만 별도의 메서드를 정의해서 사용하는 경우가 많다.
+</div>
+
+**Query Method 생성**<br>
+<div class="content-box">
+쿼리 메서드는 동작을 결정하는 주제(Subject)와 서술어(Predicate)로 구분.<br> By로 서술어의 시작을 나타내어 구분자역할을 함.<br> 
+서술어 부분은 검색 및 정렬 조건을 지정하는 영역이며, 기본적으로 엔티티의 속성으로 정의할 수 있고, AND나 OR를 사용해 조건을 확장할 수도 있다.
+</div>
+
+```java
+// (리턴타입) + (주제 + 서술어)
+List<Person> findByLastnamdAndEmail(String lastName, String email)
+```
+
+**Query Method의 주제 키워드**
+
+**조회**<br>
+리턴 타입 = Collection이나 Stream에 속한 하위 타입 설정
+```java
+find...By
+read...By
+get...By
+query...By
+search...By
+stream...By
+```
+
+**특정 데이터가 존재하는지 확인**
+```java
+exists...By 
+```
+
+**쿼리 결과로 나온 레코드 수 리턴**
+```java
+count...By
+```
+
+**삭제**<br>
+리턴 타입이 없거나 삭제한 횟수를 리턴
+```java
+delete...By
+remove...By
+```
+
+**조회된 결괏값의 개수 제한**<br>
+주제와 By 사이에 위치. 일반적으로 한 번의 동작으로 여러 건을 조회할 때 사용, 단 건으로 조회하기 위해서는 <number>를 생략하면 됨.
+```java
+...First<number>...
+...Top<number>...
+```
+
+##### 정렬과 페이징
+
+**정렬**<br>
+OrderBy...Asc, OrderBy...Desc
+정렬 구문은 And나 Or 키워드를 사용하지 않고 우선순위를 기준으로 차례대로 작성.
+
+```java
+private Sort getSort() {
+	return Sort.by(
+    	Order.asc("price"),
+        Order.desc("stock")
+    );
+}
+```
+
+**페이징 처리**<br>
+데이터베이스의 레코드를 개수로 나눠 페이지를 구분하는 것
+
+JPA에서는 페이징 처리를 위해 Page와 Pageable을 사용.
+
+```java
+// 페이징 처리
+Page<Product> findByName(String name, Pageable pageable);
+
+// 페이징 쿼리 메서드 호출
+Page<Product> productPage = productRepository.findByName("펜", PageRequest.of(0, 2));
+```
+
+**of 메서드**<br>
+`of(int page, int size)`: 페이지 번호(0부터 시작), 페이지당 데이터 개수를 매개변수로 받으며 데이터를 정렬하지 않는다.
+`of(int page, int size, Sort)`: 페이지 번호, 페이지당 데이터 개수, 정렬을 매개변수로 받으며 sort에 의해 정렬된다.
+`of(int page, int size, Direction, String... properties)` : 페이지 번호, 페이지당 데이터 개수, 정렬 방향, 속성(칼럼)을 매개변수로 받으며,`Sort.by(direction, properties`)에 의해 정렬됨.<br>
+
+Page 객체를 그대로 출력하면 해당 객체의 값을 보여주지 않고 몇 번째 페이지에 해당하는지만 확인할 수 있음.
+각 페이지를 구성하는 세부적인 값을 보려면 아래 코드와 같이 작성해야 힘.
+
+```java
+Page<Product> ProductPage = productRepository.findByName("펜", PageRequest.of(0, 2));
+System.out.println(productPage.getContent());
+```
+
+##### QueryDSL
+ **QueryDSL** <br>
+<div class="content-box">
+ 정적 타입을 이용해 SQL과 같은 쿼리를 생성할 수 있도록 지원하는 프레임워크
+ </div>
+
+문자열이나  XML 파일을 통해 쿼리를 작성해는 대신 QueryDSL이 제공하는 Fluent API를 활용해 쿼리를 생성할 수 있다.
+
+|QueryDSL 장점|
+|--|
+|IDE가 제공하는 코드 자동 완성 기능 사용가능.|
+|문법검사를 통해 문법 오류를 발생시키지 않음.|
+|동적으로 쿼리생성 가능.|
+|코드로 작성하므로 가독성/생산성 상승.|
+|도메인 타입과 프로퍼티를 안전하게 참조 가능.|
+<br>
+
+**JPA Auditing 적용**
+<div class="content-box">
+생성 주체, 생성 일자, 변경 주체, 변경 일자와 같은 필드들은 매번 엔티티를 생성하거나 변경할 때마다 값을 주입함. <br>
+ <u>이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!</ur>.
+</div>
+
+별도의 Configuration 클래스를 생성하여 사용하는 것을 권장.
+|Annotation/Class||
+|--|--|
+|BaseEntity | 각 Entity에 공통으로 들어가게 되는 컬럼을 하나의 클래스로 만듦.|
+|`@EnableJpaAuditing`|  어노테이션을 추가|
+|@MappedSuperclass| JPA의 엔티티 클래스가 상속받을 경우 자식 클래스에게 매핑 정보를 전달|
+|@EntityListeners | 엔티티를 데이터베이스에 적용하기 전후로 콜백을 요청할 수 있게 함|
+|AuditingEntityListener |엔티티의 Auditing 정보를 주입하는 JPA 엔티티 리스너 클래스|
+|@CreatedDate | 데이터 생성 날짜를 자동 주입.|
+|@LastModifiedDate | 데이터 수정 날짜를 자동 주입.|
+|@CreatedBy<br>@ModifiedBy| 누가 엔티티를 생성했고 수정했는지 자동으로 값을 주입하는 기능, 이 기능을 사용하려면 AuditorAware를 스프링 빈으로 등록해야 함.|
