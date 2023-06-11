@@ -3,8 +3,9 @@ title: Issue Resolvings
 category: Et Cetera
 order: 12
 ---
+### MariaDB / Mysql
 
-##### ERROR 2002 (HY000) MariaDB
+##### ERROR 2002 (HY000)
 
 `ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`
 <br>mysql.sock경로 문제로 발생하는 에러.
@@ -38,11 +39,11 @@ $ kill 41364
 $ mysql -u root -p
 ```
 
-##### ERROR 1698 (28000) MariaDB
+##### ERROR 1698 (28000)
 
-`ERROR 1698 (28000): Access denied for user 'root'@'localhost' `
+`ERROR 1698 (28000): Access denied for user 'root'@'localhost'`
 
-root 계정의 비밀번호가 설정되어 있지 않아 발생하는 에러. 
+<br>root 계정의 비밀번호가 설정되어 있지 않아 발생하는 에러. 
 
 **해결방법**
 
@@ -58,6 +59,7 @@ FLUSH PRIVILEGES;
 ##### UTF 인코딩 설정
 
 **1. 파일복사**
+
 ```bash
 $ sudo cd /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 ```
@@ -69,11 +71,13 @@ cd  /usr/local/mysql/support-files
 #.cnf생성
 touch my-default.cnf
 ``` 
+
 **2. CharSet추가**
 
 ```bash
 $ sudo vi /etc/my.cnf 
 ```
+
 입력모드 전환 후 
 
 ```bash
@@ -90,6 +94,7 @@ default-character-set=utf8
 [mysql]
 default-character-set=utf8
 ```
+
 추가 후 `:wq!` 입력하여 저장
 
 이후 mariadb 재시작!
