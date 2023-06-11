@@ -4,9 +4,7 @@ category: Et Cetera
 order: 12
 ---
 
-### MariaDB & MySQL Error<br>
-
-##### ERROR 2002 (HY000) <br>
+##### ERROR 2002 (HY000) MariaDB<br>
 
 `ERROR 2002 (HY000): Can't connect to local server through socket '/tmp/mysql.sock' (2)`<br>
 mysql.sock경로 문제로 발생하는 에러.
@@ -40,7 +38,7 @@ $ kill 41364
 $ mysql -u root -p
 ```
 
-##### ERROR 1698 (28000)
+##### ERROR 1698 (28000) MariaDB
 
 `ERROR 1698 (28000): Access denied for user 'root'@'localhost' `
 
