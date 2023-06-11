@@ -424,7 +424,7 @@ System.out.println(productPage.getContent());
 **JPA Auditing 적용**
 <div class="content-box">
 생성 주체, 생성 일자, 변경 주체, 변경 일자와 같은 필드들은 매번 엔티티를 생성하거나 변경할 때마다 값을 주입함. <br>
- <u>이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!</u>.
+이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!.
 </div>
 
 별도의 Configuration 클래스를 생성하여 사용하는 것을 권장.
