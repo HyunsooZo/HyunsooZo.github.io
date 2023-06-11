@@ -277,7 +277,7 @@ Controller 클래스에 API를 구현. 여기에서 어떠한 요청을 받으�
 ##### 5.Service
 
 <div class="content-box">
-Service는 일반적으로 비즈니스 로직을 구현하는 계층. <br>Controller와 DAO(Data Access Object) 사이에서 데이터 처리를 담당하며, 핵심 비즈니스 로직을 실행.<br>
+Service는 일반적으로 비즈니스 로직을 구현하는 계층. <br>Controller와 DAO(Data Access Object) 사이에서 데이터 처리를 담당하며, 핵심 비즈니스 로직을 실행.<br>             
 
 서비스 계층은 컨트롤러(Controller)에서 받은 요청을 처리하고, 필요한 데이터를 데이터베이스에서 가져와 가공한 후 결과를 반환.<br> 서비스 클래스는 엔티티(Entity) 또는 DAO와 밀접하게 상호작용하며, 엔티티나 DAO의 메서드를 호출하여 데이터를 읽거나 쓸 수 있음.
 </div>
@@ -297,7 +297,7 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
 }
 ```
 
-### 리딩 3주차
+### 리딩 4주차
 
 08장: Spring Data JPA 활용<br>
 
@@ -424,7 +424,7 @@ System.out.println(productPage.getContent());
 **JPA Auditing 적용**
 <div class="content-box">
 생성 주체, 생성 일자, 변경 주체, 변경 일자와 같은 필드들은 매번 엔티티를 생성하거나 변경할 때마다 값을 주입함. <br>
- <u>이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!</ur>.
+ <u>이 값들을 자동으로 넣어주는 기능이 JPA Auditing!!!</u>.
 </div>
 
 별도의 Configuration 클래스를 생성하여 사용하는 것을 권장.
