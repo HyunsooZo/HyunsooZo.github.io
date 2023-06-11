@@ -428,10 +428,11 @@ System.out.println(productPage.getContent());
 </div>
 
 별도의 Configuration 클래스를 생성하여 사용하는 것을 권장.
+
 |Annotation/Class||
 |--|--|
 |BaseEntity | 각 Entity에 공통으로 들어가게 되는 컬럼을 하나의 클래스로 만듦.|
-|`@EnableJpaAuditing`|  어노테이션을 추가|
+|@EnableJpaAuditing| 어노테이션을 추가|
 |@MappedSuperclass| JPA의 엔티티 클래스가 상속받을 경우 자식 클래스에게 매핑 정보를 전달|
 |@EntityListeners | 엔티티를 데이터베이스에 적용하기 전후로 콜백을 요청할 수 있게 함|
 |AuditingEntityListener |엔티티의 Auditing 정보를 주입하는 JPA 엔티티 리스너 클래스|
