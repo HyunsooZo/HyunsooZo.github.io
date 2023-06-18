@@ -459,72 +459,74 @@ System.out.println(productPage.getContent());
 |단방향 | 두 엔티티의 관계에서 한쪽의 엔티티만 참조하는 형식|
 |양방향 | 두 엔티티의 관계에서 각 엔티티가 서로의 엔티티를 참조하는 형식|
 
-#####  일대일 단방향 매핑
+#####  1:1 매핑
+
+**1:1 단방향 매핑**
 ```java
-	//다른 엔티티 객체를 필드로 정의했을 때 일대일 연관관계로 매핑하기 위해
-    @OneToOne
-	// 매핑할 외래키 설정
-    @JoinColumn(name = "ex")
-    private Example example;
+//다른 엔티티 객체를 필드로 정의했을 때 일대일 연관관계로 매핑하기 위해
+@OneToOne
+// 매핑할 외래키 설정
+@JoinColumn(name = "ex")
+private Example example;
 ```
 `referencedColumnName` : 외래키가 참조할 상대 테이블의 칼럼명 지정
 
 `foreignKey` : 외래키를 생성하면서 지정할 제약조건(unique, nullable, insertable, updatable) 설정
 
-#####  일대일 양방향 매핑
+**1:1 양방향 매핑**
 ```java
-    @OneToOne(mappedBy = "ex")
-    private Example example;
+@OneToOne(mappedBy = "ex")
+private Example example;
 ```
 `mappedBy` : 어떤 객체가 ***주인인지*** 표시하는 속성<br>엔티티는 양방향으로 매핑하되 한쪽에게만 외래키를 주기 위해 사용되는 속성 값<br>
 mappedBy에 들어가는 값은 연관관계를 갖고 있는 상대 엔티티에 있는 연관관계 필드의 이름
 
-**1.** **다대일, 일대다 매핑**
+##### N:1, 1:N 매핑
 ```java
-	//다대일 단방향 매핑
-	@ManyToOne
-  	@JoinColumn(name = "example")
-	@ToString.Exclude
+//다대일 단방향 매핑
+@ManyToOne
+@JoinColumn(name = "example")
+@ToString.Exclude
 ```
-**2.** **다대일 양방향 매핑**
+**N:1 양방향 매핑**
 ```java
-	@OneToMany(mappedBy = "example", fetch = FetchType.EAGER)
-	@ToString.Exclude
-    private List<Ex> exList = new ArrayList<>();
+@OneToMany(mappedBy = "example", fetch = FetchType.EAGER)
+@ToString.Exclude
+private List<Ex> exList = new ArrayList<>();
 ```
-**3** **일대다 단방향 매핑**
+**1:N 단방향 매핑**
 ```java
 //@OneToMany와 @JoinColumn 사용 시, 별도의 설정 없이도 일대다 단방향 연관관계 매핑
-	@OneToMany(fetch = FetchType.EAGER)
-	@JoinColumn(name = "example")
-    private List<Example> examples = new ArrayList<>();
+@OneToMany(fetch = FetchType.EAGER)
+@JoinColumn(name = "example")
+private List<Example> examples = new ArrayList<>();
 ```
-**4. 다대다 매핑**
+##### N:N 매핑
 <div class="content-box">
 각 엔티티에서 서로를 리스트로 가지는 구조<br>
 교차 엔티티라고 부르는 중간 테이블을 생성하여 다대다 관계를 일대다 또는 다대일 관계로 해소.
 </div>
 
-**5. 다대다 단방향 매핑**
+**N:N 단방향 매핑**
 리스트로 필드를 가지는 객체에서는 외래키를 가지지 않으므로 별도의 `@JoinColumn` 설정 불필요
 ```java
-	@ManyToMany
-	@ToString.Exclude
-    private List<Example> examples = new ArrayList<>();
+@ManyToMany
+@ToString.Exclude
+private List<Example> examples = new ArrayList<>();
 ```
-**6. 다대다 양방향 매핑**
+**N:N 양방향 매핑**
 필요에 따라 `mappedBy` 속성을 사용해 두 엔티티 간 연관관계의 주인 설정 가능
 ```java
-	@ManyToMany
-	@ToString.Exclude
-    private List<Example> examples = new ArrayList<>();
-	```
+@ManyToMany
+@ToString.Exclude
+private List<Example> examples = new ArrayList<>();
+```
 ```java
-	//양방향 연관관계 설정을 위한 코드
-	ex1.addExample(example1);
-    ex2.addExample(example1);
-    ex2.addExample(example2);
-    ex3.addExample(example2);
+//양방향 연관관계 설정을 위한 코드
+ex1.addExample(example1);
+ex2.addExample(example1);
+ex2.addExample(example2);
+ex3.addExample(example2);
 ```
 #####  영속성 전이
 
@@ -540,19 +542,19 @@ mappedBy에 들어가는 값은 연관관계를 갖고 있는 상대 엔티티�
 ***1. 영속성 전이 적용***<br>
 영속 상태의 변화에 따라 연관된 엔티티들의 동작도 함께 수행할 수 있어 개발의 생산성 향상
 ```java
-	//@OneToMany 어노테이션 속성 활용
-	@OneToMany(mappedBy = "example", cascade = CascadeType.PERSIST)
-	@ToString.Exclude
-    private List<Example> exampleList = new ArrayList<>();
+//@OneToMany 어노테이션 속성 활용
+@OneToMany(mappedBy = "example", cascade = CascadeType.PERSIST)
+@ToString.Exclude
+private List<Example> exampleList = new ArrayList<>();
 ```
 
 ***2. 고아 객체***<br>
 부모 엔티티와 연관관계가 끊어진 엔티티
 
 ```java
-	//고아 객체를 자동으로 제거
-	@OneToMany(mappedBy = "example", cascade = CascadeType.PERSIST, orphanRemoval = true)
-	@ToString.Exclude
-    private List<Example> exampleList = new ArrayList<>();
+//고아 객체를 자동으로 제거
+@OneToMany(mappedBy = "example", cascade = CascadeType.PERSIST, orphanRemoval = true)
+@ToString.Exclude
+private List<Example> exampleList = new ArrayList<>();
 ```
 
