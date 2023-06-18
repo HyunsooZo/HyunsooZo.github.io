@@ -448,7 +448,7 @@ System.out.println(productPage.getContent());
 
 09장: 연관관계 매핑
 
-##### 연관관계 매핑 종류와 방향
+##### 1. 연관관계 매핑 종류와 방향
 
 |매핑|방향|
 |--|--|
@@ -459,9 +459,7 @@ System.out.println(productPage.getContent());
 |단방향 | 두 엔티티의 관계에서 한쪽의 엔티티만 참조하는 형식|
 |양방향 | 두 엔티티의 관계에서 각 엔티티가 서로의 엔티티를 참조하는 형식|
 
-**1. 일대일 매핑**
-
-###일대일 단방향 매핑
+### 1. 일대일 단방향 매핑
 ```java
 	//다른 엔티티 객체를 필드로 정의했을 때 일대일 연관관계로 매핑하기 위해
     @OneToOne
@@ -473,7 +471,7 @@ System.out.println(productPage.getContent());
 
 `foreignKey` : 외래키를 생성하면서 지정할 제약조건(unique, nullable, insertable, updatable) 설정
 
-##### 일대일 양방향 매핑
+##### 2. 일대일 양방향 매핑
 ```java
     @OneToOne(mappedBy = "ex")
     private Example example;
@@ -481,20 +479,20 @@ System.out.println(productPage.getContent());
 `mappedBy` : 어떤 객체가 ***주인인지*** 표시하는 속성<br>엔티티는 양방향으로 매핑하되 한쪽에게만 외래키를 주기 위해 사용되는 속성 값<br>
 mappedBy에 들어가는 값은 연관관계를 갖고 있는 상대 엔티티에 있는 연관관계 필드의 이름
 
-**1.** 다대일, 일대다 매핑
+**1.** **다대일, 일대다 매핑**
 ```java
 	//다대일 단방향 매핑
 	@ManyToOne
   	@JoinColumn(name = "example")
 	@ToString.Exclude
 ```
-**2.** 다대일 양방향 매핑**
+**2.** **다대일 양방향 매핑**
 ```java
 	@OneToMany(mappedBy = "example", fetch = FetchType.EAGER)
 	@ToString.Exclude
     private List<Ex> exList = new ArrayList<>();
 ```
-**3*** 일대다 단방향 매핑**
+**3** **일대다 단방향 매핑**
 ```java
 //@OneToMany와 @JoinColumn 사용 시, 별도의 설정 없이도 일대다 단방향 연관관계 매핑
 	@OneToMany(fetch = FetchType.EAGER)
@@ -528,7 +526,7 @@ mappedBy에 들어가는 값은 연관관계를 갖고 있는 상대 엔티티�
     ex2.addExample(example2);
     ex3.addExample(example2);
 ```
-##### 영속성 전이
+##### 3. 영속성 전이
 
 |영속성 전이(cascade)| 특정 엔티티의 영속성 상태를 변경할 때 그 엔티티와 연관된 엔티티의 영속성에도 영향을 미쳐 영속성 상태를 변경하는 것|
 |-|-|
@@ -548,7 +546,7 @@ mappedBy에 들어가는 값은 연관관계를 갖고 있는 상대 엔티티�
     private List<Example> exampleList = new ArrayList<>();
 ```
 
-***5.2. 고아 객체***
+***2. 고아 객체***
 부모 엔티티와 연관관계가 끊어진 엔티티
 
 ```java
