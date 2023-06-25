@@ -584,7 +584,7 @@ private List<Example> exampleList = new ArrayList<>();
 
 ##### 스프링 부트에서의 유효성 검사
 
-**스프링 부트의 유효성 검사**
+**SpringBoot 유효성 검사**
 <div class="content-box">
 유효성 검사는 <u>각 계층으로 데이터가 넘어오는 시점에</u> 해당 데이터에 대한 검사진행<br>
 일반적으로 DTO(model)객체를 대상으로 유효성 검사 수행
@@ -767,7 +767,7 @@ try{
 }
 ```
 
-##### SpringBoot 예외 처리 방식
+##### SpringBoot 예외 처리
 
 <div class="content-box">
 Web applciation에서는 예외가 발생하면 예외를 복구해서 정상적으로 처리하기 보다 요청을 보낸 클라이언트에 어떤 문제가 발생했는지 상황전달하는 경우가 많다.<br>
