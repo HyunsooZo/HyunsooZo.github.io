@@ -558,3 +558,236 @@ private List<Example> exampleList = new ArrayList<>();
 private List<Example> exampleList = new ArrayList<>();
 ```
 
+### 리딩 6주차
+
+10장: 유효성 검사와 예외 처리
+
+**유효성 검사란?**
+<div class="content-box">
+어플리케이션 비즈니스 로직이 제대로 동작하도록 데이터를 사전에 검증<br>
+여러 계층에서 들어오는 데이터에 대해 의도한 형식대로 값이 들오는지 체크하는 작업
+</div>
+
+`Bean Validation` :
+<div class="content-box">
+일반적인 어플리케이션 데이터 검증 시 문제점이 다소 존재<br> 
+1. 계층별로 진행하는 유효성 검사는 검증 로직이 각 클래스 별로 분산되어 있어 관리 어려움<br>
+2. 검증 로직에 중복이 많아 여러곳에 유사한 기능의 코드존재 가능성 있음<br>
+3. 검증대상에 따라 검증 코드가 길어질 수 있음.(코드가독성 저하)<br>
+
+반면 <span class="emphasis">Bean Validation</span>은<br> 
+어노테이션을 통한 다양한 데이터 검증기능 제공<br>
+유효성 검사를 위한 로직을 DTO 같은 도메인 모델과 묶어서 각 계층에서 사용하면서 검증 자체를 도메인 모델에 얹는 방식으로 수행<br>
+어노테이션을 사용한 검증방식으로 코드 가독성 향상
+</div>
+
+
+##### 스프링 부트에서의 유효성 검사
+
+**스프링 부트의 유효성 검사**
+<div class="content-box">
+유효성 검사는 <u>각 계층으로 데이터가 넘어오는 시점에</u> 해당 데이터에 대한 검사진행<br>
+일반적으로 DTO(model)객체를 대상으로 유효성 검사 수행
+</div>
+
+|스프링부트 유효성검사||
+|--|--|
+|Hibernate Validator| Bean Validation의 구현체인 Hibernate Validator를 표준으로 사용<br>스프링 부트 2.3 이후로 별도 의존성 추가필요 (spring-boot-starter-validation)|
+
+##### Annotations
+
+**문자열**
+
+`@Null` : null값 <br>
+`@NotNull` : ~~null값~~ , ""(빈값), " "(공백) <br> 
+`@NotEmpty` : ~~null, ""~~ , " "(공백) <br> 
+`@NotBlank`: ~~~null, "", " "~~~ <br>
+`@Size(min = $number1, max = $number2)` : $number1 이상, $number2 이하의 범위 허용<br>
+
+**최댓값/최솟값**
+
+`@DecimalMax(value = "$numberString")` : $numberString보다 작은 값 허용<br>
+`@DecimalMin(value = "$numberString")` : $numberString보다 큰 값 허용<br>
+`@Min(value = $number)` : $number 이상의 값 허용<br>
+`@Max(value = $number)` : $number 이하의 값 허용<br>
+
+**값의 범위**
+
+`@Positive` : 양수 허용<br>
+`@PositiveOrZero` : 0을 포함한 양수 허용<br>
+`@Negative` : 음수 허용<br>
+`@NegativeOrZero` : 0을 포함한 음수 허용<br>
+
+**시간**
+
+
+`@Future` : 현재보다 미래의 날짜 허용<br>
+`@FutureOrPresent` : 현재를 포함한 미래의 날짜 허용<br>
+`@Past` : 현재보다 과거의 날짜 허용<br>
+`@PastOrPresent` : 현재를 포함한 과거의 날짜 허용<br>
+
+**이메일 형식**
+
+`@Email` : 이메일 형식 체크<br>
+
+**자릿수**
+
+`@Digits(integer = @number1, fraction = $number2)` : $number1 -> 정수 자릿수, $number2 -> 소수 자릿수<br>
+
+**Boolean 검증**
+
+`@AssertTrue` : true인지 체크, null 체크 x <br>
+`@AssertFalse` : false인지 체크, null 체크 x<br>
+
+**정규식**
+`@Pattern(regexp = "$expression")` : 정규식 검사<br>
+
+|정규식 요소||
+|--|--|
+|^ | 문자열의 시작|
+|$ | 문자열의 종료|
+|. | 임의의 한 문자|
+|* | 앞문자가 하나 이상|
+|? | 앞문자가 없거나 하나 존재|
+|[,] | 문자의 집합이나 범위, 두문자의 사이는 '-' 기호로 범위 표현|
+|{,} | 횟수 또는 범위|
+|(,) | 괄호안의 문자를 하나의 문자로 인식|
+|| | 패턴 안에서 OR 연산 수행|
+|\ | 정규식에서 역슬래시는 확장문자로 취급, 역슬래시 다음 특수문자는 문자로 인식|
+|\b | 단어의 경계|
+|\B | 단어가 아닌 것에 대한 경계|
+|\A | 입력의 시작 부분|
+|\G | 이전 매치의 끝|
+|\Z | 종결자가 있는 경우 입력의 끝|
+|\z | 입력의 끝|
+|\s | 공백 문자|
+|\S | 공백문자가 아닌 나무지 문자 (^\s와 동일)|
+|\w | 알파벳이나 숫자|
+|\W | 알파벳이나 숫자가 아닌 문자(^\w와 동일)|
+|\d | 숫자 [0-9]와 동일하게 취급|
+|\D | 숫자를 제외한 모든 문자(^0-9와 동일)|
+
+##### Valid Annotation
+
+`@Valid` **&** `@Validated`
+<div class="content-box">
+일반적으로 컨트롤러에서 유효성 검사를 하는 DTO를 @RequestBody로 받는 인자에 @Valid 어노테이션 붙여야 DTO객체에 대해 유효성 검사를 수행.<br>
+@Validated(Spring제공)는 @Valid(Java제공) 기능을 포함하므로 @Validated로 대체가능 (리스트로 다그룹 지정 가능)<br>
+@Validated는 유효성 검사를 그룹으로 묶어 대상 특정화 기능 존재
+</div>
+
+`@Validated`**그룹화 예시**
+```java
+//DTO
+ex) @Min(value=20, groups = ValidationGrop1.class)
+private String name;
+
+//Controller
+public ResponseEntity<?> checkValidation(
+	@Validated({ValidationGroup1.class, ValidationGroup2.class}) 
+	@RequestBody ValidatedReqDto dto) {...}
+```
+ 
+**커스텀 Validation 추가**
+
+`ConstraintValidator`와 커스텀 어노테이션을 조합하여 별도의 유효성 검사 어노테이션 생성가능. <br>
+동일한 정규식을 계속 쓰는 @Pattern 어노테이션의 경우가 일반적으로 사용됨.
+
+*<전화번호 형식이 일치하는지 확인하는 유효성 검사 어노테이션 예시>*
+
+*1. TelephoneValidator 클래스를 ContraintValidator 인터페이스의 구현체로 정의*
+*2. 인터페이스 선언 시 어노테이션 인터페이스 타입 정의*
+*3. isValid() 메소드 재정의*
+*4. false가 리턴 되면 MethodArgumentNotValid 예외 발생*
+
+```java
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Constraint(validatedBy = TelephoneValidator.class)
+public @interface Telephone{
+	String message() default "전화번호 형식이 일치하지 않습니다.";
+	Class[] groups() default {};
+	Class[] payload() default{};
+}
+```
+|관련 Annotations||
+|--|--|
+|@Target|이 어노테이션을 어디서 선언할 수 있는지 정의 (여기선 필드에서 선언 가능하도록 설정)<br>EntityType.PACKAGE,<br>EntityType.TYPE,<br>EntityType.CONTRUCTOR,<br>EntityType.FIELD,<br>EntityTypeMETHOD,<br>EntityType.ANNOTAION_TYPE,<br>EntityType.LOCAL_VARIABLE,<br>EntityType.PARAMETER,<br>EntityType.TYPE_PARAMETER,<br>EntityType.TYPE_USE|
+|@Retention | 이 어노테이션이 실제로 적용되고 유지되는 범위<br>RetentionPolicy.RUNTIME : 컴파일 이후에도 JVM에 의해 계속 참조, 리플렉션이나 로깅에 많이 사용<br>RetentionPolicy.CLASS : 컴파일러가 클래스를 참조할 때까지 유지<br>RetentionPolicy.SOURCE : 컴파일 전까지만 유지, 컴파일 이후에는 사라짐|
+|@Constraint | TelephoneValidator와 매핑하는 작업 수행|
+|message() | 유효성 검사가 실패할 경우 반환되는 메세지|
+|groups() | 유효성 검사를 사용하는 그룹으로 설정|
+|payload() | 사용자가 추가 정보를 위해 전달하는 값|
+
+
+##### Exception & Error 
+
+**Exception(예외)**
+<div class="content-box">
+어플리케이션이 정상적으로 동작하지 못하는 상황
+입력값의 처리가 불가능하거나, 참조된 갑싱 잘못된 경우 등
+개발자가 직접 처리할 수 있는 것이므로 미리 코드 설계를 통해 처리 가능!
+</div>
+
+**Error(에러)**
+<div class="content-box">
+주로 자바의 VM에서 발생<br>
+예외와 달리 어플리케이션 코드에서 처리할 수 있는 것이 거의 없다고 보임<br>
+OutOfMemory, StackOverFlow 등등 이 있음. <br>
+발생 시점에 처리하는 것이 아니라, 미리 코드를 보며 문제가 발생하지 않도록 예방해서 원천적으로 차단하는 것이 중요함
+</div>
+
+**예외 클래스**
+**Uncheked Exception** : RuntimeExcepion을 상속받는 Exception<br>
+**Checked Exception** : 그 외 Exception들
+
+|-|	Checked Exception|	Unchecked Exception|
+|--|--|--|
+|처리 여부|	예외 처리 필수	|명시적 처리를 강제하지 않음|
+|확인 시점|	컴파일 단계	|런타임 단계|
+|대표 예외 클래스	|IOException<br> SQLException|RuntimeException<br>NullPointerException<br>IllegalArgumentException<br>SystemException|
+
+**예외 처리**
+
+*1. 예외 복구 : 예외 상황을 파악해 문제를 해결*<br>
+`try{...}catch(Exception e){...}` 사용
+
+*2. 예외 처리 회피*<br>
+예외가 발생한 메소드를 호출한 곳에서 처리하도록 전가<br>
+`throw` 사용
+
+*3. 예외 전환*<br>
+1,2번의 혼합이라고 볼 수 있음. <br>
+예외가 발생 시 예외의 종류에 따라 호출부로 예외 내용 전달하며 좀 더 적합한 예외 타입으로 전달, 또는 어플리케이션에서 예외 처리 단순화를 위해 wrapping해야하는 경우도 존재.<br>
+```java
+try{
+	...
+}catch(Exception e){
+	throw ...
+}
+```
+
+##### SpringBoot 예외 처리 방식
+
+<div class="content-box">
+Web applciation에서는 예외가 발생하면 예외를 복구해서 정상적으로 처리하기 보다 요청을 보낸 클라이언트에 어떤 문제가 발생했는지 상황전달하는 경우가 많다.<br>
+예외가 발생 시, 클라이언트에 오류 메세지를 전달하려면 각 레이어에 발생한 예외를 엔드포인트 레벨인 컨트롤러로 전달해야한다. 
+</div>
+
+**SpringBoot에서는** `@(Rest)ControllerAdvice` , `@ExceptionHandler`**를 통해 모든 컨트롤러의 예외를 처리**
+
+basePackages속성을 통해 예외 관제 범위 지정 가능<br>
+범위 설정이 없으면 전역 볌위에서 예외처리<br>
+`@ExceptionHandler`를 통해 특정 컨트롤러 예외 처리(Local예외처리)
+
+
+|예외 처리 우선순위||
+|--|--|
+|@ControllerAdvice클래스 내에 동일하게 handler 메서드가 선언 | 구체적인 예외 클래스가 지정된 쪽이 우선순위가 높음|
+|@ControllerAdvice의 글로벌 예외 처리와 @Controller내의 컨트롤러 예외 처리에 동일한 타입의 예외 처리| 범위가 좁은 컨트롤러의 핸들러 메소드가 우선순위|
+
+**커스텀 예외**
+<div class="content-box">
+자바에서 제공하는 표준 예외를 사용하면 어플리케이션의 모든 예외 상황 처리가능 하지만 네이밍에 개발자의 의도를 담을 수 있기때문에 이름만으로도 어느 정도 예외상황 예측 가능하고 예외 메세지를 상세히 적어야하는 번거로움을 덜음과 동시에 예외를 개발자가 직접 관리하기 수월해짐(주로 표준예외를 상속). 이와 더불어 커스텀 예외로 관리하면 의도하지 않았던 부분에서 발생한 예외는 개발자가 관리하는 예외처리 코드가 처리하지 않으므로 개발과정에서 커뮤니케이션 효율 높아짐.<br>
+`@ControllerAdvice`, `@ExceptionHandler`를 사용하여 예외 상황을 한곳에서 처리함.
+</div>
