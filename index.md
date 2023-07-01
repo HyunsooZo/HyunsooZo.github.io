@@ -87,8 +87,7 @@ toc: false
 </div>
 
 <div class="box-ghchart">
-    <p>This is a blog where I record what I learned each day</p>
-    <p> 매일 배운 내용을 기록하는 브이로그 입니다. <p>
+    <p>그날 그날 배운내용을 기록하는 블로그<br>This is a blog where I record what I learned each day</p>
     <div>
         <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
     </div>
