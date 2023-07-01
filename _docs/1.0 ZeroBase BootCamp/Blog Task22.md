@@ -539,8 +539,8 @@ management.endpoint.web.base-path=/custom-path
              +---server1----+   +---server2---+
 [client] <-> |  Controller  |   |             |
              |      ↕       |   |             |
-		     | RestTemplate |<->| Controller  | 
-			 +--------------+   +-------------+
+             | RestTemplate |<->| Controller  | 
+             +--------------+   +-------------+
 ```
 <div class="content-box">
 -클라이언트는 서버를 대상으로 요청을 보내고 응답을 받는 역할<br>
