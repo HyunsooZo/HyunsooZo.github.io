@@ -1,7 +1,7 @@
 ---
 title: Spring(Boot) Mini Project-(3)
 category: ZeroBase BootCamp
-order: 5
+order: 7
 ---
 ### Repository
 
