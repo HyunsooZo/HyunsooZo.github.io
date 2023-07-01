@@ -18,7 +18,7 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/technologist-light-skin-tone_1f9d1-1f3fb-200d-1f4bb.png" /></i>
-                    <span>Hyunsoo Zo</span>
+                    <span>조현수 (Hyunsoo Jo)</span>
                 </p>
             </div>
         </li>
@@ -88,6 +88,7 @@ toc: false
 
 <div class="box-ghchart">
     <p>This is a blog where I record what I learned each day</p>
+    <p> 매일 배운 내용을 기록하는 브이로그 입니다. <p>
     <div>
         <img src="https://ghchart.rshah.org/0080ff/HyunsooZo"/>
     </div>
