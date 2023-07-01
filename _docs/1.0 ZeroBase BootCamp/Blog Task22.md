@@ -496,6 +496,7 @@ management.endpoint.web.base-path=/custom-path
 </div>
 
 ##### RestTemplate 동작 원리
+
 ||
 |-|
 |1. 애플리케이션에서 RestTemplate 선언하고 URI, HTTP 메서드, Body 설정|
@@ -509,16 +510,17 @@ management.endpoint.web.base-path=/custom-path
 |5. 받은 응답 데이터가 정상적이라면 다시 한번 HttpMessageConverter를 거쳐 자바 객체로 변환해서 애플리케이션으로 반환|
 
 ##### RestTemplate의 대표 메서드
+
 |메서드	|HTTP형태|설명|
 |-|-|-|
 |getForObject|GET|GET 형식으로 요청한 결과를 객체로 반환|
 |getForEntity|GET|GET 형식으로 요청한 결과를 ResponseEntity 결과로 반환|
 |postForLocation|POST|POST 형식으로 요청한 결과를 헤더에 저장된 URI로 반환|
-|postForObject|	POST|POST 형식으로 요청한 결과를 객체로 반환|
-|postForEntity|	POST|POST 형식으로 요청한 결과를 ResponseEntity 형식으로 반환|
+|postForObject|POST|POST 형식으로 요청한 결과를 객체로 반환|
+|postForEntity|POST|POST 형식으로 요청한 결과를 ResponseEntity 형식으로 반환|
 |delete|DELETE|DELETE 형식으로 요청|
 |put|PUT|PUT 형식으로 요청|
-|patchForObject	|PATCH|	PATCH 형식으로 요청한 결과를 객체로 반환|
+|patchForObject|PATCH|PATCH 형식으로 요청한 결과를 객체로 반환|
 |optionsForAllow|OPTIONS|해당 URI에서 지원하는 HTTP 메서드 조회|
 |exchange|ANY|HTTP 헤더에 임의로 추가 가능하며 어떤 메서드 형식에서도 사용 가능|
 |execute|ANY|요청과 응답에 대한 콜백 수정|
