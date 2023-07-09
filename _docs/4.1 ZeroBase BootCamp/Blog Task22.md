@@ -691,28 +691,28 @@ URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서�
 
 **Header**
 <div class="content-box">
-JWT의 헤더는 검증과 관련된 내용 담고있음. (alg/typ)<br>
+<span class="emphasis">JWT</span> 의 헤더는 검증과 관련된 내용 담고있음. (alg/typ)<br>
 
-alg - 해싱알고리즘 지정 (SHA256 / RSA)<br>
-typ - 토큰 타입지정 <br>
+<span class="emphasis">alg</span> - 해싱알고리즘 지정 (SHA256 / RSA)<br>
+<span class="emphasis">typ</span> - 토큰 타입지정 <br>
 
 완성된 헤더는 Base64Url 형식으로 인코딩되어 사용.
 </div>
 
 **Payload**
-|PayLoad : 토큰에 담는 정보를 포함||
-|-|-|
-|등록된 클레임 | 토큰에 대한 정보를 담기 위한 이름이 정해져 있는 클레임|
-||**iss** : JWT 발급자(Issuer) 주체|
-||**sub** : JWT 제목|
-||**aud** : JWT 수신인(Audience)|
-||**exp** : JWT 만료시간|
-||**nbf** : 'Not Before'|
-||**iat** : JWT 발급시간|
-||**jti** : JWT 식별자(JWT ID). 중복 처리 방지하기위해 사용|
-|공개 클레임 | 키 값을 마음대로 정의할 수 있음|
-|비공개 클레임 | 통신 간에 상호 합의되고 등록된 클레임과 공개된 클레임이 아닌 클레임 의미|
-
+<div class="content-box">
+<span class="emphasis">PayLoad</span> : 토큰에 담는 정보를 포함<br>
+<span class="emphasis">등록된 클레임</span> : 토큰에 대한 정보를 담기 위한 이름이 정해져 있는 클레임<br>
+<span class="emphasis">iss</span> : JWT 발급자(Issuer) 주체<br>
+<span class="emphasis">sub</span> : JWT 제목<br>
+<span class="emphasis">aud</span> : JWT 수신인(Audience)<br>
+<span class="emphasis">exp</span> : JWT 만료시간<br>
+<span class="emphasis">nbf</span> : 'Not Before'<br>
+<span class="emphasis">iat</span> : JWT 발급시간<br>
+<span class="emphasis">jti</span> : JWT 식별자(JWT ID). 중복 처리 방지하기위해 사용<br>
+<span class="emphasis">공개 클레임</span> : 키 값을 마음대로 정의할 수 있음<br>
+<span class="emphasis">비공개 클레임</span> : 통신 간에 상호 합의되고 등록된 클레임과 공개된 클레임이 아닌 클레임 의미
+</div>
 **Signature**
 
 <div class="content-box">
