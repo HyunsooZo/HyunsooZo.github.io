@@ -41,7 +41,7 @@ order: 2
 |무상태성|서버에 상태정보를 따로 보관/관리하지 않음. -> 자유도 높음|
 |캐시가능성|HTTP의 캐싱기능 사용가능하고 사용함으로써 서버의 transaction부하 줄일 수 있음.|
 |레이어 시스템|여러계층으로 구성될 수 있음.|
-|클라이언트-서버 아키텍쳐|Rest서버는 API를 제공, 클라이언트는 사용자 정보를 관리. -> 서로 의존성 낮음 |
+|Client-서버 아키텍쳐|Rest서버는 API를 제공, Client는 사용자 정보를 관리. -> 서로 의존성 낮음 |
 
 정리해보면, 이번 1,2,3 장에서 가장 중요한 내용은 <span class="emphasis">DI(의존성 주입)</span>이라고 생각한다. <br>
 DI를 통해 객체는 직접 의존하는 객체를 생성하거나 관리하지 않고, 의존성을 가진 객체를 주입받아 사용하고, Spring에서는 이를 통해 코드의 결합도를 낮추고 유연성과 확장성을 향상시킬 수 있다.
@@ -169,7 +169,7 @@ MemberDTO{name='Flature', email='thinkground.flature@gmail.com', organization='A
 ```
 > DELETE API 만들기
 <div class = "content-box">
-Delete는 데이터베이스 등의 저장소에 있는 리소스를 삭제할 때 사용.<br> 서버에서는 클라이언트로부터 리소스를 식별할 수 있는 값을 받아 데이터베이스나 캐시에 있는 리소스를 조회하고 삭제. <br> 이 때 컨트롤러를 통해 값을 받는 단계에서 간단한 값만을 받기 때문에 Get 메서드와 같이 URI에 값을 넣어 요청을 받는 형식으로 구현.
+Delete는 데이터베이스 등의 저장소에 있는 리소스를 삭제할 때 사용.<br> 서버에서는 Client로부터 리소스를 식별할 수 있는 값을 받아 데이터베이스나 캐시에 있는 리소스를 조회하고 삭제. <br> 이 때 컨트롤러를 통해 값을 받는 단계에서 간단한 값만을 받기 때문에 Get 메서드와 같이 URI에 값을 넣어 요청을 받는 형식으로 구현.
 </div>
 
 ```java
@@ -271,7 +271,7 @@ update 라는 키워드를 따로 사용하지 않으며, 값을 find() 를 통�
 ##### Controller 
 
 <div class="content-box"> 
-Controller 클래스에 API를 구현. 여기에서 어떠한 요청을 받으면 데이터베이스는 서비스 클래스에서 핵심 기능을 제공.<br>데이터베이스와 밀접한 관련이 있는 객체는 엔티티 또는 DAO(Data Access Object)를 사용하고, 클라이언트와 가까워지는 서비스 등의 레이어에서는 데이터를 주고받을 때 DTO(Data Transfer Object) 객체 를 사용하는 것이 일반적.
+Controller 클래스에 API를 구현. 여기에서 어떠한 요청을 받으면 데이터베이스는 서비스 클래스에서 핵심 기능을 제공.<br>데이터베이스와 밀접한 관련이 있는 객체는 엔티티 또는 DAO(Data Access Object)를 사용하고, Client와 가까워지는 서비스 등의 레이어에서는 데이터를 주고받을 때 DTO(Data Transfer Object) 객체 를 사용하는 것이 일반적.
 </div>
 
 ##### Service
@@ -443,3 +443,132 @@ System.out.println(productPage.getContent());
 |@CreatedDate | 데이터 생성 날짜를 자동 주입.|
 |@LastModifiedDate | 데이터 수정 날짜를 자동 주입.|
 |@CreatedBy<br>@ModifiedBy| 누가 엔티티를 생성했고 수정했는지 자동으로 값을 주입하는 기능, 이 기능을 사용하려면 AuditorAware를 스프링 빈으로 등록해야 함.|
+
+### 리딩 8주차
+
+>**보안용어**
+
+**Authentication(인증)**
+<div class="content-box">
+사용자가 누구인지 확인하는단계.<br>
+대표적인 예로 로그인. 로그인은 데이터베이스에 등록된 아이디와 패스워드를 사용자가 입력한 ID/PW와 비교하여 일치여부를 확인하는 과정. <br>
+로그인에 성공하면 애플리케이션 서버는 응답으로 사용자에게 Token전달. <br>
+로그인에 실패한(Token을 받지 못한) 사용자는 원하는 리소스 접근불가
+</div>
+
+**Authorization(인가)**
+<div class="content-box">
+인가는 인증을 통해 검증된 사용자가 애플리케이션 내부 리소스 접근시 권리소유 여부확인 하는 단계<br>예를 들면 로그인사용자의 게시판 접근등급 확인하여 접근허가/거절<br>일반적으로 사용자가 인증시 발급단은 Token은 인가내용을 포함하며 사용자가 리소스에 접근하면서 Token을 한께 전달, 서버는 Token을 통해 권한 유무 등을 확인
+</div>
+
+**Principal(접근주체)**
+<div class="content-box">
+애플리케이션의 기능을 사용하는 주체를 의미.<br>
+접근주체는 사용자가 될 수도/ 디바이스/ 시스템 등이 될 수도 있음. <br>
+인증과정을 통해 접근주체가 신뢰할 수 있는지 확인하고 인가과정을 통해 접근 주체에게 부여된 권한을 확인하는 과정 등을 거침
+</div>
+
+##### Spring Security
+
+<div class="content-box">
+Spring Security는 인증/인가 등의 보안 기능을 제공하는 스프링 하위 프로젝트 중 하나로 보안과 관련된 많은 기능을 제공하기 때문에 활용 시 더욱 편리하게 원하는 기능을 설계할 수 있음. 
+</div>
+
+**Spring Security 동작구조**
+
+Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이 DispatcherServlet 앞에 필터가 배치되어있음. 
+```bash
++------+   +--필터체인-+   +-------+    
+|	   |   |         |   |       | ←→ [Handler Mapping]
+|	   | → |[filter] | → |       |           ↑↓
+|	   |   |   ↑↓    |   |Dispat | ←→ [RestController]
+|client|   |[filter] |   |cher   |           ↑↓
+|	   |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
+|	   |   |[filter] |   |       |           ↑↓
+|	   | ← |   ↑↓    | ← |       | ←→ [Http Res]
+|	   |   |[servlet]|   |       |
++------+   +---------+   +-------+ 
+
+```
+
+**인증 수행 과정**
+
+**1.**<br>
+Client로부터 요청을 받으면 Servlet 필터에서 SecurityFilterChain으로 작업이 위임되고,<br> 
+AuthenticationFilter(UsernamePasswordAuthenticationFilter)에서 인증 처리.
+
+**2.**<br>
+AuthenticationFilter는 요청 객체(HttpServletRequest)에서 username, password를 추출해서 Token을 생성.
+
+
+**3.**<br>
+AuthenticationManager에게 Token을 전달.
+(AuthenticationManager는 I/F 구현체는 ProviderManager)
+
+**4.**<br>
+ProviderManager는 인증을 위해 AuthenticationProvider로 Token을 전달한다.
+
+**5.**<br>
+AuthenticationProvider는 Token의 정보 UserDetailsService에 전달.
+
+**6.**<br>
+UserDetailsService는 전달받은 정보를 통해 DB에서 일치하는 사용자를 찾아 UserDetails객체 생성.
+
+**7.**<br>
+생성된 UserDetails객체는 AuthenticationProvider로 전달되고, 해당 Provider에서 인증을 수행하고 성공하게되면 ProviderManager로 권한을 담은 Token 전달.
+
+**8.**<br>
+ProviderManager는 검증된 Token을 AuthenticationFilter로 전달.
+
+**9.**<br>
+AuthenticationFilter는 검증된 Token을 SecurityContextHolder에 있는 SecurityContext에 저장.
+
+
+##### Json Web Token(JWT)
+
+<div class="content-box">
+당사자 간에 정보를 JSON 형태로 안전하게 전송하기 위한 토큰<br>
+URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서명이 적용돼 있어 신뢰할 수 있다. JWT는 주로 서버와의 통신에서 권한 인가를 위해 사용된다.
+</div>
+
+
+> **JWT 구조**
+
+**Header**
+<div class="content-box">
+JWT의 헤더는 검증과 관련된 내용 담고있음. (alg/typ)<br>
+
+alg - 해싱알고리즘 지정 (SHA256 / RSA)<br>
+typ - 토큰 타입지정 <br>
+
+완성된 헤더는 Base64Url 형식으로 인코딩되어 사용.
+</div>
+
+**Payload**
+<div class="content-box">
+토큰에 담는 정보를 포함
+</div>
+
+||||
+|-|-|-|
+|등록된 클레임 | 토큰에 대한 정보를 담기 위해 이미 이름이 정해져 있는 클레임||
+|ㄴ|iss | JWT 발급자(Issuer) 주체|
+|ㄴ|sub | JWT 제목|
+|ㄴ|aud | JWT 수신인(Audience)|
+|ㄴ|exp | JWT 만료시간|
+|ㄴ|nbf | 'Not Before'|
+|ㄴ|iat | JWT 발급시간|
+|ㄴ|jti | JWT 식별자(JWT ID). 중복 처리 방지하기위해 사용.|
+|공개 클레임 | 키 값을 마음대로 정의할 수 있다.||
+|비공개 클레임 | 통신 간에 상호 합의되고 등록된 클레임과 공개된 클레임이 아닌 클레임을 의미한다.||
+
+**Signature**
+
+<div class="content-box">
+인코딩된 헤더, 인코딩된 내용, 비밀키, 헤더의 알고리즘 속성값을 가져와 생성
+</div>
+
+
+
+
+
