@@ -477,7 +477,7 @@ Spring Security는 인증/인가 등의 보안 기능을 제공하는 스프링 
 **Spring Security 동작구조**
 
 Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이 DispatcherServlet 앞에 필터가 배치되어있음. 
-```bash
+```
 +------+   +--필터체인-+   +-------+    
 |	   |   |         |   |       | ←→ [Handler Mapping]
 |	   | → |[filter] | → |       |           ↑↓
