@@ -446,7 +446,7 @@ System.out.println(productPage.getContent());
 
 ### 리딩 8주차
 
->**보안용어**
+**보안용어**
 
 **Authentication(인증)**
 <div class="content-box">
@@ -491,36 +491,36 @@ Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이
 
 ```
 
-**인증 수행 과정**
+###### 인증 수행 과정
 
-**1.**<br>
+**1.**
 Client로부터 요청을 받으면 Servlet 필터에서 SecurityFilterChain으로 작업이 위임되고,<br> 
 AuthenticationFilter(UsernamePasswordAuthenticationFilter)에서 인증 처리.
 
-**2.**<br>
+**2.**
 AuthenticationFilter는 요청 객체(HttpServletRequest)에서 username, password를 추출해서 Token을 생성.
 
 
-**3.**<br>
+**3.**
 AuthenticationManager에게 Token을 전달.
 (AuthenticationManager는 I/F 구현체는 ProviderManager)
 
-**4.**<br>
+**4.**
 ProviderManager는 인증을 위해 AuthenticationProvider로 Token을 전달한다.
 
-**5.**<br>
+**5.**
 AuthenticationProvider는 Token의 정보 UserDetailsService에 전달.
 
-**6.**<br>
+**6.**
 UserDetailsService는 전달받은 정보를 통해 DB에서 일치하는 사용자를 찾아 UserDetails객체 생성.
 
-**7.**<br>
+**7.**
 생성된 UserDetails객체는 AuthenticationProvider로 전달되고, 해당 Provider에서 인증을 수행하고 성공하게되면 ProviderManager로 권한을 담은 Token 전달.
 
-**8.**<br>
+**8.**
 ProviderManager는 검증된 Token을 AuthenticationFilter로 전달.
 
-**9.**<br>
+**9.**
 AuthenticationFilter는 검증된 Token을 SecurityContextHolder에 있는 SecurityContext에 저장.
 
 
@@ -532,7 +532,7 @@ URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서�
 </div>
 
 
-> **JWT 구조**
+###### JWT 구조
 
 **Header**
 <div class="content-box">
