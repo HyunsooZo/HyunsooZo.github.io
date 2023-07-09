@@ -1,5 +1,5 @@
 ---
-title: JSP Project(1)
+title: JSP Projects
 category: ZeroBase BootCamp
 order: 4
 ---
