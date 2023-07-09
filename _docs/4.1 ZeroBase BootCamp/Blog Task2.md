@@ -491,7 +491,7 @@ Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이
 
 ```
 
-###### 인증 수행 과정
+**인증 수행 과정**
 
 **1.**
 Client로부터 요청을 받으면 Servlet 필터에서 SecurityFilterChain으로 작업이 위임되고,<br> 
@@ -533,7 +533,7 @@ URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서�
 </div>
 
 
-###### JWT 구조
+**JWT 구조**
 
 **Header**
 <div class="content-box">
