@@ -686,10 +686,7 @@ JWT: Json Web Token <br>
 URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서명이 적용돼 있어 신뢰할 수 있다. JWT는 주로 서버와의 통신에서 권한 인가를 위해 사용된다.
 </div>
 
-
-**JWT 구조**
-
-**Header**
+**JWT Header**
 <div class="content-box">
 <span class="emphasis">JWT</span> 의 헤더는 검증과 관련된 내용 담고있음. (alg/typ)<br>
 
@@ -699,7 +696,7 @@ URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서�
 완성된 헤더는 Base64Url 형식으로 인코딩되어 사용.
 </div>
 
-**Payload**
+**JWT Payload**
 <div class="content-box">
 <span class="emphasis">PayLoad</span> : 토큰에 담는 정보를 포함<br>
 <span class="emphasis">등록된 클레임</span> : 토큰에 대한 정보를 담기 위한 이름이 정해져 있는 클레임<br>
@@ -713,7 +710,8 @@ URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서�
 <span class="emphasis">공개 클레임</span> : 키 값을 마음대로 정의할 수 있음<br>
 <span class="emphasis">비공개 클레임</span> : 통신 간에 상호 합의되고 등록된 클레임과 공개된 클레임이 아닌 클레임 의미
 </div>
-**Signature**
+
+**JWT Signature**
 
 <div class="content-box">
 인코딩된 헤더, 인코딩된 내용, 비밀키, 헤더의 알고리즘 속성값을 가져와 생성
