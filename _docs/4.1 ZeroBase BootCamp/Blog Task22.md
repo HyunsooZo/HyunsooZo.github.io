@@ -598,3 +598,132 @@ WebClient는 우선 객체를 생성한 후 요청을 전달하는 방식으로 
 `builder()` 를 통해 `baseUrl()` 메소드에서 기본 URL을 설정하고 `defaultHeader()` 메소드로 헤더의 값을 설정.<br> 
 일반적으로 WebClient 객체를 이용할 때 객체를 생성하고 재사용하는 방법으로 구현하는 것이 좋음. 한번 빌드된 WebClient 는 변경할 수 없으나 `Webclient.mutate()` 메소드를 사용하면 복제 가능.
 
+### 리딩 8주차
+
+**보안용어**
+
+**Authentication(인증)**
+<div class="content-box">
+사용자가 누구인지 확인하는단계.<br>
+대표적인 예로 로그인. 로그인은 데이터베이스에 등록된 아이디와 패스워드를 사용자가 입력한 ID/PW와 비교하여 일치여부를 확인하는 과정. <br>
+로그인에 성공하면 애플리케이션 서버는 응답으로 사용자에게 Token전달. <br>
+로그인에 실패한(Token을 받지 못한) 사용자는 원하는 리소스 접근불가
+</div>
+
+**Authorization(인가)**
+<div class="content-box">
+인가는 인증을 통해 검증된 사용자가 애플리케이션 내부 리소스 접근시 권리소유 여부확인 하는 단계<br>예를 들면 로그인사용자의 게시판 접근등급 확인하여 접근허가/거절<br>일반적으로 사용자가 인증시 발급단은 Token은 인가내용을 포함하며 사용자가 리소스에 접근하면서 Token을 한께 전달, 서버는 Token을 통해 권한 유무 등을 확인
+</div>
+
+**Principal(접근주체)**
+<div class="content-box">
+애플리케이션의 기능을 사용하는 주체를 의미.<br>
+접근주체는 사용자가 될 수도/ 디바이스/ 시스템 등이 될 수도 있음. <br>
+인증과정을 통해 접근주체가 신뢰할 수 있는지 확인하고 인가과정을 통해 접근 주체에게 부여된 권한을 확인하는 과정 등을 거침
+</div>
+
+##### Spring Security
+
+<div class="content-box">
+Spring Security는 인증/인가 등의 보안 기능을 제공하는 스프링 하위 프로젝트 중 하나로 보안과 관련된 많은 기능을 제공하기 때문에 활용 시 더욱 편리하게 원하는 기능을 설계할 수 있음. 
+</div>
+
+**Spring Security 동작구조**
+
+Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이 DispatcherServlet 앞에 필터가 배치되어있음. 
+```
++------+   +--필터체인-+   +-------+    
+|	   |   |         |   |       | ←→ [Handler Mapping]
+|	   | → |[filter] | → |       |           ↑↓
+|	   |   |   ↑↓    |   |Dispat | ←→ [RestController]
+|client|   |[filter] |   |cher   |           ↑↓
+|	   |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
+|	   |   |[filter] |   |       |           ↑↓
+|	   | ← |   ↑↓    | ← |       | ←→ [Http Res]
+|	   |   |[servlet]|   |       |
++------+   +---------+   +-------+ 
+
+```
+
+**인증 수행 과정**
+
+**1.**
+Client로부터 요청을 받으면 Servlet 필터에서 SecurityFilterChain으로 작업이 위임되고,<br> 
+AuthenticationFilter(UsernamePasswordAuthenticationFilter)에서 인증 처리.
+
+**2.**
+AuthenticationFilter는 요청 객체(HttpServletRequest)에서 username, password를 추출해서 Token을 생성.
+
+
+**3.**
+AuthenticationManager에게 Token을 전달.
+(AuthenticationManager는 I/F 구현체는 ProviderManager)
+
+**4.**
+ProviderManager는 인증을 위해 AuthenticationProvider로 Token을 전달한다.
+
+**5.**
+AuthenticationProvider는 Token의 정보 UserDetailsService에 전달.
+
+**6.**
+UserDetailsService는 전달받은 정보를 통해 DB에서 일치하는 사용자를 찾아 UserDetails객체 생성.
+
+**7.**
+생성된 UserDetails객체는 AuthenticationProvider로 전달되고, 해당 Provider에서 인증을 수행하고 성공하게되면 ProviderManager로 권한을 담은 Token 전달.
+
+**8.**
+ProviderManager는 검증된 Token을 AuthenticationFilter로 전달.
+
+**9.**
+AuthenticationFilter는 검증된 Token을 SecurityContextHolder에 있는 SecurityContext에 저장.
+
+
+##### JWT
+
+<div class="content-box">
+JWT: Json Web Token <br>
+당사자 간에 정보를 JSON 형태로 안전하게 전송하기 위한 토큰<br>
+URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서명이 적용돼 있어 신뢰할 수 있다. JWT는 주로 서버와의 통신에서 권한 인가를 위해 사용된다.
+</div>
+
+
+**JWT 구조**
+
+**Header**
+<div class="content-box">
+JWT의 헤더는 검증과 관련된 내용 담고있음. (alg/typ)<br>
+
+alg - 해싱알고리즘 지정 (SHA256 / RSA)<br>
+typ - 토큰 타입지정 <br>
+
+완성된 헤더는 Base64Url 형식으로 인코딩되어 사용.
+</div>
+
+**Payload**
+<div class="content-box">
+토큰에 담는 정보를 포함
+</div>
+
+||||
+|-|-|-|
+|등록된 클레임 | 토큰에 대한 정보를 담기 위해 이미 이름이 정해져 있는 클레임||
+|ㄴ|iss | JWT 발급자(Issuer) 주체|
+|ㄴ|sub | JWT 제목|
+|ㄴ|aud | JWT 수신인(Audience)|
+|ㄴ|exp | JWT 만료시간|
+|ㄴ|nbf | 'Not Before'|
+|ㄴ|iat | JWT 발급시간|
+|ㄴ|jti | JWT 식별자(JWT ID). 중복 처리 방지하기위해 사용.|
+|공개 클레임 | 키 값을 마음대로 정의할 수 있다.||
+|비공개 클레임 | 통신 간에 상호 합의되고 등록된 클레임과 공개된 클레임이 아닌 클레임을 의미한다.||
+
+**Signature**
+
+<div class="content-box">
+인코딩된 헤더, 인코딩된 내용, 비밀키, 헤더의 알고리즘 속성값을 가져와 생성
+</div>
+
+
+
+
+
