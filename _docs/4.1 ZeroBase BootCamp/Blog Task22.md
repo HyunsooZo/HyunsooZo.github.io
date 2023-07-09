@@ -633,14 +633,14 @@ Spring Security는 인증/인가 등의 보안 기능을 제공하는 스프링 
 Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이 DispatcherServlet 앞에 필터가 배치되어있음. 
 ```
 +------+   +--필터체인-+   +-------+    
-|	   |   |         |   |       | ←→ [Handler Mapping]
-|	   | → |[filter] | → |       |           ↑↓
-|	   |   |   ↑↓    |   |Dispat | ←→ [RestController]
+|      |   |         |   |       | ←→ [Handler Mapping]
+|	     | → |[filter] | → |       |           ↑↓
+|	     |   |   ↑↓    |   |Dispat | ←→ [RestController]
 |client|   |[filter] |   |cher   |           ↑↓
-|	   |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
-|	   |   |[filter] |   |       |           ↑↓
-|	   | ← |   ↑↓    | ← |       | ←→ [Http Res]
-|	   |   |[servlet]|   |       |
+|	     |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
+|	     |   |[filter] |   |       |           ↑↓
+|	     | ← |   ↑↓    | ← |       | ←→ [Http Res]
+|	     |   |[servlet]|   |       |
 +------+   +---------+   +-------+ 
 
 ```
