@@ -524,9 +524,10 @@ ProviderManager는 검증된 Token을 AuthenticationFilter로 전달.
 AuthenticationFilter는 검증된 Token을 SecurityContextHolder에 있는 SecurityContext에 저장.
 
 
-##### Json Web Token(JWT)
+##### JWT
 
 <div class="content-box">
+JWT: Json Web Token <br>
 당사자 간에 정보를 JSON 형태로 안전하게 전송하기 위한 토큰<br>
 URL로 이용할 수 있는 문자열로만 구성돼 있으며, 디지털 서명이 적용돼 있어 신뢰할 수 있다. JWT는 주로 서버와의 통신에서 권한 인가를 위해 사용된다.
 </div>
