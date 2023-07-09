@@ -634,13 +634,13 @@ Spring Security는 Servlet Filter를 기반으로 동작하며, 아래와 같이
 ```
 +------+   +--필터체인-+   +-------+    
 |      |   |         |   |       | ←→ [Handler Mapping]
-|	     | → |[filter] | → |       |           ↑↓
-|	     |   |   ↑↓    |   |Dispat | ←→ [RestController]
+|      | → |[filter] | → |       |           ↑↓
+|      |   |   ↑↓    |   |Dispat | ←→ [RestController]
 |client|   |[filter] |   |cher   |           ↑↓
-|	     |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
-|	     |   |[filter] |   |       |           ↑↓
-|	     | ← |   ↑↓    | ← |       | ←→ [Http Res]
-|	     |   |[servlet]|   |       |
+|      |   |   ↑↓    |   |Servlet| ←→ [MessageConverter]
+|      |   |[filter] |   |       |           ↑↓
+|      | ← |   ↑↓    | ← |       | ←→ [Http Res]
+|      |   |[servlet]|   |       |
 +------+   +---------+   +-------+ 
 
 ```
