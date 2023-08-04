@@ -8,7 +8,7 @@ order: 3
 ![Docker img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAq1MO%2FbtrH2nr9qlg%2FKcbWROKZroqgebfC2LFkB1%2Fimg.png)
 
 <div class="content-box">
-Docker란, </br>
+Docker란,  </br>
 Go언어로 작성된 리눅스 컨테이너 기반으로 하는 오픈소스 가상화 플랫폼
 
 다시 말해 특정한 서비스를 패키징하고 배포하는데 유용한 오픈소스 프로그램
@@ -21,12 +21,12 @@ Go언어로 작성된 리눅스 컨테이너 기반으로 하는 오픈소스 �
 ##### Docker를 왜 사용할까?
 
 **1. 애플리케이션 독립성을 가진다.** <br>
-호스트 OS, 다른 컨테이너와도 독립된 공간을 보장받아 충돌이 발생하지 않는다.</br>
+호스트 OS, 다른 컨테이너와도 독립된 공간을 보장받아 충돌이 발생하지 않는다. </br>
 
-**2. 배포가 용이 하다.**</br>
-컨테이너 내부에 작업 후 배포하려 한다면 도커 이미지로 만들어서 운영서버에 전달만 하면 된다.</br>
+**2. 배포가 용이 하다.**  </br>
+컨테이너 내부에 작업 후 배포하려 한다면 도커 이미지로 만들어서 운영서버에 전달만 하면 된다. </br>
 
-**3. 마이크로 서비스 구조로 변화가 쉽다.** </br>
+**3. 마이크로 서비스 구조로 변화가 쉽다.**  </br>
 컨테이너 하나당 하나의 기능을 제공하는 모듈로 만드는 등 조정이 가능하다.
 
 정리하자면, 
@@ -43,7 +43,7 @@ Docker Image란 컨테이너를 실행할 수 있는 실행파일, 설정 값들
 Image를 컨테이너에 담고 실행시키면 해당 프로세스가 동작한다
 </div>
 
-**[Docker Image 생성]**</br>
+**[Docker Image 생성]**  </br>
 
 도커 이미지는 기존 이미지에 추가적인 구성이 필요할 때 다시 다운로드하는 방법이 아닌 기존이미지에 레이어를 추가하여 구성을 올려주는 방식으로 생성.
 
@@ -70,18 +70,18 @@ Image를 컨테이너에 담고 실행시키면 해당 프로세스가 동작한
 
 ##### Mac & Window
 
-**1.**`homebrew-cask` 사용</br>
-Mac의 (GUI를 제공하는) 응용프로그램을 커맨드로 설치해주는 편리한 기능이다.</br>
+**1.**`homebrew-cask` 사용  </br>
+Mac의 (GUI를 제공하는) 응용프로그램을 커맨드로 설치해주는 편리한 기능이다. </br>
 
-cask 옵션을 통해 설치한 프로그램들은 기본적으로 Applications 폴더에 들어가게 된다.</br>
+cask 옵션을 통해 설치한 프로그램들은 기본적으로 Applications 폴더에 들어가게 된다. </br>
 
 이를 이용해 Docker 설치를 진행하면
-Desktop on Mac을 설치하고 docker-compose, docker-machine 또한 같이 설치할 수 있다.</br>
+Desktop on Mac을 설치하고 docker-compose, docker-machine 또한 같이 설치할 수 있다. </br>
 
 ```bash
 brew install --cask docker
 ```
-**2. 직접 다운로드**</br>
+**2. 직접 다운로드** </br>
 
 https://www.docker.com/products/docker-desktop/ 에서 직접 다운로드 할 수도 있다.
 
@@ -130,7 +130,7 @@ docker pull mysql
 # 설치된 이미지 확인
 docker images
 ```
-ubuntu 버전 확인 : https://hub.docker.com/_/ubuntu </br> 
+ubuntu 버전 확인 : https://hub.docker.com/_/ubuntu  </br> 
 mysql 버전 확인 : https://hub.docker.com/_/mysql/?tab=tags 
 
 ##### 컨테이너 생성
