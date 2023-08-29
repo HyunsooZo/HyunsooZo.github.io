@@ -71,7 +71,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 ##### 부연설명
 
-웹소켓 통신이 필요한 페이지는 <고객의 대기현황 페이지>, <점주의 대기열 관리 페이지> <br> 총 두 페이지로 구성되었고 각 엔드포인트를 위와 같이 설정했다. <br>
+웹소켓 통신이 필요한 페이지는 고객의 대기현황 페이지, 점주의 대기열 관리 페이지 <br> 총 두 페이지로 구성되었고 각 엔드포인트를 위와 같이 설정했다. <br>
 Broker의 경우 구독 시 prefix로 사용할 값들을 넣게된다. 
 
 ### WebSocketService
@@ -205,7 +205,8 @@ public class QueueWaitingService {
         stompClient.connect({}, function (frame) {
             console.log('Connected: ' + frame);
 
-            var topic = '/topic/restaurant/' + restaurantId + '/queue/' + queueId; // 매장 식별자를 포함한 토픽
+            // 매장 식별자를 포함한 토픽
+            var topic = '/topic/restaurant/' + restaurantId + '/queue/' + queueId; 
             stompClient.subscribe(topic, function (message) {
                 console.log('Received message:', message.body);
                 updateWaitingCount(message.body);
@@ -216,11 +217,14 @@ public class QueueWaitingService {
     function updateWaitingCount(messageBody) {
         var currentCountJson = JSON.parse(messageBody);
         var currentCount = currentCountJson.waitingCount;
-        var remainingCount = currentCount - 1; // 현재 번호 - 1
+        // 현재 번호 - 1
+        var remainingCount = currentCount - 1; 
 
         if (currentCount != null) {
             document.getElementById('waitingCount').textContent = currentCount;
-            document.getElementById('remainingCount').textContent = remainingCount; // 남은 대기인원 업데이트
+            // 남은 대기인원 업데이트
+            document.getElementById('remainingCount').
+            textContent = remainingCount; 
             console.log("Received count:", currentCount);
             console.log("Type of count:", typeof currentCount);
         }
@@ -246,6 +250,3 @@ public class QueueWaitingService {
 
 웹소켓의 동작원리와 적용방법을 알게되었다.<br> 
 실제 프로젝트에 적용한 경험은 실시간 데이터 전송과 상호작용을 효과적으로 구현하는 강력한 도구로 사용자와의 실시간 소통을 강화하며, 웹소켓을 통한 실시간 업데이트는 서비스 품질을 높여주는 것 같다. <br>다음 프로젝트에서도 웹소켓을 적극 활용하여 더 효율적이고 현대적인 웹 애플리케이션을 만들어 보도록 해야겠다.
-
-
-
