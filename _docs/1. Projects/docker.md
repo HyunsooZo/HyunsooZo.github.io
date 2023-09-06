@@ -164,15 +164,13 @@ $docker --version
 ```
 
 ##### Jenkins image pull
-- **Docker 에 젠킨스 Pull해오기**
+- **1. Docker 에 젠킨스 Pull해오기**
 ```bash
 $sudo docker pull jenkins/jenkins
 ```
-jenkins/jenkins의 앞의 내용은 만들고자 하는 계정 뒤의 내용은 Repository의 이름이다.
+jenkins/jenkins의 앞의 내용은 만들고자 하는 계정 뒤의 내용은 Repository의 이름이다.<br>jenkins계정의 jenkins Repository라고 이해하면 된다.
 
-jenkins계정의 jenkins Repository라고 이해하면 된다.
-
-- **도커에서 젠킨스를 실행**
+- **2. 도커에서 젠킨스를 실행**
 ```bash
 $sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 --restart=on-failure --name jenkins-server jenkins/jenkins:lts-jdk11
 ```
@@ -186,21 +184,14 @@ $sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:5000
 |<span class="emphasis">-v jenkins_home:/var/jenkins_home</span>| Volume 로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업|
 |<span class="emphasis">jenkins/jenkins:lts-jdk11</span>| docker에서 사용하는 jenkins계정 이름<br> / repository 이름|
 |<span class="emphasis">lts-jdk11</span>|  사용하려는 tag이름|
-|<span class="emphasis">--name jenkins-server</span>| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
-부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
+|<span class="emphasis">--name jenkins-server</span>| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
 
-- **Docker 프로세스 정상동작 확인**
+- **3. Docker 프로세스 정상동작 확인**
 ```bash
 docker ps 
 ```
 
-- **docker logs를 통해 password를 확인**
+- **4. docker logs를 통해 password를 확인**
 ```bash
 sudo docker logs jenkins-server
 ```
-
-
-
-
-
-
