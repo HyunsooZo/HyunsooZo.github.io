@@ -1,8 +1,9 @@
 ---
-title: Docker
+title: Docker & Jenkins
 category: Projects
 order: 3
 ---
+
 ### Docker?
 
 ![Docker img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAq1MO%2FbtrH2nr9qlg%2FKcbWROKZroqgebfC2LFkB1%2Fimg.png)
@@ -120,37 +121,109 @@ docker run [옵션] [이미지] [커맨드] [다른 사항]
 |-it|-i와 -t를 동시에 사용한 것으로 터미널 입력을 위한 옵션|
 |–link	|컨테이너 연결 [컨테이너명:별칭]|
 
-### Docker 사용예시
 
-##### 이미지 설치
+### Jenkins
+
+
+##### 왜 Jenkins를 사용할까?
+<div class="content-box">
+Jenkins는 오픈 소스 도구로 무료로 사용할 수 있으며, <br>
+확장성이 뛰어나서 다양한 플러그인을 활용하여 CI/CD 파이프라인을 개발할 수 있다.<br>
+사용자 친화적인 웹 인터페이스와 다양한 설정 옵션을 제공하여 사용자들이<br>
+프로세스를 쉽게 관리하고 제어할 수 있다.
+Jenkins는 다양한 언어 및 프레임워크와 통합할 수 있는 풍부한 플러그인 생태계를 제공한다.<br>
+즉, Jenkins는 지속적 통합 및 지속적인 전달 (CI/CD) 프로세스를 자동화하고 간소화하기 위한 도구 중 하나이다. CI/CD를 간략히 정리하면 아래와 같다.
+</div>
+
+|지속적 통합 <br>(Continuous Integration - CI)| 지속적인 전달<br> (Continuous Delivery - CD)|
+|--|--|
+|CI는 소프트웨어 개발 프로세스의 중요한 부분. <br>여러 개발자가 동시에 작업하는 경우, 그들의 코드가 서로 충돌하지 않고 원할하게 통합되어야 한다.<br>Jenkins는 코드 변경 사항을 자동으로 통합하고 빌드하며, 테스트를 실행하여 코드 변경 사항의 품질을 유지한다.<br>이로써 개발자들은 자주 코드를 통합하고 문제를 빨리 식별할 수 있다.| CD는 소프트웨어를 지속적으로 고객에게 전달할 수 있도록 하는 프로세스입. <br>개발에서 프로덕션 환경까지의 배포를 자동화하고 안정적으로 수행.<br>Jenkins는 CD 파이프라인을 설정하고 배포 과정을 자동화하는 데 사용됨.<br>이로써 변경 사항을 빠르게 고객에게 제공하고 소프트웨어를 신속하게 업데이트할 수 있음.|
+
+##### Docker 설치(Ubuntu)
+
+- **1. EC2서버 접속** 
+다음과 같은 명령어를 입력하여 맥북터미널에서 EC2 서버에 접근할 수 있다. 
 ```bash
-# ubuntu 이미지 설치
-docker pull ubuntu:20.04
-# mysql 이미지 설치
-docker pull mysql
-# 설치된 이미지 확인
-docker images
+ $ssh -i /Users/hyunsoojo/Downloads/lunch_project.pem ubuntu@13.209.169.74
+ ```
+
+- **2. package 업데이트**
+```bash
+$sudo apt update
 ```
-ubuntu 버전 확인 : https://hub.docker.com/_/ubuntu  <br> 
-mysql 버전 확인 : https://hub.docker.com/_/mysql/?tab=tags 
 
-##### 컨테이너 생성
+- **3. https관련 패키지 설치**
 
 ```bash
-# mysql을 컨테이너 생성 / 서버 실행
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=[password] -d -p 3306:3306 mysql
-# ubuntu 컨테이너 생성 / 서버 실행
-docker run --name ubuntu-container -it ubuntu
+$sudo apt install apt-transport-https ca-certificates curl software-properties-common
 ```
 
-##### 상호작용
-
+- **4. docker repository 접근을 위한 gpg 키 설정**
 ```bash
+$sudo su
+$curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+$exit
+```
 
-# mysql container 접속
-docker exec -it mysql-container bash
-# ubuntu container 접속
-docker exec -it ubuntu-container /bin/bash
+- **5. docker repository 등록 후 다시 업데이트**
+```bash
+$echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+$sudo apt update
+$sudo apt install docker-ce
+```
+
+- **6. Docker 설치**
+```bash
+$sudo apt install docker-ce
+$docker --version
+```
+
+##### Jenkins image pull
+- **Docker 에 젠킨스 Pull해오기**
+```bash
+$sudo docker pull jenkins/jenkins
+```
+jenkins/jenkins의 앞의 내용은 만들고자 하는 계정 뒤의 내용은 Repository의 이름이다.
+
+jenkins계정의 jenkins Repository라고 이해하면 된다.
+
+- **도커에서 젠킨스를 실행**
+```bash
+$sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 --restart=on-failure --name jenkins-server jenkins/jenkins:lts-jdk11
+```
+위와같은 명령어로 도커에서 젠킨스를 설치한 뒤 실행한다.
+
+`run` : 도커에서 image를 생성하는 커맨드
+
+`-p`: publish 옵션 컨테이너 내부 포트를 컨테이너 바깥 서버에서 어떻게 접속해서 사용할것인지 나타내는 설정<br>
+컨테이너 바깥에서 8088(기본값 8080)이라는 포트를 사용하여 접속하면 컨테이너 내부로 8080으로 접속한다.<br>
+컨테이너 외부에서 50000을 호출하면 컨테이너 내부에서 50000으로 응답한다.
+`--restart=on-failure : faile`했을 경우 restart한다.<br>
+
+`-v jenkins_home:/var/jenkins_home` : 
+
+-v : Volune  로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>
+Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> 
+Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업이다.<br>
+
+`jenkins/jenkins:lts-jdk11` : docker에서 사용하는 jenkins계정 이름 / repository 이름<br>
+
+`lts-jdk11` : 사용하려는 tag이름
+
+
+`--name jenkins-server` : 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
+
+부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>
+(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)
+
+- **Docker 프로세스 정상동작 확인**
+```bash
+docker ps 
+```
+
+- **docker logs를 통해 password를 확인**
+```bash
+sudo docker logs jenkins-server
 ```
 
 
