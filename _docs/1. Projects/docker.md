@@ -67,25 +67,6 @@ Image를 컨테이너에 담고 실행시키면 해당 프로세스가 동작한
 
 ![Docker img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbPMq6k%2FbtrUlSuw1Ht%2FTqPlJYbau6e5TPqZHO2Uak%2Fimg.png)
 
-### Docker 설치
-
-##### Mac & Window
-
-**1.**`homebrew-cask` 사용  <br>
-Mac의 (GUI를 제공하는) 응용프로그램을 커맨드로 설치해주는 편리한 기능이다. <br>
-
-cask 옵션을 통해 설치한 프로그램들은 기본적으로 Applications 폴더에 들어가게 된다. <br>
-
-이를 이용해 Docker 설치를 진행하면
-Desktop on Mac을 설치하고 docker-compose, docker-machine 또한 같이 설치할 수 있다. <br>
-
-```bash
-brew install --cask docker
-```
-**2. 직접 다운로드** <br>
-
-https://www.docker.com/products/docker-desktop/ 에서 직접 다운로드 할 수도 있다.
-
 ### Docker 사용
 
 ##### Docker 명령어
@@ -193,28 +174,20 @@ $sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:5000
 ```
 위와같은 명령어로 도커에서 젠킨스를 설치한 뒤 실행한다.
 
-`run` : 도커에서 image를 생성하는 커맨드
-
-`-p`: publish 옵션 컨테이너 내부 포트를 컨테이너 바깥 서버에서 어떻게 접속해서 사용할것인지 나타내는 설정<br>
-컨테이너 바깥에서 8088(기본값 8080)이라는 포트를 사용하여 접속하면 컨테이너 내부로 8080으로 접속한다.<br>
-컨테이너 외부에서 50000을 호출하면 컨테이너 내부에서 50000으로 응답한다.
-`--restart=on-failure : faile`했을 경우 restart한다.<br>
-
-`-v jenkins_home:/var/jenkins_home` : 
-
--v : Volune  로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>
-Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> 
-Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업이다.<br>
-
-`jenkins/jenkins:lts-jdk11` : docker에서 사용하는 jenkins계정 이름 / repository 이름<br>
-
-`lts-jdk11` : 사용하려는 tag이름
+|명령어|설명|
+|--|--|
+|run|도커에서 image를 생성하는 커맨드|
+|-p| publish 옵션 컨테이너 내부 포트를 컨테이너 바깥 서버에서 어떻게 접속해서 사용할것인지 나타내는 설정<br>컨테이너 바깥에서 8088(기본값 8080)이라는 포트를 사용하여 접속하면 컨테이너 내부로 8080으로 접속한다.<br>컨테이너 외부에서 50000을 호출하면 컨테이너 내부에서 50000으로 응답한다.|
+|--restart=on-failure|fail 했을 경우 restart한다.|
+|-v jenkins_home:/var/jenkins_home| Volume 로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업|
+|jenkins/jenkins:lts-jdk11| docker에서 사용하는 jenkins계정 이름<br> / repository 이름|
+|lts-jdk11|  사용하려는 tag이름|
 
 
-`--name jenkins-server` : 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
+|--name jenkins-server| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
 
 부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>
-(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)
+(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
 
 - **Docker 프로세스 정상동작 확인**
 ```bash
