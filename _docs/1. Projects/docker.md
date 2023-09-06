@@ -106,7 +106,7 @@ docker run [옵션] [이미지] [커맨드] [다른 사항]
 ### Jenkins
 
 
-##### 왜 Jenkins를 사용할까?
+##### Jenkins를 왜 사용할까?
 <div class="content-box">
 Jenkins는 오픈 소스 도구로 무료로 사용할 수 있으며, <br>
 확장성이 뛰어나서 다양한 플러그인을 활용하여 CI/CD 파이프라인을 개발할 수 있다.<br>
@@ -127,17 +127,19 @@ Jenkins는 다양한 언어 및 프레임워크와 통합할 수 있는 풍부�
 ```bash
  $ssh -i /Users/hyunsoojo/Downloads/lunch_project.pem ubuntu@13.209.169.74
  ```
+<br>
 
 - **2. package 업데이트**
 ```bash
 $sudo apt update
 ```
+<br>
 
 - **3. https관련 패키지 설치**
-
 ```bash
 $sudo apt install apt-transport-https ca-certificates curl software-properties-common
 ```
+<br>
 
 - **4. docker repository 접근을 위한 gpg 키 설정**
 ```bash
@@ -145,6 +147,7 @@ $sudo su
 $curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 $exit
 ```
+<br>
 
 - **5. docker repository 등록 후 다시 업데이트**
 ```bash
@@ -152,6 +155,7 @@ $echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg]
 $sudo apt update
 $sudo apt install docker-ce
 ```
+<br>
 
 - **6. Docker 설치**
 ```bash
@@ -176,18 +180,14 @@ $sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:5000
 
 |명령어|설명|
 |--|--|
-|run|도커에서 image를 생성하는 커맨드|
-|-p| publish 옵션 컨테이너 내부 포트를 컨테이너 바깥 서버에서 어떻게 접속해서 사용할것인지 나타내는 설정<br>컨테이너 바깥에서 8088(기본값 8080)이라는 포트를 사용하여 접속하면 컨테이너 내부로 8080으로 접속한다.<br>컨테이너 외부에서 50000을 호출하면 컨테이너 내부에서 50000으로 응답한다.|
-|--restart=on-failure|fail 했을 경우 restart한다.|
-|-v jenkins_home:/var/jenkins_home| Volume 로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업|
-|jenkins/jenkins:lts-jdk11| docker에서 사용하는 jenkins계정 이름<br> / repository 이름|
-|lts-jdk11|  사용하려는 tag이름|
-
-
-|--name jenkins-server| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
-
-부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>
-(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
+|<span class="emphasis">run</span>|도커에서 image를 생성하는 커맨드|
+|<span class="emphasis">-p</span>| publish 옵션 컨테이너 내부 포트를 컨테이너 바깥 서버에서 어떻게 접속해서 사용할것인지 나타내는 설정<br>컨테이너 바깥에서 8088(기본값 8080)이라는 포트를 사용하여 접속하면 컨테이너 내부로 8080으로 접속한다.<br>컨테이너 외부에서 50000을 호출하면 컨테이너 내부에서 50000으로 응답한다.|
+|<span class="emphasis">--restart=on-failure</span>|fail 했을 경우 restart한다.|
+|<span class="emphasis">-v jenkins_home:/var/jenkins_home</span>| Volume 로컬에서 사용하는 Docker의 실행 환경에서 어떠한 디렉토리와 Docker에 있는 디렉토리와 Mount(연결)작업을 할것인지에 대한 설정<br>Mount를 하지 않을 경우 Docker내부에서 발생된 데이터는 Docker내부에 저장되기 때문에 Docker가 삭제되면 해당 데이터가 같이 삭제된다.<br> 따라서 Docker내부에 저장된 데이터값을 삭제되지 않게하기위해 어딘가에 보관하기 위해 설정한다.<br> Docker가 실행되는 외부에 해당하는 폴더 경로(/var/jenkins_home)를 연결해서 Link를 연결하는 작업|
+|<span class="emphasis">jenkins/jenkins:lts-jdk11</span>| docker에서 사용하는 jenkins계정 이름<br> / repository 이름|
+|<span class="emphasis">lts-jdk11</span>|  사용하려는 tag이름|
+|<span class="emphasis">--name jenkins-server</span>| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>
+부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
 
 - **Docker 프로세스 정상동작 확인**
 ```bash
