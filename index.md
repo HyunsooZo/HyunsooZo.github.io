@@ -76,7 +76,7 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/microsoft/319/globe-with-meridians_1f310.png" /></i>
-                    <span>새로운 기술 습득햣햣</span>
+                    <span>웹 애플리케이션, 서버</span>
                 </p>
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/high-voltage_26a1.png" /></i>
