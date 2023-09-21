@@ -27,7 +27,7 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/student-light-skin-tone_1f9d1-1f3fb-200d-1f393.png" /></i>
-                    <span>Bachelor's degree in International Trade</span>
+                    <span>Bachelor's Degree in International Trade</span>
                 </p>
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/tent_26fa.png" /></i>
@@ -40,7 +40,7 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/apple/354/speaking-head_1f5e3-fe0f.png" /></i>
-                    <span>Korean(Native) , English(Advanced)</span>
+                    <span>한국어(네이티브), English(Advanced), português(intermédio)</span>
                 </p>
             </div>
         </li>
@@ -49,7 +49,29 @@ toc: false
             <div class="list_text">
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" /></i>
-                    <span>Java , Spring(Boot)</span>
+                    <span>
+                    <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white" alt="Java">
+    <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white" alt="Spring">
+    <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=Spring%20Boot&logoColor=white" alt="Spring Boot">
+    <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=flat-square&logo=Apache%20Tomcat&logoColor=white" alt="Apache Tomcat">
+    <br>
+    <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square&logo=Spring%20Security&logoColor=white" alt="Spring Security">
+    <img src="https://img.shields.io/badge/Json%20Web%20Tokens-000000?style=flat-square&logo=Json%20Web%20Tokens&logoColor=white" alt="Json Web Tokens">
+    <br>
+    <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white" alt="MariaDB">
+    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="MySQL">
+    <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=Redis&logoColor=white" alt="Redis">
+    <img src="https://img.shields.io/badge/Spring%20JPA-6DB33F?style=flat-square&logo=Spring%20JPA&logoColor=white" alt="Spring JPA">
+    <br>
+    <img src="https://img.shields.io/badge/AssertJ-25A162?style=flat-square&logo=AssertJ&logoColor=white" alt="AssertJ">
+    <img src="https://img.shields.io/badge/Mockito-008D62?style=flat-square&logo=Mockito&logoColor=white" alt="Mockito">
+    <br>
+    <img src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJ%20IDEA&logoColor=white" alt="IntelliJ IDEA">
+    <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=Postman&logoColor=white" alt="Postman">
+    <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=Swagger&logoColor=white" alt="Swagger">
+    <img src="https://img.shields.io/badge/Eclipse%20IDE-2C2255?style=flat-square&logo=Eclipse%20IDE&logoColor=white" alt="Eclipse IDE">
+    <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=Visual%20Studio%20Code&logoColor=white" alt="Visual Studio Code">
+        </span>
                 </p>
             </div>
         </li>
