@@ -50,23 +50,23 @@ toc: false
                 <p>
                     <i><img src="https://em-content.zobj.net/thumbs/240/toss-face/342/regional-indicator-symbol-letter-j_1f1ef.png" /></i>
                     <span>
-                    <img src="https://img.shields.io/badge/Java-007396?style=flat-square&logo=java&logoColor=white" alt="Java" height="15">
-                    <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat-square&logo=Spring&logoColor=white" alt="Spring" height="15">
-                    <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=Spring%20Boot&logoColor=white" alt="Spring Boot" height="15">
-                    <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=flat-square&logo=Apache%20Tomcat&logoColor=white" alt="Apache Tomcat" height="15">
-                    <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square&logo=Spring%20Security&logoColor=white" alt="Spring Security" height="15">
-                    <img src="https://img.shields.io/badge/Json%20Web%20Tokens-000000?style=flat-square&logo=Json%20Web%20Tokens&logoColor=white" alt="Json Web Tokens" height="15">
-                    <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white" alt="MariaDB" height="15">
-                    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white" alt="MySQL" height="15">
-                    <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=Redis&logoColor=white" alt="Redis" height="15">
-                    <img src="https://img.shields.io/badge/Spring%20JPA-6DB33F?style=flat-square&logo=Spring%20JPA&logoColor=white" alt="Spring JPA" height="15">
-                    <img src="https://img.shields.io/badge/AssertJ-25A162?style=flat-square&logo=AssertJ&logoColor=white" alt="AssertJ" height="15">
-                    <img src="https://img.shields.io/badge/Mockito-008D62?style=flat-square&logo=Mockito&logoColor=white" alt="Mockito" height="15">
-                    <img src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat-square&logo=IntelliJ%20IDEA&logoColor=white" alt="IntelliJ IDEA" height="15">
-                    <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=Postman&logoColor=white" alt="Postman" height="15">
-                    <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=Swagger&logoColor=white" alt="Swagger" height="15">
-                    <img src="https://img.shields.io/badge/Eclipse%20IDE-2C2255?style=flat-square&logo=Eclipse%20IDE&logoColor=white" alt="Eclipse IDE" height="15">
-                    <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat-square&logo=Visual%20Studio%20Code&logoColor=white" alt="Visual Studio Code" height="15">
+                    <img src="https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white" alt="Java" height="15">
+                    <img src="https://img.shields.io/badge/Spring-6DB33F?style=flat&logo=Spring&logoColor=white" alt="Spring" height="15">
+                    <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=https://img.shields.io/badge/-intellij%20IDEA-000.svg?logo=intellij-idea&style=flat&logo=Spring%20Boot&logoColor=white" alt="Spring Boot" height="15">
+                    <img src="https://img.shields.io/badge/Apache%20Tomcat-F8DC75?style=flat&logo=Apache%20Tomcat&logoColor=white" alt="Apache Tomcat" height="15">
+                    <img src="https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat&logo=Spring%20Security&logoColor=white" alt="Spring Security" height="15">
+                    <img src="https://img.shields.io/badge/Json%20Web%20Tokens-000000?style=flat&logo=Json%20Web%20Tokens&logoColor=white" alt="Json Web Tokens" height="15">
+                    <img src="https://img.shields.io/badge/MariaDB-003545?style=flat&logo=MariaDB&logoColor=white" alt="MariaDB" height="15">
+                    <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" alt="MySQL" height="15">
+                    <img src="https://img.shields.io/badge/Redis-DC382D?style=flat&logo=Redis&logoColor=white" alt="Redis" height="15">
+                    <img src="https://img.shields.io/badge/Spring%20JPA-6DB33F?style=flat&logo=Spring%20JPA&logoColor=white" alt="Spring JPA" height="15">
+                    <img src="https://img.shields.io/badge/AssertJ-25A162?style=flat&logo=AssertJ&logoColor=white" alt="AssertJ" height="15">
+                    <img src="https://img.shields.io/badge/Mockito-008D62?style=flat&logo=Mockito&logoColor=white" alt="Mockito" height="15">
+                    <img src="https://img.shields.io/badge/IntelliJ%20IDEA-000000?style=flat&logo=IntelliJ%20IDEA&logoColor=white" alt="IntelliJ IDEA" height="15">
+                    <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat&logo=Postman&logoColor=white" alt="Postman" height="15">
+                    <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat&logo=Swagger&logoColor=white" alt="Swagger" height="15">
+                    <img src="https://img.shields.io/badge/Eclipse%20IDE-2C2255?style=flat&logo=Eclipse%20IDE&logoColor=white" alt="Eclipse IDE" height="15">
+                    <img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=Visual%20Studio%20Code&logoColor=white" alt="Visual Studio Code" height="15">
         </span>
                 </p>
             </div>
