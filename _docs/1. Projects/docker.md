@@ -154,13 +154,29 @@ $exit
 $echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 $sudo apt update
 $sudo apt install docker-ce
-```
-<br>
-
-- **6. Docker 설치**
-```bash
-$sudo apt install docker-ce
 $docker --version
+```
+
+##### Docker 삭제
+
+- **1. Docker 패키지 및 관련 패키지 제거**
+```bash
+$sudo apt-get purge docker-ce docker-ce-cli containerd.io
+```
+
+- **2. Docker 이미지, 컨테이너, 볼륨, 네트워크 등 삭제**
+```bash
+$sudo rm -rf /var/lib/docker
+```
+
+- **3. Docker 관련 설정 파일 제거**
+```bash
+$sudo rm -rf /etc/docker
+```
+
+- **4. Docker 그룹에서 사용자 제거 (선택 사항)**
+```bash
+$sudo groupdel docker
 ```
 
 ##### Jenkins image pull
@@ -172,9 +188,19 @@ jenkins/jenkins의 앞의 내용은 만들고자 하는 계정 뒤의 내용은 
 
 - **2. 도커에서 젠킨스를 실행**
 ```bash
-$sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:50000 --restart=on-failure --name jenkins-server jenkins/jenkins:lts-jdk11
+$sudo mkdir /home/opendocs/jenkins
+$sudo docker run \
+--name jenkins \
+-d \
+-p 8888:8080 \
+-p 50000:50000 \
+-v /home/opendocs/jenkins:/var/jenkins_home \
+-v /var/run/docker.sock:/var/run/docker.sock \
+-u root \
+jenkins/jenkins:lts
 ```
-위와같은 명령어로 도커에서 젠킨스를 설치한 뒤 실행한다.
+위와같은 명령어로 도커에서 젠킨스를 설치한 뒤 실행한다.</br>
+`-u root` 를 주는 이유는 이후 DIND 를 위함임!
 
 |명령어|설명|
 |--|--|
@@ -185,6 +211,41 @@ $sudo docker run -d -v jenkins_home:/var/jenkins_home -p 8088:8080 -p 50000:5000
 |<span class="emphasis">jenkins/jenkins:lts-jdk11</span>| docker에서 사용하는 jenkins계정 이름<br> / repository 이름|
 |<span class="emphasis">lts-jdk11</span>|  사용하려는 tag이름|
 |<span class="emphasis">--name jenkins-server</span>| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
+
+- **2.2 jenkins container 접속하여 docker-ce-cli 설치**
+```bash
+enkins container 접속
+docker exec -it jenkins /bin/bash
+ 
+# linux 버전 확인
+cat /etc/issue
+# --------------- OS --------------------------------
+# root@DESKTOP-R4P59B3:/home/opendocs# cat /etc/issue
+# Ubuntu 20.04.4 LTS \n \l
+# --------------- jenkins Container OS --------------------------------
+# root@DESKTOP-R4P59B3:/home/opendocs# docker exec -it jenkins /bin/bash
+# root@8fc963af71bb:/# cat /etc/issue
+# Debian GNU/Linux 11 \n \l
+ 
+# Docker 설치
+## - Old Version Remove
+apt-get remove docker docker-engine docker.io containerd runc
+## - Setup Repo
+apt-get update
+apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+## - Install Docker Engine
+apt-get update
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+```
 
 - **3. Docker 프로세스 정상동작 확인**
 ```bash
