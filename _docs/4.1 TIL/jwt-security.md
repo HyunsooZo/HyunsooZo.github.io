@@ -1,85 +1,308 @@
 ---
-title: Career Road Map
-category: ZeroBase BootCamp
+title: JWT,SpringSecurity
+category: TIL
 order: 1
 ---
+### Spring Security 란?
 
-### Why Backend Developer
+<div class="content-box">
+Authenticatio(인증) : 특정 대상이 누구인지 확인하는 절차</br>
+Authorization(권한) : 인증된 주체가 특정한 곳에 접근 권한을 확인
+</div>
 
-**프로그래밍에 입문하기까지**
+##### SpringSecurity 인증 구조
 
-나는 국내 한 중소기업에 소속되어 IT 기획자로 2년간 국내 은행에서 글로벌지점들을 대상으로 통번역 및 앱/웹 기획업무를 맡아 왔다. 
+![Sqrt Arch](https://drive.google.com/uc?id=1_NQ4TNlTgvzcGalSDAlNWCJES3N8hQLY)
 
-업무 시 프론트엔드/디자이너를 위한 화면설계서를 만드는데 늘 초점을 두었으며, 
-백엔드 개발문서의 경우 API문서를 살펴본 후 회사보안정책에 벗어나지 않는 선에서의 대략적인, 그리고 단편적인(말도 안되는)기획서,아키텍쳐를 작성해 서버PL에게 몇 시간씩 기술검토를 받기도 했다.  
-
-위와 같은 일이 있을때마다 개발업무에 대한 이해도가 많이 부족하다고 생각하여 퇴근 후 시간이 날때마다 생활코딩의 이런저런 영상을 보기 시작했고, 가까이 일하면서도 멀게만 느껴졌던 프로그래밍에 조금씩 흥미가 생겼다.
-
-**프론트와 백엔드의 차이**
-
-프론트엔드와 백엔드의 차이를 한마디로 말하자면 클라이언트와 서버의 차이라고 할 수 있다. 즉 프론트엔드는 클라이언트라는 사용자의 시각적인 부분을, 백엔드는 사용자가 볼 수 없는 부분을 말한다. 따라서 프론트엔드는 UI나 UX등의 직관적인 사용자의 시각적 경험을 담당하고 백엔드는 유저들이 필요한 정보를 제공하거나 해당 정보를 관리/운영하는 것을 담당한다.
-
-**왜 백엔드 개발자인가?**
-
-단순한 흥미였던 프로그래밍은 유투브 강의를 통해 어느새 하루의 대부분을 소비하게되는 되는 하나의 일과가 되었고 이제는 목표가 되어 제로베이스의 온라인부트캠프를 신청하게 되었다. 나는 사용자의 시각적인 경험의 만족을 위한 일을 하던 기획자였지만 
-개발공부를 하면서 점점 사용자를 만족시킬 수 있는 예외를 최소화 한 로직을 설계/작성 하고 이러한 설계대로 기능을 구현하는 백엔드 개발자가 되고싶어졌다.
-
-비전공자에 수포자였기에 사실 남들이 다시 배우고 있는 내용들을 나는 새로이 배우고 있고, 이 때문에 조금씩 뒤쳐지는 느낌이 들기도 하지만, 끝까지 놓지 않고 따라가 보려고 한다. 
+- *1.* `Http Request` -> `Server`
+- *2.* `AuthenticationFilter` 가 `Http Request` 수신
+- *3.* `AuthenticationFilter`가 `Request`의 `Id`, `Password`를 이용해 `AuthenticationToken` 생성
+- *4.* `AuthenitcationManager`가 토큰 수신
+- *5.* `AuthenticationManager` -> `AuthenticationProvider` 토큰 전달
+- *6.* `AuthenticationProvider` -> `UserDetailsService` 토큰의 ID 전달 , `UserDetailsService` 는 DB 의 회원정보 `UserDetails` 객체로 받아 반환
+- *7.* `AuthenticationProvider` 가 `UserDetails` 와 실제 사용자 입력정보 비교
+- *8.* 사용자 정보를 가진 `Authentication` 객체를 `SecurityContextHolder`에 담은 이후 `AuthenticationSuccessHandle`를 실행. 이후 복귀
 
 
-### Backend Developer I Want To Be
+### JWT(Json Web Token)
 
-**단지 백엔드만을 생각하지는 않는 개발자**
+##### JWT 란?
+<div class="content-box">
+JWT는 일반적으로 클라이언트와 서버 통신 시 권한 인가(Authorization)을 위해 사용하는 토큰<br>
+JSON 객체를 사용하여 토큰 자체에 정보를 저장하는 웹토큰</br>
+다른 인증 방식들에 비해 가볍고 간편해서 유용한 인증 방식으로 알려져 있음.
+</div>
 
-나는 단지 백엔드만이 아닌 프론트엔드를 (전부는아니지만)최대한 이해하는 백엔드 개발자가 되고 싶다. 
-내가 생각하는 백엔드개발의 목적은 데이터를 신속하고 안전하게 DB에저장하고,프론트엔드에 보여주는 것이라고 생각한다. 백엔드와 프론트의 목적이 둘 다 달성된다면 사용자는 좋은서비스로 판단할 수 있는 가능성이 높아진다. 
-위와 같은 이유로, 정보전달 혹은 저장에 있어 보다 효율적인 로직을 구성하는 것이 좋은 백엔드 개발자라고 생각되며, 내가 지향하는 목표이다. 
+||장점|단점|
+|-|-|-|
+||중앙의 인증서버, 데이터 스토어에 대한 의존성 없음|Payload의 정보가 많아지면 네트워크 사용량이 증가|
+||Base64 URL Safe Encoding을 사용하기 떼문에 URL, Cookie, Header 모두 사용 가능|Token이 클라이언트에 저장되기 때문에 서버에서 클라이언트의 토큰 조작 불가능|
 
-**성장하는 개발자**
+### Spring Security + JWT 동작
 
-지금은 백지상태의 초보에 불과하지만, 언젠가 한 기업에 들어가 개발자로서 일을하게되면, 모든 회사업무가 그렇듯 해당업무에 익숙해지고, 같은 업무를 조금씩만 다르게 수행하게 될 지도 모른다고 생각한다. 
-개발자는 계속 배우는 직업이라는 말도 있지만, 보수적인 기업의 개발환경은 아직 자바 1.6을쓰고 있다는 말도 들었다.(현 자바 최신버전은 자바 17로 알고있다.) 어떤 기업에 가게 될지 알 수 없지만, 일하는 시간 외에 추가적으로 자기계발을 하지 않으면 언젠가 도태되는 개발자가 될 것이라 생각한다. 
-이런 환경에 맞춰 꾸준히 배우고 활용하고 성장하는 그런 백엔드 개발자가 되고싶다. 
+![Sqrt Arch](https://drive.google.com/uc?id=1YYiXNdWHMfrcpCIv2FUoLUIOJnuYXf_S)
+
+##### SecurityConfig 예제
+```java
+package wanted.n.config;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final JwtTokenFilter jwtTokenFilter;
+
+    /* Spring Security 필터 체인 설정 */
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+        http
+                .csrf().disable()
+                .cors(Customizer.withDefaults())
+                .headers(headers -> headers.frameOptions().disable())
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .authorizeRequests(authorize -> authorize
+                        .antMatchers("/**")
+                        .permitAll()
+                        .anyRequest()
+                        .authenticated()
+                );
+
+        return http.build();
+
+    }
+
+    /* 비밀번호 암호화에 사용할 BcryptPasswordEncoder 빈 등록*/
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+}
+```
+### JWT TOKEN Filter
+```java
+package wanted.n.config;
+
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.util.PatternMatchUtils;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
+
+@AllArgsConstructor
+@Component
+public class JwtTokenFilter extends OncePerRequestFilter {
+
+    private JwtTokenProvider jwtTokenProvider;
+
+    // 필터링 White-List (개발 초기 임시로 모두 생략)
+    private static final String[] ALL_WHITELIST = {"/**/"};
+
+    /* White-List 대상 판별 (필터링 대상 인지 아닌지 판별) */
+    private boolean isFilterCheck(String requestURI) {
+        return !PatternMatchUtils.simpleMatch(ALL_WHITELIST, requestURI);
+    }
+
+    /* 토큰 가져오기 */
+    private String getTokenFromRequest(HttpServletRequest request) {
+        String bearerToken = request.getHeader(AUTHORIZATION);
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            // Bearer prefix 지우고 반환
+            return bearerToken.substring(7);
+        }
+        return null;
+    }
+    @Override
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
+
+        String token = getTokenFromRequest(request);
+
+        try {
+            // 화이트리스트에 있는 경우에는 필터링을 건너뛰어서 다음 필터로 진행
+            if (isFilterCheck(request.getRequestURI())) {
+                // 화이트리스트에 없는 경우에만 검증 처리
+                if (token != null) {
+                    SecurityContextHolder
+                            .getContext()
+                            .setAuthentication(jwtTokenProvider.getAuthentication(token));
+                }
+            }
+            filterChain.doFilter(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
+        }
+
+    }
+}
+```
+
+### JWT TOKEN Provider
+
+```java
+package wanted.n.config;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+import wanted.n.dto.TokenIssuanceDTO;
+import wanted.n.enums.UserRole;
+import wanted.n.service.UserDetailsServiceImpl;
+
+import javax.annotation.PostConstruct;
+import javax.crypto.SecretKey;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Slf4j
+@RequiredArgsConstructor
+@Component
+public class JwtTokenProvider {
+
+    private final UserDetailsServiceImpl userDetailsService;
+
+    @Value("${token.key}")
+    private String issuer;
+    private SecretKey secretKey;
+
+    /* SecretKey 초기화 메서드 (빈 생성 시 1회 실행) */
+    @PostConstruct
+    public void init() {
+        secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    }
+
+    /* Access Token 생성 메서드 - 클레임에 이메일과 UserRole 삽입 */
+    public String generateAccessToken(TokenIssuanceDTO tokenTokenIssuanceDTO) {
+        Claims claims = Jwts.claims().setSubject(tokenTokenIssuanceDTO.getId().toString());
+        claims.put("email", tokenTokenIssuanceDTO.getEmail());
+        claims.put("userRole", tokenTokenIssuanceDTO.getUserRole().getRoleName());
+
+        return Jwts.builder()
+                .setClaims(claims)
+                .setIssuer(issuer)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                // 유효 기간 1시간
+                .setExpiration(new Date(System.currentTimeMillis() + (60 * 60 * 1000)))
+                .signWith(secretKey)
+                .compact();
+    }
+
+    /* Refresh Token 생성 메서드 - 클레임에 이메일 삽입 (추후 엑세스 토큰 재발급 시 사용예정)*/
+    public String generateRefreshToken(String email) {
+        return Jwts.builder()
+                .claim("email", email)
+                .setIssuer(issuer)
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                // 유효 기간 24시간
+                .setExpiration(new Date(System.currentTimeMillis() + (24 * 60 * 60 * 1000)))
+                .signWith(secretKey)
+                .compact();
+    }
+
+    /* 토큰 유효성 검증 */
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parserBuilder()
+                    .setSigningKey(secretKey)
+                    .build()
+                    .parseClaimsJws(token);
+            return true;
+        } catch (JwtException ex) {
+            return false;
+        }
+    }
+
+    /* 토큰에서 Id 추출 */
+    public Long getIdFromToken(String token) {
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        return Long.parseLong(Jwts.parserBuilder()
+                .setSigningKey(secretKey)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getSubject());
+    }
+
+    /* 토큰에서 이메일 추출 */
+    public String getEmailFromToken(String token) {
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+        return Jwts.parserBuilder()
+                .setSigningKey(secretKey)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .get("email", String.class);
+    }
+
+    /* 토큰 인증 */
+    public Authentication getAuthentication(String token) {
+
+        // "Bearer " 프리픽스 제거
+        if (token.startsWith("Bearer ")) {
+            token = token.substring(7);
+        }
+
+        // 토큰을 파싱하여 클레임 추출
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(secretKey)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+
+        // 클레임에서 이메일과 사용자 역할 가져오기
+        String email = claims.get("email", String.class);
+        UserRole userRole = UserRole.valueOf(claims.get("userRole", String.class));
+
+        // 사용자 정보 로드
+        UserDetails userDetails = userDetailsService.loadUserByUsername(email);
+
+        // 사용자 권한과 역할 권한을 병합하여 Authentication 객체 생성
+        List<GrantedAuthority> authorities = new ArrayList<>(userDetails.getAuthorities());
+        authorities.addAll(userRole.getAuthorities());
+
+        return new UsernamePasswordAuthenticationToken(
+                userDetails, "", authorities
+        );
+    }
+
+}
+```
 
 
-### Study plan from now on
-
-**부트캠프 시작 ~ 현재**
-
-약 한 달 여간의 시간동안 제로베이스 백엔드 부트캠프에 참여하고있다.
-처음에는 이해하기도 어려웠던 문제들을 조금이나마 혼자의 힘만으로 풀 수 있다는 것은 희망적이긴 하나 여전히 어렵고 다른 참가자들의 진도에 맞추지 못하는 느낌이 드는 순간들도 적지 않다.
-
-한 개발관련 유튜브 채널에서 말하길, 개발 공부를 할 때 모르는게 있으면 그것을 이해하기 위해 멈추어서 시간을 소비하는 것 보다는 잠시 접어두고 넘어가 다른 부분들을 이해하고, 뒤돌아 다시 그 문제를 보면 생각보다 쉽게 풀리거나 이해되는 경우가 있으니, 지금 당장 이해가 되지 않는다고 너무 해당 문제/개념에 집착하고 멈춰있게되면 오히려 흥미마저 떨어질 수 있다고 했다.
-
-사실 이 말을 듣고 과연 이렇게 공부해도 될까 라는 의문을 품은 채 여태 개념이 완전히 이해가 되지 않는 내용들도 크게 스트레스 받지 않으려 노력하며 가볍게 지나왔고, 해당 개념들을 비로소 코딩테스트 문제 혹은 과제로 만나게 되었을 때 관련 강의내용들을 다시 한 번 시청했더니 놀랍게도 해당 개념을 전보다 배는 쉽게 이해하고 있는 나를 발견했다.
-
-**앞으로의 계획**
-
-제로베이스는 자바/자료구조/알고리즘 등의 개념에 대해 자세히 설명해주면서도 취업을 위한 코딩테스트를 다양하고 핵심적인 내용으로 구성하여 참가자들에게 문제를 해결하도록 유도한다.
-
-솔직히 말하면 강의 내용보다 오히려 코딩테스트를 풀이하며 더 많은 개념과 문제접근 방식, 수학적 사고를 익히고 있다고 해도 과언이 아닌 것 같다.
-
-앞으로도 이해가 되지 않는 수많은 내용들이 강의에 나올테고 나는 그때마다 조금씩 뒤쳐지는 느낌을 받을 지도 모르지만, 계속 그래왔듯 제로베이스의 커리큘럼을 믿고 따라가볼 생각이고, 개념을 훑고 문제를 통해 개념을 완전히 이해하는것. 이게 내가 세운 공부계획이다.
-
-
-### Competencies i should build up
-
-**자료구조와 알고리즘의 적절한 활용**
-
-백엔드 신입 개발자로서 쌓아야 하는 역량에는 여러 가지가 있지만, 그 중에서도 자료구조와 알고리즘에 대한 이해와 경험이 매우 중요한 것 같다.소프트웨어 개발 분야에서 핵심적인 개념 중 하나이면서 프로그램의 성능과 효율성에 큰 영향을 끼친다. 효율적인 자료구조와 알고리즘을 사용하면 코드 실행 시간을 최소화하고 시스템 성능을 향상시킬 수 있으며 데이터를 효율적으로 저장하고 처리할 수 있으므로, 데이터 양이 많아질 수록 자료구조와 알고리즘이 중요하다고 생각한다.
-위와 같은 이유로, 백엔드 신입 개발자로서 자료구조와 알고리즘에 대한 이해와 경험이 매우 중요하다고 생각한다.
-다양한 자료구조, 알고리즘의 역량을 통해 시간복잡도, 공간복잡도(오늘날에는 크게 제약받지 않는다고 하지만 개발 규모 또는 환경에 따라 필요할 수 있다)등 알고리즘의 성능 측정을 통한 효율적인 프로그래밍을 통해 주어진 환경에 요구사항을 적절한 데이터 구조와 알고리즘을 활용하여 해결할 수 있는 능력이 필요하다고 생각한다.
-
-**문제 해결 능력**
-
-프로그래머스 문제를 풀며 느끼는 것은 문제를 읽고 이해하는 것도 하나의 역량이라고 느꼈다. (프로젝트로 보면 사용자의 요구사항을 정확히 이해하고 발생이 예상되는 예외를 처리하는 등..) 문제 해결을 위한 접근 방법과 전략을 수립할 수 있는 능력은 백엔드 개발자에게 반드시 필요하다고 생각한다.
-
-**코드 최적화 능력**
-
-위의 자료구조 알고리즘의 적절한 사용만큼, 성능에 문제가 되지 않고 유지보수가 수월하도록 코드를 작성하는 능력 또한 중요해 보인다. 불필요한 코드를 사용하거나 직관적이지 못한 변수/클래스/메소드 명 등은 협업에 있어 큰 걸림돌이 될 수도 있다. 미리미리 각 변수/클래스/메소드 명 등을 직관적으로 코딩하는 습관을 갖고 유지보수 및 확장성이 수월한 코드를 작성할 수 있는 능력을 길러야겠다.
-
-**커뮤니케이션 능력**
-
-고객의 요구사항 또는 기획의도를 정확히 이해하려면 커뮤니케이션 능력이 필수적이다. 설계단계에서의 명확한 요건 정의는 단순 PO(또는 기획자)만의 업무가 아니다. 기술적인 문제에 대해서 요건을 명확히 하지 않으면, 프로젝트 중간에 개발 방향을 틀어야 하는 등의 일이 일어날 수도 있다.
-
-또한 백엔드 그 자체로는 서비스 될 수 없다. 프론트엔드와의 api통신을 거쳐야 비로소 사용자에게 서비스 될 수 있으므로, 설계단계에서의 원활한 커뮤니케이션이 있어야 프로젝트 내 갈등도 피할 수 있고, 더 낫고 완성도 높은 프로그램을 개발 할 수 있다고 생각하여 커뮤니케이션 능력또한 중요하다고 생각한다.
