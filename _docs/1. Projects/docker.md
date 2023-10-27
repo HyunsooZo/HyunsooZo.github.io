@@ -216,9 +216,11 @@ jenkins/jenkins:lts
 ```bash
 enkins container 접속
 docker exec -it jenkins /bin/bash
- 
-# linux 버전 확인
+``` 
+linux 버전 확인
+```bash
 cat /etc/issue
+
 # --------------- OS --------------------------------
 # root@DESKTOP-R4P59B3:/home/opendocs# cat /etc/issue
 # Ubuntu 20.04.4 LTS \n \l
