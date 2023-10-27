@@ -91,7 +91,7 @@ public class SecurityConfig {
 
 }
 ```
-### JWT TOKEN Filter
+##### JWT TOKEN Filter 예제
 ```java
 package wanted.n.config;
 
@@ -159,7 +159,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 }
 ```
 
-### JWT TOKEN Provider
+##### JWT TOKEN Provider 예제
 
 ```java
 package wanted.n.config;
