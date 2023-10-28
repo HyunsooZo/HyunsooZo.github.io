@@ -44,18 +44,6 @@ JSON 객체를 사용하여 토큰 자체에 정보를 저장하는 웹토큰</b
 
 ##### SecurityConfig 예제
 ```java
-package wanted.n.config;
-
-import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -93,22 +81,6 @@ public class SecurityConfig {
 ```
 ##### JWT TOKEN Filter 예제
 ```java
-package wanted.n.config;
-
-import lombok.AllArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
-import org.springframework.util.PatternMatchUtils;
-import org.springframework.web.filter.OncePerRequestFilter;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-import static org.springframework.http.HttpHeaders.AUTHORIZATION;
-
 @AllArgsConstructor
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
@@ -162,31 +134,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 ##### JWT TOKEN Provider 예제
 
 ```java
-package wanted.n.config;
-
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
-import wanted.n.dto.TokenIssuanceDTO;
-import wanted.n.enums.UserRole;
-import wanted.n.service.UserDetailsServiceImpl;
-
-import javax.annotation.PostConstruct;
-import javax.crypto.SecretKey;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 @Slf4j
 @RequiredArgsConstructor
 @Component
