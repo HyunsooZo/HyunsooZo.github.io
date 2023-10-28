@@ -1,7 +1,7 @@
 ---
 title: Spring Transaction
-category: Projects
-order: 2
+category: TIL
+order: 4
 ---
 
 ### Transaction이란?

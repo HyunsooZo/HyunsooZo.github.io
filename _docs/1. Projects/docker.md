@@ -1,6 +1,6 @@
 ---
 title: Docker & Jenkins
-category: Projects
+category: TIL
 order: 3
 ---
 
@@ -213,11 +213,14 @@ jenkins/jenkins:lts
 |<span class="emphasis">--name jenkins-server</span>| 만들고자 하는 컨테이너에 이름을  jenkins-server로 부여<br>부여하지 않으면 Docker가 랜덤하게 이름을 생성한다.<br>(Random한 이름만 놓고 봤을 때 해당하는 컨테이너가 무엇인지 알수 없다는 뜻이므로 이름을 부여하는것을 권장.)|
 
 - **2.2 jenkins container 접속하여 docker-ce-cli 설치**
+
 ```bash
 enkins container 접속
 docker exec -it jenkins /bin/bash
 ``` 
+
 linux 버전 확인
+
 ```bash
 cat /etc/issue
 
@@ -258,3 +261,5 @@ docker ps
 ```bash
 sudo docker logs jenkins-server
 ```
+
+- **5. jenkins 로그인** 
