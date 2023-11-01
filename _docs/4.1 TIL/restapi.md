@@ -28,7 +28,7 @@
       <li>PATCH: 일부 데이터 업데이트 (선택적으로 사용)</li>
     </ul>
   </li>
-  <li><strong>HTTP 상태 코드:</strong>
+  <li><strong>HTTP 상태 코드:</sㅎtrong>
     <ul>
       <li>각 응답에 적절한 HTTP 상태 코드를 반환합니다.</li>
       <li>200 OK, 201 Created, 204 No Content, 400 Bad Request, 404 Not Found, 500 Internal Server Error 등을 사용합니다.</li>
