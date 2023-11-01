@@ -138,11 +138,11 @@ public interface RestaurantRepositoryCustom {
 ```java
 @Repository
 @RequiredArgsConstructor
-public class ContentRepositoryImpl implements ContentRepositoryCustom {
+public class RestaurantRepositoryImpl implements RestaurantRepositoryCustom {
     private final JPAQueryFactory queryFactory;
 
     @Override
-    public Content findByUserSeq(Long userSeq) {
+    public Optional<Restaurant> findByUserSeq(Long userSeq) {
         return queryFactory
                 .selectFrom(content)
                 .where(content.userSeq.eq(userSeq))
@@ -152,7 +152,7 @@ public class ContentRepositoryImpl implements ContentRepositoryCustom {
 ```
 
 ```java
-public interface ContentRepository extends JpaRepository<Content, Long>, ContentRepositoryCustom {
+public interface RestaurantRepository extends JpaRepository<Restaurant, String>, RestaurantRepositoryCustom {
 }
 ```
 
