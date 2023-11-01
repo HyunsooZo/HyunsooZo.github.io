@@ -156,6 +156,24 @@ public interface ContentRepository extends JpaRepository<Content, Long>, Content
 }
 ```
 
+### QueryDSL 문법
+
+| 문법 요소                   | QueryDSL 문법 예제                                             | SQL 쿼리 예제                                |
+|-----------------------------|---------------------------------------------------------------|----------------------------------------------|
+| 엔티티 및 Q 클래스 생성     | QPerson person = QPerson.person;                             | -                                            |
+| from()                      | JPAQuery<Person> query = new JPAQuery<>(entityManager);      | SELECT * FROM person                        |
+| select()                    | query.select(person.name, person.age);                       | SELECT name, age FROM person               |
+| where()                     | query.where(person.age.gt(18).and(person.city.eq("New York"))); | WHERE age > 18 AND city = 'New York'        |
+| orderBy()                   | query.orderBy(person.age.asc());                              | ORDER BY age ASC                            |
+| join()                      | query.innerJoin(person.address, address).on(address.city.eq("New York")); | INNER JOIN address ON address.city = 'New York' |
+| groupBy()                   | query.groupBy(person.gender);                                  | GROUP BY gender                             |
+| having()                    | query.having(person.age.avg().gt(25));                       | HAVING AVG(age) > 25                        |
+| limit()                     | query.limit(10);                                              | LIMIT 10                                    |
+| offset()                    | query.offset(20);                                             | OFFSET 20                                   |
+| fetch()                     | List<Person> result = query.fetch();                         | -                                            |
+| fetchFirst()                | Person person = query.fetchFirst();                          | -                                            |
+| fetchCount()                | long count = query.fetchCount();                              | -                                            |
+
 
 출처 : [그래들 공식문서](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.compile.CompileOptions.html#org.gradle.api.tasks.compile.CompileOptions:generatedSourceOutputDirectory), [블로그](https://velog.io/@soyeon207/QueryDSL-Spring-Boot-%EC%97%90%EC%84%9C-QueryDSL-JPA-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
 
