@@ -129,13 +129,13 @@ public class QuerydslConfig {
 
 ##### Repository
 
-```
+```java
 public interface RestaurantRepositoryCustom {
     Optional<Restaurant> findByUserSeq(Long userSeq);
 }
 ```
 
-```
+```java
 @Repository
 @RequiredArgsConstructor
 public class ContentRepositoryImpl implements ContentRepositoryCustom {
@@ -151,7 +151,7 @@ public class ContentRepositoryImpl implements ContentRepositoryCustom {
 }
 ```
 
-```
+```java
 public interface ContentRepository extends JpaRepository<Content, Long>, ContentRepositoryCustom {
 }
 ```
