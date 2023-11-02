@@ -32,7 +32,7 @@ order: 7
       - PATCH: 일부 데이터 업데이트 (선택적으로 사용)
     
   
-  - **HTTP 상태 코드:</sㅎtrong>
+  - **HTTP 상태 코드:**
     
       - 각 응답에 적절한 HTTP 상태 코드를 반환합니다.
       - 200 OK, 201 Created, 204 No Content, 400 Bad Request, 404 Not Found, 500 Internal Server Error 등을 사용합니다.
