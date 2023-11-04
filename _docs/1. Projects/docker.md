@@ -262,4 +262,46 @@ docker ps
 sudo docker logs jenkins-server
 ```
 
-- **5. jenkins 로그인** 
+- **5. jenkins 파이프라인 작성**
+```
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/HyunsooZo/wanted-pre-onboarding-backend.git'
+            }
+        }
+        stage('application.yml download') {
+            steps {
+                withCredentials([file(credentialsId: 'application.yml', variable: 'applicationyml')]) {
+                    script {
+                        sh 'cp $applicationyml ./src/main/resources/application.yml'
+                    }
+                }
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'chmod +x ./gradlew'
+                sh './gradlew clean build'
+            }
+        }
+        stage('Dockerize') {
+            steps {
+                sh '''
+                    docker stop my_container_name || true
+                    docker rm my_container_name || true
+                    docker rmi my_image_name || true
+                    docker build -t my_image_name .
+                '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'docker run -d --name my_container_name -p 8080:8080 my_image_name'
+            }
+        }
+    }
+}
+```
