@@ -1,247 +1,123 @@
 ---
-title: Universal Algorithems
+title: 프로그래머스 - 시소짝궁(Lv2)
 category: Algorithems
-order: 8
+order: 9
 ---
-### Sorting
+### 문제설명
+[프로그래머스 Lv2. 시소짝꿍](https://school.programmers.co.kr/learn/courses/30/lessons/152996)<br>
 
-<div class="content-box">
-특정 값을 기준으로 데이터를 순서대로 배치하는 방법
-</div>
+어느 공원 놀이터에는 시소가 하나 설치되어 있습니다. 이 시소는 중심으로부터 2(m), 3(m), 4(m) 거리의 지점에 좌석이 하나씩 있습니다.<br>
+이 시소를 두 명이 마주 보고 탄다고 할 때, 시소가 평형인 상태에서 각각에 의해 시소에 걸리는 토크의 크기가 서로 상쇄되어 완전한 균형을 이룰 수 있다면 그 두 사람을 시소 짝꿍이라고 합니다.<br> 즉, 탑승한 사람의 무게와 시소 축과 좌석 간의 거리의 곱이 양쪽 다 같다면 시소 짝꿍이라고 할 수 있습니다.<br>
+사람들의 몸무게 목록 `weights`이 주어질 때, 시소 짝꿍이 몇 쌍 존재하는지 구하여 `return` 하도록 `solution` 함수를 완성해주세요.<br>
 
-|정렬 종류|θ(평균)|Big O|보조메모리|안정성|
-|-|-|-|-|-|
-|Bubble|n²|n²|1|O|
-|Insertion|n²|n²|1|O|
-|Selection|n²|n²|1|O|
-|Merge|nlogn|nlogn|n|O|
-|Heap|nlogn|nlogn|1|O|
-|Quick|nlogn|n²|logn|O|
-|Tree|nlogn|n²|n|O|
-|Radix|dn|dn|n+k|O|
-|Counting|n+k|n+k|n+k|O|
-|Shell| - |n²|1|X|
+![문제 분석](https://drive.google.com/uc?id=1dtath0Oa1nCc3CQgIovM5RaETVNys1p9)
 
-##### QuickSort
+### 문제분석
+문제 제한사항에서 배열의 길이가 10,000이라고 주어졌으니 <br>
+완전탐색을 돌리면 10억이 넘아가므로 성능테스트에 걸릴것으로 예상.<br>
+이분탐색을 돌리면 될것이다.<br>
+일단 배열 정렬 후 만족조건을 생각해보면 <br>
+1m짜리 자리가 없기때문에 아래와 같은 4개 조건만 만족하면된다.<br>
+**1.** `a == b` 일것 (이는 곧 `a*n==b*n`, 즉`1:1`) <br>
+**2.** `a*4 == b*2` 일것 (이는 곧 `a*2 == b`, 즉 `2:1`) <br>
+**3.** `a*3 == b*2` 일것 (즉 `3:2`)<br>
+**4.** `a*4 == b*3` 일것 (즉 `4:3`)<br>
+
+과 같다. a는 언제나 b 보다 작으므로 반대의 경우는 굳이 고려할 필요가 없다. (예 : `a*1 == b*2` 는 항상 거짓이다.)
+
+
+### 문제풀이
+위 조건에 따라 이분탐색을 진행하면 아래와 같다. 
 
 ```java
-    public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            // 피벗을 선택 및 분할
-            int pivotIndex = partition(arr, low, high);
+import java.util.*;
 
-            // 피벗을 기준으로 분할된 두 개의 부분 배열에 대해 재귀적으로 퀵 정렬 수행.
-            quickSort(arr, low, pivotIndex - 1);
-            quickSort(arr, pivotIndex + 1, high);
-        }
-    }
+public class Solution {
+    // 메서드간의 파라메터 를 줄이기 위해 스태틱 변수사용
+    static long answer = 0; // 결과를 저장할 변수
+    static int[] arr; // 입력된 weights 배열
+    static int len; // weights 배열의 길이
 
-    public static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high]; // 피벗 배열 마지막 요소 선택.
-        int i = low - 1; // 작은 요소들의 마지막 인덱스 초기화.
+    public long solution(int[] weights) {
+        arr = weights; // weights 배열을 정렬하기 위해 arr에 할당
+        len = arr.length; // 배열의 길이 저장
+        Arrays.sort(arr); 
+        // 오름차순으로 배열 정렬 (이진탐색 위함임)
 
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-                swap(arr, i, j); // 작은 요소들 왼쪽으로 이동.
+        // 배열의 각 요소 반복
+        for (int i = 0; i < len; i++) {
+            findSameValues(i); // 현재 값과 동일한 값 개수 찾기
+
+            // 1:2 비율 탐색하여 발견 시 answer 증가
+            if (binarySearch(arr[i] * 2)) {
+                answer++;
+            }
+
+            // 현재 값이 3의 배수인 경우
+            if (arr[i] % 3 == 0){
+                // 2:3, 4:3 비율의 값 탐색하여 발견 시 answer 증가
+                if(binarySearch(arr[i] * 2 / 3)){
+                    answer++;
+                }
+                if(binarySearch(arr[i] * 4 / 3)){
+                    answer++;
+                }
             }
         }
-
-        swap(arr, i + 1, high); // 피벗 올바른 위치로 이동.
-        return i + 1;
+        return answer; // 최종 결과 반환
     }
-
-    public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-```
-### BinarySearch
-
-<div class="content-box">
-- 정렬된 상태의 데이터에서 특정값을 빠르게 탐색<br>
-- 찾고자 하는 값과 데이터 중앙의 값 비교 <br>
-- 작으면 중간값 왼쪽, 크면 오른쪽에서 다시 이진탐색
-</div>
-
-```java
-  public static int binarySearch(int[] arr, int target) {
-        int low = 0;
-        int high = arr.length - 1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-
-            if (arr[mid] == target) {
-                return mid; // 타겟을 찾은 경우 인덱스 반환.
-            } else if (arr[mid] < target) {
-                low = mid + 1; // 타겟이 중간 값보다 큰 경우 오른쪽 탐색
+    
+    // 현재 값과 동일한 값 개수 찾기
+    void findSameValues(int val){
+        for (int i = val + 1; i < len; i++) {
+            if (arr[i] == arr[val]) {
+                answer++; // 동일 값 발견 시 answer 증가
             } else {
-                high = mid - 1; // 타겟이 중간 값보다 작은 경우 왼쪽 탐색
+                break; // 다른 값이 나오면 반복문 종료
             }
         }
-
-        return -1; // 타겟을 찾지 못한 경우 -1을 반환.
     }
-```
 
-
-
-
-### Greedy
-
-<div class="content-box">
-- 매 순간 현재 기준 최선의 답을 선택 해 나가는 기법<br>
-- 다만 항상 최적해 인 것은 아님.  
-</div>
-
-```java
-public static int coinChangeGreedy(int[] coins, int amount) {
-        Arrays.sort(coins); // 동전들을 오름차순으로 정렬
-        int numCoins = 0;
-        int index = coins.length - 1;
-
-        while (amount > 0 && index >= 0) {
-            if (coins[index] <= amount) {
-                int count = amount / coins[index]; // 현재 동전으로 거슬러 줄 수 있는 최대 개수 계산.
-                numCoins += count; // 동전 개수 더하기
-                amount -= count * coins[index]; // 거슬러 준 금액 차감.
-            }
-            index--; // 다음 동전으로 이동.
-        }
-
-        if (amount == 0) {
-            return numCoins; // 거스름돈을 완전히 거슬러 줄 수 있는 경우 동전의 개수 반환
-        } else {
-            return -1; // 거스름돈을 거슬러 줄 수 없는 경우 -1 반환
-        }
-    }
-```
-
-
-### Two Pointers
-
-<div class="content-box">
-- 배열에서 2개의 포인터를 사용해 원하는 결과 얻음<br>
-- 두개의 포인터 배치 <br>
-- 다중 for문의 복잡도를 좀더 선형적으로 풀 수 있음. 
-</div>
-
-```java
-public  boolean isPairSumPresent(int[] arr, int target) {
+    // 이분 탐색
+    boolean binarySearch(int target) {
         int left = 0;
-        int right = arr.length - 1;
+        int right = len - 1;
 
-        while (left < right) {
-            int sum = arr[left] + arr[right];
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
 
-            if (sum == target) {
-                return true; // 합이 타겟과 일치하는 쌍을 찾은 경우 true 반환.
-            } else if (sum < target) {
-                left++; // 합이 타겟보다 작은 경우 왼쪽 포인터를 오른쪽으로 이동.
+            if (arr[mid] < target) {
+                left = mid + 1;
             } else {
-                right--; // 합이 타겟보다 큰 경우 오른쪽 포인터를 왼쪽으로 이동.
+                right = mid - 1;
             }
         }
 
-        return false; // 쌍을 찾지 못한 경우 false를 반환.
-    }
+        if (left >= len || left < 0) {
+            return false; // 배열 범위를 벗어나면 false 반환
+        }
 
-```
-![](//placehold.it/800x600)
-
-
-### Divide & Conquer
-
-<div class="content-box">
-- 큰 문제를 작은부분으로 나누어 해결하는 알고리즘<br>
-분할 정복과 이진 탐색은 유사한 개념이지만, 약간의 차이 존재.<br> 
-이진 탐색은 정렬된 배열에서 특정 값을 찾는 데 사용되는 반면,<br> 
-분할 정복은 주어진 문제를 작은 부분으로 나누어 해결하는 알고리즘.<br><br>
-1. 문제를 하나이상의 작은 부분들로 분할 <br>
-2. 부분들을 각각 정복 <br>
-3. 부분들의 해답을 통합하여 전체의 답을 구함. 
-</div>
-
-|Pros|Cons|
-|-|-|
-|문제를 나누어 처리하여 어려운 문제 해결 가능|메모리사용이 많음(재귀구조)|
-|병렬처리에 이점 존재||
-
-```java
-public int getMax(int[] arr, int left, int right){
-    int mid = (left+right)/2;
-    if(left==right){
-        return arr[left];
-    }
-    left = getMax(arr,left,mid); // 재귀 호출
-    right = getMax(arr,m+1,right); // 재귀 호출
-
-    return left>right?left:right;
-}
-```
-
-
-### Back Tracking
-
-![](//placehold.it/800x600)
-
-
-### Shortest Path
-
-![](//placehold.it/800x600)
-
-
-### Dinamic Programing
-
-<div class="content-box">
-- 큰 문제를 부분문제로 나누어 답을 찾아가는 과정에서<br>
-- 계산된 결과를 <b>기록</b>하고 <b>재활용</b>하여 문제의 답을 구하는 알고리즘<br>
-- 중간계산 결과를 기록하는 메모리가 필요<br> 
-- 한번 계산한 부분을 다시 계산하지 않으므로 속도 빠름<br> 
-</div>
-
-|분할정복과의 차이|Greedy와의 차이|
-|-|-|
-|분할정복은 부분문제 중복 없음|그리디는 순간의 최선을 구하는 방식(근사치)|
-|DP는 부분문제가 중복되어 재활용에 사용| DP는 모든방법을 확인 후 최적해를 구함.|
-
-##### Tabulation/Memoization
-
-|Tabulation(bottom up)|Memoization(top down)|
-|-|-|
-|상향식 접근방법|하향식 접근방법|
-|작은하위문제부터 풀며 올라감|큰문제에서 하위문제를 확인해가며 진행|
-|모두 계산하여 차례대로 진행|계산이 필요한 순간 계산하며 진행|
-
-```java
-
-// 배낭문제예시
-
-// 배낭에 물품을 담으려함. 
-// 배낭에는 k무게만큼의 물품을 담을 수 있음. 
-// n개의 물품이 주어지고 이물품의 무게와 가치정보가 items 2차원 배열에 주어짐
-// 최대가치가 되도록 물품을 담았을 때의 가치를 출력. 
-
-// 예
-// items[[6,13],[4,8],[3,6],[5,12]]
-// n = 4 , k = 7
-// 답 : 14
-
-public int solution(int[][] items, int n , int k){
-    int[][] dp = new int[n+1][k+1];
-    for(int i = 0 ; i < n ; i++){
-        for(int j =1 ; j <= k ; j++>){
-            if(items[i][0]>j){
-                dp[i+1][j] = dp[i][j];
-            }else{
-                dp[i+1][j] = Math.max(dp[i][j],dp[i][j-items[i][0]+items[i][1]);
+        // 이분 탐색으로 찾은 값이 target과 일치할 경우
+        if (arr[left] == target) {
+            for (int i = left + 1; i < arr.length; i++) {
+                if (arr[left] == arr[i]) {
+                    answer++; // 중복 값 발견 시 answer 증가
+                } else {
+                    break; // 다른 값이 나오면 반복문 종료
+                }
             }
         }
+
+        return arr[left] == target; // 찾은 값 반환
     }
-    return dp[n][k];
-
-
 }
+
 ```
+
+**1.** `findSameValues()`  같은 수가 있는지 점검 <br>
+**2.** `binarySearch` 각 비율에 맞춰 이진탐색을 진행, 만약내부에서 같은 값이 발견 시 `answer++` 이후 true반환시에도 `answer++` 
+
+![문제 분석](https://drive.google.com/uc?id=1x3TQtIIvYVS3-J5h5Xz5vtG0rWQmX42t)
+
+
+
