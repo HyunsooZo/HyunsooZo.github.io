@@ -3,7 +3,23 @@ title: 프로그래머스 - 시소짝궁(Lv2)
 category: Algorithems
 order: 9
 ---
-### 문제설명
+
+### 이분탐색이란? 
+이분탐색이란, 정렬된 배열에서 특정 값을 찾는 탐색 알고리즘이다. 
+주어진 배열을 반으로 나누어 탐색 범위를 좁혀가는 방식으로 동작한다. <br>
+매 단계마다 탐색 범위를 절반으로 줄여나가므로 배열의 크기에 대해 로그 시간 복잡도를 가진다.<br> 
+배열을 정렬하는 데에 `O(LogN)` 시간 복잡도를 가지고 <br>
+이분탐색을 사용하여 값을 찾는 과정 또한 로그 시간 복잡도로 이루어지며 중간을 기준으로<br> 
+탐색대상을 절반씩 줄여가므로 전체적으로 `O(LogN)`의 시간 복잡도를 가지게 된다.<br>
+이는 완전탐색의 O(N)에 비하면 매우 빠른속도이다. <br>
+`O(logN)`만에 값을 찾을 수 있는 이유는 중간을 기준으로 탐색 대상을 절반씩 줄여나가기 때문이다.
+![예시](https://drive.google.com/uc?id=1mc41CfineV12XGVqKxgilOm5ZNvyfU4I)
+
+##### 알고리즘 기본 예시문제
+
+![예시](https://drive.google.com/uc?id=1ndxnKUf8fvWC-8Hc096kBdt62dte8zIL)
+
+### 프로그래머스 문제
 [프로그래머스 Lv2. 시소짝꿍](https://school.programmers.co.kr/learn/courses/30/lessons/152996)<br>
 
 어느 공원 놀이터에는 시소가 하나 설치되어 있습니다. 이 시소는 중심으로부터 2(m), 3(m), 4(m) 거리의 지점에 좌석이 하나씩 있습니다.<br>
@@ -12,7 +28,7 @@ order: 9
 
 ![문제 분석](https://drive.google.com/uc?id=1dtath0Oa1nCc3CQgIovM5RaETVNys1p9)
 
-### 문제분석
+##### 문제분석
 문제 제한사항에서 배열의 길이가 10,000이라고 주어졌으니 <br>
 완전탐색을 돌리면 10억이 넘아가므로 성능테스트에 걸릴것으로 예상.<br>
 이분탐색을 돌리면 될것이다.<br>
@@ -26,7 +42,7 @@ order: 9
 과 같다. a는 언제나 b 보다 작으므로 반대의 경우는 굳이 고려할 필요가 없다. (예 : `a*1 == b*2` 는 항상 거짓이다.)
 
 
-### 문제풀이
+##### 문제풀이
 위 조건에 따라 이분탐색을 진행하면 아래와 같다. 
 
 ```java
@@ -118,6 +134,3 @@ public class Solution {
 **2.** `binarySearch` 각 비율에 맞춰 이진탐색을 진행, 만약내부에서 같은 값이 발견 시 `answer++` 이후 true반환시에도 `answer++` 
 
 ![문제 분석](https://drive.google.com/uc?id=1x3TQtIIvYVS3-J5h5Xz5vtG0rWQmX42t)
-
-
-
