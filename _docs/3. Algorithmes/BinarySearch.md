@@ -4,7 +4,8 @@ category: Algorithems
 order: 9
 ---
 
-### 이분탐색이란? 
+### 알고리즘
+##### 이분탐색이란? 
 이분탐색이란, 정렬된 배열에서 특정 값을 찾는 탐색 알고리즘이다. 
 주어진 배열을 반으로 나누어 탐색 범위를 좁혀가는 방식으로 동작한다. <br>
 매 단계마다 탐색 범위를 절반으로 줄여나가므로 배열의 크기에 대해 로그 시간 복잡도를 가진다.<br> 
@@ -51,7 +52,7 @@ order: 9
 import java.util.Arrays;
 
 public class Solution {
-    // 전역 변수 선언
+    // 전역 변수 선언(파라메터 수 줄이기위함)
     static long answer = 0; // 정답을 저장하는 변수
     static int[] arr; // 입력 weights 배열을 저장하는 배열
     static int len; // weights 배열의 길이를 저장하는 변수
