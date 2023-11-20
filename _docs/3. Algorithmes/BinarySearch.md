@@ -48,91 +48,97 @@ order: 9
 위 조건에 따라 이분탐색을 진행하면 아래와 같다. 
 
 ```java
-import java.util.*;
+import java.util.Arrays;
 
 public class Solution {
-    // 메서드간의 파라메터 를 줄이기 위해 스태틱 변수사용
-    static long answer = 0; // 결과를 저장할 변수
-    static int[] arr; // 입력된 weights 배열
-    static int len; // weights 배열의 길이
+    // 전역 변수 선언
+    static long answer = 0; // 정답을 저장하는 변수
+    static int[] arr; // 입력 weights 배열을 저장하는 배열
+    static int len; // weights 배열의 길이를 저장하는 변수
 
+    // 주어진 weights 배열을 이용하여 문제를 해결하는 메서드
     public long solution(int[] weights) {
-        arr = weights; // weights 배열을 정렬하기 위해 arr에 할당
-        len = arr.length; // 배열의 길이 저장
-        Arrays.sort(arr); 
-        // 오름차순으로 배열 정렬 (이진탐색 위함임)
+        arr = weights; // 입력 weights 배열을 전역 배열 arr에 할당
+        len = arr.length; // weights 배열의 길이를 len 변수에 저장
+        Arrays.sort(arr); // weights 배열을 오름차순으로 정렬
 
-        // 배열의 각 요소 반복
+        // weights 배열의 모든 요소에 대해 반복
         for (int i = 0; i < len; i++) {
-            findSameValues(i); // 현재 값과 동일한 값 개수 찾기
+            findSameValues(i); // 현재 값과 동일한 값이 있는지 찾는 메서드 호출
 
-            // 1:2 비율 탐색하여 발견 시 answer 증가
+            // 현재 값의 두 배가 존재하는지 확인하고, 있다면 answer 증가
             if (binarySearch(arr[i] * 2)) {
                 answer++;
             }
 
-            // 현재 값이 3의 배수인 경우
-            if (arr[i] % 3 == 0){
-                // 2:3, 4:3 비율의 값 탐색하여 발견 시 answer 증가
-                if(binarySearch(arr[i] * 2 / 3)){
+            // 현재 값이 3의 배수인지 확인
+            if (arr[i] % 3 == 0) {
+                // 현재 값의 두 배를 3으로 나눈 값이 존재하는지 확인하고, 있다면 answer 증가
+                if (binarySearch(arr[i] * 2 / 3)) {
                     answer++;
                 }
-                if(binarySearch(arr[i] * 4 / 3)){
+                // 현재 값의 네 배를 3으로 나눈 값이 존재하는지 확인하고, 있다면 answer 증가
+                if (binarySearch(arr[i] * 4 / 3)) {
                     answer++;
                 }
             }
         }
         return answer; // 최종 결과 반환
     }
-    
-    // 현재 값과 동일한 값 개수 찾기
-    void findSameValues(int val){
+
+    // 현재 값과 동일한 값이 있는지 찾는 메서드
+    void findSameValues(int val) {
         for (int i = val + 1; i < len; i++) {
+            // 현재 값과 동일한 값을 찾으면 answer 증가하고, 다른 값이 나오면 반복문 종료
             if (arr[i] == arr[val]) {
-                answer++; // 동일 값 발견 시 answer 증가
+                answer++;
             } else {
-                break; // 다른 값이 나오면 반복문 종료
+                break;
             }
         }
     }
 
-    // 이분 탐색
+    // 이진 탐색을 통해 target 값이 배열에 존재하는지 확인하는 메서드
     boolean binarySearch(int target) {
-        int left = 0;
-        int right = len - 1;
+        int left = 0; // 배열의 가장 왼쪽 인덱스
+        int right = len - 1; // 배열의 가장 오른쪽 인덱스
 
+        // 이진 탐색 수행
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + (right - left) / 2; // 중간 위치 계산
 
-            if (arr[mid] < target) {
+            // 중간 위치의 값이 타겟 값과 일치할 때
+            if (arr[mid] == target) {
+                // 중복된 값이 있을 수 있으므로, 타겟 값의 좌우로 같은 값이 있는지 확인하고 answer 증가
+                for (int i = mid + 1; i < len; i++) {
+                    if (arr[i] == target) {
+                        answer++;
+                    } else {
+                        break;
+                    }
+                }
+                for (int i = mid - 1; i >= 0; i--) {
+                    if (arr[i] == target) {
+                        answer++;
+                    } else {
+                        break;
+                    }
+                }
+                return true; // 타겟 값이 존재함을 반환
+            }
+            // 중간 위치의 값보다 타겟 값이 큰 경우, 오른쪽 부분 탐색
+            else if (arr[mid] < target) {
                 left = mid + 1;
-            } else {
+            }
+            // 중간 위치의 값보다 타겟 값이 작은 경우, 왼쪽 부분 탐색
+            else {
                 right = mid - 1;
             }
         }
 
-        if (left >= len || left < 0) {
-            return false; // 배열 범위를 벗어나면 false 반환
-        }
-
-        // 이분 탐색으로 찾은 값이 target과 일치할 경우
-        if (arr[left] == target) {
-            for (int i = left + 1; i < arr.length; i++) {
-                if (arr[left] == arr[i]) {
-                    answer++; // 중복 값 발견 시 answer 증가
-                } else {
-                    break; // 다른 값이 나오면 반복문 종료
-                }
-            }
-        }
-
-        return arr[left] == target; // 찾은 값 반환
+        return false; // 타겟 값이 존재하지 않음을 반환
     }
 }
-
 ```
 
-**1.** `findSameValues()`  같은 수가 있는지 점검 <br>
-**2.** `binarySearch` 각 비율에 맞춰 이진탐색을 진행, 만약내부에서 같은 값이 발견 시 `answer++` 이후 true반환시에도 `answer++` 
-
-![문제 분석](https://drive.google.com/uc?id=1x3TQtIIvYVS3-J5h5Xz5vtG0rWQmX42t)
+![결과](https://drive.google.com/uc?id=1x3TQtIIvYVS3-J5h5Xz5vtG0rWQmX42t)
