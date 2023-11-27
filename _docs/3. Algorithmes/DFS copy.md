@@ -42,9 +42,39 @@ k는 항상 sequence의 부분 수열로 만들 수 있는 값입니다.
 
 
 ##### 문제분석
-
+연속된 부분 수열 문제: 문제는 연속된 부분 수열에서 조건을 만족하는 부분을 찾는 것입니다. <br>슬라이딩 윈도우는 연속된 부분 수열 문제에 사용되는 일반적인 알고리즘 중 하나입니다.<br>
+선형 시간 복잡도: 슬라이딩 윈도우 알고리즘은 대부분의 경우 선형 시간 복잡도를 가집니다(O(n)). 따라서 수열의 크기가 크더라도 효율적으로 문제를 해결할 수 있습니다.<br>
 ##### 문제풀이
-
 ```java
-
+import java.util.*;
+class Solution {
+    public int[] solution(int[] sequence, int k) {
+        int[] answer = new int[]{0,0};
+        
+        int sequenceLen = sequence.length, minLen = 1000001;
+        
+        int start = 0 ,end = 0 ,total = 0;
+        
+        while(end < sequenceLen) {
+            total += sequence[end];
+            while(total >= k) {
+                if(total == k && end-start < minLen){
+                    minLen = end - start;
+                    answer[0] = start;
+                    answer[1] = end;
+                }
+                total -= sequence[start];
+                start ++;
+            }
+            end++;
+        }
+        
+        return answer;
+    }
+}
 ```
+sequence 배열을 순회하면서 start와 end 인덱스를 조정하여 윈도우를 이동시킵니다.<br>
+start와 end 사이의 부분 배열의 합이 k와 같거나 크면 조건을 만족합니다.<br>
+이때의 부분 배열 길이가 최소값보다 작으면(end - start) 해당 윈도우의 시작과 끝을 answer 배열에 저장합니다.<br>
+그 후, start를 증가시키면서 윈도우를 이동시킵니다.<br>
+end를 증가시키면서 윈도우의 끝을 이동시킵니다.<br>
